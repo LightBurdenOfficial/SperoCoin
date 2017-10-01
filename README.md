@@ -1,23 +1,22 @@
-Downloads<br>
+https://sperocoin.wixsite.com/sperocoin<br><br>
 <br>
-Qt Windows:<br>
+<h2><b>Version:</b></h2><br>
+BETA 2.4.5.3
+<h2><b>Downloads<b></h2><br>
+<br>
+<b>Qt Windows:</b><br>
 http://www.mediafire.com/file/bhtahldi1pcords/SperoCoin-v.2.5.4.3.exe<br>
 <br>
-Daemon Windows:<br>
+<b>Daemon Windows:</b><br>
 http://www.mediafire.com/file/p68sr8985clia04/sperocoind.exe<br>
 <br>
-=============================================<br>
-All information will be passed by TELEGRAM:<br>
-<br>
-https://t.me/joinchat/DED2QQ7DuvHgpkpR1tY8kA<br>
-<br>
-Sms:<br>
+<b>Sms:</b><br>
 <br>
 Sb4CCvH18ooqUXchUaM19Nk6Ys5NnWmDe8<br>
 PubKey: 03cba0f207912dbdb5e6bf1a0afe09f17046f7ce09baa2250757e3a88cd644acc4<br>
 <br>
-Mineração / Mining:<br>
-Solo CPU:<br>
+<b>Mineração / Mining:</b><br>
+<b>Solo CPU:</b><br>
 <br>
 {<br>
 "_comment1" : "Any long-format command line argument ",<br>
@@ -43,13 +42,13 @@ Solo CPU:<br>
 <br>
 cpuminer -q --algo=x13 -o 127.0.0.1:55681 -u user-p password<br>
 <br>
-Solo GPU:<br>
+<b>Solo GPU:</b><br>
 <br>
 ccminer30.exe -q --algo=x13 -o 127.0.0.1:55681 -u user-p password<br>
 <br>
 <br>
 <br>
-Pool:<br>
+<b>Pool:</b><br>
 <br>
 🔥 Variable Difficulty : 0.001 ~ 0.01<br>
 🔥 Stratum Host : stratum+tcp://pickaxe.online:10021<br>
