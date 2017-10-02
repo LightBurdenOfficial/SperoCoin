@@ -1,8 +1,9 @@
 https://sperocoin.wixsite.com/sperocoin<br><br>
+<b>sperocoin@gmail.com</b>
 <br>
 <h2><b>Version:</b></h2><br>
 BETA 2.4.5.3
-<h2><b>Downloads<b></h2><br>
+<h2><b>Downloads</b></h2><br>
 <br>
 <b>Qt Windows:</b><br>
 http://www.mediafire.com/file/bhtahldi1pcords/SperoCoin-v.2.5.4.3.exe<br>
