@@ -9,16 +9,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>623</width>
-    <height>505</height>
+    <width>629</width>
+    <height>508</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Digging</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">color:#505050;
-font-family:'Open Sans,sans-serif';</string>
+   <string notr="true">font: 10pt &quot;Copperplate Gothic Light&quot;;</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="sizeConstraint">
@@ -73,6 +72,9 @@ font-family:'Open Sans,sans-serif';</string>
         <height>16</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">font: 7pt &quot;Copperplate Gothic Light&quot;;</string>
+      </property>
       <property name="text">
        <string>labelPhasePoW</string>
       </property>
@@ -86,6 +88,9 @@ font-family:'Open Sans,sans-serif';</string>
         <height>16</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">font: 7pt &quot;Copperplate Gothic Light&quot;;</string>
+      </property>
       <property name="text">
        <string>labelPhasePoS</string>
       </property>
@@ -98,6 +103,9 @@ font-family:'Open Sans,sans-serif';</string>
         <width>191</width>
         <height>16</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 7pt &quot;Copperplate Gothic Light&quot;;</string>
       </property>
       <property name="text">
        <string>labelPhaseHibrid</string>
@@ -117,7 +125,11 @@ font-family:'Open Sans,sans-serif';</string>
          <widget class="QLabel" name="label_5">
           <property name="font">
            <font>
-            <family>Open Sans,sans-serif</family>
+            <family>Copperplate Gothic Light</family>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="text">
@@ -178,12 +190,18 @@ font-family:'Open Sans,sans-serif';</string>
          <widget class="QLabel" name="heightBox">
           <property name="font">
            <font>
-            <family>Open Sans,sans-serif</family>
-            <pointsize>9</pointsize>
+            <family>Copperplate Gothic Light</family>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="text">
            <string>00000</string>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
           </property>
          </widget>
         </item>
@@ -198,8 +216,11 @@ font-family:'Open Sans,sans-serif';</string>
          <widget class="QLabel" name="rewardBox">
           <property name="font">
            <font>
-            <family>Open Sans,sans-serif</family>
-            <pointsize>9</pointsize>
+            <family>Copperplate Gothic Light</family>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="text">
@@ -218,8 +239,11 @@ font-family:'Open Sans,sans-serif';</string>
          <widget class="QLabel" name="diffBox">
           <property name="font">
            <font>
-            <family>Open Sans,sans-serif</family>
-            <pointsize>9</pointsize>
+            <family>Copperplate Gothic Light</family>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="text">
@@ -238,8 +262,11 @@ font-family:'Open Sans,sans-serif';</string>
          <widget class="QLabel" name="diffBox2">
           <property name="font">
            <font>
-            <family>Open Sans,sans-serif</family>
-            <pointsize>9</pointsize>
+            <family>Copperplate Gothic Light</family>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="text">
@@ -251,8 +278,11 @@ font-family:'Open Sans,sans-serif';</string>
          <widget class="QLabel" name="pawrateBox">
           <property name="font">
            <font>
-            <family>Open Sans,sans-serif</family>
-            <pointsize>9</pointsize>
+            <family>Copperplate Gothic Light</family>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="text">
@@ -277,8 +307,11 @@ font-family:'Open Sans,sans-serif';</string>
          <widget class="QLabel" name="localBox">
           <property name="font">
            <font>
-            <family>Open Sans,sans-serif</family>
-            <pointsize>9</pointsize>
+            <family>Copperplate Gothic Light</family>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="text">
@@ -297,8 +330,11 @@ font-family:'Open Sans,sans-serif';</string>
          <widget class="QLabel" name="connectionBox">
           <property name="font">
            <font>
-            <family>Open Sans,sans-serif</family>
-            <pointsize>9</pointsize>
+            <family>Copperplate Gothic Light</family>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="text">
@@ -317,8 +353,11 @@ font-family:'Open Sans,sans-serif';</string>
          <widget class="QLabel" name="volumeBox">
           <property name="font">
            <font>
-            <family>Open Sans,sans-serif</family>
-            <pointsize>9</pointsize>
+            <family>Copperplate Gothic Light</family>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="text">
@@ -337,8 +376,11 @@ font-family:'Open Sans,sans-serif';</string>
          <widget class="QLabel" name="minBox">
           <property name="font">
            <font>
-            <family>Open Sans,sans-serif</family>
-            <pointsize>9</pointsize>
+            <family>Copperplate Gothic Light</family>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="text">
@@ -357,8 +399,11 @@ font-family:'Open Sans,sans-serif';</string>
          <widget class="QLabel" name="maxBox">
           <property name="font">
            <font>
-            <family>Open Sans,sans-serif</family>
-            <pointsize>9</pointsize>
+            <family>Copperplate Gothic Light</family>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="text">
@@ -377,8 +422,11 @@ font-family:'Open Sans,sans-serif';</string>
          <widget class="QLabel" name="cBox">
           <property name="font">
            <font>
-            <family>Open Sans,sans-serif</family>
-            <pointsize>9</pointsize>
+            <family>Copperplate Gothic Light</family>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
            </font>
           </property>
           <property name="text">

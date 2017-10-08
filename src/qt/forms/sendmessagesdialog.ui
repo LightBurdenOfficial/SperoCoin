@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Send Messages</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">font: 10pt &quot;Copperplate Gothic Light&quot;;</string>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1,0">
    <property name="bottomMargin">
     <number>8</number>
@@ -106,7 +109,7 @@
         <x>0</x>
         <y>0</y>
         <width>830</width>
-        <height>279</height>
+        <height>299</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">

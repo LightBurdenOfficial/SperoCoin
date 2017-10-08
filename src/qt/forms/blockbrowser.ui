@@ -34,6 +34,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">font: 10pt &quot;Copperplate Gothic Light&quot;;</string>
+  </property>
   <layout class="QGridLayout">
    <property name="sizeConstraint">
     <enum>QLayout::SetMaximumSize</enum>
@@ -66,7 +69,11 @@
         <widget class="QLabel" name="label_5">
          <property name="font">
           <font>
-           <family>Open Sans,sans-serif</family>
+           <family>Copperplate Gothic Light</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="text">
@@ -119,8 +126,11 @@
         <widget class="QPushButton" name="txButton">
          <property name="font">
           <font>
-           <weight>75</weight>
-           <bold>true</bold>
+           <family>Copperplate Gothic Light</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="text">
@@ -275,6 +285,9 @@
          <property name="text">
           <string>0</string>
          </property>
+         <property name="textInteractionFlags">
+          <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+         </property>
         </widget>
        </item>
        <item row="15" column="0">
@@ -308,6 +321,9 @@
          </property>
          <property name="text">
           <string>0x0</string>
+         </property>
+         <property name="textInteractionFlags">
+          <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
          </property>
         </widget>
        </item>
@@ -343,6 +359,9 @@
          <property name="text">
           <string>0</string>
          </property>
+         <property name="textInteractionFlags">
+          <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+         </property>
         </widget>
        </item>
        <item row="8" column="0">
@@ -371,6 +390,9 @@
          </property>
          <property name="text">
           <string>0x0</string>
+         </property>
+         <property name="textInteractionFlags">
+          <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
          </property>
         </widget>
        </item>
@@ -419,8 +441,11 @@
          </property>
          <property name="font">
           <font>
-           <weight>75</weight>
-           <bold>true</bold>
+           <family>Copperplate Gothic Light</family>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="text">

@@ -25,6 +25,9 @@
   <property name="windowTitle">
    <string>Stake Report</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">font: 9pt &quot;Copperplate Gothic Bold&quot;;</string>
+  </property>
   <property name="modal">
    <bool>false</bool>
   </property>
@@ -45,9 +48,11 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <family>Copperplate Gothic Bold</family>
+     <pointsize>9</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
    </property>
    <property name="toolTip">
@@ -109,12 +114,16 @@
      <x>10</x>
      <y>40</y>
      <width>411</width>
-     <height>203</height>
+     <height>210</height>
     </rect>
    </property>
    <property name="font">
     <font>
+     <family>Copperplate Gothic Bold</family>
      <pointsize>9</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
    </property>
    <layout class="QGridLayout" name="gridLayout" columnstretch="3,3,0">
@@ -132,9 +141,11 @@
      <widget class="QLabel" name="label_3">
       <property name="font">
        <font>
+        <family>Copperplate Gothic Bold</family>
         <pointsize>9</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="toolTip">
@@ -155,9 +166,11 @@
      <widget class="QLabel" name="L1_24h">
       <property name="font">
        <font>
+        <family>Copperplate Gothic Bold</family>
         <pointsize>9</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="toolTip">
@@ -175,10 +188,11 @@
      <widget class="QLabel" name="Stake_7D">
       <property name="font">
        <font>
+        <family>Copperplate Gothic Bold</family>
         <pointsize>9</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-        <kerning>false</kerning>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="toolTip">
@@ -206,10 +220,11 @@
      <widget class="QLabel" name="Amount_7D">
       <property name="font">
        <font>
+        <family>Copperplate Gothic Bold</family>
         <pointsize>9</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-        <kerning>false</kerning>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="toolTip">
@@ -230,9 +245,11 @@
      <widget class="QLabel" name="L3_30D_2">
       <property name="font">
        <font>
+        <family>Copperplate Gothic Bold</family>
         <pointsize>9</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="toolTip">
@@ -250,10 +267,11 @@
      <widget class="QLabel" name="Amount_30D">
       <property name="font">
        <font>
+        <family>Copperplate Gothic Bold</family>
         <pointsize>9</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-        <kerning>false</kerning>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="toolTip">
@@ -281,10 +299,11 @@
      <widget class="QLabel" name="Stake_365D">
       <property name="font">
        <font>
+        <family>Copperplate Gothic Bold</family>
         <pointsize>9</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-        <kerning>false</kerning>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="toolTip">
@@ -305,10 +324,11 @@
      <widget class="QLabel" name="Stake_24H">
       <property name="font">
        <font>
+        <family>Copperplate Gothic Bold</family>
         <pointsize>9</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-        <kerning>false</kerning>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="toolTip">
@@ -329,10 +349,11 @@
      <widget class="QLabel" name="Stake_30D">
       <property name="font">
        <font>
+        <family>Copperplate Gothic Bold</family>
         <pointsize>9</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-        <kerning>false</kerning>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="toolTip">
@@ -353,9 +374,11 @@
      <widget class="QLabel" name="L3_30D">
       <property name="font">
        <font>
+        <family>Copperplate Gothic Bold</family>
         <pointsize>9</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="toolTip">
@@ -373,10 +396,11 @@
      <widget class="QLabel" name="Amount_365D">
       <property name="font">
        <font>
+        <family>Copperplate Gothic Bold</family>
         <pointsize>9</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-        <kerning>false</kerning>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="toolTip">
@@ -397,10 +421,11 @@
      <widget class="QLabel" name="Amount_24H">
       <property name="font">
        <font>
+        <family>Copperplate Gothic Bold</family>
         <pointsize>9</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-        <kerning>false</kerning>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="toolTip">
@@ -421,9 +446,11 @@
      <widget class="QLabel" name="L_Coin">
       <property name="font">
        <font>
+        <family>Copperplate Gothic Bold</family>
         <pointsize>9</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="text">
@@ -441,9 +468,11 @@
      <widget class="QLabel" name="L2_7D">
       <property name="font">
        <font>
+        <family>Copperplate Gothic Bold</family>
         <pointsize>9</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="toolTip">
@@ -461,8 +490,11 @@
      <widget class="QLabel" name="L_LastStakeTime">
       <property name="font">
        <font>
-        <weight>75</weight>
-        <bold>true</bold>
+        <family>Copperplate Gothic Bold</family>
+        <pointsize>9</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="toolTip">
@@ -483,10 +515,11 @@
      <widget class="QLabel" name="Amount_Last">
       <property name="font">
        <font>
+        <family>Copperplate Gothic Bold</family>
         <pointsize>9</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-        <kerning>false</kerning>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="toolTip">
@@ -507,8 +540,10 @@
      <widget class="QLabel" name="Stake_Counted">
       <property name="font">
        <font>
+        <family>Copperplate Gothic Bold</family>
         <pointsize>9</pointsize>
         <weight>50</weight>
+        <italic>false</italic>
         <bold>false</bold>
        </font>
       </property>
@@ -530,8 +565,11 @@
      <widget class="QLabel" name="L_Last">
       <property name="font">
        <font>
-        <weight>75</weight>
-        <bold>true</bold>
+        <family>Copperplate Gothic Bold</family>
+        <pointsize>9</pointsize>
+        <weight>50</weight>
+        <italic>false</italic>
+        <bold>false</bold>
        </font>
       </property>
       <property name="text">
@@ -549,8 +587,10 @@
      <widget class="QLabel" name="TimeTook_2">
       <property name="font">
        <font>
+        <family>Copperplate Gothic Bold</family>
         <pointsize>9</pointsize>
         <weight>50</weight>
+        <italic>false</italic>
         <bold>false</bold>
        </font>
       </property>
@@ -572,8 +612,10 @@
      <widget class="QLabel" name="TimeTook">
       <property name="font">
        <font>
+        <family>Copperplate Gothic Bold</family>
         <pointsize>9</pointsize>
         <weight>50</weight>
+        <italic>false</italic>
         <bold>false</bold>
        </font>
       </property>
@@ -607,8 +649,11 @@
    </property>
    <property name="font">
     <font>
-     <weight>75</weight>
-     <bold>true</bold>
+     <family>Copperplate Gothic Bold</family>
+     <pointsize>9</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
     </font>
    </property>
    <property name="alternatingRowColors">
@@ -668,7 +713,7 @@
      </font>
     </property>
     <property name="textAlignment">
-     <set>AlignLeft|AlignVCenter</set>
+     <set>AlignLeading|AlignVCenter</set>
     </property>
    </column>
    <column>
@@ -683,7 +728,7 @@
      </font>
     </property>
     <property name="textAlignment">
-     <set>AlignRight|AlignVCenter</set>
+     <set>AlignTrailing|AlignVCenter</set>
     </property>
    </column>
    <column>
@@ -698,7 +743,7 @@
      </font>
     </property>
     <property name="textAlignment">
-     <set>AlignRight|AlignVCenter</set>
+     <set>AlignTrailing|AlignVCenter</set>
     </property>
    </column>
    <item row="0" column="0">
@@ -727,7 +772,7 @@
      </font>
     </property>
     <property name="textAlignment">
-     <set>AlignRight|AlignVCenter</set>
+     <set>AlignTrailing|AlignVCenter</set>
     </property>
     <property name="flags">
      <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
@@ -743,7 +788,7 @@
      </font>
     </property>
     <property name="textAlignment">
-     <set>AlignRight|AlignVCenter</set>
+     <set>AlignTrailing|AlignVCenter</set>
     </property>
     <property name="flags">
      <set>ItemIsSelectable|ItemIsUserCheckable|ItemIsEnabled</set>
@@ -761,8 +806,10 @@
    </property>
    <property name="font">
     <font>
+     <family>Copperplate Gothic Bold</family>
      <pointsize>9</pointsize>
      <weight>50</weight>
+     <italic>false</italic>
      <bold>false</bold>
     </font>
    </property>

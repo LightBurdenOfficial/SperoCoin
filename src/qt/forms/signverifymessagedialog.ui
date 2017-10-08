@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Signatures - Sign / Verify a Message</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">font: 10pt &quot;Copperplate Gothic Light&quot;;</string>
+  </property>
   <property name="modal">
    <bool>true</bool>
   </property>
@@ -113,7 +116,11 @@
           <widget class="QLineEdit" name="signatureOut_SM">
            <property name="font">
             <font>
-             <italic>true</italic>
+             <family>Copperplate Gothic Light</family>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
             </font>
            </property>
            <property name="readOnly">
@@ -193,8 +200,11 @@
           <widget class="QLabel" name="statusLabel_SM">
            <property name="font">
             <font>
-             <weight>75</weight>
-             <bold>true</bold>
+             <family>Copperplate Gothic Light</family>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
             </font>
            </property>
            <property name="text">
@@ -339,8 +349,11 @@
           <widget class="QLabel" name="statusLabel_VM">
            <property name="font">
             <font>
-             <weight>75</weight>
-             <bold>true</bold>
+             <family>Copperplate Gothic Light</family>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
             </font>
            </property>
            <property name="text">

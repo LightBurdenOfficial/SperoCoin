@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Coin Control</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">font: 10pt &quot;Copperplate Gothic Light&quot;;</string>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayoutTop" stretch="0,0,0,0">
@@ -50,8 +53,11 @@
         <widget class="QLabel" name="labelCoinControlQuantity">
          <property name="font">
           <font>
-           <family>Monospace</family>
+           <family>Copperplate Gothic Light</family>
            <pointsize>10</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="cursor">
@@ -82,8 +88,11 @@
         <widget class="QLabel" name="labelCoinControlBytes">
          <property name="font">
           <font>
-           <family>Monospace</family>
+           <family>Copperplate Gothic Light</family>
            <pointsize>10</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="cursor">
@@ -130,8 +139,11 @@
         <widget class="QLabel" name="labelCoinControlAmount">
          <property name="font">
           <font>
-           <family>Monospace</family>
+           <family>Copperplate Gothic Light</family>
            <pointsize>10</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="cursor">
@@ -162,8 +174,11 @@
         <widget class="QLabel" name="labelCoinControlPriority">
          <property name="font">
           <font>
-           <family>Monospace</family>
+           <family>Copperplate Gothic Light</family>
            <pointsize>10</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="cursor">
@@ -210,8 +225,11 @@
         <widget class="QLabel" name="labelCoinControlFee">
          <property name="font">
           <font>
-           <family>Monospace</family>
+           <family>Copperplate Gothic Light</family>
            <pointsize>10</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="cursor">
@@ -248,8 +266,11 @@
          </property>
          <property name="font">
           <font>
-           <family>Monospace</family>
+           <family>Copperplate Gothic Light</family>
            <pointsize>10</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="cursor">
@@ -296,8 +317,11 @@
         <widget class="QLabel" name="labelCoinControlAfterFee">
          <property name="font">
           <font>
-           <family>Monospace</family>
+           <family>Copperplate Gothic Light</family>
            <pointsize>10</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="cursor">
@@ -334,8 +358,11 @@
          </property>
          <property name="font">
           <font>
-           <family>Monospace</family>
+           <family>Copperplate Gothic Light</family>
            <pointsize>10</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
           </font>
          </property>
          <property name="cursor">
@@ -379,7 +406,7 @@
         <height>41</height>
        </rect>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayoutPanel" stretch="0,0,0,0,0">
+      <layout class="QHBoxLayout" name="horizontalLayoutPanel" stretch="0,0,0,0">
        <property name="spacing">
         <number>14</number>
        </property>

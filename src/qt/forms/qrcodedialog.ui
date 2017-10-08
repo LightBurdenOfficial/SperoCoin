@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>QR Code Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">font: 10pt &quot;Copperplate Gothic Light&quot;;</string>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
     <widget class="QLabel" name="lblQRCode">
