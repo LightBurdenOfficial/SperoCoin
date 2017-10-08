@@ -2,14 +2,18 @@ https://sperocoin.wixsite.com/sperocoin<br><br>
 <b>sperocoin@gmail.com</b>
 <br>
 <h2><b>Version:</b></h2><br>
-BETA 2.4.5.3
+BETA 2.6.5.1
+<h2><b>Phases:</b></h2><br>
+Pow and PoS: 0 - 33331
+PoS: 33331 - 263250
+PoW and PoS: 263251 up
 <h2><b>Downloads</b></h2><br>
 <br>
 <b>Qt Windows:</b><br>
-http://www.mediafire.com/file/bhtahldi1pcords/SperoCoin-v.2.5.4.3.exe<br>
+https://www.mediafire.com/file/fvyf96ioukbx9ee/SperoCoin-v.2.6.4.1.exe<br>
 <br>
 <b>Daemon Windows:</b><br>
-http://www.mediafire.com/file/p68sr8985clia04/sperocoind.exe<br>
+https://www.mediafire.com/file/632zfvw3jh5q2ac/sperocoind-v.2.6.4.1.exe<br>
 <br>
 <b>Sms:</b><br>
 <br>
