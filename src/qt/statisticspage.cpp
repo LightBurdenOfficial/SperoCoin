@@ -68,7 +68,7 @@ void StatisticsPage::updateStatistics()
     else
     {
         phase = "Proof of Stake";
-	nSubsidy = 2;
+	nSubsidy = 0;
     }
     if (pindexBest->nHeight > 263250)
     {

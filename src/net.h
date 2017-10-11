@@ -217,16 +217,20 @@ class CNode
 {
 public:
     // socket
-    uint64_t nServices;
+uint64_t nServices;
     SOCKET hSocket;
     CDataStream vSend;
     CDataStream vRecv;
+    size_t nSendSize; // total size of all vSendMsg entries
     CCriticalSection cs_vSend;
     CCriticalSection cs_vRecv;
     int64_t nLastSend;
     int64_t nLastRecv;
     int64_t nLastSendEmpty;
     int64_t nTimeConnected;
+    int nHighestHeightRequested;
+    int nHeightBackwards;
+    int64_t nHeightBackwardsLast;
     int nHeaderStart;
     unsigned int nMessageStart;
     CAddress addr;
@@ -281,6 +285,9 @@ public:
         nLastRecv = 0;
         nLastSendEmpty = GetTime();
         nTimeConnected = GetTime();
+        nHighestHeightRequested = 0;
+        nHeightBackwards = 0;
+        nHeightBackwardsLast = GetTime();
         nHeaderStart = -1;
         nMessageStart = -1;
         addr = addrIn;
@@ -293,6 +300,7 @@ public:
         fNetworkNode = false;
         fSuccessfullyConnected = false;
         fDisconnect = false;
+    nSendSize = 0;
         nRefCount = 0;
         hashContinue = 0;
         pindexLastGetBlocksBegin = 0;
