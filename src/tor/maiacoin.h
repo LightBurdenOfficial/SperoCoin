@@ -6,17 +6,17 @@
  * \brief Headers for Sperocoin.cpp
  **/
 
-#ifndef TOR_Martexcoin_H
-#define TOR_Martexcoin_H
+#ifndef TOR_SperoCoin_H
+#define TOR_SperoCoin_H
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-    char const* Martexcoin_tor_data_directory(
+    char const* SperoCoin_tor_data_directory(
     );
 
-    char const* Martexcoin_service_directory(
+    char const* SperoCoin_service_directory(
     );
 
     int check_interrupted(

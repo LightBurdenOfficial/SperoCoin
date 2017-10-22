@@ -1,8 +1,8 @@
 // Copyright (c) 2012-2013 The SperoCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef MartexCoin_KERNEL_H
-#define MartexCoin_KERNEL_H
+#ifndef SperoCoin_KERNEL_H
+#define SperoCoin_KERNEL_H
 
 #include "main.h"
 
@@ -36,4 +36,4 @@ bool CheckStakeModifierCheckpoints(int nHeight, unsigned int nStakeModifierCheck
 // Get time weight using supplied timestamps
 int64_t GetWeight(int64_t nIntervalBeginning, int64_t nIntervalEnd);
 
-#endif // MartexCoin_KERNEL_H
+#endif // SperoCoin_KERNEL_H

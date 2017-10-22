@@ -541,7 +541,7 @@
       <property name="font">
        <font>
         <family>Copperplate Gothic Bold</family>
-        <pointsize>9</pointsize>
+        <pointsize>7</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
@@ -549,6 +549,9 @@
       </property>
       <property name="toolTip">
        <string>Total Stake Analized</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 7pt &quot;Copperplate Gothic Bold&quot;;</string>
       </property>
       <property name="text">
        <string>0</string>
@@ -588,7 +591,7 @@
       <property name="font">
        <font>
         <family>Copperplate Gothic Bold</family>
-        <pointsize>9</pointsize>
+        <pointsize>7</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
@@ -596,6 +599,9 @@
       </property>
       <property name="toolTip">
        <string>Time took to refresh dialog</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 7pt &quot;Copperplate Gothic Bold&quot;;</string>
       </property>
       <property name="text">
        <string>Wait please...</string>
@@ -613,7 +619,7 @@
       <property name="font">
        <font>
         <family>Copperplate Gothic Bold</family>
-        <pointsize>9</pointsize>
+        <pointsize>7</pointsize>
         <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
@@ -621,6 +627,9 @@
       </property>
       <property name="toolTip">
        <string>Time took to retrieve the data</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 7pt &quot;Copperplate Gothic Bold&quot;;</string>
       </property>
       <property name="text">
        <string>Wait please...</string>
@@ -636,7 +645,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>240</y>
+     <y>260</y>
      <width>411</width>
      <height>231</height>
     </rect>
@@ -799,7 +808,7 @@
    <property name="geometry">
     <rect>
      <x>5</x>
-     <y>470</y>
+     <y>480</y>
      <width>422</width>
      <height>51</height>
     </rect>
@@ -807,7 +816,7 @@
    <property name="font">
     <font>
      <family>Copperplate Gothic Bold</family>
-     <pointsize>9</pointsize>
+     <pointsize>7</pointsize>
      <weight>50</weight>
      <italic>false</italic>
      <bold>false</bold>
@@ -815,6 +824,9 @@
    </property>
    <property name="toolTip">
     <string>Data of the current block.</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 7pt &quot;Copperplate Gothic Bold&quot;;</string>
    </property>
    <property name="text">
     <string>Current Chain Block :</string>

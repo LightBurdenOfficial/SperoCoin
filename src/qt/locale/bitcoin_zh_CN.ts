@@ -17,8 +17,8 @@
 Copyright © 2012-2014 The Sperocoin developers
 Copyright © 2014 The SperoCoin developers</source>
         <translation>版权所有 © 2009-2014 比特币Bitcoin开发组
-版权所有 © 2012-2014 新星币Martexcoin开发组
-版权所有 © 2014 黑币MartexCoin开发组</translation>
+版权所有 © 2012-2014 新星币SperoCoin开发组
+版权所有 © 2014 黑币SperoCoin开发组</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -1076,7 +1076,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location filename="../guiutil.cpp" line="+420"/>
         <location line="+12"/>
         <source>SperoCoin-Qt</source>
-        <translation>黑币客户端MartexCoin-Qt</translation>
+        <translation>黑币客户端SperoCoin-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -3001,7 +3001,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <source>%s, you must set a rpcpassword in the configuration file:
  %s
 It is recommended you use the following random password:
-rpcuser=MartexCoinrpc
+rpcuser=SperoCoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
@@ -3012,7 +3012,7 @@ for example: alertnotify=echo %%s | mail -s &quot;SperoCoin Alert&quot; sperocoi
         <translation>%s, 必须在配置文件里设置rpc密码:
  %s
 建议使用如下的随机密码:
-rpcuser=MartexCoinrpc
+rpcuser=SperoCoinrpc
 rpcpassword=%s
 (不需要记住该密码)
 用户名和密码不能重复。

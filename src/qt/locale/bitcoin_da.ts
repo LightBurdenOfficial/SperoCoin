@@ -3000,7 +3000,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <source>%s, you must set a rpcpassword in the configuration file:
  %s
 It is recommended you use the following random password:
-rpcuser=MartexCoinrpc
+rpcuser=SperoCoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
@@ -3011,7 +3011,7 @@ for example: alertnotify=echo %%s | mail -s &quot;SperoCoin Alert&quot; sperocoi
         <translation>% s, skal du indstille et rpcpassword i konfigurationsfilen:
 % s
 Det anbefales at bruge følgende tilfældig adgangskode:
-rpcuser = MartexCoinrpc
+rpcuser = SperoCoinrpc
 rpcpassword =% s
 (du behøver ikke at huske denne adgangskode)
 Brugernavn og adgangskode må ikke være den samme.

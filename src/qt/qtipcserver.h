@@ -2,7 +2,7 @@
 #define QTIPCSERVER_H
 
 // Define SperoCoin-Qt message queue name
-#define BITCOINURI_QUEUE_NAME "MartexCoinURI"
+#define BITCOINURI_QUEUE_NAME "SperoCoinURI"
 
 void ipcScanRelay(int argc, char *argv[]);
 void ipcInit(int argc, char *argv[]);

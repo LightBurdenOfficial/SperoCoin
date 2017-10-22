@@ -4,6 +4,6 @@ See doc/readme-qt.rst for instructions on building SperoCoin QT,
 the intended-for-end-users, nice-graphical-interface, reference
 implementation of SperoCoin.
 
-See doc/build-*.txt for instructions on building MartexCoind,
+See doc/build-*.txt for instructions on building SperoCoind,
 the intended-for-services, no-graphical-interface, reference
 implementation of SperoCoin.

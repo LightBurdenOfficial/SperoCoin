@@ -30,7 +30,7 @@ Dependencies
  miniupnpc   UPnP Support      Optional firewall-jumping support
  libqrencode QRCode generation Optional QRCode generation
 
-Note that libexecinfo should be installed, if you building under +ACo-BSD systems. 
+Note that libexecinfo should be installed, if you building under +ACo-BSD systems.
 This library provides backtrace facility.
 
 miniupnpc may be used for UPnP port mapping.  It can be downloaded from
@@ -73,21 +73,21 @@ If using Boost 1.37, append -mt to the boost libraries in the makefile.
 Dependency Build Instructions: Gentoo
 -------------------------------------
 
-Note: If you just want to install MartexCoind on Gentoo, you can add the SperoCoin
+Note: If you just want to install SperoCoind on Gentoo, you can add the SperoCoin
       overlay and use your package manager:
-          layman -a SperoCoin +ACYAJg- emerge MartexCoind
+          layman -a SperoCoin +ACYAJg- emerge SperoCoind
 
 emerge -av1 --noreplace boost glib openssl sys-libs/db
 
 Take the following steps to build (no UPnP support):
  cd +ACQAew-BLACKCOIN+AF8-DIR+AH0-/src
  make -f makefile.unix USE+AF8-UPNP+AD0- BDB+AF8-INCLUDE+AF8-PATH+AD0-'/usr/include/db4.8'
- strip MartexCoind
+ strip SperoCoind
 
 
 Notes
 -----
-The release is built with GCC and then +ACI-strip MartexCoind+ACI- to strip the debug
+The release is built with GCC and then +ACI-strip SperoCoind+ACI- to strip the debug
 symbols, which reduces the executable size by about 90+ACU-.
 
 

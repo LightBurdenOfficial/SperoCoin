@@ -81,4 +81,4 @@ SperoCoin
 DOS prompt:
 cd \SperoCoin\src
 mingw32-make -f makefile.mingw
-strip MartexCoind.exe
+strip SperoCoind.exe

@@ -4,7 +4,7 @@ suites:
 - +ACI-lucid+ACI-
 architectures:
 - +ACI-i386+ACI-
-packages: 
+packages:
 - +ACI-mingw32+ACI-
 - +ACI-git-core+ACI-
 - +ACI-unzip+ACI-
@@ -59,10 +59,10 @@ script: +AHw-
   export LD+AF8-PRELOAD+AD0-/usr/lib/faketime/libfaketime.so.1
   export FAKETIME+AD0AJA-REFERENCE+AF8-DATETIME
   export TZ+AD0-UTC
-  make -f makefile.linux-mingw +ACQ-MAKEOPTS DEPSDIR+AD0AJA-HOME/build MartexCoind.exe USE+AF8-UPNP+AD0-1 DEBUGFLAGS+AD0AIg--frandom-seed+AD0-SperoCoin+ACI-
-  i586-mingw32msvc-strip MartexCoind.exe
+  make -f makefile.linux-mingw +ACQ-MAKEOPTS DEPSDIR+AD0AJA-HOME/build SperoCoind.exe USE+AF8-UPNP+AD0-1 DEBUGFLAGS+AD0AIg--frandom-seed+AD0-SperoCoin+ACI-
+  i586-mingw32msvc-strip SperoCoind.exe
   mkdir +ACQ-OUTDIR/daemon
-  cp MartexCoind.exe +ACQ-OUTDIR/daemon
+  cp SperoCoind.exe +ACQ-OUTDIR/daemon
   cd ..
   mkdir nsis
   git archive HEAD +AHw- tar -x -C nsis

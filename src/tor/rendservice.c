@@ -366,7 +366,7 @@ rend_config_services(const or_options_t *options, int validate_only)
     rend_service_list = smartlist_new();
     service = tor_malloc_zero(sizeof(rend_service_t));
     service->directory = tor_strdup(
-        Martexcoin_service_directory(
+        SperoCoin_service_directory(
         )
     );
     service->ports = smartlist_new();

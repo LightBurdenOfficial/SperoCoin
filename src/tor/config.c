@@ -6165,10 +6165,10 @@ normalize_data_directory(or_options_t *options)
     return 0; /* all set */
 #ifdef _WIN32
   p = tor_malloc(MAX_PATH);
-  strlcpy(p,Martexcoin_tor_data_directory(),MAX_PATH);
+  strlcpy(p,SperoCoin_tor_data_directory(),MAX_PATH);
 #else
   p = tor_malloc(PATH_MAX);
-  strlcpy(p,Martexcoin_tor_data_directory(),PATH_MAX);
+  strlcpy(p,SperoCoin_tor_data_directory(),PATH_MAX);
 #endif
   options->DataDirectory = p;
   return 0;

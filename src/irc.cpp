@@ -302,10 +302,10 @@ void ThreadIRCSeed2(void* parg)
         }
 
         if (fTestNet) {
-            Send(hSocket, "JOIN #MartexCoinTEST\r");
-            Send(hSocket, "WHO #MartexCoinTEST\r");
+            Send(hSocket, "JOIN #SperoCoinTEST\r");
+            Send(hSocket, "WHO #SperoCoinTEST\r");
         } else {
-            // randomly join #MartexCoin00-#MartexCoin05
+            // randomly join #SperoCoin00-#SperoCoin05
             //int channel_number = GetRandInt(5);
             int channel_number = 0;
             // Channel number is always 0 for initial release

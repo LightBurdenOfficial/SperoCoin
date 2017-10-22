@@ -4,7 +4,7 @@ build/*.cpp
 build/*.moc
 build/ui_*
 build/*.h
-src/MartexCoind
+src/SperoCoind
 src/obj/*.o
 src/obj/*.P
 src/obj-test/*.o

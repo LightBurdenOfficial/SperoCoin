@@ -12,7 +12,7 @@
 #include <string>
 #include <cstring>
 
-char const* Martexcoin_tor_data_directory(
+char const* SperoCoin_tor_data_directory(
 ) {
     static std::string const retrieved = (
         GetDefaultDataDir(
@@ -23,7 +23,7 @@ char const* Martexcoin_tor_data_directory(
     );
 }
 
-char const* Martexcoin_service_directory(
+char const* SperoCoin_service_directory(
 ) {
     static std::string const retrieved = (
         GetDefaultDataDir(

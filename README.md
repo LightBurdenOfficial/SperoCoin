@@ -1,8 +1,10 @@
-https://sperocoin.wixsite.com/sperocoin<br><br>
+https://sperocoin.ddns.net<br><br>
 <b>sperocoin@gmail.com</b>
 <br>
 <h2><b>Version:</b></h2><br>
 BETA 2.6.4.1<br>
+<h2><b>Block Explorer:</b></h2><br>
+http://sperocoin.ddns.net:3001<br>
 <h2><b>Phases:</b></h2><br>
 Pow and PoS: 0 - 33331<br>
 PoS: 33331 - 263250<br>

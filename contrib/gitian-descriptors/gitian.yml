@@ -5,7 +5,7 @@ suites:
 architectures:
 - +ACI-i386+ACI-
 - +ACI-amd64+ACI-
-packages: 
+packages:
 - +ACI-libdb4.8dev+ACI-
 - +ACI-qt4-qmake+ACI-
 - +ACI-libqt4-dev+ACI-
@@ -46,9 +46,9 @@ script: +AHw-
   cp +ACQ-OUTDIR/src/doc/README +ACQ-OUTDIR
   cp +ACQ-OUTDIR/src/COPYING +ACQ-OUTDIR
   cd src
-  make -f makefile.unix STATIC+AD0-1 OPENSSL+AF8-INCLUDE+AF8-PATH+AD0AIgAk-INSTDIR/include+ACI- OPENSSL+AF8-LIB+AF8-PATH+AD0AIgAk-INSTDIR/lib+ACI- +ACQ-MAKEOPTS MartexCoind USE+AF8-UPNP+AD0-1 DEBUGFLAGS+AD0-
+  make -f makefile.unix STATIC+AD0-1 OPENSSL+AF8-INCLUDE+AF8-PATH+AD0AIgAk-INSTDIR/include+ACI- OPENSSL+AF8-LIB+AF8-PATH+AD0AIgAk-INSTDIR/lib+ACI- +ACQ-MAKEOPTS SperoCoind USE+AF8-UPNP+AD0-1 DEBUGFLAGS+AD0-
   mkdir -p +ACQ-OUTDIR/bin/+ACQ-GBUILD+AF8-BITS
-  install -s MartexCoind +ACQ-OUTDIR/bin/+ACQ-GBUILD+AF8-BITS
+  install -s SperoCoind +ACQ-OUTDIR/bin/+ACQ-GBUILD+AF8-BITS
   +ACM-
   cd ..
   qmake INCLUDEPATH+AD0AIgAk-INSTDIR/include+ACI- LIBS+AD0AIg--L+ACQ-INSTDIR/lib+ACI- RELEASE+AD0-1 USE+AF8-QRCODE+AD0-1

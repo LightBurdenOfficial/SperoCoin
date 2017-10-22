@@ -4,7 +4,7 @@
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
         <source>About SperoCoin</source>
-        <translation>Tietoa MartexCoinista</translation>
+        <translation>Tietoa SperoCoinista</translation>
     </message>
     <message>
         <location line="+39"/>
@@ -377,7 +377,7 @@ Tämä tuote sisältää OpenSSL-projektin kehittämää ohjelmistoa OpenSSL-ty�
     <message>
         <location line="+6"/>
         <source>Show information about SperoCoin</source>
-        <translation>Näytä tietoja MartexCoinista</translation>
+        <translation>Näytä tietoja SperoCoinista</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -432,7 +432,7 @@ Tämä tuote sisältää OpenSSL-projektin kehittämää ohjelmistoa OpenSSL-ty�
     <message>
         <location line="+47"/>
         <source>Modify configuration options for SperoCoin</source>
-        <translation>Mukauta MartexCoinin konfigurointiasetuksia</translation>
+        <translation>Mukauta SperoCoinin konfigurointiasetuksia</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -482,7 +482,7 @@ Tämä tuote sisältää OpenSSL-projektin kehittämää ohjelmistoa OpenSSL-ty�
     <message>
         <location line="+180"/>
         <source>&amp;About SperoCoin</source>
-        <translation>&amp;Tietoa MartexCoinista</translation>
+        <translation>&amp;Tietoa SperoCoinista</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -1561,7 +1561,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
     <message>
         <location line="+7"/>
         <source>Show the SperoCoin-Qt help message to get a list with possible SperoCoin command-line options.</source>
-        <translation>Näytä SperoCoin-Qt:n avustusohje saadaksesi listan käytettävistä MartexCoinin komentokehotteen määritteistä.</translation>
+        <translation>Näytä SperoCoin-Qt:n avustusohje saadaksesi listan käytettävistä SperoCoinin komentokehotteen määritteistä.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1586,7 +1586,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
     <message>
         <location line="+25"/>
         <source>SperoCoin Core</source>
-        <translation>MartexCoinin ydin</translation>
+        <translation>SperoCoinin ydin</translation>
     </message>
     <message>
         <location line="+279"/>
@@ -1606,7 +1606,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
     <message>
         <location filename="../rpcconsole.cpp" line="-33"/>
         <source>Welcome to the SperoCoin RPC console.</source>
-        <translation>Tervetuloa MartexCoinin RPC-konsoliin.</translation>
+        <translation>Tervetuloa SperoCoinin RPC-konsoliin.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2624,7 +2624,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+33"/>
         <source>SperoCoin version</source>
-        <translation>MartexCoinin versio</translation>
+        <translation>SperoCoinin versio</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2998,7 +2998,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <source>%s, you must set a rpcpassword in the configuration file:
  %s
 It is recommended you use the following random password:
-rpcuser=MartexCoinrpc
+rpcuser=SperoCoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
@@ -3009,7 +3009,7 @@ for example: alertnotify=echo %%s | mail -s &quot;SperoCoin Alert&quot; sperocoi
         <translation>%s, sinun on asetettava rpcpassword asetustiedostoon:
 %s
 On suositeltavaa, että käytät seuraavaa arvottua salasanaa:
-rpcuser=MartexCoinrpc
+rpcuser=SperoCoinrpc
 rpcpassword=%s
 (Sinun ei tarvitse muistaa tätä salasanaa)
 Käyttäjänimen ja salasanan EI TULE OLLA SAMOJA.
