@@ -159,8 +159,9 @@ Update for new implementations:
 Ban Forked Peers who are stuck in a Getblocks Loop.
 
 >$0013 2017/10/22
-→ Update of stringsB names;
-→ Updating information in README.md
-→ Update Stake Info in QT  Wallet
+→ Update of strings names;<br>
+→ Updating information in README.md<br>
+→ Update Stake Info in QT  Wallet<br>
+
 
 
