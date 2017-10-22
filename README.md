@@ -136,28 +136,28 @@ ccminer30.exe -q --algo=x13 -o 127.0.0.1:55681 -u user-p password
 # Timeline:
 >$0001 2017/09/26<br>
 Initial Upload to GitHub<br>
-<br>
+
 >$0006 2017/10/01<br>
 In this update, the SperoCoin-qt.pro file has been changed for compilation in the Linux environment.<br>
-<br>
+
 >$0007 2017/10/06<br>
 Update README.md and add files: src/leveldb/Makefile<br>
-<br>
+
 >$0008 2017/10/08<br>
 Update infos about end phase of PoW and start phase PoS;<br>
 Update font of qt wallet;<br>
 Update version;<br>
 Update Protocol Others general's updates<br>
-<br>
+
 >$0010 2017/10/10<br>
 Update for new implementations:<br>
 → Added option of cleaning of orphans blocks;<br>
 → Added display option "STAKE" in the "type" column inside the "Transactions" tab;<br>
 → Added "setban" node "" add | remove "(bantime)" / "listbanned" and "clearbanned" in the RPC console;<br>
-<br>
+
 >$0012 2017/10/11<br>
 Ban Forked Peers who are stuck in a Getblocks Loop.<br>
-<br>
+
 >$0013 2017/10/22<br>
 → Update of strings names;<br>
 → Updating information in README.md<br>
