@@ -12,3 +12,4 @@ src/obj-test/*.P
 src/obj/build.h
 src/qt/locale/*.qm
 src/clean.sh
+README.md
