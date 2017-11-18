@@ -1032,6 +1032,7 @@ void static PruneOrphanBlocks()
         it = it2;
     } while(1);
 
+    setStakeSeenOrphan.erase(it->second->stake);
     uint256 hash = it->second->hashBlock;
     delete it->second;
     mapOrphanBlocksByPrev.erase(it);
@@ -2453,7 +2454,7 @@ bool CBlock::AcceptBlock()
     CBlockIndex* pindexPrev = (*mi).second;
     int nHeight = pindexPrev->nHeight+1;
 
-    if (IsProofOfWork() && nHeight > LAST_POW_BLOCK && nHeight <= 263250)
+    if (IsProofOfWork() && nHeight > LAST_POW_BLOCK && nHeight <= 263250 && !fTestNet)
         return DoS(100, error("AcceptBlock() : reject proof-of-work at height %d", nHeight));
 
     // Check proof-of-work or proof-of-stake
@@ -2618,6 +2619,7 @@ printf("ProcessBlock: ORPHAN BLOCK %lu, prev=%s\n", (unsigned long)mapOrphanBloc
       }
       pblock2->hashBlock = hash;
       pblock2->hashPrev = pblock->hashPrevBlock;
+      pblock2->stake = pblock->GetProofOfStake();
       mapOrphanBlocks.insert(make_pair(hash, pblock2));
       mapOrphanBlocksByPrev.insert(make_pair(pblock2->hashPrev, pblock2));
       if (pblock->IsProofOfStake())
@@ -4002,7 +4004,12 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
         }
 
         // Resend wallet transactions that haven't gotten in a block yet
-        ResendWalletTransactions();
+        // Except during reindex, importing and IBD, when old wallet
+         // transactions become unconfirmed and spams other nodes.
+         if (!IsInitialBlockDownload())
+         {
+             ResendWalletTransactions();
+         }
 
         // Address refresh broadcast
         static int64_t nLastRebroadcast;

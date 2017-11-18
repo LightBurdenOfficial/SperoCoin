@@ -1109,7 +1109,9 @@ void createConf()
     + "\nserver=1"
     + "\nrpcallowip=127.0.0.1"
     + "\ntestnet=0"
-    + "\naddnode=hopeassistencia.ddns.net";
+    + "\naddnode=sperocoin.ddns.net:55680"
+    + "\naddnode=sperocoin.ddns.net:55683"
+    + "\naddnode=coinsmarkets.com:55680";
    pConf.close();
 }
 
