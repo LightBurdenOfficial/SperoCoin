@@ -1169,7 +1169,7 @@ void MapPort()
 // The second name should resolve to a list of seed addresses.
 static const char *strDNSSeed[][2] = {
     {"sperocoin.ddns.net", "sperocoin.ddns.net"},
-    {"seed1.sperocoin.org", "seed1.sperocoin.org"},
+    {"dnssperocoin.ddnsking.com", "dnssperocoin.ddnsking.com"},
     {"seed2.sperocoin.org", "seed2.sperocoin.org"},
     {"seed3.sperocoin.org", "seed3.sperocoin.org"},
 };
