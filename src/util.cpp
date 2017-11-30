@@ -1111,7 +1111,8 @@ void createConf()
     + "\ntestnet=0"
     + "\naddnode=sperocoin.ddns.net:55680"
     + "\naddnode=sperocoin.ddns.net:55683"
-    + "\naddnode=coinsmarkets.com:55680";
+    + "\naddnode=coinsmarkets.com:55680"
+    + "\naddnode=dnssperocoin.ddnsking.com:55680";
    pConf.close();
 }
 
