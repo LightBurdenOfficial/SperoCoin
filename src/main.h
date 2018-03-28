@@ -38,8 +38,8 @@ static const unsigned int MAX_INV_SZ = 50000;
 static const int64_t MIN_TX_FEE = 10000;
 static const int64_t MIN_RELAY_TX_FEE = MIN_TX_FEE;
 static const int64_t MAX_MONEY = 7000000 * COIN;
-static const int64_t MAX_MINT_PROOF_OF_STAKE = 0.05 * COIN;	// 7% first year, 15, then 10. Set in main.cpp
-static const int64_t COIN_YEAR_REWARD = 25 * CENT; // 50% per year (output to console will be updated)
+static const int64_t MAX_MINT_PROOF_OF_STAKE = 0.05 * COIN;
+static const int64_t COIN_YEAR_REWARD = 25 * CENT; // 25% per year (output to console will be updated)
 
 #define FOUNDATION "Null"
 #define FOUNDATION_TEST "Null"
@@ -55,7 +55,7 @@ static const int fHaveUPnP = false;
 #endif
 
 static const uint256 hashGenesisBlock("0x000006f4925ed7b889f847f24621390d4943466f091c3254ca1bd8becc517f7b");
-static const uint256 hashGenesisBlockTestNet("0x000006f4925ed7b889f847f24621390d4943466f091c3254ca1bd8becc517f7b");
+static const uint256 hashGenesisBlockTestNet("0x00001fe23e7d6951a2a07ad684ff208fab9110fad607fabd81482a1692382f8f");
 
 inline int64_t PastDrift(int64_t nTime)   { return nTime - 2 * 60 * 60; } // up to 2 hours from the past
 inline int64_t FutureDrift(int64_t nTime) { return nTime + 2 * 60 * 60; } // up to 2 hours from the future
