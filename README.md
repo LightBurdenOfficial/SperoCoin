@@ -1,5 +1,5 @@
 [![N|Solid](https://i.imgur.com/lXSMMR2.png)](https://sperocoin.wixsite.com/sperocoin)
-# Sperocoin
+# Sperocoin - Sustainability in technology
 Sperocoin came with the mission to renew the world of the exhaustive consumption of electric energy.
 
 With the PoS mining concept, we have an ecologically correct coin, since it is not necessary to use powerful mining machines to obtain rewards for solved blocks.
@@ -11,6 +11,15 @@ All the balance that is collected by Spero is aimed directly at the growth of th
 # Contact:
 > 💬Telegram:
 **https://t.me/joinchat/G7cebkL3dbRqfuy1gVNm3g**
+> 💬Slack:
+**https://sperocoin.slack.com**
+> 💬Facebook:
+**https://www.facebook.com/sperocoinofficial/**
+> 💬Twitter:
+**https://twitter.com/Spero_Official**
+
+> 💬BTCTalk:
+**https://bitcointalk.org/index.php?topic=2260985.0**
 
 > ✉️E-mail:
 **sperocoin@gmail.com**
@@ -18,9 +27,13 @@ All the balance that is collected by Spero is aimed directly at the growth of th
 > 🌎Website:
 **https://sperocoin.ddns.net**
 
+> 🌎Block Explorer:
+**http://sperocoin.ddns.net:3001**
+**http://exsperocoin.ddns.net:3001**
+
 > 📟Sms in Wallet:
-**Sb4CCvH18ooqUXchUaM19Nk6Ys5NnWmDe8**
-**PubKey: 03cba0f207912dbdb5e6bf1a0afe09f17046f7ce09baa2250757e3a88cd644acc4**
+**SiRvv6i8d5F7XbJSTqcGM35bdDMxATtMzz**
+**PubKey: 03214f4cd930454878b87269b1ab12e54a4bd805634e65f113eaded61eba652219**
 
 
 # Specifications:
@@ -58,7 +71,9 @@ addnode=hopeassistencia.ddns.net
 ```
 # Exchanges:
  - 💎 https://coinsmarkets.com/trade-BTC-SPERO.htm 
- - VOTE: https://www.tradesatoshi.com/Vote
+ - 💎 https://catalogop2p.com.br/sperocoin-sustentabilidade-em-tecnologia 
+ - 💎 https://p2brasil.com/produto/sperocoin/ 
+ - 💎 https://sperocoin.ddns.net/exchange 
 
 #  Mining:
 - Solo Cpu:
@@ -92,35 +107,6 @@ cpuminer -q --algo=x13 -o 127.0.0.1:55681 -u user-p password
 - Solo GPU:
 ```sh
 ccminer30.exe -q --algo=x13 -o 127.0.0.1:55681 -u user-p password
-```
-
-# Pool:
-- http://pickaxe.online/
-
-```sh
- 🔥Variable Difficulty : 0.001 ~ 0.01
- 🔥Stratum Host : stratum+tcp://pickaxe.online:10021
- 🔥Username : [YourWalletAddress]
-
-
- 🔥Variable Difficulty : 0.01 ~ 0.04
- 🔥Stratum Host : stratum+tcp://pickaxe.online:10022
- 🔥Username : [YourWalletAddress]
-
-
- 🔥Variable Difficulty : 0.4 ~ 4
- 🔥Stratum Host : stratum+tcp://pickaxe.online:10023
- 🔥Username : [YourWalletAddress]
-
-
- 🔥NiceHash
- 🔥Stratum Host : stratum+tcp://pickaxe.online:10024
- 🔥Username : [YourWalletAddress]
-
-
- 🔥Fees : 3%
- 🔥Payout cycle : 15 mins
- 🔥Minimum Payout : 0.01 SPERO
 ```
 
 # Rewards using the pre-mining balance:
@@ -163,5 +149,27 @@ Ban Forked Peers who are stuck in a Getblocks Loop.<br>
 → Updating information in README.md<br>
 → Update Stake Info in QT  Wallet<br>
 
+>$0015 2017/11/18<br>
+→ Release of testnet mining;<br>
+→ File Fix:<br>
+   • main.cpp<br>
+   • alter.cpp<br>
+   • checkpoints.cpp<br>
+   • checkpoints.h<br>
 
+>$0016 2017/11/30<br>
+Add node in the source:<br>
+addnode=http://dnssperocoin.ddnsking.com:55680<br>
 
+>$0017 2018/03/28<br>
+→ Add RPC Command "GETWALLETINFO"<br>
+→ Update of transaction maturity icons<br>
+→ splash screen main update<br>
+→ Updating the logo inside the Wallet<br>
+→ Added hashGenesisBlockTestNet = 0x00001fe23e7d6951a2a07ad684ff208fab9110fad607fabd81482a1692382f8f in main.h file<br>
+→ Added testnet block.nNonce in main.cpp file (block.nNonce = 15547;)<br>
+→ Added static MapCheckpoints mapCheckpointsTestnet = (0, uint256("0x000006f4925ed7b889f847f24621390d4943466f091c3254ca1bd8becc517f7b")) in the checkpoints.cpp file<br>
+→ Change the initial letter of the testnet addresses in the base58.h file (PUBKEY_ADDRESS_TEST = 125, // Initial address letter (63 = s) -TESTNET))<br>
+→ Change the example initial letter in the file qt / sendcoinsdialog.cpp<br>
+(ui-> lineEditCoinControlChange-> setPlaceholderText (tr ("Enter the SperoCoin address (e.g. Sjz75uKHzUQJnSdzvpiigEGxseKkDhQToX)"));)<br>
+→ Changed version to 2.6.4.3<br>
