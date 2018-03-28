@@ -11,10 +11,13 @@ All the balance that is collected by Spero is aimed directly at the growth of th
 # Contact:
 > 💬Telegram:
 **https://t.me/joinchat/G7cebkL3dbRqfuy1gVNm3g**
+
 > 💬Slack:
 **https://sperocoin.slack.com**
+
 > 💬Facebook:
 **https://www.facebook.com/sperocoinofficial/**
+
 > 💬Twitter:
 **https://twitter.com/Spero_Official**
 
