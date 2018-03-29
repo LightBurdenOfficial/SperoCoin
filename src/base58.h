@@ -278,7 +278,7 @@ public:
     {
         PUBKEY_ADDRESS = 63, // Letra inicial dos endereços( 63 = S )
         SCRIPT_ADDRESS = 5,
-        PUBKEY_ADDRESS_TEST = 125, // Letra inicial dos endereços( 63 = s ) - TESTNET
+        PUBKEY_ADDRESS_TEST = 125, // Letra inicial dos endereços( 125 = s ) - TESTNET
         SCRIPT_ADDRESS_TEST = 196,
     };
 
