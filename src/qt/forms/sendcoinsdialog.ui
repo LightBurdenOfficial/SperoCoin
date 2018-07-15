@@ -14,7 +14,7 @@
    <string>Send Coins</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 10pt &quot;Copperplate Gothic Light&quot;;</string>
+   <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1,0">
    <property name="bottomMargin">
@@ -82,8 +82,8 @@
             </property>
             <property name="font">
              <font>
-              <family>Copperplate Gothic Light</family>
-              <pointsize>10</pointsize>
+              <family>Century Gothic</family>
+              <pointsize>12</pointsize>
               <weight>75</weight>
               <italic>false</italic>
               <bold>true</bold>
@@ -110,7 +110,7 @@
           <item>
            <widget class="QPushButton" name="pushButtonCoinControl">
             <property name="styleSheet">
-             <string notr="true"/>
+             <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
             </property>
             <property name="text">
              <string>Inputs...</string>
@@ -131,8 +131,8 @@
            <widget class="QLabel" name="labelCoinControlInsuffFunds">
             <property name="font">
              <font>
-              <family>Copperplate Gothic Light</family>
-              <pointsize>10</pointsize>
+              <family>Century Gothic</family>
+              <pointsize>12</pointsize>
               <weight>75</weight>
               <italic>false</italic>
               <bold>true</bold>
@@ -239,9 +239,9 @@
                 <widget class="QLabel" name="labelCoinControlQuantity">
                  <property name="font">
                   <font>
-                   <family>Copperplate Gothic Light</family>
-                   <pointsize>10</pointsize>
-                   <weight>50</weight>
+                   <family>Century Gothic</family>
+                   <pointsize>12</pointsize>
+                   <weight>9</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -277,9 +277,9 @@
                 <widget class="QLabel" name="labelCoinControlBytes">
                  <property name="font">
                   <font>
-                   <family>Copperplate Gothic Light</family>
-                   <pointsize>10</pointsize>
-                   <weight>50</weight>
+                   <family>Century Gothic</family>
+                   <pointsize>12</pointsize>
+                   <weight>9</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -334,9 +334,9 @@
                 <widget class="QLabel" name="labelCoinControlAmount">
                  <property name="font">
                   <font>
-                   <family>Copperplate Gothic Light</family>
-                   <pointsize>10</pointsize>
-                   <weight>50</weight>
+                   <family>Century Gothic</family>
+                   <pointsize>12</pointsize>
+                   <weight>9</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -369,9 +369,9 @@
                 <widget class="QLabel" name="labelCoinControlPriority">
                  <property name="font">
                   <font>
-                   <family>Copperplate Gothic Light</family>
-                   <pointsize>10</pointsize>
-                   <weight>50</weight>
+                   <family>Century Gothic</family>
+                   <pointsize>12</pointsize>
+                   <weight>9</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -426,9 +426,9 @@
                 <widget class="QLabel" name="labelCoinControlFee">
                  <property name="font">
                   <font>
-                   <family>Copperplate Gothic Light</family>
-                   <pointsize>10</pointsize>
-                   <weight>50</weight>
+                   <family>Century Gothic</family>
+                   <pointsize>12</pointsize>
+                   <weight>9</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -461,9 +461,9 @@
                 <widget class="QLabel" name="labelCoinControlLowOutput">
                  <property name="font">
                   <font>
-                   <family>Copperplate Gothic Light</family>
-                   <pointsize>10</pointsize>
-                   <weight>50</weight>
+                   <family>Century Gothic</family>
+                   <pointsize>12</pointsize>
+                   <weight>9</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -518,9 +518,9 @@
                 <widget class="QLabel" name="labelCoinControlAfterFee">
                  <property name="font">
                   <font>
-                   <family>Copperplate Gothic Light</family>
-                   <pointsize>10</pointsize>
-                   <weight>50</weight>
+                   <family>Century Gothic</family>
+                   <pointsize>12</pointsize>
+                   <weight>9</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -553,9 +553,9 @@
                 <widget class="QLabel" name="labelCoinControlChange">
                  <property name="font">
                   <font>
-                   <family>Copperplate Gothic Light</family>
-                   <pointsize>10</pointsize>
-                   <weight>50</weight>
+                   <family>Century Gothic</family>
+                   <pointsize>12</pointsize>
+                   <weight>9</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -613,6 +613,9 @@
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="styleSheet">
+             <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+            </property>
            </widget>
           </item>
           <item>
@@ -668,7 +671,7 @@
         <x>0</x>
         <y>0</y>
         <width>830</width>
-        <height>174</height>
+        <height>137</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -715,6 +718,9 @@
        <property name="toolTip">
         <string>Send to multiple recipients at once</string>
        </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+       </property>
        <property name="text">
         <string>Add &amp;Recipient</string>
        </property>
@@ -737,6 +743,9 @@
        </property>
        <property name="toolTip">
         <string>Remove all transaction fields</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
        </property>
        <property name="text">
         <string>Clear &amp;All</string>
@@ -815,6 +824,9 @@
        </property>
        <property name="toolTip">
         <string>Confirm the send action</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
        </property>
        <property name="text">
         <string>S&amp;end</string>

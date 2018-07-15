@@ -14,7 +14,7 @@
    <string>Options</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 10pt &quot;Copperplate Gothic Light&quot;;</string>
+   <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -22,6 +22,9 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QTabWidget" name="tabWidget">
+     <property name="styleSheet">
+      <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+     </property>
      <property name="tabPosition">
       <enum>QTabWidget::North</enum>
      </property>
@@ -62,7 +65,11 @@
           </widget>
          </item>
          <item>
-          <widget class="BitcoinAmountField" name="transactionFee"/>
+          <widget class="BitcoinAmountField" name="transactionFee">
+           <property name="styleSheet">
+            <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+           </property>
+          </widget>
          </item>
          <item>
           <spacer name="horizontalSpacerFee">
@@ -108,7 +115,11 @@
           </widget>
          </item>
          <item>
-          <widget class="BitcoinAmountField" name="reserveBalance"/>
+          <widget class="BitcoinAmountField" name="reserveBalance">
+           <property name="styleSheet">
+            <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+           </property>
+          </widget>
          </item>
          <item>
           <spacer name="horizontalSpacerReserveBalance">
@@ -211,6 +222,9 @@
            <property name="toolTip">
             <string>IP address of the proxy (e.g. 127.0.0.1)</string>
            </property>
+           <property name="styleSheet">
+            <string notr="true">font: 10pt &quot;Arial Narrow&quot;;</string>
+           </property>
           </widget>
          </item>
          <item>
@@ -256,6 +270,9 @@
           <widget class="QValueComboBox" name="socksVersion">
            <property name="toolTip">
             <string>SOCKS version of the proxy (e.g. 5)</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font: 10pt &quot;Arial Narrow&quot;;</string>
            </property>
           </widget>
          </item>
@@ -354,6 +371,9 @@
            <property name="toolTip">
             <string>The user interface language can be set here. This setting will take effect after restarting SperoCoin.</string>
            </property>
+           <property name="styleSheet">
+            <string notr="true">font: 10pt &quot;Arial Narrow&quot;;</string>
+           </property>
           </widget>
          </item>
         </layout>
@@ -377,6 +397,9 @@
           <widget class="QValueComboBox" name="unit">
            <property name="toolTip">
             <string>Choose the default subdivision unit to show in the interface and when sending coins.</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font: 10pt &quot;Arial Narrow&quot;;</string>
            </property>
           </widget>
          </item>
@@ -438,9 +461,9 @@
       <widget class="QLabel" name="statusLabel">
        <property name="font">
         <font>
-         <family>Copperplate Gothic Light</family>
-         <pointsize>10</pointsize>
-         <weight>50</weight>
+         <family>Century Gothic</family>
+         <pointsize>12</pointsize>
+         <weight>9</weight>
          <italic>false</italic>
          <bold>false</bold>
         </font>
@@ -471,6 +494,9 @@
      </item>
      <item>
       <widget class="QPushButton" name="okButton">
+       <property name="styleSheet">
+        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+       </property>
        <property name="text">
         <string>&amp;OK</string>
        </property>
@@ -478,6 +504,9 @@
      </item>
      <item>
       <widget class="QPushButton" name="cancelButton">
+       <property name="styleSheet">
+        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+       </property>
        <property name="text">
         <string>&amp;Cancel</string>
        </property>
@@ -488,6 +517,9 @@
      </item>
      <item>
       <widget class="QPushButton" name="applyButton">
+       <property name="styleSheet">
+        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+       </property>
        <property name="text">
         <string>&amp;Apply</string>
        </property>
@@ -505,6 +537,7 @@
    <class>BitcoinAmountField</class>
    <extends>QSpinBox</extends>
    <header>bitcoinamountfield.h</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
    <class>QValueComboBox</class>

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>432</width>
-    <height>554</height>
+    <height>620</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -19,14 +19,14 @@
   <property name="maximumSize">
    <size>
     <width>432</width>
-    <height>554</height>
+    <height>620</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Stake Report</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 9pt &quot;Copperplate Gothic Bold&quot;;</string>
+   <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
   </property>
   <property name="modal">
    <bool>false</bool>
@@ -48,15 +48,18 @@
    </property>
    <property name="font">
     <font>
-     <family>Copperplate Gothic Bold</family>
-     <pointsize>9</pointsize>
-     <weight>50</weight>
+     <family>Century Gothic</family>
+     <pointsize>12</pointsize>
+     <weight>9</weight>
      <italic>false</italic>
      <bold>false</bold>
     </font>
    </property>
    <property name="toolTip">
     <string>Dialog which report the earning made with stake over time</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::NoFrame</enum>
@@ -114,14 +117,14 @@
      <x>10</x>
      <y>40</y>
      <width>411</width>
-     <height>210</height>
+     <height>234</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Copperplate Gothic Bold</family>
-     <pointsize>9</pointsize>
-     <weight>50</weight>
+     <family>Century Gothic</family>
+     <pointsize>10</pointsize>
+     <weight>9</weight>
      <italic>false</italic>
      <bold>false</bold>
     </font>
@@ -141,9 +144,9 @@
      <widget class="QLabel" name="label_3">
       <property name="font">
        <font>
-        <family>Copperplate Gothic Bold</family>
-        <pointsize>9</pointsize>
-        <weight>50</weight>
+        <family>Century Gothic</family>
+        <pointsize>10</pointsize>
+        <weight>9</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -166,9 +169,9 @@
      <widget class="QLabel" name="L1_24h">
       <property name="font">
        <font>
-        <family>Copperplate Gothic Bold</family>
-        <pointsize>9</pointsize>
-        <weight>50</weight>
+        <family>Century Gothic</family>
+        <pointsize>10</pointsize>
+        <weight>9</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -188,9 +191,9 @@
      <widget class="QLabel" name="Stake_7D">
       <property name="font">
        <font>
-        <family>Copperplate Gothic Bold</family>
-        <pointsize>9</pointsize>
-        <weight>50</weight>
+        <family>Century Gothic</family>
+        <pointsize>10</pointsize>
+        <weight>9</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -220,9 +223,9 @@
      <widget class="QLabel" name="Amount_7D">
       <property name="font">
        <font>
-        <family>Copperplate Gothic Bold</family>
-        <pointsize>9</pointsize>
-        <weight>50</weight>
+        <family>Century Gothic</family>
+        <pointsize>10</pointsize>
+        <weight>9</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -245,9 +248,9 @@
      <widget class="QLabel" name="L3_30D_2">
       <property name="font">
        <font>
-        <family>Copperplate Gothic Bold</family>
-        <pointsize>9</pointsize>
-        <weight>50</weight>
+        <family>Century Gothic</family>
+        <pointsize>10</pointsize>
+        <weight>9</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -267,9 +270,9 @@
      <widget class="QLabel" name="Amount_30D">
       <property name="font">
        <font>
-        <family>Copperplate Gothic Bold</family>
-        <pointsize>9</pointsize>
-        <weight>50</weight>
+        <family>Century Gothic</family>
+        <pointsize>10</pointsize>
+        <weight>9</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -299,9 +302,9 @@
      <widget class="QLabel" name="Stake_365D">
       <property name="font">
        <font>
-        <family>Copperplate Gothic Bold</family>
-        <pointsize>9</pointsize>
-        <weight>50</weight>
+        <family>Century Gothic</family>
+        <pointsize>10</pointsize>
+        <weight>9</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -324,9 +327,9 @@
      <widget class="QLabel" name="Stake_24H">
       <property name="font">
        <font>
-        <family>Copperplate Gothic Bold</family>
-        <pointsize>9</pointsize>
-        <weight>50</weight>
+        <family>Century Gothic</family>
+        <pointsize>10</pointsize>
+        <weight>9</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -349,9 +352,9 @@
      <widget class="QLabel" name="Stake_30D">
       <property name="font">
        <font>
-        <family>Copperplate Gothic Bold</family>
-        <pointsize>9</pointsize>
-        <weight>50</weight>
+        <family>Century Gothic</family>
+        <pointsize>10</pointsize>
+        <weight>9</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -374,9 +377,9 @@
      <widget class="QLabel" name="L3_30D">
       <property name="font">
        <font>
-        <family>Copperplate Gothic Bold</family>
-        <pointsize>9</pointsize>
-        <weight>50</weight>
+        <family>Century Gothic</family>
+        <pointsize>10</pointsize>
+        <weight>9</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -396,9 +399,9 @@
      <widget class="QLabel" name="Amount_365D">
       <property name="font">
        <font>
-        <family>Copperplate Gothic Bold</family>
-        <pointsize>9</pointsize>
-        <weight>50</weight>
+        <family>Century Gothic</family>
+        <pointsize>10</pointsize>
+        <weight>9</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -421,9 +424,9 @@
      <widget class="QLabel" name="Amount_24H">
       <property name="font">
        <font>
-        <family>Copperplate Gothic Bold</family>
-        <pointsize>9</pointsize>
-        <weight>50</weight>
+        <family>Century Gothic</family>
+        <pointsize>10</pointsize>
+        <weight>9</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -446,9 +449,9 @@
      <widget class="QLabel" name="L_Coin">
       <property name="font">
        <font>
-        <family>Copperplate Gothic Bold</family>
-        <pointsize>9</pointsize>
-        <weight>50</weight>
+        <family>Century Gothic</family>
+        <pointsize>10</pointsize>
+        <weight>9</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -468,9 +471,9 @@
      <widget class="QLabel" name="L2_7D">
       <property name="font">
        <font>
-        <family>Copperplate Gothic Bold</family>
-        <pointsize>9</pointsize>
-        <weight>50</weight>
+        <family>Century Gothic</family>
+        <pointsize>10</pointsize>
+        <weight>9</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -490,9 +493,9 @@
      <widget class="QLabel" name="L_LastStakeTime">
       <property name="font">
        <font>
-        <family>Copperplate Gothic Bold</family>
-        <pointsize>9</pointsize>
-        <weight>50</weight>
+        <family>Century Gothic</family>
+        <pointsize>10</pointsize>
+        <weight>9</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -515,9 +518,9 @@
      <widget class="QLabel" name="Amount_Last">
       <property name="font">
        <font>
-        <family>Copperplate Gothic Bold</family>
-        <pointsize>9</pointsize>
-        <weight>50</weight>
+        <family>Century Gothic</family>
+        <pointsize>10</pointsize>
+        <weight>9</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -540,9 +543,9 @@
      <widget class="QLabel" name="Stake_Counted">
       <property name="font">
        <font>
-        <family>Copperplate Gothic Bold</family>
+        <family>Century Gothic</family>
         <pointsize>7</pointsize>
-        <weight>50</weight>
+        <weight>9</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -551,7 +554,7 @@
        <string>Total Stake Analized</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 7pt &quot;Copperplate Gothic Bold&quot;;</string>
+       <string notr="true">font: 75 7pt &quot;Century Gothic&quot;;</string>
       </property>
       <property name="text">
        <string>0</string>
@@ -568,9 +571,9 @@
      <widget class="QLabel" name="L_Last">
       <property name="font">
        <font>
-        <family>Copperplate Gothic Bold</family>
-        <pointsize>9</pointsize>
-        <weight>50</weight>
+        <family>Century Gothic</family>
+        <pointsize>10</pointsize>
+        <weight>9</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -590,9 +593,9 @@
      <widget class="QLabel" name="TimeTook_2">
       <property name="font">
        <font>
-        <family>Copperplate Gothic Bold</family>
-        <pointsize>7</pointsize>
-        <weight>50</weight>
+        <family>Century Gothic</family>
+        <pointsize>8</pointsize>
+        <weight>9</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -601,7 +604,7 @@
        <string>Time took to refresh dialog</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 7pt &quot;Copperplate Gothic Bold&quot;;</string>
+       <string notr="true">font: 75 8pt &quot;Century Gothic&quot;;</string>
       </property>
       <property name="text">
        <string>Wait please...</string>
@@ -618,9 +621,9 @@
      <widget class="QLabel" name="TimeTook">
       <property name="font">
        <font>
-        <family>Copperplate Gothic Bold</family>
-        <pointsize>7</pointsize>
-        <weight>50</weight>
+        <family>Century Gothic</family>
+        <pointsize>8</pointsize>
+        <weight>9</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -629,7 +632,7 @@
        <string>Time took to retrieve the data</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 7pt &quot;Copperplate Gothic Bold&quot;;</string>
+       <string notr="true">font: 75 8pt &quot;Century Gothic&quot;;</string>
       </property>
       <property name="text">
        <string>Wait please...</string>
@@ -645,7 +648,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>260</y>
+     <y>280</y>
      <width>411</width>
      <height>231</height>
     </rect>
@@ -658,9 +661,9 @@
    </property>
    <property name="font">
     <font>
-     <family>Copperplate Gothic Bold</family>
-     <pointsize>9</pointsize>
-     <weight>50</weight>
+     <family>Century Gothic</family>
+     <pointsize>10</pointsize>
+     <weight>9</weight>
      <italic>false</italic>
      <bold>false</bold>
     </font>
@@ -807,17 +810,17 @@
   <widget class="QLabel" name="L_CurrentBlock">
    <property name="geometry">
     <rect>
-     <x>5</x>
-     <y>480</y>
+     <x>0</x>
+     <y>540</y>
      <width>422</width>
      <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Copperplate Gothic Bold</family>
-     <pointsize>7</pointsize>
-     <weight>50</weight>
+     <family>Century Gothic</family>
+     <pointsize>8</pointsize>
+     <weight>9</weight>
      <italic>false</italic>
      <bold>false</bold>
     </font>
@@ -826,7 +829,7 @@
     <string>Data of the current block.</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 7pt &quot;Copperplate Gothic Bold&quot;;</string>
+    <string notr="true">font: 75 8pt &quot;Century Gothic&quot;;</string>
    </property>
    <property name="text">
     <string>Current Chain Block :</string>
@@ -837,12 +840,15 @@
    <property name="margin">
     <number>2</number>
    </property>
+   <property name="textInteractionFlags">
+    <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+   </property>
   </widget>
   <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>520</y>
+     <x>-5</x>
+     <y>580</y>
      <width>431</width>
      <height>31</height>
     </rect>
@@ -861,6 +867,9 @@
       </property>
       <property name="toolTip">
        <string>Refresh the data</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
       </property>
       <property name="text">
        <string>Refresh</string>
@@ -884,6 +893,9 @@
       <property name="toolTip">
        <string>Copy Report to ClipBoard</string>
       </property>
+      <property name="styleSheet">
+       <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+      </property>
       <property name="text">
        <string>Copy to clipboard</string>
       </property>
@@ -899,6 +911,9 @@
       </property>
       <property name="toolTip">
        <string>Close the dialog</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>

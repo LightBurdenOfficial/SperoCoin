@@ -247,7 +247,7 @@ void BitcoinGUI::createActions()
     statisticsAction->setToolTip(tr("View statistics"));
     statisticsAction->setCheckable(true);
     tabGroup->addAction(statisticsAction);
-   
+
     blockAction = new QAction(QIcon(":/icons/block"), tr("&Block Explorer"), this);
     blockAction->setToolTip(tr("Explore the BlockChain"));
     //blockAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));

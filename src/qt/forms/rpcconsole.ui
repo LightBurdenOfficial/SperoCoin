@@ -7,20 +7,23 @@
     <x>0</x>
     <y>0</y>
     <width>740</width>
-    <height>450</height>
+    <height>552</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>SperoCoin - Debug window</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 10pt &quot;Copperplate Gothic Light&quot;;</string>
+   <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <widget class="QTabWidget" name="tabWidget">
+     <property name="styleSheet">
+      <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+     </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab_info">
       <attribute name="title">
@@ -34,9 +37,9 @@
         <widget class="QLabel" name="label_9">
          <property name="font">
           <font>
-           <family>Copperplate Gothic Light</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
+           <family>Century Gothic</family>
+           <pointsize>12</pointsize>
+           <weight>9</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
@@ -168,9 +171,9 @@
         <widget class="QLabel" name="label_11">
          <property name="font">
           <font>
-           <family>Copperplate Gothic Light</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
+           <family>Century Gothic</family>
+           <pointsize>12</pointsize>
+           <weight>9</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
@@ -224,9 +227,9 @@
         <widget class="QLabel" name="label_10">
          <property name="font">
           <font>
-           <family>Copperplate Gothic Light</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
+           <family>Century Gothic</family>
+           <pointsize>12</pointsize>
+           <weight>9</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
@@ -322,9 +325,9 @@
         <widget class="QLabel" name="labelDebugLogfile">
          <property name="font">
           <font>
-           <family>Copperplate Gothic Light</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
+           <family>Century Gothic</family>
+           <pointsize>12</pointsize>
+           <weight>9</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
@@ -339,6 +342,9 @@
          <property name="toolTip">
           <string>Open the SperoCoin debug log file from the current data directory. This can take a few seconds for large log files.</string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 9pt &quot;Segoe Print&quot;;</string>
+         </property>
          <property name="text">
           <string>&amp;Open</string>
          </property>
@@ -351,9 +357,9 @@
         <widget class="QLabel" name="labelCLOptions">
          <property name="font">
           <font>
-           <family>Copperplate Gothic Light</family>
-           <pointsize>10</pointsize>
-           <weight>50</weight>
+           <family>Century Gothic</family>
+           <pointsize>12</pointsize>
+           <weight>9</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
@@ -367,6 +373,9 @@
         <widget class="QPushButton" name="showCLOptionsButton">
          <property name="toolTip">
           <string>Show the SperoCoin-Qt help message to get a list with possible SperoCoin command-line options.</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 9pt &quot;Segoe Print&quot;;</string>
          </property>
          <property name="text">
           <string>&amp;Show</string>
@@ -407,6 +416,9 @@
            <height>100</height>
           </size>
          </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+         </property>
          <property name="readOnly">
           <bool>true</bool>
          </property>
@@ -431,7 +443,11 @@
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit"/>
+          <widget class="QLineEdit" name="lineEdit">
+           <property name="styleSheet">
+            <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+           </property>
+          </widget>
          </item>
          <item>
           <widget class="QPushButton" name="clearButton">

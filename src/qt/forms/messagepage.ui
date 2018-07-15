@@ -14,7 +14,7 @@
    <string>Address Book</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 10pt &quot;Copperplate Gothic Light&quot;;</string>
+   <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
@@ -53,6 +53,9 @@
      </property>
      <property name="toolTip">
       <string>Click on a message to view it</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
      </property>
      <property name="tabKeyNavigation">
       <bool>false</bool>
@@ -101,6 +104,9 @@
          <layout class="QHBoxLayout" name="horizontalLayout_3">
           <item>
            <widget class="QPushButton" name="backButton">
+            <property name="styleSheet">
+             <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+            </property>
             <property name="text">
              <string>&amp;Back</string>
             </property>
@@ -112,6 +118,9 @@
           </item>
           <item>
            <widget class="QLabel" name="labelContact">
+            <property name="styleSheet">
+             <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+            </property>
             <property name="text">
              <string>Contact:</string>
             </property>
@@ -140,7 +149,11 @@
          </layout>
         </item>
         <item>
-         <widget class="QListView" name="listConversation"/>
+         <widget class="QListView" name="listConversation">
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          </property>
+         </widget>
         </item>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_3"/>
@@ -158,10 +171,16 @@
            <height>0</height>
           </size>
          </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="newButton">
+         <property name="styleSheet">
+          <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+         </property>
          <property name="text">
           <string>&amp;Conversation</string>
          </property>
@@ -176,6 +195,9 @@
          <property name="toolTip">
           <string>Send a message to the current conversation</string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+         </property>
          <property name="text">
           <string>&amp;Send</string>
          </property>
@@ -189,6 +211,9 @@
         <widget class="QPushButton" name="deleteButton">
          <property name="toolTip">
           <string>Delete the currently selected address from the list</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
          </property>
          <property name="text">
           <string>&amp;Delete</string>

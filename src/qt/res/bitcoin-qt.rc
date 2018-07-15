@@ -22,7 +22,7 @@ BEGIN
             VALUE "FileDescription",    "SperoCoin-Qt (OSS GUI client for SperoCoin)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "SperoCoin-qt"
-            VALUE "LegalCopyright",     "2014 The SperoCoin developers"
+            VALUE "LegalCopyright",     "2016 The SperoCoin developers"
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
             VALUE "OriginalFilename",   "SperoCoin-qt.exe"
             VALUE "ProductName",        "SperoCoin-Qt"

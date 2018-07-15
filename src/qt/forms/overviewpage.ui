@@ -14,7 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 10pt &quot;Copperplate Gothic Light&quot;;</string>
+   <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
    <item>
@@ -34,9 +34,9 @@
            <widget class="QLabel" name="label_5">
             <property name="font">
              <font>
-              <family>Copperplate Gothic Light</family>
-              <pointsize>10</pointsize>
-              <weight>50</weight>
+              <family>Century Gothic</family>
+              <pointsize>12</pointsize>
+              <weight>9</weight>
               <italic>false</italic>
               <bold>false</bold>
              </font>
@@ -99,9 +99,9 @@
            <widget class="QLabel" name="labelBalance">
             <property name="font">
              <font>
-              <family>Copperplate Gothic Light</family>
-              <pointsize>10</pointsize>
-              <weight>50</weight>
+              <family>Century Gothic</family>
+              <pointsize>12</pointsize>
+              <weight>9</weight>
               <italic>false</italic>
               <bold>false</bold>
              </font>
@@ -131,9 +131,9 @@
            <widget class="QLabel" name="labelStake">
             <property name="font">
              <font>
-              <family>Copperplate Gothic Light</family>
-              <pointsize>10</pointsize>
-              <weight>50</weight>
+              <family>Century Gothic</family>
+              <pointsize>12</pointsize>
+              <weight>9</weight>
               <italic>false</italic>
               <bold>false</bold>
              </font>
@@ -163,9 +163,9 @@
            <widget class="QLabel" name="labelUnconfirmed">
             <property name="font">
              <font>
-              <family>Copperplate Gothic Light</family>
-              <pointsize>10</pointsize>
-              <weight>50</weight>
+              <family>Century Gothic</family>
+              <pointsize>12</pointsize>
+              <weight>9</weight>
               <italic>false</italic>
               <bold>false</bold>
              </font>
@@ -195,9 +195,9 @@
            <widget class="QLabel" name="labelImmature">
             <property name="font">
              <font>
-              <family>Copperplate Gothic Light</family>
-              <pointsize>10</pointsize>
-              <weight>50</weight>
+              <family>Century Gothic</family>
+              <pointsize>12</pointsize>
+              <weight>9</weight>
               <italic>false</italic>
               <bold>false</bold>
              </font>
@@ -231,9 +231,9 @@
            <widget class="QLabel" name="labelTotal">
             <property name="font">
              <font>
-              <family>Copperplate Gothic Light</family>
-              <pointsize>10</pointsize>
-              <weight>50</weight>
+              <family>Century Gothic</family>
+              <pointsize>12</pointsize>
+              <weight>9</weight>
               <italic>false</italic>
               <bold>false</bold>
              </font>
@@ -352,7 +352,8 @@
         <item>
          <widget class="QListView" name="listTransactions">
           <property name="styleSheet">
-           <string notr="true">QListView { background: transparent; }</string>
+           <string notr="true">QListView { background: transparent; font: 75 10pt &quot;Century Gothic&quot;; }
+</string>
           </property>
           <property name="frameShape">
            <enum>QFrame::NoFrame</enum>
@@ -387,6 +388,9 @@
        </property>
        <property name="toolTip">
         <string/>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
        </property>
        <property name="text">
         <string>wallet unlock button</string>

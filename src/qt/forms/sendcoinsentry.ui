@@ -14,7 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 10pt &quot;Copperplate Gothic Light&quot;;</string>
+   <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
   </property>
   <property name="frameShape">
    <enum>QFrame::StyledPanel</enum>
@@ -53,7 +53,11 @@
     </widget>
    </item>
    <item row="5" column="1">
-    <widget class="BitcoinAmountField" name="payAmount"/>
+    <widget class="BitcoinAmountField" name="payAmount">
+     <property name="styleSheet">
+      <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+     </property>
+    </widget>
    </item>
    <item row="4" column="1">
     <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -67,6 +71,9 @@
        </property>
        <property name="toolTip">
         <string>Enter a label for this address to add it to your address book</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
        </property>
       </widget>
      </item>
@@ -94,6 +101,9 @@
       <widget class="QValidatedLineEdit" name="payTo">
        <property name="toolTip">
         <string>The address to send the payment to  (e.g. Sjz75uKHzUQJnSdzvpiigEGxseKkDhQToX)</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
        </property>
        <property name="maxLength">
         <number>34</number>

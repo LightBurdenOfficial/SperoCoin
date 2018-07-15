@@ -193,13 +193,6 @@ void TransactionView::setModel(WalletModel *model)
                 TransactionTableModel::Amount, 100);
     }
 }
-void TransactionView::clearOrphans()
-{
-    if(!model)
-        return;
-
-    model->clearOrphans();
-}
 
 void TransactionView::chooseDate(int idx)
 {
@@ -393,6 +386,19 @@ void TransactionView::showDetails()
         TransactionDescDialog dlg(selection.at(0));
         dlg.exec();
     }
+}
+
+void TransactionView::clearOrphans()
+{
+    if(!model)
+        return;
+
+    model->clearOrphans();
+    model->getTransactionTableModel()->refresh();
+    delete transactionProxyModel;
+    setModel(model);
+    transactionView->sortByColumn(TransactionTableModel::Status, Qt::DescendingOrder);
+    transactionView->sortByColumn(TransactionTableModel::Date, Qt::DescendingOrder);
 }
 
 QWidget *TransactionView::createDateRangeWidget()

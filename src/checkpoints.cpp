@@ -26,6 +26,22 @@ namespace Checkpoints
         boost::assign::map_list_of
         //( 0,      hashGenesisBlock )
         ( 0,      uint256("0x000006f4925ed7b889f847f24621390d4943466f091c3254ca1bd8becc517f7b") ) // Params().HashGenesisBlock())
+        ( 1000,      uint256("0x00000000074a040fe3a3192647a6d3f83addc2703494d5868f790603238a80d9") )
+        ( 2000,      uint256("0x000000000136bf00b92f2e79a8f361a2243bfe3593caacee27ac0acfd9a9013b") )
+        ( 3000,      uint256("0x00000000283981e9e700d6549b4ad850a9142d4da7fdf3b5152f94d59623309a") )
+        ( 5000,      uint256("0xccfcfc45942ac1d385cd6aa98af323701a0046aea6104578faf1ed40ba533ee9") )
+        ( 7000,      uint256("0x977f7b3268b676e5f9dced41992c71e11f0e5c3a3161b5caef19aa1e3c8abd33") )
+        ( 10000,      uint256("0x4c5a2584e600e520f3f25b9a5a599926c2db45d3b71cb94973f8f6d8fcadc92d") )
+        ( 20000,      uint256("0x0000000001196662f5fd94484fb558022128d94fa15cb41d6d358388065c3771") )
+        ( 30000,      uint256("0x0000000067fefe4a3dbdba01f06e5cccbc89b9b731ec8fc4a9f871de1b98735d") )
+        ( 33331,      uint256("0x000000000bddc36eaa652fb04fe731f817b10a9bc2bc224aa6daf015f6d47aed") )
+        ( 40000,      uint256("0x5d77d38b79ad2df383a4900cc4c4e9c88f778e474f74db21caebee806c9c8d55") )
+        ( 50000,      uint256("0x2e1e20e32e3d7225f4566a68054bbe1c186860dbea55b104a06abab2fd268dc0") )
+        ( 70000,      uint256("0x41c0021b391ebf5ec5682f866df4fd32a997753f68e73deae3ad08220c595768") )
+        ( 100000,      uint256("0xb9ac087b72409cfccff7c394170bc243e70d63d30a39e4e9b2429739383156bf") )
+        ( 110000,      uint256("0xb259e70c4f4a5cf34a1a645c295f566c2a554903d29ae359c9fd81b1d68d9586") )
+        ( 120000,      uint256("0xff8c33d12795d926a9213d80ba4bcb8fa153c87cbedb862830a55ab8956efa71") )
+        ( 130000,      uint256("0x4f5727cd9a032ef1d05d1480e42a8b16e09d0d6588e389aa27bc5e461719cbc9") )
     ;
 
     // TestNet has no checkpoints

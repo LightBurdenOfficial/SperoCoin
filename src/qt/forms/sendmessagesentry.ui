@@ -14,7 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 10pt &quot;Copperplate Gothic Light&quot;;</string>
+   <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
   </property>
   <property name="frameShape">
    <enum>QFrame::StyledPanel</enum>
@@ -35,6 +35,9 @@
       <widget class="QValidatedLineEdit" name="sendTo">
        <property name="toolTip">
         <string>The address to send the payment to  (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
        </property>
        <property name="maxLength">
         <number>34</number>
@@ -125,6 +128,9 @@
      <property name="focusPolicy">
       <enum>Qt::WheelFocus</enum>
      </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+     </property>
      <property name="tabChangesFocus">
       <bool>false</bool>
      </property>
@@ -137,6 +143,9 @@
      </property>
      <property name="toolTip">
       <string>Enter a label for this address to add it to your address book</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
      </property>
     </widget>
    </item>
@@ -164,7 +173,11 @@
     </widget>
    </item>
    <item row="5" column="2">
-    <widget class="QValidatedLineEdit" name="publicKey"/>
+    <widget class="QValidatedLineEdit" name="publicKey">
+     <property name="styleSheet">
+      <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

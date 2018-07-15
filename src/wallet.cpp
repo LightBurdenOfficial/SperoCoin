@@ -2447,10 +2447,13 @@ void CWallet::ClearOrphans()
         const CWalletTx *wtx = &(*it).second;
         if((wtx->IsCoinBase() || wtx->IsCoinStake()) && !wtx->IsInMainChain())
         {
-            orphans.push_back(wtx->GetHash());
+          orphans.push_back(wtx->GetHash());
         }
     }
 
     for(list<uint256>::const_iterator it = orphans.begin(); it != orphans.end(); ++it)
+    {
         EraseFromWallet(*it);
+        UpdatedTransaction(*it);
+    }
 }

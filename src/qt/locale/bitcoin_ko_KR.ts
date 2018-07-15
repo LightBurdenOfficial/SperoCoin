@@ -14,25 +14,40 @@
     <message>
         <location line="+41"/>
         <source>Copyright © 2009-2014 The Bitcoin developers
-Copyright © 2012-2014 The Sperocoin developers
-Copyright © 2014 The SperoCoin developers</source>
+Copyright © 2017 The Sperocoin developers
+</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+15"/>
         <source>
 This is experimental software.
+Distributed under the MIT/X13 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
+This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.
+Technical information about SperoCoin:
+Algorithm: X13
+Total Supply: 7 million
+Block Time: 60 seconds
+PoS Return: 25% per year
+Difficulty reset to each block
+Encrypted Message
+Confirmations: 05 for mining and 03 for transactions
 
-Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
-        <translation>
-이 프로그램은 시험용입니다.
-
-MIT/X11 프로그램 라이선스에 따라 배포합니다. COPYING 또는 http://www.opensource.org/licenses/mit-license.php를 참조하십시오.
-
-이 프로그램에는 OpenSSL 툴킷(http://www.openssl.org) 사용 목적으로 개발한 OpenSSL 프로젝트를 포함하고 있으며, 암호화 프로그램은 Eric Young(eay@cryptsoft.com)이, UPnP 프로그램은 Thomas Bernard가 작성했습니다.</translation>
-    </message>
+Website: https://sperocoin.ddns.net/
+Block Explorer: http://sperocoin.ddns.net:3001
+Telegram: https://t.me/joinchat/G7cebkL3dbRqfuy1gVNm3g
+Slack: https://sperocoin.slack.com
+Facebook: https://www.facebook.com/sperocoinofficial/
+Twitter: https://twitter.com/Spero_Official
+Discord: https://discord.gg/CVRFwC7
+BTCTalk: https://bitcointalk.org/index.php?topic=2260985.0
+GitHub: https://github.com/DigitalCoin1/DigitalCoinBRL
+Trello: https://trello.com/b/jYZvXKDs/sperocoin
+E-mail: sperocoin@gmail.com
+</source>
+        <translation type="unfinished"/>
+        </message>
 </context>
 <context>
     <name>AddressBookPage</name>

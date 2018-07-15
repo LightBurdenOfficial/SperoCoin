@@ -7,14 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>340</width>
-    <height>530</height>
+    <height>550</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>QR Code Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 10pt &quot;Copperplate Gothic Light&quot;;</string>
+   <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
@@ -55,6 +55,9 @@
        <width>0</width>
        <height>50</height>
       </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
      </property>
      <property name="tabChangesFocus">
       <bool>true</bool>
@@ -99,7 +102,11 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QLineEdit" name="lnLabel"/>
+         <widget class="QLineEdit" name="lnLabel">
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          </property>
+         </widget>
         </item>
         <item row="2" column="0">
          <widget class="QLabel" name="lblMessage">
@@ -118,7 +125,11 @@
          </widget>
         </item>
         <item row="2" column="1">
-         <widget class="QLineEdit" name="lnMessage"/>
+         <widget class="QLineEdit" name="lnMessage">
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          </property>
+         </widget>
         </item>
         <item row="0" column="0">
          <widget class="QLabel" name="lblAmount">
@@ -153,6 +164,9 @@
             <height>0</height>
            </size>
           </property>
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          </property>
          </widget>
         </item>
        </layout>
@@ -174,6 +188,9 @@
         </item>
         <item>
          <widget class="QPushButton" name="btnSaveAs">
+          <property name="styleSheet">
+           <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+          </property>
           <property name="text">
            <string>&amp;Save As...</string>
           </property>
@@ -191,6 +208,7 @@
    <class>BitcoinAmountField</class>
    <extends>QSpinBox</extends>
    <header>bitcoinamountfield.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

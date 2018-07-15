@@ -252,6 +252,9 @@ static const CRPCCommand vRPCCommands[] =
     { "getdifficulty",          &getdifficulty,          true,   false },
 
     { "getinfo",                &getinfo,                true,   false },
+
+    { "getnetworkinfo",         &getnetworkinfo,         true,   false },
+    { "getblockchaininfo",      &getblockchaininfo,      true,   false },
     { "getsubsidy",             &getsubsidy,             true,   false },
     { "getmininginfo",          &getmininginfo,          true,   false },
     { "getstakinginfo",         &getstakinginfo,         true,   false },
@@ -1230,6 +1233,10 @@ Array RPCConvertValues(const std::string &strMethod, const std::vector<std::stri
     if (strMethod == "getblockbynumber"       && n > 0) ConvertTo<boost::int64_t>(params[0]);
     if (strMethod == "getblockbynumber"       && n > 1) ConvertTo<bool>(params[1]);
     if (strMethod == "getblockhash"           && n > 0) ConvertTo<boost::int64_t>(params[0]);
+
+    if (strMethod == "getnetworkinfo"         && n > 0) ConvertTo<bool>(params[0]);
+    if (strMethod == "getblockchaininfo"      && n > 0) ConvertTo<bool>(params[0]);
+
     if (strMethod == "getblockheader"         && n > 1) ConvertTo<bool>(params[1]);
     if (strMethod == "move"                   && n > 2) ConvertTo<double>(params[2]);
     if (strMethod == "move"                   && n > 3) ConvertTo<boost::int64_t>(params[3]);

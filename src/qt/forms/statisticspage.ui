@@ -10,14 +10,14 @@
     <x>0</x>
     <y>0</y>
     <width>629</width>
-    <height>508</height>
+    <height>607</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Digging</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 10pt &quot;Copperplate Gothic Light&quot;;</string>
+   <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="sizeConstraint">
@@ -59,6 +59,9 @@
         <height>81</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+      </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; text-decoration: underline;&quot;&gt;Sperocoin phases:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
@@ -73,7 +76,7 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 7pt &quot;Copperplate Gothic Light&quot;;</string>
+       <string notr="true">font: 75 7pt &quot;Century Gothic&quot;;</string>
       </property>
       <property name="text">
        <string>labelPhasePoW</string>
@@ -89,7 +92,7 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 7pt &quot;Copperplate Gothic Light&quot;;</string>
+       <string notr="true">font: 75 7pt &quot;Century Gothic&quot;;</string>
       </property>
       <property name="text">
        <string>labelPhasePoS</string>
@@ -105,7 +108,7 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 7pt &quot;Copperplate Gothic Light&quot;;</string>
+       <string notr="true">font: 75 7pt &quot;Century Gothic&quot;;</string>
       </property>
       <property name="text">
        <string>labelPhaseHibrid</string>
@@ -125,12 +128,15 @@
          <widget class="QLabel" name="label_5">
           <property name="font">
            <font>
-            <family>Copperplate Gothic Light</family>
-            <pointsize>10</pointsize>
-            <weight>50</weight>
+            <family>Century Gothic</family>
+            <pointsize>12</pointsize>
+            <weight>9</weight>
             <italic>false</italic>
             <bold>false</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
           </property>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20px; font-weight:600; color:#000000;&quot;&gt;Sperocoin Statistics&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -181,6 +187,9 @@
         </property>
         <item row="1" column="0">
          <widget class="QLabel" name="label_14">
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          </property>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Block Height&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
@@ -190,12 +199,15 @@
          <widget class="QLabel" name="heightBox">
           <property name="font">
            <font>
-            <family>Copperplate Gothic Light</family>
+            <family>Century Gothic</family>
             <pointsize>10</pointsize>
-            <weight>50</weight>
+            <weight>9</weight>
             <italic>false</italic>
             <bold>false</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
           </property>
           <property name="text">
            <string>00000</string>
@@ -207,6 +219,9 @@
         </item>
         <item row="2" column="0">
          <widget class="QLabel" name="label_12">
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          </property>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;PoW Block Reward&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
@@ -216,12 +231,15 @@
          <widget class="QLabel" name="rewardBox">
           <property name="font">
            <font>
-            <family>Copperplate Gothic Light</family>
+            <family>Century Gothic</family>
             <pointsize>10</pointsize>
-            <weight>50</weight>
+            <weight>9</weight>
             <italic>false</italic>
             <bold>false</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
           </property>
           <property name="text">
            <string>250</string>
@@ -230,6 +248,9 @@
         </item>
         <item row="3" column="0">
          <widget class="QLabel" name="label_13">
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          </property>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;PoW difficulty&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
@@ -239,12 +260,15 @@
          <widget class="QLabel" name="diffBox">
           <property name="font">
            <font>
-            <family>Copperplate Gothic Light</family>
+            <family>Century Gothic</family>
             <pointsize>10</pointsize>
-            <weight>50</weight>
+            <weight>9</weight>
             <italic>false</italic>
             <bold>false</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
           </property>
           <property name="text">
            <string>0.0002</string>
@@ -253,6 +277,9 @@
         </item>
         <item row="4" column="0">
          <widget class="QLabel" name="label_9">
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          </property>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;PoS difficulty&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
@@ -262,12 +289,15 @@
          <widget class="QLabel" name="diffBox2">
           <property name="font">
            <font>
-            <family>Copperplate Gothic Light</family>
+            <family>Century Gothic</family>
             <pointsize>10</pointsize>
-            <weight>50</weight>
+            <weight>9</weight>
             <italic>false</italic>
             <bold>false</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
           </property>
           <property name="text">
            <string>0.0002</string>
@@ -278,12 +308,15 @@
          <widget class="QLabel" name="pawrateBox">
           <property name="font">
            <font>
-            <family>Copperplate Gothic Light</family>
+            <family>Century Gothic</family>
             <pointsize>10</pointsize>
-            <weight>50</weight>
+            <weight>9</weight>
             <italic>false</italic>
             <bold>false</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
           </property>
           <property name="text">
            <string>0 MH/s</string>
@@ -298,6 +331,9 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          </property>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Last block time&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
@@ -307,12 +343,15 @@
          <widget class="QLabel" name="localBox">
           <property name="font">
            <font>
-            <family>Copperplate Gothic Light</family>
+            <family>Century Gothic</family>
             <pointsize>10</pointsize>
-            <weight>50</weight>
+            <weight>9</weight>
             <italic>false</italic>
             <bold>false</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
           </property>
           <property name="text">
            <string>0 KH/s</string>
@@ -321,6 +360,9 @@
         </item>
         <item row="7" column="0">
          <widget class="QLabel" name="label1_2">
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          </property>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Connections&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
@@ -330,12 +372,15 @@
          <widget class="QLabel" name="connectionBox">
           <property name="font">
            <font>
-            <family>Copperplate Gothic Light</family>
+            <family>Century Gothic</family>
             <pointsize>10</pointsize>
-            <weight>50</weight>
+            <weight>9</weight>
             <italic>false</italic>
             <bold>false</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
           </property>
           <property name="text">
            <string>0</string>
@@ -344,6 +389,9 @@
         </item>
         <item row="8" column="0">
          <widget class="QLabel" name="label_8">
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          </property>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Total Coin Volume&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
@@ -353,12 +401,15 @@
          <widget class="QLabel" name="volumeBox">
           <property name="font">
            <font>
-            <family>Copperplate Gothic Light</family>
+            <family>Century Gothic</family>
             <pointsize>10</pointsize>
-            <weight>50</weight>
+            <weight>9</weight>
             <italic>false</italic>
             <bold>false</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
           </property>
           <property name="text">
            <string>250</string>
@@ -367,6 +418,9 @@
         </item>
         <item row="9" column="0">
          <widget class="QLabel" name="label_10">
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          </property>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Total stake weight&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
@@ -376,12 +430,15 @@
          <widget class="QLabel" name="minBox">
           <property name="font">
            <font>
-            <family>Copperplate Gothic Light</family>
+            <family>Century Gothic</family>
             <pointsize>10</pointsize>
-            <weight>50</weight>
+            <weight>9</weight>
             <italic>false</italic>
             <bold>false</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
           </property>
           <property name="text">
            <string>0</string>
@@ -390,6 +447,9 @@
         </item>
         <item row="10" column="0">
          <widget class="QLabel" name="label_11">
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          </property>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Network stake weight&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
@@ -399,12 +459,15 @@
          <widget class="QLabel" name="maxBox">
           <property name="font">
            <font>
-            <family>Copperplate Gothic Light</family>
+            <family>Century Gothic</family>
             <pointsize>10</pointsize>
-            <weight>50</weight>
+            <weight>9</weight>
             <italic>false</italic>
             <bold>false</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
           </property>
           <property name="text">
            <string>0</string>
@@ -413,6 +476,9 @@
         </item>
         <item row="11" column="0">
          <widget class="QLabel" name="label_15">
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          </property>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Mining Phase&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
@@ -422,12 +488,15 @@
          <widget class="QLabel" name="cBox">
           <property name="font">
            <font>
-            <family>Copperplate Gothic Light</family>
+            <family>Century Gothic</family>
             <pointsize>10</pointsize>
-            <weight>50</weight>
+            <weight>9</weight>
             <italic>false</italic>
             <bold>false</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
           </property>
           <property name="text">
            <string>POW</string>
@@ -436,6 +505,9 @@
         </item>
         <item row="5" column="0">
          <widget class="QLabel" name="label_16">
+          <property name="styleSheet">
+           <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          </property>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Net Hashrate&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
@@ -461,7 +533,7 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">background:lightgrey;</string>
+      <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
      </property>
      <property name="text">
       <string>Update Statistics</string>

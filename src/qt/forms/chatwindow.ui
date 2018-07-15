@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 10pt &quot;Copperplate Gothic Light&quot;;</string>
+   <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
   </property>
   <widget class="QWidget" name="widget_2" native="true">
    <property name="geometry">
@@ -134,7 +134,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font-family:Proxima Nova Rg;</string>
+     <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
     </property>
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
@@ -159,6 +159,9 @@
        <width>631</width>
        <height>91</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
      </property>
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Connect directly to the IRC channel from your wallet by inputing a Nickname here and pressing 'Connect to IRC'&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -198,6 +201,9 @@
        <height>211</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+     </property>
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A few IRC commands :&lt;/p&gt;&lt;ul style=&quot;margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;&quot;&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;/JOIN #channel &lt;span style=&quot; color:#9a9a9a;&quot;&gt;Join a channel&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;/NICK nickname &lt;span style=&quot; color:#9a9a9a;&quot;&gt;Change nickname&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;/PRIVMSG nickname message &lt;span style=&quot; color:#9a9a9a;&quot;&gt;Send PM &lt;/span&gt;&lt;/li&gt;&lt;li style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If userlist gets buggy, switch tabs to fix&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
@@ -211,6 +217,9 @@
        <height>22</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -223,6 +232,9 @@
        <width>61</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
      </property>
      <property name="text">
       <string>Nickname</string>
@@ -238,7 +250,7 @@
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
      </property>
      <property name="text">
       <string>Connect to IRC</string>
@@ -255,6 +267,9 @@
        <width>161</width>
        <height>21</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
      </property>
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Connect to IRC :&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
