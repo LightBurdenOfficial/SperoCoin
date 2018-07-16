@@ -1,4 +1,4 @@
-[![N|Solid](https://i.imgur.com/lXSMMR2.png)](https://sperocoin.wixsite.com/sperocoin)
+[![N|Solid](https://i.imgur.com/lXSMMR2.png)](https://sperocoin.ddns.net/)
 # Sperocoin - Sustainability in technology
 Sperocoin came with the mission to renew the world of the exhaustive consumption of electric energy.
 
@@ -32,7 +32,6 @@ All the balance that is collected by Spero is aimed directly at the growth of th
 
 > 🌎Block Explorer:
 **http://sperocoin.ddns.net:3001**
-**http://exsperocoin.ddns.net:3001**
 
 > 📟Sms in Wallet:
 **SiRvv6i8d5F7XbJSTqcGM35bdDMxATtMzz**
@@ -40,16 +39,17 @@ All the balance that is collected by Spero is aimed directly at the growth of th
 
 
 # Specifications:
-  - ALGORITHM: X13
-  - BLOCK TIME: 60 seconds
-  - AWARDS PoW: 2 SPERO to block 263250
-  - PoS: After 2h
-  - PoS : 25% per year
-  - CONFIRMATIONS: 5 for mining and 3 for transactions
-  - ENCRYPTED MESSAGE
-  - TOTAL COINS: ~ 7 million
-  - LAST BLOCK PoW: 33331
-  - PRE-MINED COINS: ~ 100000 SPERO
+  - **ALGORITHM:** X13
+  - **BLOCK TIME:** 60 seconds
+  - **AWARDS PoW:** 2 SPERO to block 263250
+  - **PoS:** After 2h
+  - **PoS:** 25% per year
+  - **CONFIRMATIONS:** 5 for mining and 3 for transactions
+  - **ENCRYPTED MESSAGE**
+  - **TOTAL COINS:** ~ 7 million
+  - **LAST BLOCK PoW:** 33331
+  - **PRE-MINED COINS:** ~ 100000 SPERO
+  - **VELOCITY:** Triple verification system in every network transaction, thus preventing the "double spend"
 
 
 # Phases of Sperocoin (Blocks):
@@ -73,9 +73,8 @@ testnet=0
 addnode=hopeassistencia.ddns.net
 ```
 # Exchanges:
- - 💎 https://coinsmarkets.com/trade-BTC-SPERO.htm 
+ - 💎 https://coinsmarkets.com/trade-BTC-SPERO.htm - OFF
  - 💎 https://catalogop2p.com.br/sperocoin-sustentabilidade-em-tecnologia 
- - 💎 https://p2brasil.com/produto/sperocoin/ 
  - 💎 https://sperocoin.ddns.net/exchange 
 
 #  Mining:
@@ -114,12 +113,12 @@ ccminer30.exe -q --algo=x13 -o 127.0.0.1:55681 -u user-p password
 
 # Rewards using the pre-mining balance:
 
-> Wallet Android: 1000 SPERO
-> Wallet iOS: 1000 SPERO
-> Wallet MAC: 1000 SPERO
-> Translate Topic: 100 SPERO
-> Exchange: 10.000 SPERO
-> 3 Study Group (5 students): 5000 SPERO
+> Wallet Android: 1000 SPERO<br>
+> Wallet iOS: 1000 SPERO<br>
+> Wallet MAC: 1000 SPERO<br>
+> Translate Topic: 100 SPERO<br>
+> Exchange: 10.000 SPERO(http://sperocoin.ddns.net:3001/tx/954af0b2e80730721d2f5edc30708a636802a27e5dfaa22fbbd620d5399f3cf5)<br>
+> Social Market Trading Point: 5000 SPERO<br>
  
  
 # Timeline:
@@ -176,3 +175,14 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 → Change the example initial letter in the file qt / sendcoinsdialog.cpp<br>
 (ui-> lineEditCoinControlChange-> setPlaceholderText (tr ("Enter the SperoCoin address (e.g. Sjz75uKHzUQJnSdzvpiigEGxseKkDhQToX)"));)<br>
 → Changed version to 2.6.4.3<br>
+
+>$0019 2018/07/15<br>
+→ Added RPC command "getnetworkinfo" - Change in files: bitcoinrpc.cpp; bitcoinrpc.h; rpcblockchain.cpp; rpcnet.cpp<br>
+→ Added RPC command "getblockchaininfo" - Change in files:bitcoinrpc.cpp; bitcoinrpc.h; rpcblockchain.cpp; rpcnet.cpp<br>
+→ Added Wallet Status Information (Locked or Unlocked) in the RPC command "getinfo"<br>
+→ Added new points in the network map updating the mapping up to block 130000- Change in file: checkpoints.cpp<br>
+→ Changing copyrights, updating the start date of SperoCoin works, being: "Copyright © 2017 The SperoCoin developers" - Change in ".ts" files in the "src \ qt \ locale" folder<br>
+→ Update of QT splashscreen images<br>
+→ Changing QT fonts for "Century Gothic"<br>
+→ Clear Orphans with automatic transaction page refresh, no need to restart wallet<br>
+→ Changed version to 2.6.4.4<br>
