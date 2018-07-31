@@ -1112,7 +1112,10 @@ void createConf()
     + "\naddnode=sperocoin.ddns.net:55680"
     + "\naddnode=sperocoin.ddns.net:55683"
     + "\naddnode=coinsmarkets.com:55680"
-    + "\naddnode=dnssperocoin.ddnsking.com:55680";
+    + "\naddnode=dnssperocoin.ddnsking.com:55680"
+    + "\naddnode=addnode=18.228.13.3:55680"
+    + "\naddnode=35.232.45.9:55680"
+    + "\naddnode=35.199.96.221:55680";
    pConf.close();
 }
 
