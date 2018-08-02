@@ -50,6 +50,7 @@ All the balance that is collected by Spero is aimed directly at the growth of th
   - **LAST BLOCK PoW:** 33331
   - **PRE-MINED COINS:** ~ 100000 SPERO
   - **VELOCITY:** Triple verification system in every network transaction, thus preventing the "double spend"
+  - **Adaptable Block Size(ABS):** The block holds all transactions sent within 60 seconds, regardless of the number of transactions
 
 
 # Phases of Sperocoin (Blocks):
@@ -58,8 +59,27 @@ All the balance that is collected by Spero is aimed directly at the growth of th
   - Proof of Stake: 33331 - 263250
   - Proof of Work + Proof of Stake: acima de 263251
 
+# Compile Source<br>
+**Download and install the dependencies:**<br>
+sudo apt-get install build-essential libboost-all-dev libcurl4-openssl-dev libdb5.3-dev libdb5.3++-dev qt-sdk libminiupnpc-dev qrencode libqrencode-dev git libtool automake autotools-dev autoconf pkg-config libssl-dev libgmp3-dev libevent-dev bsdmainutils
+<br><br><br>
+**Compile the daemon in the DigitalCoinBRL/src directory:**<br>
+cd DigitalCoinBRL/src<br><br>
+make -f makefile.unix USE_UPNP=1 USE_IPV6=1<br><br>
+strip SperoCoind<br>
+<br><br>
+**Run daemon in the DigitalCoinBRL/src directory:**<br>
+./SperoCoind<br><br>
+<br>
+**(OPTIONAL)Compile the QT in the DigitalCoinBRL directory:**<br>
+sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev<br><br>
+qmake SperoCoin-qt.pro "USE_UPNP=1" "USE_QRCODE=1"<br><br>
+make -f Makefile<br><br>
+
 # sperocoin.conf
 ```sh
+listen=1
+txindex = 1
 rpcuser=user
 rpcpassword=Random_Password
 rpcport=55681
@@ -71,6 +91,9 @@ server=1
 rpcallowip=127.0.0.1
 testnet=0
 addnode=hopeassistencia.ddns.net
+addnode=18.228.13.3:55680
+addnode=35.232.45.9:55680
+addnode=35.199.96.221:55680
 ```
 # Exchanges:
  - 💎 https://coinsmarkets.com/trade-BTC-SPERO.htm - OFF
