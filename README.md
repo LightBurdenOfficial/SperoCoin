@@ -66,15 +66,15 @@ All the balance that is collected by Spero is aimed directly at the growth of th
 **Download and install the dependencies:**<br>
 sudo apt-get install build-essential libboost-all-dev libcurl4-openssl-dev libdb5.3-dev libdb5.3++-dev qt-sdk libminiupnpc-dev qrencode libqrencode-dev git libtool automake autotools-dev autoconf pkg-config libssl-dev libgmp3-dev libevent-dev bsdmainutils
 <br><br><br>
-**Compile the daemon in the DigitalCoinBRL/src directory:**<br>
+**Compile the daemon in the SperoCoin/src directory:**<br>
 cd DigitalCoinBRL/src<br><br>
 make -f makefile.unix USE_UPNP=1 USE_IPV6=1<br><br>
 strip SperoCoind<br>
 <br><br>
-**Run daemon in the DigitalCoinBRL/src directory:**<br>
+**Run daemon in the SperoCoin/src directory:**<br>
 ./SperoCoind<br><br>
 <br>
-**(OPTIONAL)Compile the QT in the DigitalCoinBRL directory:**<br>
+**(OPTIONAL)Compile the QT in the SperoCoin directory:**<br>
 sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev<br><br>
 qmake SperoCoin-qt.pro "USE_UPNP=1" "USE_QRCODE=1"<br><br>
 make -f Makefile<br><br>
@@ -99,7 +99,9 @@ addnode=35.232.45.9:55680
 addnode=35.199.96.221:55680
 ```
 # Exchanges:
- - 💎 https://coinsmarkets.com/trade-BTC-SPERO.htm - OFF
+ - 💎 https://www.altilly.com/market/SPERO_BTC
+ - 💎 https://www.altilly.com/market/SPERO_ETH
+ - 💎 https://www.altilly.com/market/SPERO_DOGE
  - 💎 https://catalogop2p.com.br/sperocoin-sustentabilidade-em-tecnologia 
  - 💎 https://sperocoin.ddns.net/exchange 
 
