@@ -233,3 +233,19 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 → Changing QT fonts for "Century Gothic"<br>
 → Clear Orphans with automatic transaction page refresh, no need to restart wallet<br>
 → Changed version to 2.6.4.4<br>
+
+>$0020 2018/10/27<br>
+→ Add/Remove Nodes<br>
+
+>$0021 2018/07/15<br>
+→ Added new points in the network map updating the mapping up to block 165962- Change in file: checkpoints.cpp<br>
+→ Performance Enhancements - Increased Speed ​​in Synchronization - Changes in files: main.cpp; main.h;<br>
+→ Added new icons<br>
+→ Change style of block download progress bar from "QWindowsXPStyle" to "QWindowsVistaStyle" - Changes in file: bitcoingui.cpp<br>
+→ Changing the size of the icons in "STATUSBAR_ICONSIZE" from 16 to 64 - Changes in file: guiconstants.h<br>
+→ Adding SperoCoin.conf file opening from the Console Window menu<br>
+→ Changed description of mining type PoW<br>
+→ Changed description of mining type PoS<br>
+→ New PoS Mining Icon<br>
+→ Changed version to 2.6.4.5<br>
+
