@@ -42,6 +42,14 @@ namespace Checkpoints
         ( 110000,      uint256("0xb259e70c4f4a5cf34a1a645c295f566c2a554903d29ae359c9fd81b1d68d9586") )
         ( 120000,      uint256("0xff8c33d12795d926a9213d80ba4bcb8fa153c87cbedb862830a55ab8956efa71") )
         ( 130000,      uint256("0x4f5727cd9a032ef1d05d1480e42a8b16e09d0d6588e389aa27bc5e461719cbc9") )
+        ( 135000,      uint256("0xc7a08c183ecd1c9f38304979f2936224fe5922d0442221c22573770c66bb0a6a") )
+        ( 140000,      uint256("0x298c377cc8a1f656abb7b07012e7ef92d64add2e3cd4242ba1693a6c33923aff") )
+        ( 145000,      uint256("0x650aa730dc3c1e39fcce0aba4be54c2c903531a6b48c3d55c0c9b15bedd91509") )
+        ( 150000,      uint256("0x19f806ae3dc3a1b2cdc54d2d05d8ca0bcef7e29ef618fe0c8ecfa826cd50f283") )
+        ( 155000,      uint256("0x15edf3165319bf17b14b2c4641b854c78e12c0ed9a3b5a6f52f155f41e1f1e11") )
+        ( 160000,      uint256("0xa2206bd55f4c7c63e864c067fc0a8b70f4f01d47815e711e03362140c20abd0c") )
+        ( 165000,      uint256("0x226de5e21de3d782998ee55d499330b114f55f68b7cdc601654e1bef2fd1bc95") )
+        ( 165962,      uint256("ed866edc2d4e1b20891af3f927d1d703c773f49f42c4ec9b40d374969b3ca06e") ) //Primeira Transação para uma wallet Android
     ;
 
     // TestNet has no checkpoints

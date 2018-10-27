@@ -98,12 +98,31 @@ addnode=18.228.13.3:55680
 addnode=35.232.45.9:55680
 addnode=35.199.96.221:55680
 ```
+
+# sperocoin.conf - Testnet
+```sh
+listen=1
+txindex = 1
+rpcuser=user
+rpcpassword=Random_Password
+rpcport=55691
+port=55690
+#(0=off, 1=on) daemon - run in the background as a daemon and accept commands
+daemon=1
+#(0=off, 1=on) server - accept command line and JSON-RPC commands
+server=1
+rpcallowip=127.0.0.1
+testnet=1
+addnode=18.228.13.3:55690
+addnode=18.228.13.3:55692
+```
+
 # Exchanges:
  - 💎 https://www.altilly.com/market/SPERO_BTC
  - 💎 https://www.altilly.com/market/SPERO_ETH
  - 💎 https://www.altilly.com/market/SPERO_DOGE
- - 💎 https://catalogop2p.com.br/sperocoin-sustentabilidade-em-tecnologia 
- - 💎 https://sperocoin.ddns.net/exchange 
+ - 💎 https://catalogop2p.com.br/sperocoin-sustentabilidade-em-tecnologia
+ - 💎 https://sperocoin.ddns.net/exchange
 
 #  Mining:
 - Solo Cpu:
@@ -147,8 +166,8 @@ ccminer30.exe -q --algo=x13 -o 127.0.0.1:55681 -u user-p password
 > Translate Topic: 100 SPERO<br>
 > Exchange: 10.000 SPERO(http://sperocoin.ddns.net:3001/tx/954af0b2e80730721d2f5edc30708a636802a27e5dfaa22fbbd620d5399f3cf5)<br>
 > Social Market Trading Point: 5000 SPERO<br>
- 
- 
+
+
 # Timeline:
 >$0001 2017/09/26<br>
 Initial Upload to GitHub<br>

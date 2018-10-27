@@ -1742,7 +1742,7 @@ bool CBlock::DisconnectBlock(CTxDB& txdb, CBlockIndex* pindex)
 bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
 {
     // Check it again in case a previous version let a bad block in, but skip BlockSig checking
-    if (!CheckBlock(!fJustCheck, !fJustCheck, false))
+        if (!CheckBlock(!fJustCheck, !fJustCheck, false,pindex->nHeight)) //Melhorias de Desempenho - Aumento de Velocidade na Sincronização
         return false;
 
     // Do not allow blocks that contain transactions which 'overwrite' older transactions,
@@ -1834,19 +1834,17 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
             nValueOut += nTxValueOut;
             if (!tx.IsCoinStake())
                 nFees += nTxValueIn - nTxValueOut;
+            if (tx.IsCoinStake())
+                nStakeReward = nTxValueOut - nTxValueIn;
 
             unsigned int nFlags = SCRIPT_VERIFY_NOCACHE | SCRIPT_VERIFY_P2SH;
 
             if (tx.nTime >= CHECKLOCKTIMEVERIFY_SWITCH_TIME) {
                 nFlags |= SCRIPT_VERIFY_CHECKLOCKTIMEVERIFY;
-                nFlags |= SCRIPT_VERIFY_CHECKSEQUENCEVERIFY;
+                //nFlags |= SCRIPT_VERIFY_CHECKSEQUENCEVERIFY;
             }
 
-            if (tx.IsCoinStake())
-                nStakeReward = nTxValueOut - nTxValueIn;
-
-        //if (!tx.ConnectInputs(txdb, mapInputs, mapQueuedChanges, posThisTx, pindex, true, false, SCRIPT_VERIFY_NOCACHE | SCRIPT_VERIFY_P2SH))
-        if (!tx.ConnectInputs(txdb, mapInputs, mapQueuedChanges, posThisTx, pindex, true, false, nFlags))
+            if (!tx.ConnectInputs(txdb, mapInputs, mapQueuedChanges, posThisTx, pindex, true, false, nFlags))
 
                 return false;
         }
@@ -1904,38 +1902,38 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
             return error("ConnectBlock() : UpdateTxIndex failed");
     }
 
-    // Write Address Index
-    BOOST_FOREACH(CTransaction& tx, vtx)
-    {
-        uint256 hashTx = tx.GetHash();
-	// inputs
-	if(!tx.IsCoinBase())
-	{
-            MapPrevTx mapInputs;
-	    map<uint256, CTxIndex> mapQueuedChangesT;
-	    bool fInvalid;
+if(GetBoolArg("-addrindex", false))
+     {
+        // Write Address Index
+        BOOST_FOREACH(CTransaction& tx, vtx)
+        {
+            uint256 hashTx = tx.GetHash();
+            // inputs
+            if(!tx.IsCoinBase())
+                {
+                     MapPrevTx mapInputs;
+                     map<uint256, CTxIndex> mapQueuedChangesT;
+                     bool fInvalid;
+
             if (!tx.FetchInputs(txdb, mapQueuedChangesT, true, false, mapInputs, fInvalid))
                 return false;
-
-	    MapPrevTx::const_iterator mi;
-	    for(MapPrevTx::const_iterator mi = mapInputs.begin(); mi != mapInputs.end(); ++mi)
-	    {
-		    BOOST_FOREACH(const CTxOut &atxout, (*mi).second.second.vout)
-		    {
-			std::vector<uint160> addrIds;
-			if(BuildAddrIndex(atxout.scriptPubKey, addrIds))
-			{
-                            BOOST_FOREACH(uint160 addrId, addrIds)
-		            {
-			        if(!txdb.WriteAddrIndex(addrId, hashTx))
-				    printf("ConnectBlock(): txins WriteAddrIndex failed addrId: %s txhash: %s\n", addrId.ToString().c_str(), hashTx.ToString().c_str());
+            MapPrevTx::const_iterator mi;
+            for(MapPrevTx::const_iterator mi = mapInputs.begin(); mi != mapInputs.end(); ++mi)
+                {
+                    BOOST_FOREACH(const CTxOut &atxout, (*mi).second.second.vout)
+                    {
+                        std::vector<uint160> addrIds;
+                        if(BuildAddrIndex(atxout.scriptPubKey, addrIds))
+                            {
+                                BOOST_FOREACH(uint160 addrId, addrIds)
+                                {
+                                    if(!txdb.WriteAddrIndex(addrId, hashTx))
+                                        printf("ConnectBlock(): txins WriteAddrIndex failed addrId: %s txhash: %s\n", addrId.ToString().c_str(), hashTx.ToString().c_str());
+                                    }
+                                }
                             }
-			}
-		    }
-	    }
-
-        }
-
+                        }
+                    }
 	// outputs
 	BOOST_FOREACH(const CTxOut &atxout, tx.vout) {
 	    std::vector<uint160> addrIds;
@@ -1946,9 +1944,10 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
 		    if(!txdb.WriteAddrIndex(addrId, hashTx))
 		        printf("ConnectBlock(): txouts WriteAddrIndex failed addrId: %s txhash: %s\n", addrId.ToString().c_str(), hashTx.ToString().c_str());
                 }
-	    }
-	}
+	       }
+	   }
     }
+}
 
 
     // Update block index on disk without changing it in memory.
@@ -2352,8 +2351,13 @@ bool CBlock::AddToBlockIndex(unsigned int nFile, unsigned int nBlockPos, const u
 
 
 
-bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot, bool fCheckSig) const
+//Melhorias de Desempenho - Aumento de Velocidade na Sincronização
+bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot, bool fCheckSig, int height) const
 {
+        //Melhorias de Desempenho - Aumento de Velocidade na Sincronização
+    if (height <= SKIP_VALIDATION_HEIGHT){
+    return true;
+    }
     // These are checks that are independent of context
     // that can be verified before saving an orphan block.
     if(pindexBest != NULL && pindexBest->nHeight > 1)

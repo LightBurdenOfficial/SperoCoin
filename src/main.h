@@ -26,6 +26,9 @@ class CInv;
 class CRequestTracker;
 class CNode;
 
+//Melhorias de Desempenho - Aumento de Velocidade na Sincronização
+static const int SKIP_VALIDATION_HEIGHT = 165000;
+
 static const int LAST_POW_BLOCK = 33331;
 static const unsigned int MAX_BLOCK_SIZE = 20000000; //20MB
 static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2;
@@ -1092,7 +1095,7 @@ public:
     bool ReadFromDisk(const CBlockIndex* pindex, bool fReadTransactions=true);
     bool SetBestChain(CTxDB& txdb, CBlockIndex* pindexNew);
     bool AddToBlockIndex(unsigned int nFile, unsigned int nBlockPos, const uint256& hashProofOfStake);
-    bool CheckBlock(bool fCheckPOW=true, bool fCheckMerkleRoot=true, bool fCheckSig=true) const;
+    bool CheckBlock(bool fCheckPOW=true, bool fCheckMerkleRoot=true, bool fCheckSig=true, int height=2) const; //Melhorias de Desempenho - Aumento de Velocidade na Sincronização
     bool AcceptBlock();
     bool GetCoinAge(uint64_t& nCoinAge) const; // SperoCoin: calculate total coin age spent in block
     bool SignBlock(CWallet& keystore, int64_t nFees);

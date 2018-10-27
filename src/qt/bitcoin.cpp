@@ -22,6 +22,7 @@
 #include <QTranslator>
 #include <QSplashScreen>
 #include <QLibraryInfo>
+#include <QSettings>
 
 #if defined(BITCOIN_NEED_QT_PLUGINS) && !defined(_BITCOIN_QT_PLUGINS_INCLUDED)
 #define _BITCOIN_QT_PLUGINS_INCLUDED
@@ -128,14 +129,11 @@ int main(int argc, char *argv[])
     Q_INIT_RESOURCE(bitcoin);
     QApplication app(argc, argv);
 
-    // Do this early as we don't want to bother initializing if we are just calling IPC
+   // Do this early as we don't want to bother initializing if we are just calling IPC
     // ... but do it after creating app, so QCoreApplication::arguments is initialized:
     if (PaymentServer::ipcSendCommandLine())
         exit(0);
     PaymentServer* paymentServer = new PaymentServer(&app);
-
-    // Install global event filter that makes sure that long tooltips can be word-wrapped
-    app.installEventFilter(new GUIUtil::ToolTipToRichTextFilter(TOOLTIP_WRAP_THRESHOLD, &app));
 
     // Command-line options take precedence:
     ParseParameters(argc, argv);
@@ -151,7 +149,7 @@ int main(int argc, char *argv[])
     }
     ReadConfigFile(mapArgs, mapMultiArgs);
 
-    // Application identification (must be set before OptionsModel is initialized,
+// Application identification (must be set before OptionsModel is initialized,
     // as it is used to locate QSettings)
     app.setOrganizationName("SperoCoin");
     //XXX app.setOrganizationDomain("");
@@ -168,24 +166,19 @@ int main(int argc, char *argv[])
     QString lang = lang_territory;
     // Convert to "de" only by truncating "_DE"
     lang.truncate(lang_territory.lastIndexOf('_'));
-
     QTranslator qtTranslatorBase, qtTranslator, translatorBase, translator;
     // Load language files for configured locale:
     // - First load the translator for the base language, without territory
     // - Then load the more specific locale translator
-
     // Load e.g. qt_de.qm
     if (qtTranslatorBase.load("qt_" + lang, QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
         app.installTranslator(&qtTranslatorBase);
-
     // Load e.g. qt_de_DE.qm
     if (qtTranslator.load("qt_" + lang_territory, QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
         app.installTranslator(&qtTranslator);
-
     // Load e.g. bitcoin_de.qm (shortcut "de" needs to be defined in bitcoin.qrc)
     if (translatorBase.load(lang, ":/translations/"))
         app.installTranslator(&translatorBase);
-
     // Load e.g. bitcoin_de_DE.qm (shortcut "de_DE" needs to be defined in bitcoin.qrc)
     if (translator.load(lang_territory, ":/translations/"))
         app.installTranslator(&translator);
@@ -232,7 +225,7 @@ int main(int argc, char *argv[])
                 // Put this in a block, so that the Model objects are cleaned up before
                 // calling Shutdown().
 
-		paymentServer->setOptionsModel(&optionsModel);
+    paymentServer->setOptionsModel(&optionsModel);
 
                 optionsModel.Upgrade(); // Must be done after AppInit2
 

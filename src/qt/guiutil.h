@@ -4,6 +4,11 @@
 #include <QString>
 #include <QObject>
 #include <QMessageBox>
+#include <QWidget>
+#include <QEvent>
+#include <QTextEdit>
+
+#include <boost/filesystem.hpp>
 
 QT_BEGIN_NAMESPACE
 class QFont;
@@ -19,6 +24,11 @@ class SendCoinsRecipient;
  */
 namespace GUIUtil
 {
+       /* Convert QString to OS specific boost path through UTF-8 */
+    boost::filesystem::path qstringToBoostPath(const QString &path);
+     /* Convert OS specific boost path to QString through UTF-8 */
+    QString boostPathToQString(const boost::filesystem::path &path);
+
     // Create human-readable string from date
     QString dateTimeStr(const QDateTime &datetime);
     QString dateTimeStr(qint64 nTime);
@@ -74,6 +84,11 @@ namespace GUIUtil
     // Open debug.log
     void openDebugLogfile();
 
+    //Adição da Intro
+    // Open SperoCoin.conf
+    void openConfigfile();
+    //Adição da Intro
+    
     /** Qt event filter that intercepts ToolTipChange events, and replaces the tooltip with a rich text
       representation if needed. This assures that Qt can word-wrap long tooltip messages.
       Tooltips longer than the provided size threshold (in characters) are wrapped.
