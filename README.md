@@ -234,10 +234,10 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 → Clear Orphans with automatic transaction page refresh, no need to restart wallet<br>
 → Changed version to 2.6.4.4<br>
 
->$0020 2018/10/27<br>
+>$0020 2018/07/31<br>
 → Add/Remove Nodes<br>
 
->$0021 2018/07/15<br>
+>$0021 2018/10/27<br>
 → Added new points in the network map updating the mapping up to block 165962- Change in file: checkpoints.cpp<br>
 → Performance Enhancements - Increased Speed ​​in Synchronization - Changes in files: main.cpp; main.h;<br>
 → Added new icons<br>
