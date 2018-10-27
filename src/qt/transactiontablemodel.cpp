@@ -365,9 +365,9 @@ QString TransactionTableModel::formatTxType(const TransactionRecord *wtx) const
     case TransactionRecord::SendToSelf:
         return tr("Payment to yourself");
     case TransactionRecord::Generated:
-        return tr("Mined");
+        return tr("PoW Mined"); //Descrição de tipo de mineração PoW
         case TransactionRecord::StakeMint:
-        return tr("Stake");
+        return tr("PoS Mined"); //Descrição de tipo de mineração PoS
     default:
         return QString();
     }
@@ -378,8 +378,9 @@ QVariant TransactionTableModel::txAddressDecoration(const TransactionRecord *wtx
     switch(wtx->type)
     {
     case TransactionRecord::Generated:
+        return QIcon(":/icons/tx_mined"); //Icone de mineração POW
     case TransactionRecord::StakeMint:
-        return QIcon(":/icons/tx_mined");
+        return QIcon(":/icons/tx_stake"); //Icone de mineração POS
     case TransactionRecord::RecvWithAddress:
     case TransactionRecord::RecvFromOther:
         return QIcon(":/icons/tx_input");

@@ -1082,12 +1082,11 @@ boost::filesystem::path GetConfigFile()
     return pathConfigFile;
 }
 
-string randomStrGen(int length)
-{
+string randomStrGen(int length) {
     static string charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
     string result;
     result.resize(length);
-    for (int i = 0; i < length; i++)
+    for (int32_t i = 0; i < length; i++)
         result[i] = charset[rand() % charset.length()];
 
     return result;
@@ -1095,10 +1094,14 @@ string randomStrGen(int length)
 
 void createConf()
 {
-    srand(time(NULL));
+    srand(static_cast<unsigned int>(time(NULL)));
 
     ofstream pConf;
+#if BOOST_FILESYSTEM_VERSION >= 3
+    pConf.open(GetConfigFile().generic_string().c_str());
+#else
     pConf.open(GetConfigFile().string().c_str());
+#endif
     pConf << "rpcuser=user\nrpcpassword="
     + randomStrGen(15)
     + "\nrpcport=55681"
@@ -1112,7 +1115,6 @@ void createConf()
     + "\nrpcallowip=127.0.0.1"
     + "\ntestnet=0"
     + "\naddnode=sperocoin.ddns.net:55680"
-    + "\naddnode=sperocoin.ddns.net:55683"
     + "\naddnode=dnssperocoin.ddnsking.com:55680"
     + "\naddnode=18.228.13.3:55680"
     + "\naddnode=35.232.45.9:55680"
@@ -1210,6 +1212,8 @@ void ShrinkDebugFile()
             fclose(file);
         }
     }
+    else if(file != NULL)
+fclose(file);
 }
 
 //

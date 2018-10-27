@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>740</width>
-    <height>552</height>
+    <height>561</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,10 +29,7 @@
       <attribute name="title">
        <string>&amp;Information</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout" columnstretch="0,1">
-       <property name="horizontalSpacing">
-        <number>12</number>
-       </property>
+        <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="0">
         <widget class="QLabel" name="label_9">
          <property name="font">
@@ -51,15 +48,21 @@
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="label_5">
+         <property name="styleSheet">
+          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+         </property>
          <property name="text">
           <string>Client name</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="1">
+       <item row="1" column="2">
         <widget class="QLabel" name="clientName">
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 8pt &quot;Century Gothic&quot;;</string>
          </property>
          <property name="text">
           <string>N/A</string>
@@ -74,15 +77,21 @@
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="label_6">
+         <property name="styleSheet">
+          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+         </property>
          <property name="text">
           <string>Client version</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="1">
+       <item row="2" column="2">
         <widget class="QLabel" name="clientVersion">
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 8pt &quot;Century Gothic&quot;;</string>
          </property>
          <property name="text">
           <string>N/A</string>
@@ -95,8 +104,11 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="0">
+       <item row="3" column="0" colspan="2">
         <widget class="QLabel" name="label_14">
+         <property name="styleSheet">
+          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+         </property>
          <property name="text">
           <string>Using OpenSSL version</string>
          </property>
@@ -105,10 +117,13 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="1">
+       <item row="3" column="2">
         <widget class="QLabel" name="openSSLVersion">
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 8pt &quot;Century Gothic&quot;;</string>
          </property>
          <property name="text">
           <string>N/A</string>
@@ -123,15 +138,21 @@
        </item>
        <item row="4" column="0">
         <widget class="QLabel" name="label_12">
+         <property name="styleSheet">
+          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+         </property>
          <property name="text">
           <string>Build date</string>
          </property>
         </widget>
        </item>
-       <item row="4" column="1">
+       <item row="4" column="2">
         <widget class="QLabel" name="buildDate">
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 8pt &quot;Century Gothic&quot;;</string>
          </property>
          <property name="text">
           <string>N/A</string>
@@ -146,15 +167,21 @@
        </item>
        <item row="5" column="0">
         <widget class="QLabel" name="label_13">
+         <property name="styleSheet">
+          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+         </property>
          <property name="text">
           <string>Startup time</string>
          </property>
         </widget>
        </item>
-       <item row="5" column="1">
+       <item row="5" column="2">
         <widget class="QLabel" name="startupTime">
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 8pt &quot;Century Gothic&quot;;</string>
          </property>
          <property name="text">
           <string>N/A</string>
@@ -172,11 +199,14 @@
          <property name="font">
           <font>
            <family>Century Gothic</family>
-           <pointsize>12</pointsize>
+           <pointsize>10</pointsize>
            <weight>9</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
          </property>
          <property name="text">
           <string>Network</string>
@@ -185,15 +215,21 @@
        </item>
        <item row="7" column="0">
         <widget class="QLabel" name="label_7">
+         <property name="styleSheet">
+          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+         </property>
          <property name="text">
           <string>Number of connections</string>
          </property>
         </widget>
        </item>
-       <item row="7" column="1">
+       <item row="7" column="2">
         <widget class="QLabel" name="numberOfConnections">
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 8pt &quot;Century Gothic&quot;;</string>
          </property>
          <property name="text">
           <string>N/A</string>
@@ -208,15 +244,21 @@
        </item>
        <item row="8" column="0">
         <widget class="QLabel" name="label_8">
+         <property name="styleSheet">
+          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+         </property>
          <property name="text">
           <string>On testnet</string>
          </property>
         </widget>
        </item>
-       <item row="8" column="1">
+       <item row="8" column="2">
         <widget class="QCheckBox" name="isTestNet">
          <property name="enabled">
           <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 8pt &quot;Century Gothic&quot;;</string>
          </property>
          <property name="text">
           <string/>
@@ -228,28 +270,37 @@
          <property name="font">
           <font>
            <family>Century Gothic</family>
-           <pointsize>12</pointsize>
+           <pointsize>10</pointsize>
            <weight>9</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
          </property>
          <property name="text">
           <string>Block chain</string>
          </property>
         </widget>
        </item>
-       <item row="10" column="0">
+       <item row="10" column="0" colspan="2">
         <widget class="QLabel" name="label_3">
+         <property name="styleSheet">
+          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+         </property>
          <property name="text">
           <string>Current number of blocks</string>
          </property>
         </widget>
        </item>
-       <item row="10" column="1">
+       <item row="10" column="2">
         <widget class="QLabel" name="numberOfBlocks">
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 8pt &quot;Century Gothic&quot;;</string>
          </property>
          <property name="text">
           <string>N/A</string>
@@ -264,15 +315,21 @@
        </item>
        <item row="11" column="0">
         <widget class="QLabel" name="label_4">
+         <property name="styleSheet">
+          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+         </property>
          <property name="text">
           <string>Estimated total blocks</string>
          </property>
         </widget>
        </item>
-       <item row="11" column="1">
+       <item row="11" column="2">
         <widget class="QLabel" name="totalBlocks">
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 8pt &quot;Century Gothic&quot;;</string>
          </property>
          <property name="text">
           <string>N/A</string>
@@ -287,15 +344,21 @@
        </item>
        <item row="12" column="0">
         <widget class="QLabel" name="label_2">
+         <property name="styleSheet">
+          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+         </property>
          <property name="text">
           <string>Last block time</string>
          </property>
         </widget>
        </item>
-       <item row="12" column="1">
+       <item row="12" column="2">
         <widget class="QLabel" name="lastBlockTime">
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 8pt &quot;Century Gothic&quot;;</string>
          </property>
          <property name="text">
           <string>N/A</string>
@@ -309,73 +372,96 @@
         </widget>
        </item>
        <item row="13" column="0">
-        <spacer name="verticalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="14" column="0">
         <widget class="QLabel" name="labelDebugLogfile">
          <property name="font">
           <font>
            <family>Century Gothic</family>
-           <pointsize>12</pointsize>
+           <pointsize>10</pointsize>
            <weight>9</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
          </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+         </property>
          <property name="text">
-          <string>Debug log file</string>
+          <string>Open Files:</string>
          </property>
         </widget>
+       </item>
+       <item row="13" column="1">
+       <spacer name="verticalSpacer_2">
+       <property name="orientation">
+       <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+         <size>
+           <width>17</width>
+           <height>14</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="14" column="0" colspan="2">
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <widget class="QPushButton" name="openDebugLogfileButton">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="toolTip">
+            <string>Open the idealcash debug log file from the current data directory. This can take a few seconds for large log files.</string>
+           </property>
+           <property name="text">
+            <string>Debug.log</string>
+           </property>
+           <property name="autoDefault">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QPushButton" name="openConfigurationfileButton">
+           <property name="toolTip">
+            <string>Open the idealcash configuration file from the current data directory.</string>
+           </property>
+           <property name="text">
+            <string>.conf File</string>
+           </property>
+           <property name="autoDefault">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item row="15" column="0">
-        <widget class="QPushButton" name="openDebugLogfileButton">
-         <property name="toolTip">
-          <string>Open the SperoCoin debug log file from the current data directory. This can take a few seconds for large log files.</string>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">font: 75 9pt &quot;Segoe Print&quot;;</string>
-         </property>
-         <property name="text">
-          <string>&amp;Open</string>
-         </property>
-         <property name="autoDefault">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="16" column="0">
         <widget class="QLabel" name="labelCLOptions">
          <property name="font">
           <font>
            <family>Century Gothic</family>
-           <pointsize>12</pointsize>
+           <pointsize>10</pointsize>
            <weight>9</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
          </property>
          <property name="text">
           <string>Command-line options</string>
          </property>
         </widget>
        </item>
-       <item row="17" column="0">
+      <item row="16" column="0">
         <widget class="QPushButton" name="showCLOptionsButton">
          <property name="toolTip">
           <string>Show the SperoCoin-Qt help message to get a list with possible SperoCoin command-line options.</string>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 75 9pt &quot;Segoe Print&quot;;</string>
+          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
          </property>
          <property name="text">
           <string>&amp;Show</string>
@@ -385,15 +471,15 @@
          </property>
         </widget>
        </item>
-       <item row="18" column="0">
+       <item row="16" column="1">
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>20</width>
-           <height>40</height>
+           <width>17</width>
+           <height>34</height>
           </size>
          </property>
         </spacer>
@@ -417,7 +503,7 @@
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
          </property>
          <property name="readOnly">
           <bool>true</bool>
@@ -445,7 +531,7 @@
          <item>
           <widget class="QLineEdit" name="lineEdit">
            <property name="styleSheet">
-            <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+            <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
            </property>
           </widget>
          </item>
