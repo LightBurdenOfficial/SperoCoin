@@ -1,7 +1,7 @@
 # x13 version
 TEMPLATE = app
 TARGET = SperoCoin-qt
-VERSION = 2.6.4.4
+VERSION = 2.6.4.5
 INCLUDEPATH += src src/json src/qt
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
