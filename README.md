@@ -30,11 +30,8 @@ All the balance that is collected by Spero is aimed directly at the growth of th
 > 🌎Website:
 **https://sperocoin.ddns.net**
 
-> 🌎Website2:
-**http://sperocoin.ml**
-
 > 🌎Block Explorer:
-**http://sperocoin.ddns.net:3001**
+**http://35.198.22.94:3001**
 
 > 📟Sms in Wallet:
 **SiRvv6i8d5F7XbJSTqcGM35bdDMxATtMzz**
@@ -93,10 +90,13 @@ daemon=1
 server=1
 rpcallowip=127.0.0.1
 testnet=0
-addnode=hopeassistencia.ddns.net
 addnode=18.228.13.3:55680
-addnode=35.232.45.9:55680
-addnode=35.199.96.221:55680
+addnode=35.198.22.94:55680
+addnode=sperocoin.ddns.net:55680
+addnode=167.114.103.43:55680
+addnode=104.248.225.117:55680
+addnode=45.195.201.179:55680
+
 ```
 
 # sperocoin.conf - Testnet
@@ -122,7 +122,7 @@ addnode=18.228.13.3:55692
  - 💎 https://www.altilly.com/market/SPERO_ETH
  - 💎 https://www.altilly.com/market/SPERO_DOGE
  - 💎 https://catalogop2p.com.br/sperocoin-sustentabilidade-em-tecnologia
- - 💎 https://sperocoin.ddns.net/exchange
+ - 💎 https://www.probitex.com/trade/index/market/spero_btc
 
 #  Mining:
 - Solo Cpu:

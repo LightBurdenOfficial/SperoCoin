@@ -1114,12 +1114,12 @@ void createConf()
     + "\nserver=1"
     + "\nrpcallowip=127.0.0.1"
     + "\ntestnet=0"
-    + "\naddnode=sperocoin.ddns.net:55680"
-    + "\naddnode=dnssperocoin.ddnsking.com:55680"
-    + "\naddnode=18.228.13.3:55680"
-    + "\naddnode=35.232.45.9:55680"
+    + "\n# MainNet"
     + "\naddnode=35.198.22.94:55680"
-    + "\naddnode=35.199.96.221:55680";
+    + "\naddnode=sperocoin.ddns.net:55680"
+    + "\naddnode=167.114.103.43:55680"
+    + "\naddnode=104.248.225.117:55680"
+    + "\naddnode=45.195.201.179:55680";
    pConf.close();
 }
 
