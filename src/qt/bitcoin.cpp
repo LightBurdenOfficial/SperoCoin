@@ -12,6 +12,9 @@
 #include "init.h"
 #include "ui_interface.h"
 #include "qtipcserver.h"
+// COMEÇO DA ADIÇÃO DA INTRO
+#include "intro.h"
+ // FIM DA ADIÇÃO DA INTRO
 #include "paymentserver.h"
 
 #include <QApplication>
@@ -38,6 +41,41 @@ Q_IMPORT_PLUGIN(qtaccessiblewidgets)
 // Need a global reference for the notifications to find the GUI
 static BitcoinGUI *guiref;
 static QSplashScreen *splashref;
+
+// COMEÇO DA ADIÇÃO DA INTRO
+/** Set up translations */
+static void initTranslations(QTranslator &qtTranslatorBase, QTranslator &qtTranslator, QTranslator &translatorBase, QTranslator &translator)
+{
+    QSettings settings;
+    // Get desired locale (e.g. "de_DE")
+    // 1) System default language
+    QString lang_territory = QLocale::system().name();
+    // 2) Language from QSettings
+    QString lang_territory_qsettings = settings.value("language", "").toString();
+    if(!lang_territory_qsettings.isEmpty())
+        lang_territory = lang_territory_qsettings;
+    // 3) -lang command line argument
+    lang_territory = QString::fromStdString(GetArg("-lang", lang_territory.toStdString()));
+    // Convert to "de" only by truncating "_DE"
+    QString lang = lang_territory;
+    lang.truncate(lang_territory.lastIndexOf('_'));
+    // Load language files for configured locale:
+    // - First load the translator for the base language, without territory
+    // - Then load the more specific locale translator
+    // Load e.g. qt_de.qm
+    if (qtTranslatorBase.load("qt_" + lang, QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
+        QApplication::installTranslator(&qtTranslatorBase);
+    // Load e.g. qt_de_DE.qm
+    if (qtTranslator.load("qt_" + lang_territory, QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
+        QApplication::installTranslator(&qtTranslator);
+    // Load e.g. bitcoin_de.qm (shortcut "de" needs to be defined in bitcoin.qrc)
+    if (translatorBase.load(lang, ":/translations/"))
+        QApplication::installTranslator(&translatorBase);
+    // Load e.g. bitcoin_de_DE.qm (shortcut "de_DE" needs to be defined in bitcoin.qrc)
+    if (translator.load(lang_territory, ":/translations/"))
+        QApplication::installTranslator(&translator);
+}
+ // FIM DA ADIÇÃO DA INTRO
 
 static void ThreadSafeMessageBox(const std::string& message, const std::string& caption, int style)
 {
@@ -129,14 +167,38 @@ int main(int argc, char *argv[])
     Q_INIT_RESOURCE(bitcoin);
     QApplication app(argc, argv);
 
-   // Do this early as we don't want to bother initializing if we are just calling IPC
+// Application identification (must be set before OptionsModel is initialized,
+// as it is used to locate QSettings)
+app.setOrganizationName("SperoCoin");
+    //app.setOrganizationDomain("");
+    if(GetBoolArg("-testnet")) // Separate UI settings for testnet
+        app.setApplicationName("SperoCoin-Qt-testnet");
+    else
+        app.setApplicationName("SperoCoin-Qt");
+    // Now that QSettings are accessible, initialize translations
+    QTranslator qtTranslatorBase, qtTranslator, translatorBase, translator;
+    initTranslations(qtTranslatorBase, qtTranslator, translatorBase, translator);
+
+
+    // Command-line options take precedence:
+    ParseParameters(argc, argv);
+
+// INÍCIO DA ADIÇÃO DA INTRO
+// User language is set up: pick a data directory
+ Intro::pickDataDirectory();
+ 
+// Install global event filter that makes sure that long tooltips can be word-wrapped      
+ app.installEventFilter(new GUIUtil::ToolTipToRichTextFilter(TOOLTIP_WRAP_THRESHOLD, &app));     
+// FIM DA ADIÇÃO DA INTRO
+
+
+//PAYMENTSERVER
+// Do this early as we don't want to bother initializing if we are just calling IPC
     // ... but do it after creating app, so QCoreApplication::arguments is initialized:
     if (PaymentServer::ipcSendCommandLine())
         exit(0);
     PaymentServer* paymentServer = new PaymentServer(&app);
-
-    // Command-line options take precedence:
-    ParseParameters(argc, argv);
+//PAYMENTSERVER
 
     // ... then bitcoin.conf:
     if (!boost::filesystem::is_directory(GetDataDir(false)))
@@ -149,39 +211,8 @@ int main(int argc, char *argv[])
     }
     ReadConfigFile(mapArgs, mapMultiArgs);
 
-// Application identification (must be set before OptionsModel is initialized,
-    // as it is used to locate QSettings)
-    app.setOrganizationName("SperoCoin");
-    //XXX app.setOrganizationDomain("");
-    if(GetBoolArg("-testnet")) // Separate UI settings for testnet
-        app.setApplicationName("SperoCoin-Qt-testnet");
-    else
-        app.setApplicationName("SperoCoin-Qt");
-
     // ... then GUI settings:
     OptionsModel optionsModel;
-
-    // Get desired locale (e.g. "de_DE") from command line or use system locale
-    QString lang_territory = QString::fromStdString(GetArg("-lang", QLocale::system().name().toStdString()));
-    QString lang = lang_territory;
-    // Convert to "de" only by truncating "_DE"
-    lang.truncate(lang_territory.lastIndexOf('_'));
-    QTranslator qtTranslatorBase, qtTranslator, translatorBase, translator;
-    // Load language files for configured locale:
-    // - First load the translator for the base language, without territory
-    // - Then load the more specific locale translator
-    // Load e.g. qt_de.qm
-    if (qtTranslatorBase.load("qt_" + lang, QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
-        app.installTranslator(&qtTranslatorBase);
-    // Load e.g. qt_de_DE.qm
-    if (qtTranslator.load("qt_" + lang_territory, QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
-        app.installTranslator(&qtTranslator);
-    // Load e.g. bitcoin_de.qm (shortcut "de" needs to be defined in bitcoin.qrc)
-    if (translatorBase.load(lang, ":/translations/"))
-        app.installTranslator(&translatorBase);
-    // Load e.g. bitcoin_de_DE.qm (shortcut "de_DE" needs to be defined in bitcoin.qrc)
-    if (translator.load(lang_territory, ":/translations/"))
-        app.installTranslator(&translator);
 
     // Subscribe to global signals from core
     uiInterface.ThreadSafeMessageBox.connect(ThreadSafeMessageBox);
@@ -204,6 +235,9 @@ int main(int argc, char *argv[])
     if (GetBoolArg("-splash", true) && !GetBoolArg("-min"))
     {
         splash.show();
+        // INÍCIO DA ADIÇÃO DA INTRO
+        splash.setAutoFillBackground(true);
+        // FIM DA ADIÇÃO DA INTRO
         splashref = &splash;
     }
 
@@ -219,15 +253,16 @@ int main(int argc, char *argv[])
 
         BitcoinGUI window;
         guiref = &window;
+
+        // Parameters are already parsed by ParseParameters call above
+        //if(AppInit2(argc, argv))
         if(AppInit2())
         {
             {
                 // Put this in a block, so that the Model objects are cleaned up before
                 // calling Shutdown().
 
-    paymentServer->setOptionsModel(&optionsModel);
-
-                optionsModel.Upgrade(); // Must be done after AppInit2
+                paymentServer->setOptionsModel(&optionsModel);
 
                 if (splashref)
                     splash.finish(&window);

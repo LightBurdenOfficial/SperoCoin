@@ -49,7 +49,10 @@ namespace Checkpoints
         ( 155000,      uint256("0x15edf3165319bf17b14b2c4641b854c78e12c0ed9a3b5a6f52f155f41e1f1e11") )
         ( 160000,      uint256("0xa2206bd55f4c7c63e864c067fc0a8b70f4f01d47815e711e03362140c20abd0c") )
         ( 165000,      uint256("0x226de5e21de3d782998ee55d499330b114f55f68b7cdc601654e1bef2fd1bc95") )
-        ( 165962,      uint256("ed866edc2d4e1b20891af3f927d1d703c773f49f42c4ec9b40d374969b3ca06e") ) //Primeira Transação para uma wallet Android
+        ( 165962,      uint256("0xed866edc2d4e1b20891af3f927d1d703c773f49f42c4ec9b40d374969b3ca06e") ) //Primeira Transação para uma wallet Android
+        ( 170000,      uint256("0x000000000970cb2fd18c1b2f6648a26b6f0d8d48455a9db54a46b979799bbff7") )
+        ( 175000,      uint256("0xef7d2bc4dc99073c500eeab412f50478208bcda63d72b41888805764a45cf49a") )
+        ( 180000,      uint256("0xd9f85a122c390cce46d1d2bced240630301e747fa8a4918507a0ce224693c684") )
     ;
 
     // TestNet has no checkpoints

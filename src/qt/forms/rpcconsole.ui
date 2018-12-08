@@ -427,7 +427,7 @@
             <string>Open the idealcash configuration file from the current data directory.</string>
            </property>
            <property name="text">
-            <string>.conf File</string>
+            <string>SperoCoin.conf File</string>
            </property>
            <property name="autoDefault">
             <bool>false</bool>
