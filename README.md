@@ -249,3 +249,8 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 → New PoS Mining Icon<br>
 → Changed version to 2.6.4.5<br>
 
+>$0022 2018/12/08<br>
+→ Alterada Versão para 2.6.4.6;<br>
+→ Altercada versão do protocolo para mínimo 700001;<br>
+→ Adicionada Introdução;<br>
+→ Adicionado pontos de checagem de blocos até o bloco 180000<br>
