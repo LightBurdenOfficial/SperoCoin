@@ -4,7 +4,7 @@
 
 # x13 Version by mammix2 (mammix2@hotmail.com)
 
-USE_UPNP:=-
+USE_UPNP:=0
 USE_IPV6:=1
 
 LINK:=$(CXX)
@@ -18,10 +18,10 @@ LIBS = $(addprefix -L,$(BOOST_LIB_PATH) $(BDB_LIB_PATH) $(OPENSSL_LIB_PATH))
 LMODE = dynamic
 LMODE2 = dynamic
 ifdef STATIC
-	LMODE = static
-	ifeq (${STATIC}, all)
-		LMODE2 = static
-	endif
+    LMODE = static
+    ifeq (${STATIC}, all)
+        LMODE2 = static
+    endif
 endif
 
 # for boost 1.37, add -mt to the boost libraries
@@ -36,15 +36,15 @@ LIBS += \
    -l crypto
 
 ifndef USE_UPNP
-	override USE_UPNP = -
+    override USE_UPNP = -
 endif
 ifneq (${USE_UPNP}, -)
-	LIBS += -l miniupnpc
-	DEFS += -DUSE_UPNP=$(USE_UPNP)
+    LIBS += -l miniupnpc
+    DEFS += -DUSE_UPNP=$(USE_UPNP)
 endif
 
 ifneq (${USE_IPV6}, -)
-	DEFS += -DUSE_IPV6=$(USE_IPV6)
+    DEFS += -DUSE_IPV6=$(USE_IPV6)
 endif
 
 LIBS+= \
@@ -98,7 +98,7 @@ endif
 
 # CXXFLAGS can be specified on the make command line, so we use xCXXFLAGS that only
 # adds some defaults in front. Unfortunately, CXXFLAGS=... $(CXXFLAGS) does not work.
-xCXXFLAGS=-Ofast $(EXT_OPTIONS) -pthread -Wall -Wextra -Wno-ignored-qualifiers -Wformat -Wformat-security -Wno-unused-parameter \
+xCXXFLAGS=-O2 $(EXT_OPTIONS) -pthread -Wall -Wextra -Wno-ignored-qualifiers -Wformat -Wformat-security -Wno-unused-parameter \
     $(DEBUGFLAGS) $(DEFS) $(HARDENING) $(CXXFLAGS)
 
 # LDFLAGS can be specified on the make command line, so we use xLDFLAGS that only
@@ -157,56 +157,56 @@ OBJS= \
 
 all: SperoCoind
 
-LIBS += $(CURDIR)/leveldb/out-static/libleveldb.a $(CURDIR)/leveldb/out-static/libmemenv.a
+LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a
 DEFS += $(addprefix -I,$(CURDIR)/leveldb/include)
 DEFS += $(addprefix -I,$(CURDIR)/leveldb/helpers)
 OBJS += obj/txdb-leveldb.o
-leveldb/out-static/libleveldb.a:
-    @echo "Building LevelDB ..."; cd leveldb; make ; cd ..;
-obj/txdb-leveldb.o: leveldb/out-static/libleveldb.a
+leveldb/libleveldb.a:
+    @echo "Building LevelDB ..."; cd leveldb; make libleveldb.a libmemenv.a; cd ..;
+obj/txdb-leveldb.o: leveldb/libleveldb.a
 
 # auto-generated dependencies:
 -include obj/*.P
 
 obj/build.h: FORCE
-	/bin/sh ../share/genbuild.sh obj/build.h
+    /bin/sh ../share/genbuild.sh obj/build.h
 version.cpp: obj/build.h
 DEFS += -DHAVE_BUILD_INFO
 
 obj/scrypt-x86.o: scrypt-x86.S
-	$(CXX) -c $(xCXXFLAGS) -MMD -o $@ $<
+    $(CXX) -c $(xCXXFLAGS) -MMD -o $@ $<
 
 obj/scrypt-x86_64.o: scrypt-x86_64.S
-	$(CXX) -c $(xCXXFLAGS) -MMD -o $@ $<
+    $(CXX) -c $(xCXXFLAGS) -MMD -o $@ $<
 
 obj/scrypt-arm.o: scrypt-arm.S
-	$(CXX) -c $(xCXXFLAGS) -MMD -o $@ $<
+    $(CXX) -c $(xCXXFLAGS) -MMD -o $@ $<
 
 obj/%.o: %.cpp
-	$(CXX) -c $(xCXXFLAGS) -MMD -MF $(@:%.o=%.d) -o $@ $<
-	@cp $(@:%.o=%.d) $(@:%.o=%.P); \
-	  sed -e 's/#.*//' -e 's/^[^:]*: *//' -e 's/ *\\$$//' \
-	      -e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
-	  rm -f $(@:%.o=%.d)
+    $(CXX) -c $(xCXXFLAGS) -MMD -MF $(@:%.o=%.d) -o $@ $<
+    @cp $(@:%.o=%.d) $(@:%.o=%.P); \
+      sed -e 's/#.*//' -e 's/^[^:]*: *//' -e 's/ *\\$$//' \
+          -e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
+      rm -f $(@:%.o=%.d)
 
 obj/%.o: %.c
-		$(CXX) -c $(xCXXFLAGS) -fpermissive -MMD -MF $(@:%.o=%.d) -o $@ $<
-		@cp $(@:%.o=%.d) $(@:%.o=%.P); \
-		  sed -e 's/#.*//' -e 's/^[^:]*: *//' -e 's/ *\\$$//' \
-		     -e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
-		  rm -f $(@:%.o=%.d)
+        $(CXX) -c $(xCXXFLAGS) -fpermissive -MMD -MF $(@:%.o=%.d) -o $@ $<
+        @cp $(@:%.o=%.d) $(@:%.o=%.P); \
+          sed -e 's/#.*//' -e 's/^[^:]*: *//' -e 's/ *\\$$//' \
+             -e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
+          rm -f $(@:%.o=%.d)
 
 SperoCoind: $(OBJS:obj/%=obj/%)
-	$(LINK) $(xCXXFLAGS) -o $@ $^ $(xLDFLAGS) $(LIBS)
+    $(LINK) $(xCXXFLAGS) -o $@ $^ $(xLDFLAGS) $(LIBS)
 
 clean:
-	-rm -f SperoCoind
-	-rm -f obj/*.o
-	-rm -f obj/*.P
-	-rm -f obj-test/*.o
-	-rm -f obj-test/*.P
-	-rm -f obj/build.h
-	-rm -f leveldb/libleveldb.a
-	-rm -f leveldb/libmemenv.a
+    -rm -f SperoCoind
+    -rm -f obj/*.o
+    -rm -f obj/*.P
+    -rm -f obj-test/*.o
+    -rm -f obj-test/*.P
+    -rm -f obj/build.h
+    -rm -f leveldb/libleveldb.a
+    -rm -f leveldb/libmemenv.a
 
 FORCE:
