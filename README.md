@@ -45,7 +45,7 @@ All the balance that is collected by Spero is aimed directly at the growth of th
   - **PoS:** After 2h
   - **PoS:** 25% per year
   - **CONFIRMATIONS:** 5 for mining and 3 for transactions
-  - **ENCRYPTED MESSAGE**
+  - **E2M MESSAGE** Send and receive encrypted messages directly into your wallet
   - **TOTAL COINS:** ~ 7 million
   - **LAST BLOCK PoW:** 33331
   - **PRE-MINED COINS:** ~ 100000 SPERO

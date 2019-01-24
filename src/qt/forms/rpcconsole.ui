@@ -411,7 +411,7 @@
             <bool>true</bool>
            </property>
            <property name="toolTip">
-            <string>Open the idealcash debug log file from the current data directory. This can take a few seconds for large log files.</string>
+            <string>Open the SperoCoin debug log file from the current data directory. This can take a few seconds for large log files.</string>
            </property>
            <property name="text">
             <string>Debug.log</string>
@@ -424,7 +424,7 @@
          <item row="0" column="1">
           <widget class="QPushButton" name="openConfigurationfileButton">
            <property name="toolTip">
-            <string>Open the idealcash configuration file from the current data directory.</string>
+            <string>Open the SperoCoin configuration file from the current data directory.</string>
            </property>
            <property name="text">
             <string>SperoCoin.conf File</string>
