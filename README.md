@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1aa1a2fafa1a41e1bdcba6e453fcba1f)](https://app.codacy.com/app/DigitalCoin1/SperoCoin?utm_source=github.com&utm_medium=referral&utm_content=DigitalCoin1/SperoCoin&utm_campaign=Badge_Grade_Dashboard)
 [![N|Solid](https://i.imgur.com/lXSMMR2.png)](https://sperocoin.ddns.net/)
 # Sperocoin - Sustainability in technology
 Sperocoin came with the mission to renew the world of the exhaustive consumption of electric energy.
