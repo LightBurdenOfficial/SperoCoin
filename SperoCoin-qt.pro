@@ -1,4 +1,3 @@
-# x13 version
 TEMPLATE = app
 TARGET = SperoCoin-qt
 VERSION = 2.6.4.6

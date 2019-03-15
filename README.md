@@ -1,6 +1,8 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1aa1a2fafa1a41e1bdcba6e453fcba1f)](https://app.codacy.com/app/DigitalCoin1/SperoCoin?utm_source=github.com&utm_medium=referral&utm_content=DigitalCoin1/SperoCoin&utm_campaign=Badge_Grade_Dashboard)
-[![N|Solid](https://i.imgur.com/lXSMMR2.png)](https://sperocoin.ddns.net/)
+<br>
+[![N|Solid](https://i.imgur.com/lXSMMR2.png)](https://sperocoin.org/)
 # Sperocoin - Sustainability in technology
+# Version: 2.6.4.7
 Sperocoin came with the mission to renew the world of the exhaustive consumption of electric energy.
 
 With the PoS mining concept, we have an ecologically correct coin, since it is not necessary to use powerful mining machines to obtain rewards for solved blocks.
@@ -29,7 +31,7 @@ All the balance that is collected by Spero is aimed directly at the growth of th
 **sperocoin@gmail.com**
 
 > 🌎Website:
-**https://sperocoin.ddns.net**
+**https://sperocoin.org**
 
 > 🌎Block Explorer:
 **http://35.198.22.94:3001**
@@ -123,7 +125,8 @@ addnode=18.228.13.3:55692
  - 💎 https://www.altilly.com/market/SPERO_ETH
  - 💎 https://www.altilly.com/market/SPERO_DOGE
  - 💎 https://catalogop2p.com.br/sperocoin-sustentabilidade-em-tecnologia
- - 💎 https://www.probitex.com/trade/index/market/spero_btc
+ - 💎 https://nanu.exchange/exchange#btc_spero
+ - 💎 https://bitsahani.com/exchange/SPERO-DOGE
 
 #  Mining:
 - Solo Cpu:
