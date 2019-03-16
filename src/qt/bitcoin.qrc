@@ -47,6 +47,7 @@
         <file alias="bitcoin_testnet">res/icons/bitcoin_testnet.png</file>
         <file alias="toolbar">res/icons/sperocoin-16.png</file>
         <file alias="toolbar_testnet">res/icons/sperocoin-16.png</file>
+        <file alias="browse">res/icons/browse.png</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="about">res/images/about.png</file>

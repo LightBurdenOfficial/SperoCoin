@@ -111,7 +111,7 @@ private:
     QAction *blockAction;
 
     QAction *stakeReportAction;
-
+    QAction *showBackupsAction;
 
     QSystemTrayIcon *trayIcon;
     Notificator *notificator;
