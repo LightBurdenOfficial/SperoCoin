@@ -10,8 +10,8 @@
 #include <QSettings>
 #include <QMessageBox>
 /* Minimum free space (in bytes) needed for data directory */
-static const uint64_t GB_BYTES = 20000000000LL;
-static const uint64_t BLOCK_CHAIN_SIZE = 1LL * GB_BYTES;
+static const uint64_t GB_BYTES = 2147483648LL;
+static const uint64_t BLOCK_CHAIN_SIZE = 2LL * GB_BYTES;
 /* Check free space asynchronously to prevent hanging the UI thread.
    Up to one request to check a path is in flight to this thread; when the check()
    function runs, the current path is requested from the associated Intro object.

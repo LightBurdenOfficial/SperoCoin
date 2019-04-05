@@ -989,8 +989,13 @@ void BitcoinGUI::encryptWallet(bool status)
 
 void BitcoinGUI::backupWallet()
 {
-    //QString saveDir = QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);
-    QString saveDir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+    //Início das Alterações para Raspberry e Qt5 - Francis Santana
+    #if QT_VERSION < 0x050000
+        QString saveDir = QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);
+    #else
+        QString saveDir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+    #endif
+    //Fim das Alterações para Raspberry e Qt5 - Francis Santana
     QString filename = QFileDialog::getSaveFileName(this, tr("Backup Wallet"), saveDir, tr("Wallet Data (*.dat)"));
     if(!filename.isEmpty()) {
         if(!walletModel->backupWallet(filename)) {

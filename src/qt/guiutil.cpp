@@ -10,8 +10,13 @@
 #include <QDoubleValidator>
 #include <QFont>
 #include <QLineEdit>
+//Início das Alterações para Raspberry e Qt5 - Francis Santana
+#if QT_VERSION >= 0x050000
 #include <QUrlQuery>
+#else
 #include <QUrl>
+#endif
+//Fim das Alterações para Raspberry e Qt5 - Francis Santana
 #include <QTextDocument> // For Qt::escape
 #include <QAbstractItemView>
 #include <QApplication>
@@ -113,9 +118,14 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
     SendCoinsRecipient rv;
     rv.address = uri.path();
     rv.amount = 0;
-    //QList<QPair<QString, QString> > items = uri.queryItems();
-    QUrlQuery uriQuery(uri);
-    QList<QPair<QString, QString> > items = uriQuery.queryItems();
+    //Início das Alterações para Raspberry e Qt5 - Francis Santana
+    #if QT_VERSION < 0x050000
+        QList<QPair<QString, QString> > items = uri.queryItems();
+    #else
+        QUrlQuery uriQuery(uri);
+            QList<QPair<QString, QString> > items = uriQuery.queryItems();
+    #endif
+    //Fim das Alterações para Raspberry e Qt5 - Francis Santana
     for (QList<QPair<QString, QString> >::iterator i = items.begin(); i != items.end(); i++)
     {
         bool fShouldReturnFalse = false;
@@ -203,8 +213,13 @@ QString getSaveFileName(QWidget *parent, const QString &caption,
     QString myDir;
     if(dir.isEmpty()) // Default to user documents location
     {
-        //myDir = QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);
-        myDir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+        //Início das Alterações para Raspberry e Qt5 - Francis Santana
+        #if QT_VERSION < 0x050000
+                myDir = QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);
+        #else
+                myDir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+        #endif
+        //Fim das Alterações para Raspberry e Qt5 - Francis Santana
     }
     else
     {
