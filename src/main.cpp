@@ -52,7 +52,7 @@ static const int64_t nTargetTimespan = 30 * 60;
 
 static const unsigned int CHECKLOCKTIMEVERIFY_SWITCH_TIME = 1461110400; // Wednesday, 20-Apr-16 00:00:00 UTC
 
-int64_t devCoin = 0 * COIN;
+int64_t devCoin = 0.02 * COIN; // A cada bloco minerado em POW, 0.02 vai para a Equipe SperoCoin.
 int nCoinbaseMaturity = 5;
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -1071,7 +1071,11 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
 {
     int64_t nRewardCoinYear;
 
+    if(pindexBest->nHeight < 263250){
     nRewardCoinYear = MAX_MINT_PROOF_OF_STAKE;
+    }else{
+    nRewardCoinYear = MAX_MINT_PROOF_OF_STAKE_NEW;
+    }
 
     int64_t nSubsidy = nCoinAge * nRewardCoinYear / 365 / COIN;
 
@@ -1862,7 +1866,7 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
                    nReward));
     }
 
-    /*if(IsProofOfWork())
+    if(IsProofOfWork())
     {
         CBitcoinAddress address(!fTestNet ? FOUNDATION : FOUNDATION_TEST);
         CScript scriptPubKey;
@@ -1871,7 +1875,7 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
             return error("ConnectBlock() : coinbase does not pay to the dev address)");
         if (vtx[0].vout[1].nValue < devCoin)
             return error("ConnectBlock() : coinbase does not pay enough to dev addresss");
-    }*/
+    }
 
     if (IsProofOfStake())
     {
