@@ -52,7 +52,7 @@ static const int64_t nTargetTimespan = 30 * 60;
 
 static const unsigned int CHECKLOCKTIMEVERIFY_SWITCH_TIME = 1461110400; // Wednesday, 20-Apr-16 00:00:00 UTC
 
-int64_t devCoin = 0.02 * COIN; // A cada bloco minerado em POW, 0.02 vai para a Equipe SperoCoin.
+int64_t devCoin = 0.015 * COIN; // A cada bloco minerado em POW, 0.015 vai para a Equipe SperoCoin.
 int nCoinbaseMaturity = 5;
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
