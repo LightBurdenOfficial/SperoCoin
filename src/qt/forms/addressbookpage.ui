@@ -23,7 +23,7 @@
       <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
      </property>
      <property name="text">
-      <string>These are your SperoCoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</string>
+      <string>These are your SperoCoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of how you received each transaction.</string>
      </property>
      <property name="textFormat">
       <enum>Qt::PlainText</enum>
@@ -145,6 +145,20 @@
        <property name="icon">
         <iconset resource="../bitcoin.qrc">
          <normaloff>:/icons/transaction_0</normaloff>:/icons/transaction_0</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="stakeForCharityPushButton">
+       <property name="toolTip">
+        <string>Stake for charity</string>
+       </property>
+       <property name="text">
+        <string>&amp;Stake For Charity</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../bitcoin.qrc">
+         <normaloff>:/icons/charity_on</normaloff>:/icons/charity_on</iconset>
        </property>
       </widget>
      </item>

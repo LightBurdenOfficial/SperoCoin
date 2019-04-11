@@ -48,6 +48,8 @@
         <file alias="toolbar">res/icons/sperocoin-16.png</file>
         <file alias="toolbar_testnet">res/icons/sperocoin-16.png</file>
         <file alias="browse">res/icons/browse.png</file>
+        <file alias="charity_on">res/icons/charity_on.png</file>
+        <file alias="charity_off">res/icons/charity_off.png</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="about">res/images/about.png</file>

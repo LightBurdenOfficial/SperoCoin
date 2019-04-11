@@ -5,9 +5,8 @@ VERSION = 2.6.4.7
 INCLUDEPATH += src src/json src/qt
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
-CONFIG += thread
-CONFIG += static
-QT += network
+CONFIG += thread static
+QT += core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 lessThan(QT_MAJOR_VERSION, 5): CONFIG += static
 QMAKE_CXXFLAGS = -fpermissive
@@ -15,6 +14,12 @@ QMAKE_CXXFLAGS = -fpermissive
 greaterThan(QT_MAJOR_VERSION, 4) {
     QT += widgets
     DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
+}
+
+win32 {
+  contains(WINBITS, 32) {
+    CONFIG += openssl-linked
+  }
 }
 
 USE_QRCODE=1
@@ -25,14 +30,14 @@ win32 {
 BOOST_LIB_SUFFIX=-mgw49-mt-s-1_57
 BOOST_INCLUDE_PATH=C:/deps/boost_1_57_0
 BOOST_LIB_PATH=C:/deps/boost_1_57_0/stage/lib
-BDB_INCLUDE_PATH=C:/deps/db-4.8.30.NC/build_unix
-BDB_LIB_PATH=C:/deps/db-4.8.30.NC/build_unix
-OPENSSL_INCLUDE_PATH=C:/deps/openssl-1.0.1l/include
-OPENSSL_LIB_PATH=C:/deps/openssl-1.0.1l
+BDB_INCLUDE_PATH=C:/deps/db-6.0.20/build_unix
+BDB_LIB_PATH=C:/deps/db-6.0.20/build_unix
+OPENSSL_INCLUDE_PATH=C:/deps/openssl-1.0.2r/include
+OPENSSL_LIB_PATH=C:/deps/openssl-1.0.2r
 MINIUPNPC_INCLUDE_PATH=C:/deps/
 MINIUPNPC_LIB_PATH=C:/deps/miniupnpc
-QRENCODE_INCLUDE_PATH=C:/deps/qrencode-3.4.4
-QRENCODE_LIB_PATH=C:/deps/qrencode-3.4.4/.libs
+QRENCODE_INCLUDE_PATH=C:/deps/qrencode-4.0.2
+QRENCODE_LIB_PATH=C:/deps/qrencode-4.0.2/.libs
 }
 
 # for boost 1.37, add -mt to the boost libraries
@@ -47,14 +52,14 @@ QRENCODE_LIB_PATH=C:/deps/qrencode-3.4.4/.libs
 BOOST_LIB_SUFFIX=-mgw49-mt-s-1_57
 BOOST_INCLUDE_PATH=C:/deps/boost_1_57_0
 BOOST_LIB_PATH=C:/deps/boost_1_57_0/stage/lib
-BDB_INCLUDE_PATH=C:/deps/db-4.8.30.NC/build_unix
-BDB_LIB_PATH=C:/deps/db-4.8.30.NC/build_unix
-OPENSSL_INCLUDE_PATH=C:/deps/openssl-1.0.1l/include
-OPENSSL_LIB_PATH=C:/deps/openssl-1.0.1l
+BDB_INCLUDE_PATH=C:/deps/db-6.0.20/build_unix
+BDB_LIB_PATH=C:/deps/db-6.0.20/build_unix
+OPENSSL_INCLUDE_PATH=C:/deps/openssl-1.0.2r/include
+OPENSSL_LIB_PATH=C:/deps/openssl-1.0.2r
 MINIUPNPC_INCLUDE_PATH=C:/deps/
 MINIUPNPC_LIB_PATH=C:/deps/miniupnpc
-QRENCODE_INCLUDE_PATH=C:/deps/qrencode-3.4.4
-QRENCODE_LIB_PATH=C:/deps/qrencode-3.4.4/.libs
+QRENCODE_INCLUDE_PATH=C:/deps/qrencode-4.0.2
+QRENCODE_LIB_PATH=C:/deps/qrencode-4.0.2/.libs
 
 OBJECTS_DIR = build
 MOC_DIR = build
@@ -79,7 +84,7 @@ QMAKE_LFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
 # This can be enabled for Windows, when we switch to MinGW >= 4.4.x.
 }
 # for extra security on Windows: enable ASLR and DEP via GCC linker flags
-win32:QMAKE_LFLAGS *= -Wl,--large-address-aware -static
+win32:QMAKE_LFLAGS *= -Wl, -static
 win32:QMAKE_LFLAGS += -static -static-libgcc -static-libstdc++ -lpthread
 lessThan(QT_MAJOR_VERSION, 5): win32: QMAKE_LFLAGS *= -static
 
@@ -311,7 +316,8 @@ HEADERS += src/qt/bitcoingui.h \
     src/smessage.h \
     src/lz4/lz4.h \
     src/xxhash/xxhash.h \
-    src/qt/stakereportdialog.h
+    src/qt/stakereportdialog.h \
+    src/qt/charitydialog.h
 
 SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/transactiontablemodel.cpp \
@@ -393,7 +399,8 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/lz4/lz4.c \
     src/xxhash/xxhash.c \
     src/pbkdf2.cpp \
-    src/qt/stakereportdialog.cpp
+    src/qt/stakereportdialog.cpp \
+    src/qt/charitydialog.cpp
 
 RESOURCES += \
     src/qt/bitcoin.qrc
@@ -418,7 +425,8 @@ FORMS += \
     src/qt/forms/sendmessagesentry.ui \
     src/qt/forms/messagepage.ui \
     src/qt/forms/optionsdialog.ui \
-    src/qt/forms/stakereportdialog.ui
+    src/qt/forms/stakereportdialog.ui \
+    src/qt/forms/charitydialog.ui
 
 contains(USE_QRCODE, 1) {
 HEADERS += src/qt/qrcodedialog.h
@@ -492,6 +500,14 @@ windows:!contains(MINGW_THREAD_BUGFIX, 0) {
     # any problems on some untested qmake profile now or in the future.
     DEFINES += _MT BOOST_THREAD_PROVIDES_GENERIC_SHARED_MUTEX_ON_WIN
     QMAKE_LIBS_QT_ENTRY = -lmingwthrd $$QMAKE_LIBS_QT_ENTRY
+}
+
+win32 {
+  contains(WINBITS, 32) {
+    LIBS += -L"C:/Qt/Qt5.4.0/Tools/mingw491_32/opt/bin"
+    LIBS += "C:/Qt/Qt5.4.0/Tools/mingw491_32/opt/bin/libeay32.dll"
+    LIBS += "C:/Qt/Qt5.4.0/Tools/mingw491_32/opt/bin/ssleay32.dll"
+  }
 }
 
 !windows:!macx {
