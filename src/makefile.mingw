@@ -14,16 +14,16 @@ INCLUDEPATHS= \
  -I"$(CURDIR)" \
  -I"/c/deps/boost_1_57_0" \
  -I"/c/deps" \
- -I"/c/deps/db-4.8.30.NC/build_unix" \
- -I"/c/deps/openssl-1.0.1l/include"
+ -I"/c/deps/db-6.0.20/build_unix" \
+ -I"/c/deps/openssl-1.0.2r/include"
 
 
 LIBPATHS= \
  -L"$(CURDIR)/leveldb" \
  -L"/c/deps/boost_1_57_0/stage/lib" \
  -L"/c/deps/miniupnpc" \
- -L"/c/deps/db-4.8.30.NC/build_unix" \
- -L"/c/deps/openssl-1.0.1l"
+ -L"/c/deps/db-6.0.20/build_unix" \
+ -L"/c/deps/openssl-1.0.2r"
 
 LIBS= \
  -l leveldb \
@@ -40,7 +40,7 @@ LIBS= \
 DEFS=-DWIN32 -D_WINDOWS -DBOOST_THREAD_USE_LIB -DBOOST_SPIRIT_THREADSAFE
 DEBUGFLAGS=-g
 CFLAGS=-mthreads -O3 -msse2 -w -Wall -Wextra -Wno-ignored-qualifiers -Wformat -Wformat-security -Wno-unused-parameter $(DEBUGFLAGS) $(DEFS) $(INCLUDEPATHS)
-LDFLAGS=-LDFLAGS=-Wl,--dynamicbase -Wl,--nxcompat -Wl,--large-address-aware -static
+LDFLAGS=-LDFLAGS=-Wl,--dynamicbase -Wl,--nxcompat -Wl, -static
 
 TESTDEFS = -DTEST_DATA_DIR=$(abspath test/data)
 
