@@ -1071,9 +1071,11 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
 {
     int64_t nRewardCoinYear;
 
-    if(pindexBest->nHeight < 263250){
+    if(pindexBest->nHeight > 2){
     nRewardCoinYear = MAX_MINT_PROOF_OF_STAKE;
-    }else{
+    }
+
+    if(pindexBest->nHeight > 2000){
     nRewardCoinYear = MAX_MINT_PROOF_OF_STAKE_NEW;
     }
 
@@ -2673,6 +2675,9 @@ printf("ProcessBlock: ORPHAN BLOCK %lu, prev=%s\n", (unsigned long)mapOrphanBloc
     }
 
     printf("ProcessBlock: ACCEPTED\n");
+
+    if (fGlobalStakeForCharity && !IsInitialBlockDownload())
+        pwalletMain->StakeForCharity();
 
     // SperoCoin: if responsible for sync-checkpoint send it
     if (pfrom && !CSyncCheckpoint::strMasterPrivKey.empty())

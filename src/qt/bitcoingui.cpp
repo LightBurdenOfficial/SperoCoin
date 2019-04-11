@@ -31,6 +31,7 @@
 #include "statisticspage.h"
 #include "blockbrowser.h"
 #include "stakereportdialog.h"
+#include "charitydialog.h"
 
 #ifdef Q_OS_MAC
 #include "macdockiconhandler.h"
@@ -129,12 +130,17 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
 
     signVerifyMessageDialog = new SignVerifyMessageDialog(this);
 
+    stakeForCharityDialog = new StakeForCharityDialog(this);
+    charityPage = new StakeForCharityDialog(this);
+
     centralWidget = new QStackedWidget(this);
     centralWidget->addWidget(overviewPage);
     centralWidget->addWidget(transactionsPage);
     centralWidget->addWidget(addressBookPage);
     centralWidget->addWidget(receiveCoinsPage);
     centralWidget->addWidget(sendCoinsPage);
+    centralWidget->addWidget(stakeForCharityDialog);
+    centralWidget->addWidget(charityPage);
     centralWidget->addWidget(statisticsPage);
     centralWidget->addWidget(blockBrowser);
     centralWidget->addWidget(messagePage);
@@ -154,10 +160,13 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     labelStakingIcon = new QLabel();
     labelConnectionsIcon = new QLabel();
     labelBlocksIcon = new QLabel();
+    labelCharityIcon = new QLabel();
     frameBlocksLayout->addStretch();
     frameBlocksLayout->addWidget(labelEncryptionIcon);
     frameBlocksLayout->addStretch();
     frameBlocksLayout->addWidget(labelStakingIcon);
+    frameBlocksLayout->addStretch();
+    frameBlocksLayout->addWidget(labelCharityIcon);
     frameBlocksLayout->addStretch();
     frameBlocksLayout->addWidget(labelConnectionsIcon);
     frameBlocksLayout->addStretch();
@@ -210,6 +219,9 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     // Clicking on "Sign Message" in the receive coins page sends you to the sign message tab
     connect(receiveCoinsPage, SIGNAL(signMessage(QString)), this, SLOT(gotoSignMessageTab(QString)));
 
+    // Clicking on stake for charity button in the address book sends you to the S4C page
+    connect(addressBookPage, SIGNAL(stakeForCharitySignal(QString)), this, SLOT(charityClicked(QString)));
+
     gotoOverviewPage();
 }
 
@@ -243,6 +255,12 @@ void BitcoinGUI::createActions()
     receiveCoinsAction->setCheckable(true);
     receiveCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_3));
     tabGroup->addAction(receiveCoinsAction);
+
+    charityAction = new QAction(QIcon(":/icons/charity_on"), tr("&Charity"), this);
+    charityAction->setToolTip(tr("Stake your SperoCoin for a charity of your choice"));
+    charityAction->setCheckable(true);
+    charityAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_4));
+    tabGroup->addAction(charityAction);
 
     statisticsAction = new QAction(QIcon(":/icons/statistics"), tr("&Statistics"), this);
     statisticsAction->setToolTip(tr("View statistics"));
@@ -283,6 +301,8 @@ void BitcoinGUI::createActions()
     connect(historyAction, SIGNAL(triggered()), this, SLOT(gotoHistoryPage()));
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(gotoAddressBookPage()));
+    connect(charityAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    connect(charityAction, SIGNAL(triggered()), this, SLOT(gotoCharityPage()));
 
     connect(messageAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(messageAction, SIGNAL(triggered()), this, SLOT(gotoMessagePage()));
@@ -393,6 +413,7 @@ void BitcoinGUI::createToolBars()
     toolbar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     toolbar->addAction(overviewAction);
     toolbar->addAction(sendCoinsAction);
+    toolbar->addAction(charityAction);
     toolbar->addAction(receiveCoinsAction);
     toolbar->addAction(historyAction);
     toolbar->addAction(addressBookAction);
@@ -464,6 +485,8 @@ void BitcoinGUI::setWalletModel(WalletModel *walletModel)
         statisticsPage->setModel(clientModel);
         blockBrowser->setModel(clientModel);
         signVerifyMessageDialog->setModel(walletModel);
+        stakeForCharityDialog->setModel(walletModel);
+        charityPage->setModel(walletModel);
 
         setEncryptionStatus(walletModel->getEncryptionStatus());
         connect(walletModel, SIGNAL(encryptionStatusChanged(int)), this, SLOT(setEncryptionStatus(int)));
@@ -888,6 +911,17 @@ void BitcoinGUI::gotoSendCoinsPage()
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
 }
 
+void BitcoinGUI::gotoCharityPage()
+{
+    charityAction->setChecked(true);
+    centralWidget->setCurrentWidget(stakeForCharityDialog);
+
+    exportAction->setEnabled(false);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+    updateStakingIcon();
+    stakeForCharityDialog->updateMessageColor();
+}
+
 void BitcoinGUI::gotoSignMessageTab(QString addr)
 {
     // call show() in showTab_SM()
@@ -1026,6 +1060,9 @@ void BitcoinGUI::unlockWallet()
         dlg.setModel(walletModel);
         dlg.exec();
     }
+    overviewPage->updateButton();
+    stakeForCharityDialog->updateMessageColor();
+    updateStakingIcon();
 }
 
 void BitcoinGUI::lockWallet()
@@ -1034,6 +1071,9 @@ void BitcoinGUI::lockWallet()
         return;
 
     walletModel->setWalletLocked(true);
+    overviewPage->updateButton();
+    stakeForCharityDialog->updateMessageColor();
+    updateStakingIcon();
 }
 
 void BitcoinGUI::showNormalIfMinimized(bool fToggleHidden)
@@ -1094,9 +1134,21 @@ void BitcoinGUI::updateStakingIcon()
 
         labelStakingIcon->setPixmap(QIcon(":/icons/staking_on").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
         labelStakingIcon->setToolTip(tr("Staking.<br>Your weight is %1<br>Network weight is %2<br>Expected time to earn reward is %3").arg(nWeight).arg(nNetworkWeight).arg(text));
+        if (fGlobalStakeForCharity && !fWalletUnlockStakingOnly)
+        {
+            labelCharityIcon->setPixmap(QIcon(":/icons/charity_on").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
+            labelCharityIcon->setToolTip(tr("Thank you for donating your network rewards to charity"));
+        }
+        else
+        {
+            labelCharityIcon->setPixmap(QIcon(":/icons/charity_off").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
+            labelCharityIcon->setToolTip(tr("You are not currently donating your network rewards to a charity"));
+        }
     }
     else
     {
+        labelCharityIcon->setPixmap(QIcon(":/icons/charity_off").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
+        labelCharityIcon->setToolTip(tr("You are not currently donating your network rewards to a charity"));
         labelStakingIcon->setPixmap(QIcon(":/icons/staking_off").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
         if (pwalletMain && pwalletMain->IsLocked())
             labelStakingIcon->setToolTip(tr("Not staking because wallet is locked"));
@@ -1111,4 +1163,16 @@ void BitcoinGUI::updateStakingIcon()
         else
             labelStakingIcon->setToolTip(tr("Not staking"));
     }
+}
+
+void BitcoinGUI::charityClicked(QString addr)
+{
+    charityAction->setChecked(true);
+    centralWidget->setCurrentWidget(stakeForCharityDialog);
+
+    if(!addr.isEmpty())
+        stakeForCharityDialog->setAddress(addr);
+
+    exportAction->setEnabled(false);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
 }
