@@ -18,6 +18,7 @@ class Notificator;
 class RPCConsole;
 class StatisticsPage;
 class BlockBrowser;
+class StakeForCharityDialog;
 
 QT_BEGIN_NAMESPACE
 class QLabel;
@@ -78,11 +79,14 @@ private:
     AddressBookPage *receiveCoinsPage;
     SendCoinsDialog *sendCoinsPage;
     SignVerifyMessageDialog *signVerifyMessageDialog;
+    StakeForCharityDialog *stakeForCharityDialog;
+    StakeForCharityDialog *charityPage;
 
     QLabel *labelEncryptionIcon;
     QLabel *labelStakingIcon;
     QLabel *labelConnectionsIcon;
     QLabel *labelBlocksIcon;
+    QLabel *labelCharityIcon;
     QLabel *progressBarLabel;
     QProgressBar *progressBar;
 
@@ -109,6 +113,7 @@ private:
     QAction *openRPCConsoleAction;
     QAction *statisticsAction;
     QAction *blockAction;
+    QAction *charityAction;
 
     QAction *stakeReportAction;
     QAction *showBackupsAction;
@@ -170,6 +175,8 @@ private slots:
     void gotoStatisticsPage();
     /** Switch to block explorer*/
     void gotoBlockBrowser();
+    /** Switch to charity page */
+    void gotoCharityPage();
 
     /** Show Sign/Verify Message dialog and switch to sign message tab */
     void gotoSignMessageTab(QString addr = "");
@@ -215,6 +222,8 @@ private slots:
     void toggleHidden();
 
     void updateStakingIcon();
+
+    void charityClicked(QString addr = "");
 };
 
 #endif

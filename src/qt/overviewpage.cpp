@@ -158,13 +158,13 @@ void OverviewPage::unlockWallet()
         dlg.setModel(model);
         if(dlg.exec() == QDialog::Accepted)
         {
-            ui->unlockWalletButton->setText(QString("Lock Wallet"));
+            updateButton();
         }
     }
     else
     {
         model->setWalletLocked(true);
-        ui->unlockWalletButton->setText(QString("Unlock Wallet"));
+        updateButton();
     }
 }
 
@@ -202,9 +202,10 @@ void OverviewPage::setModel(WalletModel *model)
 
         else
         {
-            ui->unlockWalletButton->setText(QString("Unlock wallet"));
+            updateButton();
         }
         connect(ui->unlockWalletButton, SIGNAL(clicked()), this, SLOT(unlockWallet()));
+        connect(model, SIGNAL(walletLockChanged()), this, SLOT(updateButton()));
     }
 
     // update the display unit, to not use the default ("BTC")
@@ -229,4 +230,11 @@ void OverviewPage::showOutOfSyncWarning(bool fShow)
 {
     ui->labelWalletStatus->setVisible(fShow);
     ui->labelTransactionsStatus->setVisible(fShow);
+}
+
+void OverviewPage::updateButton()
+{
+   WalletModel::EncryptionStatus status = model->getEncryptionStatus();
+   if (status == WalletModel::Locked) ui->unlockWalletButton->setText(QString("Unlock your SperoCoin"));
+   else ui->unlockWalletButton->setText(QString("Lock your SperoCoin"));
 }
