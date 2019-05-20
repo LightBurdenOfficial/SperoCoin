@@ -16,11 +16,18 @@ greaterThan(QT_MAJOR_VERSION, 4) {
     DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
 }
 
+win32 {
+  contains(WINBITS, 32) {
+    CONFIG += openssl-linked
+  }
+}
+
 USE_QRCODE=1
 USE_UPNP=-
 USE_IPV6=1
 
 win32 {
+
 BOOST_LIB_SUFFIX=-mgw49-mt-s-1_57
 BOOST_INCLUDE_PATH=C:/deps/boost_1_57_0
 BOOST_LIB_PATH=C:/deps/boost_1_57_0/stage/lib
@@ -289,7 +296,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/smessage.h \
     src/lz4/lz4.h \
     src/xxhash/xxhash.h \
-    src/qt/stakereportdialog.h
+    src/qt/stakereportdialog.h \
     src/qt/charitydialog.h
 
 SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
@@ -372,7 +379,7 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/lz4/lz4.c \
     src/xxhash/xxhash.c \
     src/pbkdf2.cpp \
-    src/qt/stakereportdialog.cpp
+    src/qt/stakereportdialog.cpp \
     src/qt/charitydialog.cpp
 
 RESOURCES += \
@@ -398,7 +405,7 @@ FORMS += \
     src/qt/forms/sendmessagesentry.ui \
     src/qt/forms/messagepage.ui \
     src/qt/forms/optionsdialog.ui \
-    src/qt/forms/stakereportdialog.ui
+    src/qt/forms/stakereportdialog.ui \
     src/qt/forms/charitydialog.ui
 
 contains(USE_QRCODE, 1) {
