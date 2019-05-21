@@ -27,7 +27,6 @@ USE_UPNP=-
 USE_IPV6=1
 
 win32 {
-
 BOOST_LIB_SUFFIX=-mgw49-mt-s-1_57
 BOOST_INCLUDE_PATH=C:/deps/boost_1_57_0
 BOOST_LIB_PATH=C:/deps/boost_1_57_0/stage/lib

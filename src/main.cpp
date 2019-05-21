@@ -1049,7 +1049,7 @@ int64_t GetProofOfWorkReward(int64_t nFees)
         nSubsidy = 50000 * COIN; //2% Bounties/Promotions
     }
 
-    if(pindexBest->nHeight >= POS_POW_HIBRID) //Mineracao hibrida PoW+PoS
+    if(pindexBest->nHeight > POS_POW_HIBRID) //Mineracao hibrida PoW+PoS
     {
         nSubsidy = 0.05 * COIN;
     }
@@ -1073,15 +1073,12 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
 
     if(pindexBest->nHeight < POS_POW_HIBRID){
         nRewardCoinYear = MAX_MINT_PROOF_OF_STAKE;
-        int64_t nSubsidy = nCoinAge * nRewardCoinYear / 365 / COIN;
     }
-
-    if(pindexBest->nHeight >= POS_POW_HIBRID){
+    else if(pindexBest->nHeight >= POS_POW_HIBRID){
         nRewardCoinYear = MAX_MINT_PROOF_OF_STAKE_NEW;
-        int64_t nSubsidy = nCoinAge * nRewardCoinYear / 365;
     }
 
-    
+    int64_t nSubsidy = nCoinAge * nRewardCoinYear / 365 / COIN;
 
     if (fDebug && GetBoolArg("-printcreation"))
         printf("GetProofOfStakeReward(): create=%s nRewardCoinYear=%"PRId64" nCoinAge=%"PRId64"\n", FormatMoney(nSubsidy).c_str(), nRewardCoinYear/CENT,nCoinAge);
