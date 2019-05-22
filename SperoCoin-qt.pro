@@ -34,27 +34,6 @@ QRENCODE_INCLUDE_PATH=C:/deps/qrencode-4.0.2
 QRENCODE_LIB_PATH=C:/deps/qrencode-4.0.2/.libs
 }
 
-# for boost 1.37, add -mt to the boost libraries
-# use: qmake BOOST_LIB_SUFFIX=-mt
-# for boost thread win32 with _win32 sufix
-# use: BOOST_THREAD_LIB_SUFFIX=_win32-...
-# or when linking against a specific BerkelyDB version: BDB_LIB_SUFFIX=-4.8
-
-# Dependency library locations can be customized with:
-#    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
-#    BDB_LIB_PATH, OPENSSL_INCLUDE_PATH and OPENSSL_LIB_PATH respectively
-BOOST_LIB_SUFFIX=-mgw49-mt-s-1_57
-BOOST_INCLUDE_PATH=C:/deps/boost_1_57_0
-BOOST_LIB_PATH=C:/deps/boost_1_57_0/stage/lib
-BDB_INCLUDE_PATH=C:/deps/db-6.0.20/build_unix
-BDB_LIB_PATH=C:/deps/db-6.0.20/build_unix
-OPENSSL_INCLUDE_PATH=C:/deps/openssl-1.0.2r/include
-OPENSSL_LIB_PATH=C:/deps/openssl-1.0.2r
-MINIUPNPC_INCLUDE_PATH=C:/deps/
-MINIUPNPC_LIB_PATH=C:/deps/miniupnpc
-QRENCODE_INCLUDE_PATH=C:/deps/qrencode-4.0.2
-QRENCODE_LIB_PATH=C:/deps/qrencode-4.0.2/.libs
-
 OBJECTS_DIR = build
 MOC_DIR = build
 UI_DIR = build
