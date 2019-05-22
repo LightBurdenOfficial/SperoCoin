@@ -16,12 +16,6 @@ greaterThan(QT_MAJOR_VERSION, 4) {
     DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
 }
 
-win32 {
-  contains(WINBITS, 32) {
-    CONFIG += openssl-linked
-  }
-}
-
 USE_QRCODE=1
 USE_UPNP=-
 USE_IPV6=1
