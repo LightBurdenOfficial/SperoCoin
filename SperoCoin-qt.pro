@@ -289,7 +289,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/smessage.h \
     src/lz4/lz4.h \
     src/xxhash/xxhash.h \
-    src/qt/stakereportdialog.h
+    src/qt/stakereportdialog.h \
     src/qt/charitydialog.h
 
 SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
@@ -372,7 +372,7 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/lz4/lz4.c \
     src/xxhash/xxhash.c \
     src/pbkdf2.cpp \
-    src/qt/stakereportdialog.cpp
+    src/qt/stakereportdialog.cpp \
     src/qt/charitydialog.cpp
 
 RESOURCES += \
@@ -398,7 +398,7 @@ FORMS += \
     src/qt/forms/sendmessagesentry.ui \
     src/qt/forms/messagepage.ui \
     src/qt/forms/optionsdialog.ui \
-    src/qt/forms/stakereportdialog.ui
+    src/qt/forms/stakereportdialog.ui \
     src/qt/forms/charitydialog.ui
 
 contains(USE_QRCODE, 1) {
