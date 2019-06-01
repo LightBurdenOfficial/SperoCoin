@@ -262,7 +262,7 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 → Adicionada Introdução;<br>
 → Adicionado pontos de checagem de blocos até o bloco 180000<br>
 
->$0023 2019/05/31<br>
+>$0028 2019/05/31<br>
 → Alterada Versão para 2.6.4.7;<br>
 → Alterada versão do protocolo mínimo para 700002;<br>
 → Adicionada página Charity(Doações POS);<br>
