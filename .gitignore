@@ -12,3 +12,10 @@ src/obj-test/*.P
 src/obj/build.h
 src/qt/locale/*.qm
 src/clean.sh
+Makefile
+Makefile.Debug
+Makefile.Release
+object_script.SperoCoin-qt.Debug
+object_script.SperoCoin-qt.Release
+read.me
+sperocoin-qt_plugin_import.cpp
