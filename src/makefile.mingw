@@ -12,18 +12,18 @@ BOOST_SUFFIX?=-mgw49-mt-s-1_57
 
 INCLUDEPATHS= \
  -I"$(CURDIR)" \
- -I"/c/deps/boost_1_57_0" \
- -I"/c/deps" \
- -I"/c/deps/db-6.0.20/build_unix" \
- -I"/c/deps/openssl-1.0.2r/include"
+ -I"/c/deps_x86/boost_1_57_0" \
+ -I"/c/deps_x86" \
+ -I"/c/deps_x86/db-6.0.20/build_unix" \
+ -I"/c/deps_x86/openssl-1.0.2r/include"
 
 
 LIBPATHS= \
  -L"$(CURDIR)/leveldb" \
- -L"/c/deps/boost_1_57_0/stage/lib" \
- -L"/c/deps/miniupnpc" \
- -L"/c/deps/db-6.0.20/build_unix" \
- -L"/c/deps/openssl-1.0.2r"
+ -L"/c/deps_x86/boost_1_57_0/stage/lib" \
+ -L"/c/deps_x86/miniupnpc" \
+ -L"/c/deps_x86/db-6.0.20/build_unix" \
+ -L"/c/deps_x86/openssl-1.0.2r"
 
 LIBS= \
  -l leveldb \
@@ -48,8 +48,8 @@ ifndef USE_UPNP
 	override USE_UPNP = -
 endif
 ifneq (${USE_UPNP}, -)
- INCLUDEPATHS += -I"C:\deps\miniupnpc"
- LIBPATHS += -L"C:\deps\miniupnpc"
+ INCLUDEPATHS += -I"C:\deps_x86\miniupnpc"
+ LIBPATHS += -L"C:\deps_x86\miniupnpc"
  LIBS += -l miniupnpc -l iphlpapi
  DEFS += -DSTATICLIB -DUSE_UPNP=$(USE_UPNP)
 endif
@@ -97,7 +97,6 @@ OBJS= \
     obj/rpcwallet.o \
     obj/rpcblockchain.o \
     obj/rpcrawtransaction.o \
-    obj/rpcsmessage.o \
     obj/script.o \
     obj/sync.o \
     obj/util.o \
@@ -109,7 +108,6 @@ OBJS= \
     obj/scrypt.o \
     obj/scrypt-arm.o \
     obj/scrypt-x86.o \
-    obj/smessage.o \
     obj/scrypt-x86_64.o
 
 all: SperoCoind.exe
