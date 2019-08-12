@@ -12,3 +12,16 @@ src/obj-test/*.P
 src/obj/build.h
 src/qt/locale/*.qm
 src/clean.sh
+sperocoin-qt_plugin_import.cpp
+Makefile
+Makefile.Debug
+Makefile.Release
+object_script.SperoCoin-qt.Debug
+object_script.SperoCoin-qt.Release
+src/leveldb/build_config.mk
+src/leveldb/libleveldb.a
+src/leveldb/libmemenv.a
+src/obj/scrypt-arm.d
+src/obj/scrypt-x86.d
+src/obj/scrypt-x86_64.d
+src/leveldb/libmemenv.a
