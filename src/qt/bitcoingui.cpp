@@ -7,14 +7,12 @@
 #include "bitcoingui.h"
 #include "transactiontablemodel.h"
 #include "addressbookpage.h"
-#include "messagepage.h"
 #include "sendcoinsdialog.h"
 #include "signverifymessagedialog.h"
 #include "optionsdialog.h"
 #include "aboutdialog.h"
 #include "clientmodel.h"
 #include "walletmodel.h"
-#include "messagemodel.h"
 #include "editaddressdialog.h"
 #include "optionsmodel.h"
 #include "transactiondescdialog.h"
@@ -31,6 +29,7 @@
 #include "statisticspage.h"
 #include "blockbrowser.h"
 #include "stakereportdialog.h"
+#include "charitydialog.h"
 
 #ifdef Q_OS_MAC
 #include "macdockiconhandler.h"
@@ -125,9 +124,11 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     receiveCoinsPage = new AddressBookPage(AddressBookPage::ForEditing, AddressBookPage::ReceivingTab);
 
     sendCoinsPage = new SendCoinsDialog(this);
-    messagePage   = new MessagePage(this);
 
     signVerifyMessageDialog = new SignVerifyMessageDialog(this);
+
+    stakeForCharityDialog = new StakeForCharityDialog(this);
+    charityPage = new StakeForCharityDialog(this);
 
     centralWidget = new QStackedWidget(this);
     centralWidget->addWidget(overviewPage);
@@ -135,9 +136,10 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     centralWidget->addWidget(addressBookPage);
     centralWidget->addWidget(receiveCoinsPage);
     centralWidget->addWidget(sendCoinsPage);
+    centralWidget->addWidget(stakeForCharityDialog);
+    centralWidget->addWidget(charityPage);
     centralWidget->addWidget(statisticsPage);
     centralWidget->addWidget(blockBrowser);
-    centralWidget->addWidget(messagePage);
     setCentralWidget(centralWidget);
 
     // Create status bar
@@ -154,10 +156,13 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     labelStakingIcon = new QLabel();
     labelConnectionsIcon = new QLabel();
     labelBlocksIcon = new QLabel();
+    labelCharityIcon = new QLabel();
     frameBlocksLayout->addStretch();
     frameBlocksLayout->addWidget(labelEncryptionIcon);
     frameBlocksLayout->addStretch();
     frameBlocksLayout->addWidget(labelStakingIcon);
+    frameBlocksLayout->addStretch();
+    frameBlocksLayout->addWidget(labelCharityIcon);
     frameBlocksLayout->addStretch();
     frameBlocksLayout->addWidget(labelConnectionsIcon);
     frameBlocksLayout->addStretch();
@@ -203,11 +208,15 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
 
     rpcConsole = new RPCConsole(this);
     connect(openRPCConsoleAction, SIGNAL(triggered()), rpcConsole, SLOT(show()));
+    connect(showBackupsAction, SIGNAL(triggered()), rpcConsole, SLOT(showBackups()));
 
     // Clicking on "Verify Message" in the address book sends you to the verify message tab
     connect(addressBookPage, SIGNAL(verifyMessage(QString)), this, SLOT(gotoVerifyMessageTab(QString)));
     // Clicking on "Sign Message" in the receive coins page sends you to the sign message tab
     connect(receiveCoinsPage, SIGNAL(signMessage(QString)), this, SLOT(gotoSignMessageTab(QString)));
+
+    // Clicking on stake for charity button in the address book sends you to the S4C page
+    connect(addressBookPage, SIGNAL(stakeForCharitySignal(QString)), this, SLOT(charityClicked(QString)));
 
     gotoOverviewPage();
 }
@@ -243,6 +252,12 @@ void BitcoinGUI::createActions()
     receiveCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_3));
     tabGroup->addAction(receiveCoinsAction);
 
+    charityAction = new QAction(QIcon(":/icons/charity_on"), tr("&Charity"), this);
+    charityAction->setToolTip(tr("Stake your SperoCoin for a charity of your choice"));
+    charityAction->setCheckable(true);
+    charityAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_4));
+    tabGroup->addAction(charityAction);
+
     statisticsAction = new QAction(QIcon(":/icons/statistics"), tr("&Statistics"), this);
     statisticsAction->setToolTip(tr("View statistics"));
     statisticsAction->setCheckable(true);
@@ -266,12 +281,6 @@ void BitcoinGUI::createActions()
     addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
     tabGroup->addAction(addressBookAction);
 
-    messageAction = new QAction(QIcon(":/icons/smessage"), tr("&Messages"), this);
-    messageAction->setToolTip(tr("View and Send Encrypted messages"));
-    messageAction->setCheckable(true);
-    messageAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
-    tabGroup->addAction(messageAction);
-
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(gotoOverviewPage()));
     connect(sendCoinsAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
@@ -282,9 +291,8 @@ void BitcoinGUI::createActions()
     connect(historyAction, SIGNAL(triggered()), this, SLOT(gotoHistoryPage()));
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(gotoAddressBookPage()));
-
-    connect(messageAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
-    connect(messageAction, SIGNAL(triggered()), this, SLOT(gotoMessagePage()));
+    connect(charityAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    connect(charityAction, SIGNAL(triggered()), this, SLOT(gotoCharityPage()));
 
     connect(statisticsAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(statisticsAction, SIGNAL(triggered()), this, SLOT(gotoStatisticsPage()));
@@ -322,6 +330,9 @@ void BitcoinGUI::createActions()
 
     stakeReportAction = new QAction(QIcon(":/icons/history"), tr("&Show stake report"), this);
     stakeReportAction->setToolTip(tr("Open the Stake Report Box"));
+
+    showBackupsAction = new QAction(QIcon(":/icons/browse"), tr("Show Automatic &Backups"), this);
+    showBackupsAction->setToolTip(tr("Show automatically created wallet backups"));
 
     exportAction = new QAction(QIcon(":/icons/export"), tr("&Export..."), this);
     exportAction->setToolTip(tr("Export the data in the current tab to a file"));
@@ -364,6 +375,8 @@ void BitcoinGUI::createMenuBar()
     file->addSeparator();
     file->addAction(stakeReportAction);   // ** em52
     file->addSeparator();
+    file->addAction(showBackupsAction);
+    file->addSeparator();
     file->addAction(quitAction);
 
     QMenu *settings = appMenuBar->addMenu(tr("&Settings"));
@@ -387,10 +400,10 @@ void BitcoinGUI::createToolBars()
     toolbar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     toolbar->addAction(overviewAction);
     toolbar->addAction(sendCoinsAction);
+    toolbar->addAction(charityAction);
     toolbar->addAction(receiveCoinsAction);
     toolbar->addAction(historyAction);
     toolbar->addAction(addressBookAction);
-    toolbar->addAction(messageAction);
     toolbar->addAction(statisticsAction);
     toolbar->addAction(blockAction);
 
@@ -458,6 +471,8 @@ void BitcoinGUI::setWalletModel(WalletModel *walletModel)
         statisticsPage->setModel(clientModel);
         blockBrowser->setModel(clientModel);
         signVerifyMessageDialog->setModel(walletModel);
+        stakeForCharityDialog->setModel(walletModel);
+        charityPage->setModel(walletModel);
 
         setEncryptionStatus(walletModel->getEncryptionStatus());
         connect(walletModel, SIGNAL(encryptionStatusChanged(int)), this, SLOT(setEncryptionStatus(int)));
@@ -468,23 +483,6 @@ void BitcoinGUI::setWalletModel(WalletModel *walletModel)
 
         // Ask for passphrase if needed
         connect(walletModel, SIGNAL(requireUnlock()), this, SLOT(unlockWallet()));
-    }
-}
-
-void BitcoinGUI::setMessageModel(MessageModel *messageModel)
-{
-    this->messageModel = messageModel;
-    if(messageModel)
-    {
-        // Report errors from message thread
-        connect(messageModel, SIGNAL(error(QString,QString,bool)), this, SLOT(error(QString,QString,bool)));
-
-        // Put transaction list in tabs
-        messagePage->setModel(messageModel);
-
-        // Balloon pop-up for new message
-        connect(messageModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
-                this, SLOT(incomingMessage(QModelIndex,int,int)));
     }
 }
 
@@ -518,6 +516,7 @@ void BitcoinGUI::createTrayIcon()
     trayIconMenu->addSeparator();
     trayIconMenu->addAction(optionsAction);
     trayIconMenu->addAction(openRPCConsoleAction);
+    trayIconMenu->addAction(showBackupsAction);
 #ifndef Q_OS_MAC // This is built-in on Mac
     trayIconMenu->addSeparator();
     trayIconMenu->addAction(quitAction);
@@ -774,36 +773,6 @@ void BitcoinGUI::incomingTransaction(const QModelIndex & parent, int start, int 
     }
 }
 
-void BitcoinGUI::incomingMessage(const QModelIndex & parent, int start, int end)
-{
-    if(!messageModel)
-        return;
-
-    MessageModel *mm = messageModel;
-
-    if (mm->index(start, MessageModel::TypeInt, parent).data().toInt() == MessageTableEntry::Received)
-    {
-        QString sent_datetime = mm->index(start, MessageModel::ReceivedDateTime, parent).data().toString();
-        QString from_address  = mm->index(start, MessageModel::FromAddress,      parent).data().toString();
-        QString to_address    = mm->index(start, MessageModel::ToAddress,        parent).data().toString();
-        QString message       = mm->index(start, MessageModel::Message,          parent).data().toString();
-        QTextDocument html;
-        html.setHtml(message);
-        QString messageText(html.toPlainText());
-        notificator->notify(Notificator::Information,
-                            tr("Incoming Message"),
-                            tr("Date: %1\n"
-                               "From Address: %2\n"
-                               "To Address: %3\n"
-                               "Message: %4\n")
-                              .arg(sent_datetime)
-                              .arg(from_address)
-                              .arg(to_address)
-                              .arg(messageText));
-    };
-}
-
-
 void BitcoinGUI::gotoOverviewPage()
 {
     overviewAction->setChecked(true);
@@ -812,17 +781,6 @@ void BitcoinGUI::gotoOverviewPage()
     exportAction->setEnabled(false);
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
 }
-
-void BitcoinGUI::gotoMessagePage()
-{
-    messageAction->setChecked(true);
-    centralWidget->setCurrentWidget(messagePage);
-
-    exportAction->setEnabled(true);
-    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
-    connect(exportAction, SIGNAL(triggered()), messagePage, SLOT(exportClicked()));
-}
-
 
 void BitcoinGUI::gotoStatisticsPage()
 {
@@ -879,6 +837,17 @@ void BitcoinGUI::gotoSendCoinsPage()
 
     exportAction->setEnabled(false);
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+}
+
+void BitcoinGUI::gotoCharityPage()
+{
+    charityAction->setChecked(true);
+    centralWidget->setCurrentWidget(stakeForCharityDialog);
+
+    exportAction->setEnabled(false);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+    updateStakingIcon();
+    stakeForCharityDialog->updateMessageColor();
 }
 
 void BitcoinGUI::gotoSignMessageTab(QString addr)
@@ -989,13 +958,8 @@ void BitcoinGUI::encryptWallet(bool status)
 
 void BitcoinGUI::backupWallet()
 {
-    //Início das Alterações para Raspberry e Qt5 - Francis Santana
-    #if QT_VERSION < 0x050000
-        QString saveDir = QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);
-    #else
-        QString saveDir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
-    #endif
-    //Fim das Alterações para Raspberry e Qt5 - Francis Santana
+    //QString saveDir = QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);
+    QString saveDir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
     QString filename = QFileDialog::getSaveFileName(this, tr("Backup Wallet"), saveDir, tr("Wallet Data (*.dat)"));
     if(!filename.isEmpty()) {
         if(!walletModel->backupWallet(filename)) {
@@ -1024,6 +988,9 @@ void BitcoinGUI::unlockWallet()
         dlg.setModel(walletModel);
         dlg.exec();
     }
+    overviewPage->updateButton();
+    stakeForCharityDialog->updateMessageColor();
+    updateStakingIcon();
 }
 
 void BitcoinGUI::lockWallet()
@@ -1032,6 +999,9 @@ void BitcoinGUI::lockWallet()
         return;
 
     walletModel->setWalletLocked(true);
+    overviewPage->updateButton();
+    stakeForCharityDialog->updateMessageColor();
+    updateStakingIcon();
 }
 
 void BitcoinGUI::showNormalIfMinimized(bool fToggleHidden)
@@ -1092,9 +1062,21 @@ void BitcoinGUI::updateStakingIcon()
 
         labelStakingIcon->setPixmap(QIcon(":/icons/staking_on").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
         labelStakingIcon->setToolTip(tr("Staking.<br>Your weight is %1<br>Network weight is %2<br>Expected time to earn reward is %3").arg(nWeight).arg(nNetworkWeight).arg(text));
+        if (fGlobalStakeForCharity && !fWalletUnlockStakingOnly)
+        {
+            labelCharityIcon->setPixmap(QIcon(":/icons/charity_on").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
+            labelCharityIcon->setToolTip(tr("Thank you for donating your network rewards to charity"));
+        }
+        else
+        {
+            labelCharityIcon->setPixmap(QIcon(":/icons/charity_off").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
+            labelCharityIcon->setToolTip(tr("You are not currently donating your network rewards to a charity"));
+        }
     }
     else
     {
+        labelCharityIcon->setPixmap(QIcon(":/icons/charity_off").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
+        labelCharityIcon->setToolTip(tr("You are not currently donating your network rewards to a charity"));
         labelStakingIcon->setPixmap(QIcon(":/icons/staking_off").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
         if (pwalletMain && pwalletMain->IsLocked())
             labelStakingIcon->setToolTip(tr("Not staking because wallet is locked"));
@@ -1109,4 +1091,16 @@ void BitcoinGUI::updateStakingIcon()
         else
             labelStakingIcon->setToolTip(tr("Not staking"));
     }
+}
+
+void BitcoinGUI::charityClicked(QString addr)
+{
+    charityAction->setChecked(true);
+    centralWidget->setCurrentWidget(stakeForCharityDialog);
+
+    if(!addr.isEmpty())
+        stakeForCharityDialog->setAddress(addr);
+
+    exportAction->setEnabled(false);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
 }

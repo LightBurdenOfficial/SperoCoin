@@ -30,6 +30,7 @@ class CNode;
 static const int SKIP_VALIDATION_HEIGHT = 165000;
 
 static const int LAST_POW_BLOCK = 33331;
+static const int POS_POW_HIBRID = 263250;
 static const unsigned int MAX_BLOCK_SIZE = 20000000; //20MB
 static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2;
 static const unsigned int MAX_BLOCK_SIGOPS = MAX_BLOCK_SIZE/50;
@@ -41,11 +42,12 @@ static const unsigned int MAX_INV_SZ = 50000;
 static const int64_t MIN_TX_FEE = 10000;
 static const int64_t MIN_RELAY_TX_FEE = MIN_TX_FEE;
 static const int64_t MAX_MONEY = 7000000 * COIN;
-static const int64_t MAX_MINT_PROOF_OF_STAKE = 0.05 * COIN;
+static const int64_t MAX_MINT_PROOF_OF_STAKE = 0.05 * COIN; //Stake 5% por ano
+static const int64_t MAX_MINT_PROOF_OF_STAKE_NEW = 0.25 * COIN; //Stake 25% por ano
 static const int64_t COIN_YEAR_REWARD = 25 * CENT; // 25% per year (output to console will be updated)
 
-#define FOUNDATION "Null"
-#define FOUNDATION_TEST "Null"
+#define FOUNDATION "ScCJWtVVQxtEkKDqnL43aJpzULvpEE5fBD"
+#define FOUNDATION_TEST "sbEje8AqUUqkUXXNGYJodR2SN3emT6PVzA"
 
 inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 // Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp.

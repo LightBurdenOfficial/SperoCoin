@@ -10,7 +10,6 @@
 #include "util.h"
 #include "ui_interface.h"
 #include "checkpoints.h"
-#include "smessage.h"
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
 #include <boost/filesystem/convenience.hpp>
@@ -27,6 +26,7 @@ using namespace std;
 using namespace boost;
 
 CWallet* pwalletMain;
+int nWalletBackups = 10;
 CClientUIInterface uiInterface;
 std::string strWalletFileName;
 bool fConfChange;
@@ -36,6 +36,15 @@ unsigned int nDerivationMethodIndex;
 unsigned int nMinerSleep;
 bool fUseFastIndex;
 enum Checkpoints::CPMode CheckpointsMode;
+
+#ifdef WIN32
+// Win32 LevelDB doesn't use filedescriptors, and the ones used for
+// accessing block files don't count towards the fd_set size limit
+// anyway.
+#define MIN_CORE_FILEDESCRIPTORS 0
+#else
+#define MIN_CORE_FILEDESCRIPTORS 150
+#endif
 
 //////////////////////////////////////////////////////////////////////////////
 //
@@ -82,8 +91,6 @@ void Shutdown(void* parg)
     if (fFirstThread)
     {
         fShutdown = true;
-
-	SecureMsgShutdown();
 
         nTransactionsUpdated++;
 //        CTxDB().Close();
@@ -303,8 +310,10 @@ std::string HelpMessage()
         "  -enforcecanonical      " + _("Enforce transaction scripts to use canonical PUSH operators (default: 1)") + "\n" +
         "  -alertnotify=<cmd>     " + _("Execute command when a relevant alert is received (%s in cmd is replaced by message)") + "\n" +
         "  -upgradewallet         " + _("Upgrade wallet to latest format") + "\n" +
+        "  -createwalletbackups=<n> " + _("Number of automatic wallet backups (default: 10)") + "\n";
         "  -keypool=<n>           " + _("Set key pool size to <n> (default: 100)") + "\n" +
         "  -rescan                " + _("Rescan the block chain for missing wallet transactions") + "\n" +
+        "  -zapwallettxes         " + _("Clear list of wallet transactions (diagnostic tool; implies -rescan)") + "\n" +
         "  -salvagewallet         " + _("Attempt to recover private keys from a corrupt wallet.dat") + "\n" +
         "  -checkblocks=<n>       " + _("How many blocks to check at startup (default: 2500, 0 = all)") + "\n" +
         "  -checklevel=<n>        " + _("How thorough the block verification is (0-6, default: 1)") + "\n" +
@@ -322,11 +331,6 @@ std::string HelpMessage()
         "  -rpcsslcertificatechainfile=<file.cert>  " + _("Server certificate file (default: server.cert)") + "\n" +
         "  -rpcsslprivatekeyfile=<file.pem>         " + _("Server private key (default: server.pem)") + "\n" +
         "  -rpcsslciphers=<ciphers>                 " + _("Acceptable ciphers (default: TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!AH:!3DES:@STRENGTH)") + "\n";
-
-        "\n" + _("Secure messaging options:") + "\n" +
-        "  -nosmsg                                  " + _("Disable secure messaging.") + "\n" +
-        "  -debugsmsg                               " + _("Log extra debug messages.") + "\n" +
-        "  -smsgscanchain                           " + _("Scan the block chain for public key addresses on startup.") + "\n";
 
     return strUsage;
 }
@@ -433,21 +437,31 @@ bool AppInit2()
         SoftSetBoolArg("-rescan", true);
     }
 
+    // -zapwallettx implies a rescan
+    if (GetBoolArg("-zapwallettxes", false)) {
+        if (SoftSetBoolArg("-rescan", true))
+            printf("AppInit2 : parameter interaction: -zapwallettxes=1 -> setting -rescan=1\n");
+    }
+
     // ********************************************************* Step 3: parameter-to-internal-flags
 
     fDebug = GetBoolArg("-debug");
 
+    // Make sure enough file descriptors are available
+    int nBind = std::max((int)mapArgs.count("-bind"), 1);
+    int nMaxConnections = GetArg("-maxconnections", 125);
+    nMaxConnections = std::max(std::min(nMaxConnections, (int)(FD_SETSIZE - nBind - MIN_CORE_FILEDESCRIPTORS)), 0);
+    int nFD = RaiseFileDescriptorLimit(nMaxConnections + MIN_CORE_FILEDESCRIPTORS);
+    if (nFD < MIN_CORE_FILEDESCRIPTORS)
+        return InitError(_("Not enough file descriptors available."));
+    if (nFD - MIN_CORE_FILEDESCRIPTORS < nMaxConnections)
+        nMaxConnections = nFD - MIN_CORE_FILEDESCRIPTORS;
+
     // -debug implies fDebug*
     if (fDebug)
-    {
         fDebugNet = true;
-	fDebugSmsg = true;
-    } else
-    {
+    else
         fDebugNet = GetBoolArg("-debugnet");
-        fDebugNet = GetBoolArg("-debugsmsg");
-    }
-    fNoSmsg = GetBoolArg("-nosmsg");
 
     bitdb.SetDetach(GetBoolArg("-detachdb", false));
 
@@ -551,8 +565,7 @@ bool AppInit2()
 
     int64_t nStart;
 
-    // ********************************************************* Step 5: verify database integrity
-
+    // ********************************************************* Step 5: Verify database integrity
     uiInterface.InitMessage(_("Verifying database integrity..."));
 
     if (!bitdb.Open(GetDataDir()))
@@ -771,8 +784,22 @@ bool AppInit2()
     }
 
     // ********************************************************* Step 8: load wallet
+    if (GetBoolArg("-zapwallettxes", false)) {
+        uiInterface.InitMessage(_("Zapping all transactions from wallet..."));
+
+        pwalletMain = new CWallet(strWalletFileName);
+        DBErrors nZapWalletRet = pwalletMain->ZapWalletTx();
+        if (nZapWalletRet != DB_LOAD_OK) {
+            uiInterface.InitMessage(_("Error loading wallet.dat: Wallet corrupted"));
+            return false;
+        }
+
+        delete pwalletMain;
+        pwalletMain = NULL;
+    }
 
     uiInterface.InitMessage(_("Loading wallet..."));
+
     printf("Loading wallet...\n");
     nStart = GetTimeMillis();
     bool fFirstRun = true;
@@ -895,10 +922,6 @@ bool AppInit2()
     printf("Loaded %i addresses from peers.dat  %"PRId64"ms\n",
            addrman.size(), GetTimeMillis() - nStart);
 
-    // ********************************************************* Step 10.1: startup secure messaging
-
-    SecureMsgStart(fNoSmsg, GetBoolArg("-smsgscanchain"));
-
     // ********************************************************* Step 11: start node
 
     if (!CheckDiskSpace())
@@ -911,16 +934,17 @@ bool AppInit2()
     {
         uiInterface.InitMessage(_("Rebuilding address index..."));
         CBlockIndex *pblockAddrIndex = pindexBest;
-	CTxDB txdbAddr("rw");
-	while(pblockAddrIndex)
-	{
-	    uiInterface.InitMessage(strprintf("Rebuilding address index, block %i", pblockAddrIndex->nHeight));
-	    bool ReadFromDisk(const CBlockIndex* pindex, bool fReadTransactions=true);
-	    CBlock pblockAddr;
-	    if(pblockAddr.ReadFromDisk(pblockAddrIndex, true))
-	        pblockAddr.RebuildAddressIndex(txdbAddr);
-	    pblockAddrIndex = pblockAddrIndex->pprev;
-	}
+    CTxDB txdbAddr("rw");
+    while(pblockAddrIndex)
+    {
+        uiInterface.InitMessage(strprintf("Rebuilding address index, block %i", pblockAddrIndex->nHeight));
+        printf("Rebuilding address index, block %i \n", pblockAddrIndex->nHeight);
+        bool ReadFromDisk(const CBlockIndex* pindex, bool fReadTransactions=true);
+        CBlock pblockAddr;
+        if(pblockAddr.ReadFromDisk(pblockAddrIndex, true))
+            pblockAddr.RebuildAddressIndex(txdbAddr);
+        pblockAddrIndex = pblockAddrIndex->pprev;
+    }
     }
 
     //// debug print
@@ -937,6 +961,74 @@ bool AppInit2()
         NewThread(ThreadRPCServer, NULL);
 
     // ********************************************************* Step 12: finished
+
+        filesystem::path backupDir = GetDataDir() / "backups";
+        if (!filesystem::exists(backupDir))
+        {
+            // Always create backup folder to not confuse the operating system's file browser
+            filesystem::create_directories(backupDir);
+        }
+        nWalletBackups = GetArg("-createwalletbackups", 10);
+        nWalletBackups = std::max(0, std::min(10, nWalletBackups));
+        if(nWalletBackups > 0)
+        {
+            if (filesystem::exists(backupDir))
+            {
+                // Create backup of the wallet
+                std::string dateTimeStr = DateTimeStrFormat(".%Y-%m-%d-%H.%M", GetTime());
+                std::string backupPathStr = backupDir.string();
+                backupPathStr += "/" + strWalletFileName;
+                std::string sourcePathStr = GetDataDir().string();
+                sourcePathStr += "/" + strWalletFileName;
+                boost::filesystem::path sourceFile = sourcePathStr;
+                boost::filesystem::path backupFile = backupPathStr + dateTimeStr;
+                sourceFile.make_preferred();
+                backupFile.make_preferred();
+                try {
+                    boost::filesystem::copy_file(sourceFile, backupFile);
+                    std::cout << "Creating backup of" << sourceFile << "->" << backupFile << '\n';
+                } catch(boost::filesystem::filesystem_error &error) {
+                    sprintf("Failed to create backup %s\n", error.what());
+                }
+                // Keep only the last nWallet backups, including the new one of course
+                typedef std::multimap<std::time_t, boost::filesystem::path> folder_set_t;
+                folder_set_t folder_set;
+                boost::filesystem::directory_iterator end_iter;
+                boost::filesystem::path backupFolder = backupDir.string();
+                backupFolder.make_preferred();
+                // Build map of backup files for current(!) wallet sorted by last write time
+                boost::filesystem::path currentFile;
+                for (boost::filesystem::directory_iterator dir_iter(backupFolder); dir_iter != end_iter; ++dir_iter)
+                {
+                    // Only check regular files
+                    if ( boost::filesystem::is_regular_file(dir_iter->status()))
+                    {
+                        currentFile = dir_iter->path().filename();
+                        // Only add the backups for the current wallet, e.g. wallet.dat.*
+                        if(currentFile.string().find(strWalletFileName) != string::npos)
+                        {
+                            folder_set.insert(folder_set_t::value_type(boost::filesystem::last_write_time(dir_iter->path()), *dir_iter));
+                        }
+                    }
+                }
+                // Loop backward through backup files and keep the N newest ones (1 <= N <= 10)
+                int counter = 0;
+                BOOST_REVERSE_FOREACH(PAIRTYPE(const std::time_t, boost::filesystem::path) file, folder_set)
+                {
+                    counter++;
+                    if (counter > nWalletBackups)
+                    {
+                        // More than nWalletBackups backups: delete oldest one(s)
+                        try {
+                            boost::filesystem::remove(file.second);
+                            std::cout << "Old backup deleted:" << file.second << '\n';
+                        } catch(boost::filesystem::filesystem_error &error) {
+                            sprintf("Failed to delete backup %s\n", error.what());
+                        }
+                    }
+                }
+            }
+        }
 
     uiInterface.InitMessage(_("Done loading"));
     printf("Done loading\n");

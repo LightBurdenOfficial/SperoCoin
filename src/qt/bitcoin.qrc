@@ -26,7 +26,6 @@
         <file alias="overview">res/icons/overview.png</file>
         <file alias="export">res/icons/export.png</file>
         <file alias="block">res/icons/block.png</file>
-        <file alias="smessage">res/icons/forum.png</file>
         <file alias="statistics">res/icons/statistics.png</file>
         <file alias="synced">res/icons/synced.png</file>
         <file alias="remove">res/icons/remove.png</file>
@@ -47,6 +46,9 @@
         <file alias="bitcoin_testnet">res/icons/bitcoin_testnet.png</file>
         <file alias="toolbar">res/icons/sperocoin-16.png</file>
         <file alias="toolbar_testnet">res/icons/sperocoin-16.png</file>
+        <file alias="browse">res/icons/browse.png</file>
+        <file alias="charity_on">res/icons/charity_on.png</file>
+        <file alias="charity_off">res/icons/charity_off.png</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="about">res/images/about.png</file>

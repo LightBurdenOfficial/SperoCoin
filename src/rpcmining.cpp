@@ -123,7 +123,7 @@ Value getworkex(const Array& params, bool fHelp)
     if (IsInitialBlockDownload())
         throw JSONRPCError(-10, "SperoCoin is downloading blocks...");
 
-    if (pindexBest->nHeight >= LAST_POW_BLOCK)
+    if ((pindexBest->nHeight >= LAST_POW_BLOCK) && (pindexBest->nHeight < POS_POW_HIBRID))
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
 
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
@@ -256,7 +256,7 @@ Value getwork(const Array& params, bool fHelp)
     if (IsInitialBlockDownload())
         throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "SperoCoin is downloading blocks...");
 
-    if (pindexBest->nHeight >= LAST_POW_BLOCK)
+    if ((pindexBest->nHeight >= LAST_POW_BLOCK) && (pindexBest->nHeight < POS_POW_HIBRID))
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
 
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
@@ -400,7 +400,7 @@ Value getblocktemplate(const Array& params, bool fHelp)
     if (IsInitialBlockDownload())
         throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "SperoCoin is downloading blocks...");
 
-    if (pindexBest->nHeight >= LAST_POW_BLOCK)
+    if ((pindexBest->nHeight >= LAST_POW_BLOCK) && (pindexBest->nHeight < POS_POW_HIBRID))
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
 
     static CReserveKey reservekey(pwalletMain);
@@ -511,7 +511,10 @@ Value getblocktemplate(const Array& params, bool fHelp)
     result.push_back(Pair("curtime", (int64_t)pblock->nTime));
     result.push_back(Pair("bits", HexBits(pblock->nBits)));
     result.push_back(Pair("height", (int64_t)(pindexPrev->nHeight+1)));
-
+    CBitcoinAddress address(!fTestNet ? FOUNDATION : FOUNDATION_TEST);
+    result.push_back(Pair("payee", address.ToString()));
+    result.push_back(Pair("payee_amount", devCoin));
+    result.push_back(Pair("enforced", true));
     return result;
 }
 

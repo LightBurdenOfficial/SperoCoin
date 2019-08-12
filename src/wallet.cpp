@@ -1191,6 +1191,54 @@ int64_t CWallet::GetNewMint() const
     return nTotal;
 }
 
+bool fGlobalStakeForCharity = false;
+int nPrevS4CHeight = 0;
+
+bool CWallet::StakeForCharity()
+{
+
+    if ( IsInitialBlockDownload() || IsLocked() ){ return false; }
+
+    CWalletTx wtx;
+    int64_t nNet = 0;
+
+    for (map<uint256, CWalletTx>::const_iterator it = mapWallet.begin(); it != mapWallet.end(); ++it)
+    {
+        const CWalletTx* pcoin = &(*it).second;
+
+        //if the coin is a stake coin, and the coin is mature, and the coin stake is deep enough in the chain to be considered as
+        //mature stake, then we can calculate and send the S4E
+        if (pcoin->IsCoinStake() && pcoin->GetBlocksToMaturity() == 0  && pcoin->GetDepthInMainChain() == nCoinbaseMaturity+10)
+        {
+            // Calculate Amount for Charity
+            nNet = ( ( pcoin->GetCredit() - pcoin->GetDebit() ) * nStakeForCharityPercent )/100;
+
+            // Do not send if amount is too low
+            if (nNet < nStakeForCharityMin ) {
+                return false;
+            }
+            // Truncate to max if amount is too great
+            if (nNet > nStakeForCharityMax ) {
+                nNet = nStakeForCharityMax;
+            }
+
+            if (nBestHeight <= nPrevS4CHeight ) {
+                printf("StakeForCharity: Warning! nBestHeight %d less or equal to nPreveS4CHeight %d.\n",
+                       nBestHeight,
+                       nPrevS4CHeight);
+                return false;
+            }
+            else
+            {
+                SendMoneyToDestination(strStakeForCharityAddress.Get(), nNet, wtx, false); // SPERO removed 2 args  , "", true);
+                nPrevS4CHeight = nBestHeight;
+            }
+        }
+    }
+
+    return true;
+}
+
 bool CWallet::SelectCoinsMinConf(int64_t nTargetValue, unsigned int nSpendTime, int nConfMine, int nConfTheirs, vector<COutput> vCoins, set<pair<const CWalletTx*,unsigned int> >& setCoinsRet, int64_t& nValueRet) const
 {
     setCoinsRet.clear();
@@ -1865,9 +1913,6 @@ string CWallet::SendMoneyToDestination(const CTxDestination& address, int64_t nV
     return SendMoney(scriptPubKey, nValue, wtxNew, fAskFee);
 }
 
-
-
-
 DBErrors CWallet::LoadWallet(bool& fFirstRunRet)
 {
     if (!fFileBacked)
@@ -1892,6 +1937,30 @@ DBErrors CWallet::LoadWallet(bool& fFirstRunRet)
     NewThread(ThreadFlushWalletDB, &strWalletFile);
     return DB_LOAD_OK;
 }
+
+DBErrors CWallet::ZapWalletTx()
+{
+    if (!fFileBacked)
+        return DB_LOAD_OK;
+    DBErrors nZapWalletTxRet = CWalletDB(strWalletFile,"cr+").ZapWalletTx(this);
+    if (nZapWalletTxRet == DB_NEED_REWRITE)
+    {
+        if (CDB::Rewrite(strWalletFile, "\x04pool"))
+        {
+            LOCK(cs_wallet);
+            setKeyPool.clear();
+            // Note: can't top-up keypool here, because wallet is locked.
+            // User will be prompted to unlock wallet the next operation
+            // the requires a new key.
+        }
+    }
+
+    if (nZapWalletTxRet != DB_LOAD_OK)
+        return nZapWalletTxRet;
+
+    return DB_LOAD_OK;
+}
+
 
 
 bool CWallet::SetAddressBookName(const CTxDestination& address, const string& strName)
@@ -2251,10 +2320,12 @@ set< set<CTxDestination> > CWallet::GetAddressGroupings()
 
 // SperoCoin: check 'spent' consistency between wallet and txindex
 // SperoCoin: fix wallet spent state according to txindex
-void CWallet::FixSpentCoins(int& nMismatchFound, int64_t& nBalanceInQuestion, bool fCheckOnly)
+// remove orphan Coinbase and Coinstake
+void CWallet::FixSpentCoins(int& nMismatchFound, int64_t& nBalanceInQuestion, int& nOrphansFound, bool fCheckOnly)
 {
     nMismatchFound = 0;
     nBalanceInQuestion = 0;
+    nOrphansFound = 0;
 
     LOCK(cs_wallet);
     vector<CWalletTx*> vCoins;
@@ -2265,38 +2336,54 @@ void CWallet::FixSpentCoins(int& nMismatchFound, int64_t& nBalanceInQuestion, bo
     CTxDB txdb("r");
     BOOST_FOREACH(CWalletTx* pcoin, vCoins)
     {
+        uint256 hash = pcoin->GetHash();
         // Find the corresponding transaction index
         CTxIndex txindex;
-        if (!txdb.ReadTxIndex(pcoin->GetHash(), txindex))
+        if (!txdb.ReadTxIndex(hash, txindex) && !(pcoin->IsCoinBase() || pcoin->IsCoinStake()))
             continue;
         for (unsigned int n=0; n < pcoin->vout.size(); n++)
         {
+            bool fUpdated = false;
             if (IsMine(pcoin->vout[n]) && pcoin->IsSpent(n) && (txindex.vSpent.size() <= n || txindex.vSpent[n].IsNull()))
             {
-                printf("FixSpentCoins found lost coin %s KEY %s[%d], %s\n",
-                    FormatMoney(pcoin->vout[n].nValue).c_str(), pcoin->GetHash().ToString().c_str(), n, fCheckOnly? "repair not attempted" : "repairing");
+                printf("FixSpentCoins found lost coin %s spero %s[%d], %s\n",
+                    FormatMoney(pcoin->vout[n].nValue).c_str(), hash.ToString().c_str(), n, fCheckOnly? "repair not attempted" : "repairing");
                 nMismatchFound++;
                 nBalanceInQuestion += pcoin->vout[n].nValue;
                 if (!fCheckOnly)
                 {
+                    fUpdated = true;
                     pcoin->MarkUnspent(n);
                     pcoin->WriteToDisk();
                 }
             }
             else if (IsMine(pcoin->vout[n]) && !pcoin->IsSpent(n) && (txindex.vSpent.size() > n && !txindex.vSpent[n].IsNull()))
             {
-                printf("FixSpentCoins found spent coin %s KEY %s[%d], %s\n",
-                    FormatMoney(pcoin->vout[n].nValue).c_str(), pcoin->GetHash().ToString().c_str(), n, fCheckOnly? "repair not attempted" : "repairing");
+                printf("FixSpentCoins found spent coin %s spero %s[%d], %s\n",
+                    FormatMoney(pcoin->vout[n].nValue).c_str(), hash.ToString().c_str(), n, fCheckOnly? "repair not attempted" : "repairing");
                 nMismatchFound++;
                 nBalanceInQuestion += pcoin->vout[n].nValue;
                 if (!fCheckOnly)
                 {
+                    fUpdated = true;
                     pcoin->MarkSpent(n);
                     pcoin->WriteToDisk();
                 }
             }
+            if (fUpdated)
+                NotifyTransactionChanged(this, hash, CT_UPDATED);
         }
-    }
+        if((pcoin->IsCoinBase() || pcoin->IsCoinStake()) && pcoin->GetDepthInMainChain() <= 0)
+        {
+           nOrphansFound++;
+           if (!fCheckOnly)
+           {
+             EraseFromWallet(hash);
+             NotifyTransactionChanged(this, hash, CT_DELETED);
+           }
+           printf("FixSpentCoins %s orphaned generation tx %s\n", fCheckOnly ? "found" : "removed", hash.ToString().c_str());
+        }
+     }
 }
 
 // SperoCoin: disable transaction (only for coinstake)

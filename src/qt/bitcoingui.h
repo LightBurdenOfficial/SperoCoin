@@ -7,17 +7,16 @@
 class TransactionTableModel;
 class ClientModel;
 class WalletModel;
-class MessageModel;
 class TransactionView;
 class OverviewPage;
 class AddressBookPage;
-class MessagePage;
 class SendCoinsDialog;
 class SignVerifyMessageDialog;
 class Notificator;
 class RPCConsole;
 class StatisticsPage;
 class BlockBrowser;
+class StakeForCharityDialog;
 
 QT_BEGIN_NAMESPACE
 class QLabel;
@@ -50,11 +49,6 @@ public:
         functionality.
     */
     void setWalletModel(WalletModel *walletModel);
-    /** Set the message model.
-        The message model represents encryption message database, and offers access to the list of messages, address book and sending
-        functionality.
-    */
-    void setMessageModel(MessageModel *messageModel);
 
 protected:
     void changeEvent(QEvent *e);
@@ -65,7 +59,6 @@ protected:
 private:
     ClientModel *clientModel;
     WalletModel *walletModel;
-    MessageModel *messageModel;
     StatisticsPage *statisticsPage;
     BlockBrowser *blockBrowser;
 
@@ -74,15 +67,17 @@ private:
     OverviewPage *overviewPage;
     QWidget *transactionsPage;
     AddressBookPage *addressBookPage;
-    MessagePage *messagePage;
     AddressBookPage *receiveCoinsPage;
     SendCoinsDialog *sendCoinsPage;
     SignVerifyMessageDialog *signVerifyMessageDialog;
+    StakeForCharityDialog *stakeForCharityDialog;
+    StakeForCharityDialog *charityPage;
 
     QLabel *labelEncryptionIcon;
     QLabel *labelStakingIcon;
     QLabel *labelConnectionsIcon;
     QLabel *labelBlocksIcon;
+    QLabel *labelCharityIcon;
     QLabel *progressBarLabel;
     QProgressBar *progressBar;
 
@@ -91,7 +86,6 @@ private:
     QAction *historyAction;
     QAction *quitAction;
     QAction *sendCoinsAction;
-    QAction *messageAction;
     QAction *addressBookAction;
     QAction *signMessageAction;
     QAction *verifyMessageAction;
@@ -109,9 +103,10 @@ private:
     QAction *openRPCConsoleAction;
     QAction *statisticsAction;
     QAction *blockAction;
+    QAction *charityAction;
 
     QAction *stakeReportAction;
-
+    QAction *showBackupsAction;
 
     QSystemTrayIcon *trayIcon;
     Notificator *notificator;
@@ -164,12 +159,12 @@ private slots:
     void gotoReceiveCoinsPage();
     /** Switch to send coins page */
     void gotoSendCoinsPage();
-    /** Switch to message page */
-    void gotoMessagePage();
     /** Switch to statistics page*/
     void gotoStatisticsPage();
     /** Switch to block explorer*/
     void gotoBlockBrowser();
+    /** Switch to charity page */
+    void gotoCharityPage();
 
     /** Show Sign/Verify Message dialog and switch to sign message tab */
     void gotoSignMessageTab(QString addr = "");
@@ -189,11 +184,6 @@ private slots:
         The new items are those between start and end inclusive, under the given parent item.
     */
     void incomingTransaction(const QModelIndex & parent, int start, int end);
-
-    /** Show incoming message notification for new messages.
-        The new items are those between start and end inclusive, under the given parent item.
-    */
-    void incomingMessage(const QModelIndex & parent, int start, int end);
 
     /** Encrypt the wallet */
     void encryptWallet(bool status);
@@ -215,6 +205,8 @@ private slots:
     void toggleHidden();
 
     void updateStakingIcon();
+
+    void charityClicked(QString addr = "");
 };
 
 #endif
