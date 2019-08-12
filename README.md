@@ -34,7 +34,10 @@ All the balance that is collected by Spero is aimed directly at the growth of th
 **https://sperocoin.org**
 
 > 🌎Block Explorer:
-**http://35.198.22.94:3001**
+**http://sperocoin.ddns.net:3001**
+
+> 🌎Block Explorer 2:
+**http://52.67.138.144:3001**
 
 > 📟Sms in Wallet:
 **SiRvv6i8d5F7XbJSTqcGM35bdDMxATtMzz**
@@ -42,7 +45,7 @@ All the balance that is collected by Spero is aimed directly at the growth of th
 
 
 # Specifications:
-  - **ALGORITHM:** X13
+  - **ALGORITHM:** x13
   - **BLOCK TIME:** 60 seconds
   - **AWARDS PoW:** 2 SPERO to block 263250
   - **PoS:** After 2h
@@ -255,6 +258,17 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 
 >$0022 2018/12/08<br>
 → Alterada Versão para 2.6.4.6;<br>
-→ Altercada versão do protocolo para mínimo 700001;<br>
+→ Alterada versão do protocolo para mínimo 700001;<br>
 → Adicionada Introdução;<br>
 → Adicionado pontos de checagem de blocos até o bloco 180000<br>
+
+>$0028 2019/05/31<br>
+→ Alterada Versão para 2.6.4.7;<br>
+→ Alterada versão do protocolo mínimo para 700002;<br>
+→ Adicionada página Charity(Doações POS);<br>
+→ Adicionados endereços Donate Foudation;<br>
+→ Correção das strings que determinam as fases de mineração;<br>
+→ Preparação para o ambiente de mineração PoW após o bloco 263250;<br>
+→ Mudança dos ícones e logos;<br>
+→ Adição do parâmetro -zapwallettxes;<br>
+
