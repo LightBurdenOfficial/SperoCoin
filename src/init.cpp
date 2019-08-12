@@ -460,6 +460,7 @@ bool AppInit2()
     // -debug implies fDebug*
     if (fDebug)
         fDebugNet = true;
+    else
         fDebugNet = GetBoolArg("-debugnet");
 
     bitdb.SetDetach(GetBoolArg("-detachdb", false));

@@ -28,3 +28,8 @@ src/leveldb/build_config.mk
 src/leveldb/build_config.mk
 src/leveldb/libleveldb.a
 src/leveldb/libmemenv.a
+src/SperoCoind-x64.exe
+release/SperoCoin-qt(x64).exe
+src/leveldb/libleveldb.a
+src/leveldb/libmemenv.a
+src/SperoCoind.exe
