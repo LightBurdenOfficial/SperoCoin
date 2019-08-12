@@ -12,3 +12,19 @@ src/obj-test/*.P
 src/obj/build.h
 src/qt/locale/*.qm
 src/clean.sh
+Makefile
+Makefile.Debug
+Makefile.Release
+object_script.SperoCoin-qt.Debug
+object_script.SperoCoin-qt.Release
+sperocoin-qt_plugin_import.cpp
+release/SperoCoin-qt.exe
+release/SperoCoin-qt.exe - Atalho.lnk
+src/leveldb/libmemenv.a
+src/leveldb/libleveldb.a
+src/leveldb/build_config.mk
+src/leveldb/build_config.mk
+src/leveldb/build_config.mk
+src/leveldb/build_config.mk
+src/leveldb/libleveldb.a
+src/leveldb/libmemenv.a

@@ -22,16 +22,16 @@ USE_IPV6=1
 
 win32 {
 BOOST_LIB_SUFFIX=-mgw49-mt-s-1_57
-BOOST_INCLUDE_PATH=C:/deps/boost_1_57_0
-BOOST_LIB_PATH=C:/deps/boost_1_57_0/stage/lib
-BDB_INCLUDE_PATH=C:/deps/db-6.0.20/build_unix
-BDB_LIB_PATH=C:/deps/db-6.0.20/build_unix
-OPENSSL_INCLUDE_PATH=C:/deps/openssl-1.0.2r/include
-OPENSSL_LIB_PATH=C:/deps/openssl-1.0.2r
-MINIUPNPC_INCLUDE_PATH=C:/deps/
-MINIUPNPC_LIB_PATH=C:/deps/miniupnpc
-QRENCODE_INCLUDE_PATH=C:/deps/qrencode-4.0.2
-QRENCODE_LIB_PATH=C:/deps/qrencode-4.0.2/.libs
+BOOST_INCLUDE_PATH=C:/deps_x64/boost_1_57_0
+BOOST_LIB_PATH=C:/deps_x64/boost_1_57_0/stage/lib
+BDB_INCLUDE_PATH=C:/deps_x64/db-6.0.20/build_unix
+BDB_LIB_PATH=C:/deps_x64/db-6.0.20/build_unix
+OPENSSL_INCLUDE_PATH=C:/deps_x64/openssl-1.0.2r/include
+OPENSSL_LIB_PATH=C:/deps_x64/openssl-1.0.2r
+MINIUPNPC_INCLUDE_PATH=C:/deps_x64/
+MINIUPNPC_LIB_PATH=C:/deps_x64/miniupnpc
+QRENCODE_INCLUDE_PATH=C:/deps_x64/qrencode-4.0.2
+QRENCODE_LIB_PATH=C:/deps_x64/qrencode-4.0.2/.libs
 }
 
 OBJECTS_DIR = build
