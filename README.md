@@ -2,7 +2,7 @@
 <br>
 [![N|Solid](https://i.imgur.com/0BOgWZy.png)](https://sperocoin.org/)
 # Sperocoin - Sustainability in technology
-# Version: 2.6.4.8
+# Version: 2.6.4.9
 Sperocoin came with the mission to renew the world of the exhaustive consumption of electric energy.
 
 With the PoS mining concept, we have an ecologically correct coin, since it is not necessary to use powerful mining machines to obtain rewards for solved blocks.
@@ -12,37 +12,38 @@ Also embrace this idea and help build a cleaner world, we count on your help!
 All the balance that is collected by Spero is aimed directly at the growth of the structuring of the currency and the social programs that it covers.
 
 # Contact:
-> 💬Telegram:
+> :speech_balloon: Telegram:
 **https://t.me/joinchat/G7cebkL3dbRqfuy1gVNm3g**
 
-> 💬Slack:
+> :speech_balloon: Slack:
 **https://sperocoin.slack.com**
 
-> 💬Facebook:
+> :speech_balloon: Facebook:
 **https://www.facebook.com/sperocoinofficial/**
 
-> 💬Twitter:
+> :speech_balloon: Twitter:
 **https://twitter.com/Spero_Official**
 
-> 💬BTCTalk:
+> :speech_balloon: BTCTalk:
 **https://bitcointalk.org/index.php?topic=2260985.0**
 
-> ✉️E-mail:
+> :email: E-mail:
 **sperocoin@gmail.com**
 
-> 🌎Website:
+> :earth_americas: Website:
 **https://sperocoin.org**
 
-> 🌎Block Explorer:
-**http://sperocoin.ddns.net:3001**
+> :earth_americas: Block Explorer:
+**https://explorer.sperocoin.org**
 
-> 🌎Block Explorer 2:
-**http://52.67.138.144:3001**
+> :pick: Pool PoW:
+**https://pool.sperocoin.org**
 
-> 📟Sms in Wallet:
-**SiRvv6i8d5F7XbJSTqcGM35bdDMxATtMzz**
-**PubKey: 03214f4cd930454878b87269b1ab12e54a4bd805634e65f113eaded61eba652219**
+> :droplet: Faucet:
+**https://faucet.sperocoin.org**
 
+> :busts_in_silhouette: Support:
+**https://suporte.sperocoin.org**
 
 # Specifications:
   - **ALGORITHM:** x13
@@ -96,12 +97,10 @@ daemon=1
 server=1
 rpcallowip=127.0.0.1
 testnet=0
-addnode=18.228.13.3:55680
-addnode=35.198.22.94:55680
-addnode=sperocoin.ddns.net:55680
-addnode=167.114.103.43:55680
-addnode=104.248.225.117:55680
-addnode=45.195.201.179:55680
+addnode=seed1.sperocoin.org:55680
+addnode=seed2.sperocoin.org:55680
+addnode=seed3.sperocoin.org:55680
+addnode=seed4.sperocoin.org:55680
 
 ```
 
@@ -119,16 +118,16 @@ daemon=1
 server=1
 rpcallowip=127.0.0.1
 testnet=1
-addnode=18.228.13.3:55690
-addnode=18.228.13.3:55692
+addnode=seed1.sperocoin.org:55690
+addnode=seed2.sperocoin.org:55690
+addnode=seed3.sperocoin.org:55690
+addnode=seed4.sperocoin.org:55690
 ```
 
 # Exchanges:
- - 💎 https://www.altilly.com/market/SPERO_BTC
- - 💎 https://www.altilly.com/market/SPERO_ETH
- - 💎 https://www.altilly.com/market/SPERO_DOGE
- - 💎 https://catalogop2p.com.br/sperocoin-sustentabilidade-em-tecnologia
  - 💎 https://nanu.exchange/exchange#btc_spero
+ - 💎 https://fanaticoscriptos.exchange
+ - 💎 https://catalogop2p.com.br/sperocoin-sustentabilidade-em-tecnologia
  - 💎 https://bitsahani.com/exchange/SPERO-DOGE
 
 #  Mining:
@@ -171,7 +170,7 @@ ccminer30.exe -q --algo=x13 -o 127.0.0.1:55681 -u user-p password
 > Wallet iOS: 1000 SPERO<br>
 > Wallet MAC: 1000 SPERO<br>
 > Translate Topic: 100 SPERO<br>
-> Exchange: 10.000 SPERO(http://sperocoin.ddns.net:3001/tx/954af0b2e80730721d2f5edc30708a636802a27e5dfaa22fbbd620d5399f3cf5)<br>
+> Exchange: 10.000 SPERO(https://explorer.sperocoin.org/tx/954af0b2e80730721d2f5edc30708a636802a27e5dfaa22fbbd620d5399f3cf5)<br>
 > Social Market Trading Point: 5000 SPERO<br>
 
 
