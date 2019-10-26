@@ -1,4 +1,5 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1aa1a2fafa1a41e1bdcba6e453fcba1f)](https://app.codacy.com/app/DigitalCoin1/SperoCoin?utm_source=github.com&utm_medium=referral&utm_content=DigitalCoin1/SperoCoin&utm_campaign=Badge_Grade_Dashboard)
+[![Build Status](https://travis-ci.org/DigitalCoin1/SperoCoin.svg?branch=master)](https://travis-ci.org/DigitalCoin1/SperoCoin)
 <br>
 [![N|Solid](https://i.imgur.com/0BOgWZy.png)](https://sperocoin.org/)
 # Sperocoin - Sustainability in technology
