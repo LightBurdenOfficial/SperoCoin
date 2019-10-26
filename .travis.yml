@@ -1,0 +1,25 @@
+dist: xenial
+before_install:
+    - sudo apt-get install build-essential 
+    - sudo apt-get install libboost-all-dev 
+    - sudo apt-get install libcurl4-openssl-dev 
+    - sudo apt-get install libdb5.3-dev 
+    - sudo apt-get install libdb5.3++-dev 
+    - sudo apt-get install qt-sdk 
+    - sudo apt-get install libminiupnpc-dev 
+    - sudo apt-get install qrencode 
+    - sudo apt-get install libqrencode-dev 
+    - sudo apt-get install git 
+    - sudo apt-get install libtool 
+    - sudo apt-get install automake 
+    - sudo apt-get install autotools-dev 
+    - sudo apt-get install autoconf 
+    - sudo apt-get install pkg-config 
+    - sudo apt-get install libssl-dev 
+    - sudo apt-get install libgmp3-dev 
+    - sudo apt-get install libevent-dev 
+    - sudo apt-get install bsdmainutils -y
+install:
+    - git clone git clone https://github.com/DigitalCoin1/SperoCoin
+    - cd SperoCoin/src
+    - make -f makefile.unix USE_UPNP=- USE_IPV6=1
