@@ -1866,6 +1866,8 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
                    nReward));
     }
 
+if(pindexBest->nHeight > POS_POW_HIBRID)
+{
     if(IsProofOfWork())
     {
         CBitcoinAddress address(!fTestNet ? FOUNDATION : FOUNDATION_TEST);
@@ -1876,6 +1878,7 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
         if (vtx[0].vout[1].nValue < devCoin)
             return error("ConnectBlock() : coinbase does not pay enough to dev addresss");
     }
+}
 
     if (IsProofOfStake())
     {
