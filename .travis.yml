@@ -1,5 +1,9 @@
+language: cpp
 os: linux
-dist: xenial
+dist: trusty
+sudo: require
+compiler: gcc
+
 before_install:
     - sudo apt-get install build-essential 
     - sudo apt-get install libboost-all-dev 
