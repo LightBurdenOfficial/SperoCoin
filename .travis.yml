@@ -27,4 +27,4 @@ before_install:
 install:
     - git clone https://github.com/DigitalCoin1/SperoCoin
     - cd SperoCoin/src
-    - make -f makefile.unix USE_UPNP=- USE_IPV6=1
+script: make -f makefile.unix USE_UPNP=- USE_IPV6=1
