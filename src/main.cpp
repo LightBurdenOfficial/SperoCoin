@@ -44,7 +44,7 @@ unsigned int nRetarget = 30;
 unsigned int nStakeMinAge = 2 * 60 * 60; // 2 hours min
 unsigned int nStakeMaxAge = 12 * 60 * 60; // 12 hours max
 unsigned int nModifierInterval = 10 * 30; // time to elapse before new modifier is computed
-static const int64_t nTargetTimespan_legacy = nTargetSpacing * nRetarget; // every 20 blocks
+static const int64_t nTargetTimespan_legacy = nTargetSpacing * nRetarget; // every 30 blocks
 static const int64_t nInterval = nTargetTimespan_legacy / nTargetSpacing;
 
 static const int64_t nTargetTimespan = 30 * 60;
