@@ -68,7 +68,7 @@ All the balance that is collected by Spero is aimed directly at the growth of th
   - Proof of Work + Proof of Stake: acima de 263251
 
 # Compile Source<br>
-**Download and install the dependencies - Ubuntu 16.04:**<br>
+**Download and install the dependencies:**<br>
 sudo apt-get install build-essential libboost-all-dev libcurl4-openssl-dev libdb5.3-dev libdb5.3++-dev libminiupnpc-dev qrencode libqrencode-dev git libtool automake autotools-dev autoconf pkg-config libssl-dev libgmp3-dev libevent-dev bsdmainutils
 <br><br><br>
 **Compile the daemon in the SperoCoin/src directory:**<br>
