@@ -68,8 +68,8 @@ All the balance that is collected by Spero is aimed directly at the growth of th
   - Proof of Work + Proof of Stake: acima de 263251
 
 # Compile Source<br>
-**Download and install the dependencies:**<br>
-sudo apt-get install build-essential libboost-all-dev libcurl4-openssl-dev libdb5.3-dev libdb5.3++-dev qt-sdk libminiupnpc-dev qrencode libqrencode-dev git libtool automake autotools-dev autoconf pkg-config libssl-dev libgmp3-dev libevent-dev bsdmainutils
+**Download and install the dependencies - Ubuntu 16.04:**<br>
+sudo apt-get install build-essential libboost-all-dev libcurl4-openssl-dev libdb5.3-dev libdb5.3++-dev libminiupnpc-dev qrencode libqrencode-dev git libtool automake autotools-dev autoconf pkg-config libssl-dev libgmp3-dev libevent-dev bsdmainutils
 <br><br><br>
 **Compile the daemon in the SperoCoin/src directory:**<br>
 cd DigitalCoinBRL/src<br><br>
@@ -79,8 +79,12 @@ strip SperoCoind<br>
 **Run daemon in the SperoCoin/src directory:**<br>
 ./SperoCoind<br><br>
 <br>
-**(OPTIONAL)Compile the QT in the SperoCoin directory:**<br>
-sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev<br><br>
+**(OPTIONAL)Compile the QT in the SperoCoin directory - Ubuntu 16.04:**<br>
+sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev qt-sdk<br><br>
+qmake SperoCoin-qt.pro "USE_UPNP=1" "USE_QRCODE=1"<br><br>
+make -f Makefile<br><br>
+**(OPTIONAL)Compile the QT in the SperoCoin directory - Ubuntu 18.04:**<br>
+sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev qt-sdk<br><br>
 qmake SperoCoin-qt.pro "USE_UPNP=1" "USE_QRCODE=1"<br><br>
 make -f Makefile<br><br>
 
