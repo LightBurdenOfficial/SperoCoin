@@ -84,7 +84,7 @@ sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-d
 qmake SperoCoin-qt.pro "USE_UPNP=1" "USE_QRCODE=1"<br><br>
 make -f Makefile<br><br>
 **(OPTIONAL)Compile the QT in the SperoCoin directory - Ubuntu 18.04:**<br>
-sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev qt-sdk<br><br>
+sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev libqt4-dev<br><br>
 qmake SperoCoin-qt.pro "USE_UPNP=1" "USE_QRCODE=1"<br><br>
 make -f Makefile<br><br>
 
