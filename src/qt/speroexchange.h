@@ -1,5 +1,5 @@
-#ifndef POOLBROWSER_H
-#define POOLBROWSER_H
+#ifndef SPEROEXCHANGE_H
+#define SPEROEXCHANGE_H
 
 #include "clientmodel.h"
 #include "main.h"
@@ -13,18 +13,18 @@
 
 
 namespace Ui {
-class PoolBrowser;
+class SperoExchange;
 }
 class ClientModel;
 
 
-class PoolBrowser : public QWidget
+class SperoExchange : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit PoolBrowser(QWidget *parent = 0);
-    ~PoolBrowser();
+    explicit SperoExchange(QWidget *parent = 0);
+    ~SperoExchange();
     
     void setModel(ClientModel *model);
 
@@ -49,16 +49,16 @@ public slots:
     void randomChuckNorrisJoke();
     void randomChuckNorrisJoke2();
     void randomChuckNorrisJoke3();
-    void bittrex();
+    void speroexchange();
     void egaldo();
 
 private:
     QNetworkAccessManager m_nam;
     QNetworkAccessManager m_nam2;
     QNetworkAccessManager m_nam3;
-    Ui::PoolBrowser *ui;
+    Ui::SperoExchange *ui;
     ClientModel *model;
 
 };
 
-#endif // POOLBROWSER_H
+#endif // SPEROEXCHANGE_H

@@ -162,6 +162,19 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
     QTextCodec::setCodecForCStrings(QTextCodec::codecForTr());
 #endif
+#if QT_VERSION > 0x050100
+    // Generate high-dpi pixmaps
+    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+#endif
+#if QT_VERSION >= 0x050600
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    // Address 4K screen resolution: http://doc.qt.io/qt-5/highdpi.html
+    // enable automatic scaling based on the pixel density of the monitor
+    qputenv( "QT_AUTO_SCREEN_SCALE_FACTOR", "1" );
+#endif
+#ifdef MAC_OSX
+    QApplication::setAttribute(Qt::AA_DontShowIconsInMenus);
+#endif
 
     Q_INIT_RESOURCE(bitcoin);
     QApplication app(argc, argv);

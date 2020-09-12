@@ -1,5 +1,5 @@
-#include "poolbrowser.h"
-#include "ui_poolbrowser.h"
+#include "speroexchange.h"
+#include "ui_speroexchange.h"
 #include "main.h"
 #include "wallet.h"
 #include "base58.h"
@@ -12,9 +12,9 @@
 
 using namespace json_spirit;
 
-const QString kBaseUrl = "https://bittrex.com/api/v1/public/";
-const QString kBaseUrl2 = "http://blockchain.info/tobtc?currency=USD&value=1";
-const QString kBaseUrl3 = "https://bittrex.com/api/v1/public/getorderbook?market=BTC-N5X&type=both&depth=10";
+const QString kBaseUrl = "https://exchange.sperocoin.org/api/v2/";
+const QString kBaseUrl2 = "https://blockchain.info/tobtc?currency=USD&value=1";
+const QString kBaseUrl3 = "https://exchange.sperocoin.org/api/v2/order_book.json?market=sperobtc&asks_limit=10&bids_limit=10";
 QString lastp = "";
 QString askp = "";
 QString bidp = "";
@@ -37,9 +37,9 @@ QString volumeus;
 double yestu;
 QString yestus;
 
-PoolBrowser::PoolBrowser(QWidget *parent) :
+SperoExchange::SperoExchange(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::PoolBrowser)
+    ui(new Ui::SperoExchange)
 {
     ui->setupUi(this);
     ui->buyquan->header()->resizeSection(0,120);
@@ -52,11 +52,11 @@ QObject::connect(&m_nam, SIGNAL(finished(QNetworkReply*)), this, SLOT(parseNetwo
 QObject::connect(&m_nam2, SIGNAL(finished(QNetworkReply*)), this, SLOT(parseNetworkResponse2(QNetworkReply*)));
 QObject::connect(&m_nam3, SIGNAL(finished(QNetworkReply*)), this, SLOT(parseNetworkResponse3(QNetworkReply*)));
 connect(ui->startButton, SIGNAL(pressed()), this, SLOT( randomChuckNorrisJoke()));
-connect(ui->bittrex, SIGNAL(pressed()), this, SLOT( bittrex()));
+connect(ui->speroexchange, SIGNAL(pressed()), this, SLOT( speroexchange()));
 connect(ui->egal, SIGNAL(pressed()), this, SLOT( egaldo()));
 
 }
-void PoolBrowser::egaldo()
+void SperoExchange::egaldo()
 {
     QString temps = ui->egals->text();
     double totalsc = temps.toDouble();
@@ -65,47 +65,47 @@ void PoolBrowser::egaldo()
 
 }
 
-void PoolBrowser::bittrex()
+void SperoExchange::speroexchange()
 {
-    QDesktopServices::openUrl(QUrl("https://www.bittrex.com/Market/Index?MarketName=BTC-N5X"));
+    QDesktopServices::openUrl(QUrl("https://exchange.sperocoin.org/markets/sperobtc"));
 }
 
-void PoolBrowser::randomChuckNorrisJoke()
+void SperoExchange::randomChuckNorrisJoke()
 {
     randomChuckNorrisJoke2();
     randomChuckNorrisJoke3();
-    getRequest(kBaseUrl + "/getmarketsummaries");
+    getRequest(kBaseUrl + "/markets");
 }
-void PoolBrowser::randomChuckNorrisJoke2()
+void SperoExchange::randomChuckNorrisJoke2()
 {
 getRequest2(kBaseUrl2);
 }
-void PoolBrowser::randomChuckNorrisJoke3()
+void SperoExchange::randomChuckNorrisJoke3()
 {
 getRequest3(kBaseUrl3);
 }
 
-void PoolBrowser::getRequest( const QString &urlString )
+void SperoExchange::getRequest( const QString &urlString )
 {
     QUrl url ( urlString );
     QNetworkRequest req ( url );
     m_nam.get( req );
 }
-void PoolBrowser::getRequest2( const QString &urlString )
+void SperoExchange::getRequest2( const QString &urlString )
 {
     QUrl url2 ( urlString );
     QNetworkRequest req2 ( url2 );
     m_nam2.get( req2 );
 }
 
-void PoolBrowser::getRequest3( const QString &urlString )
+void SperoExchange::getRequest3( const QString &urlString )
 {
     QUrl url3 ( urlString );
     QNetworkRequest req3 ( url3 );
     m_nam3.get( req3 );
 }
 
-void PoolBrowser::parseNetworkResponse( QNetworkReply *finished )
+void SperoExchange::parseNetworkResponse( QNetworkReply *finished )
 {
     if ( finished->error() != QNetworkReply::NoError )
     {
@@ -116,7 +116,7 @@ void PoolBrowser::parseNetworkResponse( QNetworkReply *finished )
 
     // QNetworkReply is a QIODevice. So we read from it just like it was a file
     QString data = finished->readAll();
-    QStringList data2 = data.split("{\"MarketName\":\"BTC-N5X\",\"High\":");
+    QStringList data2 = data.split("{\"MarketName\":\"BTC-SPERO\",\"High\":");
     QStringList high = data2[1].split(",\"Low\":"); // high = high
     QStringList low = high[1].split(",\"Volume\":");
     QStringList volume = low[1].split(",\"Last\":");
@@ -253,7 +253,7 @@ void PoolBrowser::parseNetworkResponse( QNetworkReply *finished )
     emit jokeReady( data );
 }
 
-void PoolBrowser::parseNetworkResponse2(QNetworkReply *finished )
+void SperoExchange::parseNetworkResponse2(QNetworkReply *finished )
 {
     if ( finished->error() != QNetworkReply::NoError )
     {
@@ -280,7 +280,7 @@ void PoolBrowser::parseNetworkResponse2(QNetworkReply *finished )
     emit jokeReady2( bitcoin );
 }
 
-void PoolBrowser::parseNetworkResponse3(QNetworkReply *finished )
+void SperoExchange::parseNetworkResponse3(QNetworkReply *finished )
 {
     if ( finished->error() != QNetworkReply::NoError )
     {
@@ -330,12 +330,12 @@ void PoolBrowser::parseNetworkResponse3(QNetworkReply *finished )
 }
 
 
-void PoolBrowser::setModel(ClientModel *model)
+void SperoExchange::setModel(ClientModel *model)
 {
     this->model = model;
 }
 
-PoolBrowser::~PoolBrowser()
+SperoExchange::~SperoExchange()
 {
     delete ui;
 }

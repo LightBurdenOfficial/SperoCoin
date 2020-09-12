@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PoolBrowser</class>
- <widget class="QWidget" name="PoolBrowser">
+ <class>SperoExchange</class>
+ <widget class="QWidget" name="SperoExchange">
   <property name="windowModality">
    <enum>Qt::NonModal</enum>
   </property>
@@ -112,14 +112,6 @@
        <string>=</string>
       </property>
      </widget>
-     <zorder>label_13</zorder>
-     <zorder>bitcoin</zorder>
-     <zorder>label_31</zorder>
-     <zorder>egals</zorder>
-     <zorder>egald</zorder>
-     <zorder>startButton</zorder>
-     <zorder>bittrex</zorder>
-     <zorder>egal</zorder>
     </widget>
    </item>
    <item row="1" column="0">
@@ -132,7 +124,7 @@
      </property>
      <widget class="QWidget" name="tab_3">
       <attribute name="title">
-       <string>Bittrex</string>
+       <string>SPERO EXCHANGE</string>
       </attribute>
       <widget class="QWidget" name="Last" native="true">
        <property name="geometry">
@@ -333,7 +325,7 @@
         <string>Update Prices</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="bittrex">
+      <widget class="QPushButton" name="speroexchange">
        <property name="geometry">
         <rect>
          <x>210</x>
@@ -355,7 +347,7 @@
         </size>
        </property>
        <property name="text">
-        <string>Go to Bittrex</string>
+        <string>Go to Exchange</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_24">
@@ -376,7 +368,7 @@
         <rect>
          <x>20</x>
          <y>20</y>
-         <width>111</width>
+         <width>118</width>
          <height>27</height>
         </rect>
        </property>
@@ -392,7 +384,7 @@
            </font>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20px; font-weight:600; color:#000000;&quot;&gt;Bittrex&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18px; font-weight:600; color:#000000;&quot;&gt;SPERO/BTC&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
@@ -408,7 +400,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20px; font-weight:600;&quot;&gt;+ 0 %&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18px; font-weight:600;&quot;&gt;+ 0 %&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
       <widget class="QWidget" name="widget_6" native="true">
@@ -461,7 +453,7 @@
          <item row="0" column="0">
           <widget class="QLabel" name="label_16">
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Volume N5X&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Volume SPERO&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
          </item>
@@ -628,22 +620,7 @@
        </column>
       </widget>
      </widget>
-     <widget class="QWidget" name="tab_4">
-      <attribute name="title">
-       <string>Poloniex</string>
-      </attribute>
-     </widget>
-     <widget class="QWidget" name="tab_5">
-      <attribute name="title">
-       <string>Cryptsy</string>
-      </attribute>
-     </widget>
-      <widget class="QWidget" name="tab_6">
-      <attribute name="title">
-       <string>Mintpal</string>
-      </attribute>
-     </widget>
-   </widget>
+    </widget>
    </item>
   </layout>
  </widget>
