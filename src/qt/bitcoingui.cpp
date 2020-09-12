@@ -277,8 +277,8 @@ void BitcoinGUI::createActions()
     statisticsAction->setCheckable(true);
     tabGroup->addAction(statisticsAction);
 
-    speroexchangeAction = new QAction(QIcon(":/icons/statistics"), tr("&Exchange"), this);
-    speroexchangeAction->setToolTip(tr("View statistics"));
+    speroexchangeAction = new QAction(QIcon(":/icons/speroexchange"), tr("&Exchange"), this);
+    speroexchangeAction->setToolTip(tr("Spero Exchange"));
     speroexchangeAction->setCheckable(true);
     tabGroup->addAction(speroexchangeAction);
 
