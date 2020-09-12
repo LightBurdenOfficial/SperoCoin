@@ -338,7 +338,7 @@
         <item row="3" column="3">
          <widget class="QPushButton" name="btnRefreshCharities">
           <property name="enabled">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="toolTip">
            <string>Click to download the current list</string>
