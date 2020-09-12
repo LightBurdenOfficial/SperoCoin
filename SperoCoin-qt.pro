@@ -1,14 +1,27 @@
 # x13 version
 TEMPLATE = app
-TARGET = SperoCoin-qt
+DEFINES += fName1 fName2
+fName1 = "SperoCoin-Qt"
+macx:TARGET = SperoCoin-Qt
 VERSION = 2.6.4.9
+QMAKE_TARGET_BUNDLE_PREFIX = co.sperocoin
+contains(QT_ARCH, i386) {
+    fName2 = "-x86-v"
+} else {
+    fName2 = "-x64-v"
+}
 INCLUDEPATH += src src/json src/qt
+QT += core
+QT += gui
+QT += network
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
-CONFIG += thread static
-QT += core gui network
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-lessThan(QT_MAJOR_VERSION, 5): CONFIG += static
+CONFIG += thread warn_off
+
+lessThan(QT_MAJOR_VERSION, 5) {
+    CONFIG += static
+}
+
 QMAKE_CXXFLAGS = -fpermissive
 
 greaterThan(QT_MAJOR_VERSION, 4) {
@@ -19,19 +32,44 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 USE_QRCODE=1
 USE_UPNP=-
 USE_IPV6=1
+USE_O3=1
 
 win32 {
+TARGET = $$fName1$$fName2$$VERSION
+
+    contains(QT_ARCH, i386) {
+        message("32-Bit build")
+        message("Target build name:" $$TARGET)
+
 BOOST_LIB_SUFFIX=-mgw49-mt-s-1_57
-BOOST_INCLUDE_PATH=C:/deps/boost_1_57_0
-BOOST_LIB_PATH=C:/deps/boost_1_57_0/stage/lib
-BDB_INCLUDE_PATH=C:/deps/db-6.0.20/build_unix
-BDB_LIB_PATH=C:/deps/db-6.0.20/build_unix
-OPENSSL_INCLUDE_PATH=C:/deps/openssl-1.0.2r/include
-OPENSSL_LIB_PATH=C:/deps/openssl-1.0.2r
-MINIUPNPC_INCLUDE_PATH=C:/deps/
-MINIUPNPC_LIB_PATH=C:/deps/miniupnpc
-QRENCODE_INCLUDE_PATH=C:/deps/qrencode-4.0.2
-QRENCODE_LIB_PATH=C:/deps/qrencode-4.0.2/.libs
+BOOST_INCLUDE_PATH=C:/deps_x86/boost_1_57_0
+BOOST_LIB_PATH=C:/deps_x86/boost_1_57_0/stage/lib
+BDB_INCLUDE_PATH=C:/deps_x86/db-6.0.20/build_unix
+BDB_LIB_PATH=C:/deps_x86/db-6.0.20/build_unix
+OPENSSL_INCLUDE_PATH=C:/deps_x86/openssl-1.0.2r/include
+OPENSSL_LIB_PATH=C:/deps_x86/openssl-1.0.2r
+MINIUPNPC_INCLUDE_PATH=C:/deps_x86/
+MINIUPNPC_LIB_PATH=C:/deps_x86/miniupnpc
+QRENCODE_INCLUDE_PATH=C:/deps_x86/qrencode-4.0.2
+QRENCODE_LIB_PATH=C:/deps_x86/qrencode-4.0.2/.libs
+
+} else {
+TARGET = $$fName1$$fName2$$VERSION
+        message("64-Bit build")
+        message("Target build name:" $$TARGET)
+BOOST_LIB_SUFFIX=-mgw49-mt-s-1_57
+BOOST_INCLUDE_PATH=C:/deps_x64/boost_1_57_0
+BOOST_LIB_PATH=C:/deps_x64/boost_1_57_0/stage/lib
+BDB_INCLUDE_PATH=C:/deps_x64/db-6.0.20/build_unix
+BDB_LIB_PATH=C:/deps_x64/db-6.0.20/build_unix
+OPENSSL_INCLUDE_PATH=C:/deps_x64/openssl-1.0.2r/include
+OPENSSL_LIB_PATH=C:/deps_x64/openssl-1.0.2r
+MINIUPNPC_INCLUDE_PATH=C:/deps_x64/
+MINIUPNPC_LIB_PATH=C:/deps_x64/miniupnpc
+QRENCODE_INCLUDE_PATH=C:/deps_x64/qrencode-4.0.2
+QRENCODE_LIB_PATH=C:/deps_x64/qrencode-4.0.2/.libs
+
+    }
 }
 
 OBJECTS_DIR = build
@@ -40,12 +78,16 @@ UI_DIR = build
 
 # use: qmake "RELEASE=1"
 contains(RELEASE, 1) {
-    # Mac: compile for maximum compatibility (10.5, 32-bit)
-    macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.5 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.5.sdk
+    # Mac: compile for maximum compatibility (10.8, 32-bit)
+    macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.8 -isysroot /Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
+    macx:QMAKE_CFLAGS += -mmacosx-version-min=10.8 -isysroot /Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
+    macx:QMAKE_LFLAGS += -mmacosx-version-min=10.8 -isysroot /Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
+    macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.8 -isysroot /Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
+
 
     !windows:!macx {
         # Linux: static link
-        LIBS += -Wl,-Bstatic
+        # LIBS += -Wl,-Bstatic
     }
 }
 
@@ -100,6 +142,7 @@ contains(USE_DBUS, 1) {
 contains(USE_IPV6, -) {
     message(Building without IPv6 support)
 } else {
+    message(Building with IPv6 support)
     count(USE_IPV6, 0) {
         USE_IPV6=1
     }
@@ -173,7 +216,13 @@ contains(USE_O3, 1) {
     QMAKE_CFLAGS += -msse2
 }
 
-QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -Wall -Wextra -Wno-ignored-qualifiers -Wformat -Wformat-security -Wno-unused-parameter -Wstack-protector
+greaterThan(QT_MAJOR_VERSION, 4) {  
+    win32:QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -Wall -Wextra -Wno-ignored-qualifiers -Wformat -Wformat-security -Wno-unused-parameter -Wstack-protector   
+    macx:QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter -Wstack-protector    
+}   
+lessThan(QT_MAJOR_VERSION, 5) { 
+    QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -Wall -Wextra -Wno-ignored-qualifiers -Wformat -Wformat-security -Wno-unused-parameter -Wstack-protector 
+}
 
 # Input
 DEPENDPATH += src src/json src/qt
@@ -282,7 +331,8 @@ HEADERS += src/qt/bitcoingui.h \
     src/threadsafety.h \
     src/txdb-leveldb.h \
     src/qt/stakereportdialog.h \
-    src/qt/charitydialog.h
+    src/qt/charitydialog.h \
+    src/qt/speroexchange.h
 
 SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/transactiontablemodel.cpp \
@@ -356,7 +406,8 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/scrypt.cpp \
     src/pbkdf2.cpp \
     src/qt/stakereportdialog.cpp \
-    src/qt/charitydialog.cpp
+    src/qt/charitydialog.cpp \
+    src/qt/speroexchange.cpp
 
 RESOURCES += \
     src/qt/bitcoin.qrc
@@ -378,7 +429,8 @@ FORMS += \
     src/qt/forms/rpcconsole.ui \
     src/qt/forms/optionsdialog.ui \
     src/qt/forms/stakereportdialog.ui \
-    src/qt/forms/charitydialog.ui
+    src/qt/forms/charitydialog.ui \
+    src/qt/forms/speroexchange.ui
 
 contains(USE_QRCODE, 1) {
 HEADERS += src/qt/qrcodedialog.h
@@ -483,5 +535,4 @@ contains(RELEASE, 1) {
         LIBS += -Wl,-Bdynamic
     }
 }
-
 system($$QMAKE_LRELEASE -silent $$_PRO_FILE_)
