@@ -96,8 +96,13 @@ public:
 
     void CleanKey()
     {
+#if OPENSSL_VERSION_NUMBER < 0x10100000
         OPENSSL_cleanse(&chKey, sizeof chKey);
         OPENSSL_cleanse(&chIV, sizeof chIV);
+#else
+        OPENSSL_cleanse(chKey, sizeof(chKey));
+        OPENSSL_cleanse(chIV, sizeof(chIV));
+#endif
         fKeySet = false;
     }
 

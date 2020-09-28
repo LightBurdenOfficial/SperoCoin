@@ -11,22 +11,23 @@ contains(QT_ARCH, i386) {
     fName2 = "-x64-v"
 }
 INCLUDEPATH += src src/json src/qt
-QT += core
-QT += gui
-QT += network
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
 CONFIG += thread warn_off
+QT += core gui network widgets
 
-lessThan(QT_MAJOR_VERSION, 5) {
-    CONFIG += static
-}
-
-QMAKE_CXXFLAGS = -fpermissive
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+lessThan(QT_MAJOR_VERSION, 5): CONFIG += static
+QMAKE_CXXFLAGS = -fpermissive -Wno-literal-suffix
+QMAKE_CFLAGS += -std=c99
 
 greaterThan(QT_MAJOR_VERSION, 4) {
-    QT += widgets
+    QT += widgets printsupport
     DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
+}
+
+linux {
+    QMAKE_CFLAGS += -std=gnu99
 }
 
 USE_QRCODE=1
@@ -87,7 +88,7 @@ contains(RELEASE, 1) {
 
     !windows:!macx {
         # Linux: static link
-        # LIBS += -Wl,-Bstatic
+        LIBS += -Wl,-Bstatic
     }
 }
 
@@ -99,8 +100,10 @@ QMAKE_LFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
 # This can be enabled for Windows, when we switch to MinGW >= 4.4.x.
 }
 # for extra security on Windows: enable ASLR and DEP via GCC linker flags
-win32:QMAKE_LFLAGS *= -Wl,--large-address-aware -static
-win32:QMAKE_LFLAGS += -static -static-libgcc -static-libstdc++ -lpthread
+# win32:QMAKE_LFLAGS *= -Wl,--large-address-aware -static
+win32:QMAKE_LFLAGS *= -static
+#win32:QMAKE_LFLAGS *= -Wl,--dynamicbase -Wl,--nxcompat
+#win32:QMAKE_LFLAGS += -static-libgcc -static-libstdc++
 lessThan(QT_MAJOR_VERSION, 5): win32: QMAKE_LFLAGS *= -static
 
 
