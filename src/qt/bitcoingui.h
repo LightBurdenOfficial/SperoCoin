@@ -15,7 +15,7 @@ class SignVerifyMessageDialog;
 class Notificator;
 class RPCConsole;
 class StatisticsPage;
-class SperoExchange;
+//class SperoExchange;
 class BlockBrowser;
 class StakeForCharityDialog;
 
@@ -61,7 +61,7 @@ private:
     ClientModel *clientModel;
     WalletModel *walletModel;
     StatisticsPage *statisticsPage;
-    SperoExchange *speroExchange;
+    //SperoExchange *speroExchange;
     BlockBrowser *blockBrowser;
 
     QStackedWidget *centralWidget;
@@ -104,7 +104,7 @@ private:
     QAction *aboutQtAction;
     QAction *openRPCConsoleAction;
     QAction *statisticsAction;
-    QAction *speroexchangeAction;
+    //QAction *speroexchangeAction;
     QAction *blockAction;
     QAction *charityAction;
 
@@ -165,7 +165,7 @@ private slots:
     /** Switch to statistics page*/
     void gotoStatisticsPage();
     /** Switch to SperoExchange page*/
-    void gotoSperoExchange();
+    //void gotoSperoExchange();
     /** Switch to block explorer*/
     void gotoBlockBrowser();
     /** Switch to charity page */

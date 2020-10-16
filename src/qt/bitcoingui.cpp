@@ -27,7 +27,7 @@
 #include "rpcconsole.h"
 #include "wallet.h"
 #include "statisticspage.h"
-#include "speroexchange.h"
+//#include "speroexchange.h"
 #include "blockbrowser.h"
 #include "stakereportdialog.h"
 #include "charitydialog.h"
@@ -86,7 +86,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     notificator(0),
     rpcConsole(0)
 {
-    resize(1000, 700);
+    resize(850, 550);
     this->setGeometry(QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter, this->size(), QApplication::desktop()->screenGeometry()));
     setWindowTitle(tr("SperoCoin") + " - " + tr("Wallet"));
 #ifndef Q_OS_MAC
@@ -123,7 +123,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     // Create tabs
     overviewPage = new OverviewPage();
     statisticsPage = new StatisticsPage(this);
-    speroExchange = new SperoExchange(this);
+    //speroExchange = new SperoExchange(this);
     blockBrowser = new BlockBrowser(this);
 
     transactionsPage = new QWidget(this);
@@ -152,7 +152,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     centralWidget->addWidget(stakeForCharityDialog);
     centralWidget->addWidget(charityPage);
     centralWidget->addWidget(statisticsPage);
-    centralWidget->addWidget(speroExchange);
+    //centralWidget->addWidget(speroExchange);
     centralWidget->addWidget(blockBrowser);
     setCentralWidget(centralWidget);
 
@@ -277,11 +277,11 @@ void BitcoinGUI::createActions()
     statisticsAction->setCheckable(true);
     tabGroup->addAction(statisticsAction);
 
-    speroexchangeAction = new QAction(QIcon(":/icons/speroexchange"), tr("&Exchange"), this);
+/*    speroexchangeAction = new QAction(QIcon(":/icons/speroexchange"), tr("&Exchange"), this);
     speroexchangeAction->setToolTip(tr("Spero Exchange"));
     speroexchangeAction->setCheckable(true);
     tabGroup->addAction(speroexchangeAction);
-
+*/
     blockAction = new QAction(QIcon(":/icons/block"), tr("&Block Explorer"), this);
     blockAction->setToolTip(tr("Explore the BlockChain"));
     //blockAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
@@ -316,9 +316,9 @@ void BitcoinGUI::createActions()
     connect(statisticsAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(statisticsAction, SIGNAL(triggered()), this, SLOT(gotoStatisticsPage()));
 
-    connect(speroexchangeAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+/*    connect(speroexchangeAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(speroexchangeAction, SIGNAL(triggered()), this, SLOT(gotoSperoExchange()));
-
+*/
     connect(blockAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(blockAction, SIGNAL(triggered()), this, SLOT(gotoBlockBrowser()));
 
@@ -427,7 +427,7 @@ void BitcoinGUI::createToolBars()
     toolbar->addAction(historyAction);
     toolbar->addAction(addressBookAction);
     toolbar->addAction(statisticsAction);
-    toolbar->addAction(speroexchangeAction);
+    //toolbar->addAction(speroexchangeAction);
     toolbar->addAction(blockAction);
 
     QToolBar *toolbar2 = addToolBar(tr("Actions toolbar"));
@@ -492,7 +492,7 @@ void BitcoinGUI::setWalletModel(WalletModel *walletModel)
         receiveCoinsPage->setModel(walletModel->getAddressTableModel());
         sendCoinsPage->setModel(walletModel);
         statisticsPage->setModel(clientModel);
-        speroExchange->setModel(clientModel);
+        //speroExchange->setModel(clientModel);
         blockBrowser->setModel(clientModel);
         signVerifyMessageDialog->setModel(walletModel);
         stakeForCharityDialog->setModel(walletModel);
@@ -815,7 +815,7 @@ void BitcoinGUI::gotoStatisticsPage()
    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
 }
 
-void BitcoinGUI::gotoSperoExchange()
+/*void BitcoinGUI::gotoSperoExchange()
 {
    speroexchangeAction->setChecked(true);
    centralWidget->setCurrentWidget(speroExchange);
@@ -823,7 +823,7 @@ void BitcoinGUI::gotoSperoExchange()
    exportAction->setEnabled(false);
    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
 }
-
+*/
 void BitcoinGUI::gotoBlockBrowser()
 {
     blockAction->setChecked(true);
