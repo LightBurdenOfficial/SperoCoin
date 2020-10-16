@@ -353,8 +353,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/threadsafety.h \
     src/txdb-leveldb.h \
     src/qt/stakereportdialog.h \
-    src/qt/charitydialog.h \
-    src/qt/speroexchange.h
+    src/qt/charitydialog.h
 
 SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/transactiontablemodel.cpp \
@@ -428,8 +427,7 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/scrypt.cpp \
     src/pbkdf2.cpp \
     src/qt/stakereportdialog.cpp \
-    src/qt/charitydialog.cpp \
-    src/qt/speroexchange.cpp
+    src/qt/charitydialog.cpp
 
 RESOURCES += \
     src/qt/bitcoin.qrc
@@ -451,8 +449,7 @@ FORMS += \
     src/qt/forms/rpcconsole.ui \
     src/qt/forms/optionsdialog.ui \
     src/qt/forms/stakereportdialog.ui \
-    src/qt/forms/charitydialog.ui \
-    src/qt/forms/speroexchange.ui
+    src/qt/forms/charitydialog.ui
 
 contains(USE_QRCODE, 1) {
 HEADERS += src/qt/qrcodedialog.h
@@ -550,7 +547,7 @@ macx: {
     LIBS += -framework Foundation -framework ApplicationServices -framework AppKit
     DEFINES += MAC_OSX MSG_NOSIGNAL=0 IS_ARCH_64
     ICON = src/qt/res/icons/sperocoin.icns
-    TARGET = Sterlingcoin-v1.7-qt
+    TARGET = SperoCoin-v2.6.5.0-qt
     QMAKE_CFLAGS_THREAD += -pthread
     QMAKE_LFLAGS_THREAD += -pthread
     QMAKE_CXXFLAGS_THREAD += -pthread
