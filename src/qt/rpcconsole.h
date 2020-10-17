@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QCompleter>
+#include <QAbstractItemView>
 
 namespace Ui {
     class RPCConsole;

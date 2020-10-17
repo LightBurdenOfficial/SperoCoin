@@ -237,6 +237,14 @@ bool RPCConsole::eventFilter(QObject* obj, QEvent *event)
                 return true;
             }
             break;
+        case Qt::Key_Return:
+        case Qt::Key_Enter:
+            // forward these events to lineEdit
+            if(obj == autoCompleter->popup()) {
+                QApplication::postEvent(ui->lineEdit, new QKeyEvent(*keyevt));
+                return true;
+            }
+            break;
         default:
             // Typing in messages widget brings focus to line edit, and redirects key there
             // Exclude most combinations and keys that emit no text, except paste shortcuts
@@ -247,6 +255,7 @@ bool RPCConsole::eventFilter(QObject* obj, QEvent *event)
             {
                 ui->lineEdit->setFocus();
                 QApplication::postEvent(ui->lineEdit, new QKeyEvent(*keyevt));
+                autoCompleter->popup()->hide();
                 return true;
             }
         }
@@ -280,12 +289,18 @@ void RPCConsole::setClientModel(ClientModel *model)
         for (size_t i = 0; i < commandList.size(); ++i)
         {
             wordList << commandList[i].c_str();
+            wordList << ("help " + commandList[i]).c_str();
         }
 
+        wordList.sort();
         autoCompleter = new QCompleter(wordList, this);
+        autoCompleter->setModelSorting(QCompleter::CaseSensitivelySortedModel);
+        // ui->lineEdit is initially disabled because running commands is only
+        // possible from now on.
+        ui->lineEdit->setEnabled(true);
         ui->lineEdit->setCompleter(autoCompleter);
-
-        }
+        autoCompleter->popup()->installEventFilter(this);
+    }
 }
 
 static QString categoryClass(int category)
