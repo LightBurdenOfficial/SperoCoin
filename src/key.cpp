@@ -54,10 +54,15 @@ int ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, ECDSA_SIG *ecsig, const unsigned ch
 {
     if (!eckey) return 0;
 
+#if (OPENSSL_VERSION_NUMBER > 0x10100000L)
+    const BIGNUM *sig_r, *sig_s;
+    ECDSA_SIG_get0(ecsig, &sig_r, &sig_s);
+#endif
+
     int ret = 0;
     BN_CTX *ctx = NULL;
 
-#if OPENSSL_VERSION_NUMBER >= 0x10100000
+#if (OPENSSL_VERSION_NUMBER >= 0x10100000L)
     const BIGNUM *pr = NULL;
     const BIGNUM *ps = NULL;
 #endif
@@ -84,10 +89,10 @@ int ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, ECDSA_SIG *ecsig, const unsigned ch
     x = BN_CTX_get(ctx);
     if (!BN_copy(x, order)) { ret=-1; goto err; }
     if (!BN_mul_word(x, i)) { ret=-1; goto err; }
-#if OPENSSL_VERSION_NUMBER < 0x10100000
+#if (OPENSSL_VERSION_NUMBER < 0x10100000L)
     if (!BN_add(x, x, ecsig->r)) { ret=-1; goto err; }
 #else
-    //ECDSA_SIG_get0(ecsig, &pr, &ps);
+    ECDSA_SIG_get0(ecsig, &pr, &ps);
     if (!BN_add(x, x, pr)) { ret=-1; goto err; }
 #endif
     field = BN_CTX_get(ctx);
@@ -110,13 +115,13 @@ int ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, ECDSA_SIG *ecsig, const unsigned ch
     if (!BN_zero(zero)) { ret=-1; goto err; }
     if (!BN_mod_sub(e, zero, e, order, ctx)) { ret=-1; goto err; }
     rr = BN_CTX_get(ctx);
-#if OPENSSL_VERSION_NUMBER < 0x10100000
+#if (OPENSSL_VERSION_NUMBER < 0x10100000L)
     if (!BN_mod_inverse(rr, ecsig->r, order, ctx)) { ret=-1; goto err; }
 #else
     if (!BN_mod_inverse(rr, pr, order, ctx)) { ret=-1; goto err; }
 #endif
     sor = BN_CTX_get(ctx);
-#if OPENSSL_VERSION_NUMBER < 0x10100000
+#if (OPENSSL_VERSION_NUMBER < 0x10100000L)
     if (!BN_mod_mul(sor, ecsig->s, rr, order, ctx)) { ret=-1; goto err; }
 #else
     if (!BN_mod_mul(sor, ps, rr, order, ctx)) { ret=-1; goto err; }
@@ -314,14 +319,13 @@ CPubKey CKey::GetPubKey() const
     return CPubKey(vchPubKey);
 }
 
-bool CKey::Sign(uint256 hash, std::vector<unsigned char>& vchSig)
-{
-#if OPENSSL_VERSION_NUMBER < 0x10100000
+bool CKey::Sign(uint256 hash, std::vector<unsigned char>& vchSig){
     vchSig.clear();
     ECDSA_SIG *sig = ECDSA_do_sign((unsigned char*)&hash, sizeof(hash), pkey);
     if (sig==NULL)
         return false;
     // Force even S value in order to prevent signature modification issues.
+#if (OPENSSL_VERSION_NUMBER < 0x10100000L)
     if (BN_is_odd(sig->s)) {
         const EC_GROUP *group = EC_KEY_get0_group(pkey);
         CBigNum order;
@@ -332,12 +336,13 @@ bool CKey::Sign(uint256 hash, std::vector<unsigned char>& vchSig)
     unsigned int nSize = ECDSA_size(pkey);
     vchSig.resize(nSize); // Make sure it is big enough
 
-#if OPENSSL_VERSION_NUMBER < 0x10100000
+#if (OPENSSL_VERSION_NUMBER < 0x10100000L)
     unsigned char *pos = &vchSig[0];
     nSize = i2d_ECDSA_SIG(sig, &pos);
     ECDSA_SIG_free(sig);
 #else
-    if (ECDSA_verify(0, (unsigned char*)&hash, sizeof(hash), &vchSig[0], vchSig.size(), pkey) != 1) {
+    if (!ECDSA_sign(0, (unsigned char*)&hash, sizeof(hash), &vchSig[0], &nSize, pkey))
+    {
         vchSig.clear();
         return false;
     }
@@ -358,13 +363,12 @@ bool CKey::SignCompact(uint256 hash, std::vector<unsigned char>& vchSig)
         return false;
     vchSig.clear();
     vchSig.resize(65,0);
-#if OPENSSL_VERSION_NUMBER < 0x10100000
+#if (OPENSSL_VERSION_NUMBER < 0x10100000L)
     int nBitsR = BN_num_bits(sig->r);
     int nBitsS = BN_num_bits(sig->s);
 #else
-    const BIGNUM *pr = NULL;
-    const BIGNUM *ps = NULL;
-    //ECDSA_SIG_get0(sig, &pr, &ps);
+    const BIGNUM *pr, *ps;
+    ECDSA_SIG_get0(sig, &pr, &ps);
     int nBitsR = BN_num_bits(pr);
     int nBitsS = BN_num_bits(ps);
 #endif
@@ -392,7 +396,7 @@ bool CKey::SignCompact(uint256 hash, std::vector<unsigned char>& vchSig)
         }
 
         vchSig[0] = nRecId+27+(fCompressedPubKey ? 4 : 0);
-#if OPENSSL_VERSION_NUMBER < 0x10100000
+#if (OPENSSL_VERSION_NUMBER < 0x10100000L)
         BN_bn2bin(sig->r,&vchSig[33-(nBitsR+7)/8]);
         BN_bn2bin(sig->s,&vchSig[65-(nBitsS+7)/8]);
 #else
@@ -417,15 +421,18 @@ bool CKey::SetCompactSignature(uint256 hash, const std::vector<unsigned char>& v
     if (nV<27 || nV>=35)
         return false;
     ECDSA_SIG *sig = ECDSA_SIG_new();
-#if OPENSSL_VERSION_NUMBER < 0x10100000
+    if (!sig) return false;
+
+#if (OPENSSL_VERSION_NUMBER < 0x10100000L)
     BN_bin2bn(&vchSig[1],32,sig->r);
     BN_bin2bn(&vchSig[33],32,sig->s);
 #else
-    BIGNUM *pr = NULL;
-    BIGNUM *ps = NULL;
-    BN_bin2bn(&vchSig[1],  32, pr);
-    BN_bin2bn(&vchSig[33], 32, ps);
-    //ECDSA_SIG_set0(sig, pr, ps);
+    /* pr and ps are deallocated by ECDSA_SIG_free(sig); */
+    BIGNUM *pr = BN_bin2bn(&vchSig[1],32,BN_new());
+    BIGNUM *ps = BN_bin2bn(&vchSig[33],32,BN_new());
+    if (!pr || !ps) return false;
+    /* Copy and transfer ownership */
+    ECDSA_SIG_set0(sig, pr, ps);
 #endif
 
     EC_KEY_free(pkey);
