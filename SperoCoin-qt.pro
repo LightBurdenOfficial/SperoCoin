@@ -34,9 +34,9 @@ TARGET = $$fName1$$fName2$$VERSION
         message("32-Bit build")
         message("Target build name:" $$TARGET)
 
-BOOST_LIB_SUFFIX=-mgw49-mt-s-1_57
-BOOST_INCLUDE_PATH=C:/deps_x86/boost_1_57_0
-BOOST_LIB_PATH=C:/deps_x86/boost_1_57_0/stage/lib
+BOOST_LIB_SUFFIX=-mgw102-mt-s-1_65_1
+BOOST_INCLUDE_PATH=C:/deps_x86/boost_1_65_1
+BOOST_LIB_PATH=C:/deps_x86/boost_1_65_1/stage/lib
 BDB_INCLUDE_PATH=C:/deps_x86/db-6.0.20/build_unix
 BDB_LIB_PATH=C:/deps_x86/db-6.0.20/build_unix
 OPENSSL_INCLUDE_PATH=C:/deps_x86/openssl-1.0.2r/include
@@ -50,13 +50,13 @@ QRENCODE_LIB_PATH=C:/deps_x86/qrencode-4.0.2/.libs
 TARGET = $$fName1$$fName2$$VERSION
         message("64-Bit build")
         message("Target build name:" $$TARGET)
-BOOST_LIB_SUFFIX=-mgw49-mt-s-1_57
-BOOST_INCLUDE_PATH=C:/deps_x64/boost_1_57_0
-BOOST_LIB_PATH=C:/deps_x64/boost_1_57_0/stage/lib
+BOOST_LIB_SUFFIX=-mgw102-mt-s-1_65_1
+BOOST_INCLUDE_PATH=C:/deps_x64/boost_1_65_1
+BOOST_LIB_PATH=C:/deps_x64/boost_1_65_1/stage/lib
 BDB_INCLUDE_PATH=C:/deps_x64/db-6.0.20/build_unix
 BDB_LIB_PATH=C:/deps_x64/db-6.0.20/build_unix
-OPENSSL_INCLUDE_PATH=C:/deps_x64/openssl-1.0.2r/include
-OPENSSL_LIB_PATH=C:/deps_x64/openssl-1.0.2r
+OPENSSL_INCLUDE_PATH=C:/deps_x64/openssl-1.1.1g/include
+OPENSSL_LIB_PATH=C:/deps_x64/openssl-1.1.1g
 MINIUPNPC_INCLUDE_PATH=C:/deps_x64/
 MINIUPNPC_LIB_PATH=C:/deps_x64/miniupnpc
 QRENCODE_INCLUDE_PATH=C:/deps_x64/qrencode-4.0.2
@@ -163,6 +163,8 @@ contains(BITCOIN_NEED_QT_PLUGINS, 1) {
     QTPLUGIN += qcncodecs qjpcodecs qtwcodecs qkrcodecs qtaccessiblewidgets
 }
 
+INCLUDEPATH += src/leveldb/include src/leveldb/helpers
+LIBS += $$PWD/src/leveldb/libleveldb.a $$PWD/src/leveldb/libmemenv.a
 SOURCES += src/txdb-leveldb.cpp \
     src/bloom.cpp \
     src/hash.cpp \
@@ -180,49 +182,47 @@ SOURCES += src/txdb-leveldb.cpp \
     src/skein.c \
     src/fugue.c \
     src/hamsi.c
-
-NO_LEVELDB=1
-!contains(NO_LEVELDB, 1) {
-!win32 {
-    # we use QMAKE_CXXFLAGS_RELEASE even without RELEASE=1 because we use RELEASE to indicate linking preferences not -O preferences
-    genleveldb.commands = cd $$PWD/src/leveldb && CC=$$QMAKE_CC CXX=$$QMAKE_CXX $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" libleveldb.a libmemenv.a
-} else {
-    # make an educated guess about what the ranlib command is called
-    isEmpty(QMAKE_RANLIB) {
-        QMAKE_RANLIB = $$replace(QMAKE_STRIP, strip, ranlib)
+    NO_LEVELDB=1
+    !contains(NO_LEVELDB, 1) {
+    !win32 {
+        # we use QMAKE_CXXFLAGS_RELEASE even without RELEASE=1 because we use RELEASE to indicate linking preferences not -O preferences
+        genleveldb.commands = cd $$PWD/src/leveldb && CC=$$QMAKE_CC CXX=$$QMAKE_CXX $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" libleveldb.a libmemenv.a
+    } else {
+        # make an educated guess about what the ranlib command is called
+        isEmpty(QMAKE_RANLIB) {
+            QMAKE_RANLIB = $$replace(QMAKE_STRIP, strip, ranlib)
+        }
+        LIBS += -lshlwapi
+        genleveldb.commands = cd $$PWD/src/leveldb && CC=$$QMAKE_CC CXX=$$QMAKE_CXX TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" libleveldb.a libmemenv.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libleveldb.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libmemenv.a
+        }
+        genleveldb.target = $$PWD/src/leveldb/libleveldb.a
+        genleveldb.depends = FORCE
+        PRE_TARGETDEPS += $$PWD/src/leveldb/libleveldb.a
+        QMAKE_EXTRA_TARGETS += genleveldb
+        # Gross ugly hack that depends on qmake internals, unfortunately there is no other way to do it.
+        QMAKE_CLEAN += $$PWD/src/leveldb/libleveldb.a; cd $$PWD/src/leveldb ; $(MAKE) clean
     }
-    LIBS += -lshlwapi
-    genleveldb.commands = cd $$PWD/src/leveldb && CC=$$QMAKE_CC CXX=$$QMAKE_CXX TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" libleveldb.a libmemenv.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libleveldb.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libmemenv.a
-    }
+    # linux make leveldb override
+    !windows:!macx {
+        genleveldb.commands = cd $$PWD/src/leveldb && CC=$$QMAKE_CC CXX=$$QMAKE_CXX $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" libleveldb.a libmemenv.a
     genleveldb.target = $$PWD/src/leveldb/libleveldb.a
     genleveldb.depends = FORCE
     PRE_TARGETDEPS += $$PWD/src/leveldb/libleveldb.a
     QMAKE_EXTRA_TARGETS += genleveldb
     # Gross ugly hack that depends on qmake internals, unfortunately there is no other way to do it.
     QMAKE_CLEAN += $$PWD/src/leveldb/libleveldb.a; cd $$PWD/src/leveldb ; $(MAKE) clean
-}
-# linux make leveldb override
-!windows:!macx {
-    genleveldb.commands = cd $$PWD/src/leveldb && CC=$$QMAKE_CC CXX=$$QMAKE_CXX $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" libleveldb.a libmemenv.a
-genleveldb.target = $$PWD/src/leveldb/libleveldb.a
-genleveldb.depends = FORCE
-PRE_TARGETDEPS += $$PWD/src/leveldb/libleveldb.a
-QMAKE_EXTRA_TARGETS += genleveldb
-# Gross ugly hack that depends on qmake internals, unfortunately there is no other way to do it.
-QMAKE_CLEAN += $$PWD/src/leveldb/libleveldb.a; cd $$PWD/src/leveldb ; $(MAKE) clean
-}
+    }
 
-# regenerate src/build.h
-!windows|contains(USE_BUILD_INFO, 1) {
-    genbuild.depends = FORCE
-    genbuild.commands = cd $$PWD; /bin/sh share/genbuild.sh $$OUT_PWD/build/build.h
-    genbuild.target = $$OUT_PWD/build/build.h
-    PRE_TARGETDEPS += $$OUT_PWD/build/build.h
-    QMAKE_EXTRA_TARGETS += genbuild
-    DEFINES += HAVE_BUILD_INFO
-}
-USE_O3=0
-
+    # regenerate src/build.h
+    !windows|contains(USE_BUILD_INFO, 1) {
+        genbuild.depends = FORCE
+        genbuild.commands = cd $$PWD; /bin/sh share/genbuild.sh $$OUT_PWD/build/build.h
+        genbuild.target = $$OUT_PWD/build/build.h
+        PRE_TARGETDEPS += $$OUT_PWD/build/build.h
+        QMAKE_EXTRA_TARGETS += genbuild
+        DEFINES += HAVE_BUILD_INFO
+    }
+USE_O3=1
 contains(USE_O3, 1) {
     message(Building O3 optimization flag)
     QMAKE_CXXFLAGS_RELEASE -= -O2
