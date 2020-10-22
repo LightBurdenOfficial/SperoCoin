@@ -76,12 +76,8 @@ strip SperoCoind<br>
 **Run daemon in the SperoCoin/src directory:**<br>
 ./SperoCoind<br><br>
 <br>
-**(OPTIONAL)Compile the QT in the SperoCoin directory - Ubuntu 16.04:**<br>
-sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev qt-sdk<br><br>
-qmake SperoCoin-qt.pro "USE_UPNP=1" "USE_QRCODE=1"<br><br>
-make -f Makefile<br><br>
-**(OPTIONAL)Compile the QT in the SperoCoin directory - Ubuntu 18.04:**<br>
-sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev libqt4-dev<br><br>
+**(OPTIONAL)Compile the QT in the SperoCoin directory:**<br>
+sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev qt5-default<br><br>
 qmake SperoCoin-qt.pro "USE_UPNP=1" "USE_QRCODE=1"<br><br>
 make -f Makefile<br><br>
 
@@ -128,7 +124,6 @@ addnode=seed4.sperocoin.org:55690
 
 # Exchanges:
  - 💎 https://exchange.sperocoin.org
- - 💎 https://nanu.exchange/exchange#btc_spero
  - 💎 https://catalogop2p.com.br/sperocoin-sustentabilidade-em-tecnologia
 
 #  Mining:
@@ -164,16 +159,6 @@ cpuminer -q --algo=x13 -o 127.0.0.1:55681 -u user-p password
 ```sh
 ccminer30.exe -q --algo=x13 -o 127.0.0.1:55681 -u user-p password
 ```
-
-# Rewards using the pre-mining balance:
-
-> Wallet Android: 1000 SPERO<br>
-> Wallet iOS: 1000 SPERO<br>
-> Wallet MAC: 1000 SPERO<br>
-> Translate Topic: 100 SPERO<br>
-> Exchange: 10.000 SPERO(https://explorer.sperocoin.org/tx/954af0b2e80730721d2f5edc30708a636802a27e5dfaa22fbbd620d5399f3cf5)<br>
-> Social Market Trading Point: 5000 SPERO<br>
-
 
 # Timeline:
 https://github.com/DigitalCoin1/SperoCoin/blob/master/changelog.md
