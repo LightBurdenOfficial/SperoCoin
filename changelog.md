@@ -94,15 +94,15 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 → Mudança dos ícones e logos;<br>
 → Adição do parâmetro -zapwallettxes;<br>
 
-> 2020/10/22
-→ [UPDATE] Nova versão 2.6.5.0 
-→ [UPDATE] Adição de lista de endereços de participantes do sistema de doações(CHARITY) 
-→ [OPMIZATION] Limpeza e Remoção de arquivos desnecessários da base do código 
-→ [FEATURE] Compatibilidade com Openssl versões 1.0.2 e acima 
-→ [FEATURE] Compatibilidade com Boost 1.66 e 1.70 
-→ [FEATURE] Implementação de auto-completar na janela de depuração 
-→ [FIX] getbalance() bug 
-→ [FIX] TransactionView: Cálculo do último mês 
-→ [UPDATE] Array de seed nodes 
-→ [UPDATE] Checkpoints 
-→ [UPDATE] Arquivos de Compilação SperoCoin-qt.pro e makefile.mingw usados em compilação Windows
+> 2020/10/22<br>
+→ [UPDATE] Nova versão 2.6.5.0;<br>
+→ [UPDATE] Adição de lista de endereços de participantes do sistema de doações(CHARITY);<br>
+→ [OPMIZATION] Limpeza e Remoção de arquivos desnecessários da base do código;<br>
+→ [FEATURE] Compatibilidade com Openssl versões 1.0.2 e acima;<br>
+→ [FEATURE] Compatibilidade com Boost 1.66 e 1.70;<br>
+→ [FEATURE] Implementação de auto-completar na janela de depuração;<br>
+→ [FIX] getbalance() bug;<br>
+→ [FIX] TransactionView: Cálculo do último mês;<br>
+→ [UPDATE] Array de seed nodes;<br>
+→ [UPDATE] Checkpoints;<br>
+→ [UPDATE] Arquivos de Compilação SperoCoin-qt.pro e makefile.mingw usados em compilação Windows<br>
