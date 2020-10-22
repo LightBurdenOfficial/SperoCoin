@@ -177,4 +177,3 @@ ccminer30.exe -q --algo=x13 -o 127.0.0.1:55681 -u user-p password
 
 # Timeline:
 https://github.com/DigitalCoin1/SperoCoin/blob/master/changelog.md
-
