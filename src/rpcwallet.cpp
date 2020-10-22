@@ -653,7 +653,7 @@ int64_t GetAccountBalance(const string& strAccount, int nMinDepth)
 
 Value getbalance(const Array& params, bool fHelp)
 {
-    if (fHelp || params.size() > 2)
+    if (fHelp || params.size() > 3)
         throw runtime_error(
             "getbalance [account] [minconf=1]\n"
             "If [account] is not specified, returns the server's total available balance.\n"
@@ -2036,6 +2036,22 @@ int GetsStakeSubTotal(vStakePeriodRange_T& aRange)
     return nElement;
 }
 
+
+//     MINGW COMPILE FIX / GIVES ERRORS COMPILING ON WINDOWS ITSELF
+//     
+//     Mingw fix still needs tweaking, since the time table display in stakereport is way off
+/*   
+    struct tm *
+localtime_r (const time_t *timer, struct tm *result)
+{
+   struct tm *local_result;
+   local_result = localtime (timer);
+   if (local_result == NULL || result == NULL)
+     return NULL;
+   memcpy (result, local_result, sizeof (result));
+   return result;
+}
+*/
 
 // prepare range for stake report
 vStakePeriodRange_T PrepareRangeForStakeReport()
