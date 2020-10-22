@@ -1,25 +1,32 @@
 >$0001 2017/09/26<br>
 Initial Upload to GitHub<br>
+
 >$0006 2017/10/01<br>
 In this update, the SperoCoin-qt.pro file has been changed for compilation in the Linux environment.<br>
+
 >$0007 2017/10/06<br>
 Update README.md and add files: src/leveldb/Makefile<br>
+
 >$0008 2017/10/08<br>
 Update infos about end phase of PoW and start phase PoS;<br>
 Update font of qt wallet;<br>
 Update version;<br>
 Update Protocol Others general's updates<br>
+
 >$0010 2017/10/10<br>
 Update for new implementations:<br>
 → Added option of cleaning of orphans blocks;<br>
 → Added display option "STAKE" in the "type" column inside the "Transactions" tab;<br>
 → Added "setban" node "" add | remove "(bantime)" / "listbanned" and "clearbanned" in the RPC console;<br>
+
 >$0012 2017/10/11<br>
 Ban Forked Peers who are stuck in a Getblocks Loop.<br>
+
 >$0013 2017/10/22<br>
 → Update of strings names;<br>
 → Updating information in README.md<br>
 → Update Stake Info in QT  Wallet<br>
+
 >$0015 2017/11/18<br>
 → Release of testnet mining;<br>
 → File Fix:<br>
@@ -27,9 +34,11 @@ Ban Forked Peers who are stuck in a Getblocks Loop.<br>
    • alter.cpp<br>
    • checkpoints.cpp<br>
    • checkpoints.h<br>
+
 >$0016 2017/11/30<br>
 Add node in the source:<br>
 addnode=http://dnssperocoin.ddnsking.com:55680<br>
+
 >$0017 2018/03/28<br>
 → Add RPC Command "GETWALLETINFO"<br>
 → Update of transaction maturity icons<br>
@@ -42,6 +51,7 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 → Change the example initial letter in the file qt / sendcoinsdialog.cpp<br>
 (ui-> lineEditCoinControlChange-> setPlaceholderText (tr ("Enter the SperoCoin address (e.g. Sjz75uKHzUQJnSdzvpiigEGxseKkDhQToX)"));)<br>
 → Changed version to 2.6.4.3<br>
+
 >$0019 2018/07/15<br>
 → Added RPC command "getnetworkinfo" - Change in files: bitcoinrpc.cpp; bitcoinrpc.h; rpcblockchain.cpp; rpcnet.cpp<br>
 → Added RPC command "getblockchaininfo" - Change in files:bitcoinrpc.cpp; bitcoinrpc.h; rpcblockchain.cpp; rpcnet.cpp<br>
@@ -52,8 +62,10 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 → Changing QT fonts for "Century Gothic"<br>
 → Clear Orphans with automatic transaction page refresh, no need to restart wallet<br>
 → Changed version to 2.6.4.4<br>
+
 >$0020 2018/07/31<br>
 → Add/Remove Nodes<br>
+
 >$0021 2018/10/27<br>
 → Added new points in the network map updating the mapping up to block 165962- Change in file: checkpoints.cpp<br>
 → Performance Enhancements - Increased Speed ​​in Synchronization - Changes in files: main.cpp; main.h;<br>
@@ -65,11 +77,13 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 → Changed description of mining type PoS<br>
 → New PoS Mining Icon<br>
 → Changed version to 2.6.4.5<br>
+
 >$0022 2018/12/08<br>
 → Alterada Versão para 2.6.4.6;<br>
 → Alterada versão do protocolo para mínimo 700001;<br>
 → Adicionada Introdução;<br>
 → Adicionado pontos de checagem de blocos até o bloco 180000<br>
+
 >$0028 2019/05/31<br>
 → Alterada Versão para 2.6.4.7;<br>
 → Alterada versão do protocolo mínimo para 700002;<br>
@@ -79,3 +93,16 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 → Preparação para o ambiente de mineração PoW após o bloco 263250;<br>
 → Mudança dos ícones e logos;<br>
 → Adição do parâmetro -zapwallettxes;<br>
+
+> 2020/10/22<br>
+→ [UPDATE] Nova versão 2.6.5.0;<br>
+→ [UPDATE] Adição de lista de endereços de participantes do sistema de doações(CHARITY);<br>
+→ [OPMIZATION] Limpeza e Remoção de arquivos desnecessários da base do código;<br>
+→ [FEATURE] Compatibilidade com Openssl versões 1.0.2 e acima;<br>
+→ [FEATURE] Compatibilidade com Boost 1.66 e 1.70;<br>
+→ [FEATURE] Implementação de auto-completar na janela de depuração;<br>
+→ [FIX] getbalance() bug;<br>
+→ [FIX] TransactionView: Cálculo do último mês;<br>
+→ [UPDATE] Array de seed nodes;<br>
+→ [UPDATE] Checkpoints;<br>
+→ [UPDATE] Arquivos de Compilação SperoCoin-qt.pro e makefile.mingw usados em compilação Windows<br>

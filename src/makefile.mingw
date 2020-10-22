@@ -8,22 +8,22 @@ CXX ?= g++
 USE_UPNP:=-
 USE_IPV6:=1
 
-BOOST_SUFFIX?=-mgw49-mt-s-1_57
+BOOST_SUFFIX?=-mgw102-mt-s-1_65_1
 
 INCLUDEPATHS= \
  -I"$(CURDIR)" \
- -I"/c/deps/boost_1_57_0" \
- -I"/c/deps" \
- -I"/c/deps/db-6.0.20/build_unix" \
- -I"/c/deps/openssl-1.0.2r/include"
+ -I"/c/deps_x64/boost_1_65_1" \
+ -I"/c/deps_x64" \
+ -I"/c/deps_x64/db-6.0.20/build_unix" \
+ -I"/c/deps_x64/openssl-1.1.1g/include"
 
 
 LIBPATHS= \
  -L"$(CURDIR)/leveldb" \
- -L"/c/deps/boost_1_57_0/stage/lib" \
- -L"/c/deps/miniupnpc" \
- -L"/c/deps/db-6.0.20/build_unix" \
- -L"/c/deps/openssl-1.0.2r"
+ -L"/c/deps_x64/boost_1_65_1/stage/lib" \
+ -L"/c/deps_x64/miniupnpc" \
+ -L"/c/deps_x64/db-6.0.20/build_unix" \
+ -L"/c/deps_x64/openssl-1.1.1g"
 
 LIBS= \
  -l leveldb \
@@ -40,7 +40,7 @@ LIBS= \
 DEFS=-DWIN32 -D_WINDOWS -DBOOST_THREAD_USE_LIB -DBOOST_SPIRIT_THREADSAFE
 DEBUGFLAGS=-g
 CFLAGS=-mthreads -O3 -msse2 -w -Wall -Wextra -Wno-ignored-qualifiers -Wformat -Wformat-security -Wno-unused-parameter $(DEBUGFLAGS) $(DEFS) $(INCLUDEPATHS)
-LDFLAGS=-LDFLAGS=-Wl,--dynamicbase -Wl,--nxcompat -Wl,--large-address-aware -static
+LDFLAGS=-LDFLAGS=-Wl,--dynamicbase -Wl,--nxcompat
 
 TESTDEFS = -DTEST_DATA_DIR=$(abspath test/data)
 
@@ -48,8 +48,8 @@ ifndef USE_UPNP
 	override USE_UPNP = -
 endif
 ifneq (${USE_UPNP}, -)
- INCLUDEPATHS += -I"C:\deps\miniupnpc"
- LIBPATHS += -L"C:\deps\miniupnpc"
+ INCLUDEPATHS += -I"C:\deps_x64\miniupnpc"
+ LIBPATHS += -L"C:\deps_x64\miniupnpc"
  LIBS += -l miniupnpc -l iphlpapi
  DEFS += -DSTATICLIB -DUSE_UPNP=$(USE_UPNP)
 endif
