@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>807</width>
+    <width>935</width>
     <height>380</height>
    </rect>
   </property>
@@ -14,13 +14,13 @@
    <string>Address Book</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+   <string notr="true"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QLabel" name="labelExplanation">
      <property name="styleSheet">
-      <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>These are your SperoCoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of how you received each transaction.</string>
@@ -42,7 +42,7 @@
       <string>Double-click to edit address or label</string>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 10pt &quot;Arial Narrow&quot;;</string>
+      <string notr="true"/>
      </property>
      <property name="tabKeyNavigation">
       <bool>false</bool>
@@ -72,7 +72,7 @@
         <string>Create a new address</string>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>&amp;New Address</string>
@@ -89,7 +89,7 @@
         <string>Copy the currently selected address to the system clipboard</string>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>&amp;Copy Address</string>
@@ -103,7 +103,7 @@
      <item>
       <widget class="QPushButton" name="showQRCode">
        <property name="styleSheet">
-        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>Show &amp;QR Code</string>
@@ -120,7 +120,7 @@
         <string>Sign a message to prove you own a SperoCoin address</string>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>Sign &amp;Message</string>
@@ -137,7 +137,7 @@
         <string>Verify a message to ensure it was signed with a specified SperoCoin address</string>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>&amp;Verify Message</string>
@@ -168,7 +168,7 @@
         <string>Delete the currently selected address from the list</string>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>&amp;Delete</string>
@@ -201,7 +201,7 @@
         </sizepolicy>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="standardButtons">
         <set>QDialogButtonBox::Ok</set>

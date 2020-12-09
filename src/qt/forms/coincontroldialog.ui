@@ -14,7 +14,7 @@
    <string>Coin Control</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+   <string notr="true"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -55,7 +55,7 @@
           <font>
            <family>Century Gothic</family>
            <pointsize>12</pointsize>
-           <weight>9</weight>
+           <weight>50</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
@@ -90,7 +90,7 @@
           <font>
            <family>Century Gothic</family>
            <pointsize>12</pointsize>
-           <weight>9</weight>
+           <weight>50</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
@@ -141,7 +141,7 @@
           <font>
            <family>Century Gothic</family>
            <pointsize>12</pointsize>
-           <weight>9</weight>
+           <weight>50</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
@@ -176,7 +176,7 @@
           <font>
            <family>Century Gothic</family>
            <pointsize>12</pointsize>
-           <weight>9</weight>
+           <weight>50</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
@@ -227,7 +227,7 @@
           <font>
            <family>Century Gothic</family>
            <pointsize>12</pointsize>
-           <weight>9</weight>
+           <weight>50</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
@@ -268,7 +268,7 @@
           <font>
            <family>Century Gothic</family>
            <pointsize>12</pointsize>
-           <weight>9</weight>
+           <weight>50</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
@@ -319,7 +319,7 @@
           <font>
            <family>Century Gothic</family>
            <pointsize>12</pointsize>
-           <weight>9</weight>
+           <weight>50</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
@@ -360,7 +360,7 @@
           <font>
            <family>Century Gothic</family>
            <pointsize>12</pointsize>
-           <weight>9</weight>
+           <weight>50</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
@@ -419,7 +419,7 @@
           </sizepolicy>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>(un)select all</string>
@@ -478,7 +478,7 @@
       <enum>Qt::CustomContextMenu</enum>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+      <string notr="true"/>
      </property>
      <property name="sortingEnabled">
       <bool>false</bool>
@@ -561,7 +561,7 @@
       </sizepolicy>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+      <string notr="true"/>
      </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>

@@ -101,6 +101,11 @@
         <file alias="zh_CN">locale/bitcoin_zh_CN.qm</file>
         <file alias="zh_TW">locale/bitcoin_zh_TW.qm</file>
     </qresource>
-    <qresource prefix="/fonts"/>
-    <qresource prefix="/font"/>
+  <qresource prefix="/css">
+        <file alias="default">res/css/default.css</file>
+  </qresource>
+  <qresource prefix="/fonts">
+        <file alias="Nasalization">res/fonts/Nasalization.ttf</file>
+  </qresource>
+
 </RCC>

@@ -14,7 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+   <string notr="true"/>
   </property>
   <property name="frameShape">
    <enum>QFrame::StyledPanel</enum>
@@ -55,7 +55,7 @@
    <item row="5" column="1">
     <widget class="BitcoinAmountField" name="payAmount">
      <property name="styleSheet">
-      <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+      <string notr="true"/>
      </property>
     </widget>
    </item>
@@ -73,7 +73,7 @@
         <string>Enter a label for this address to add it to your address book</string>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
       </widget>
      </item>
@@ -103,7 +103,7 @@
         <string>The address to send the payment to  (e.g. Sjz75uKHzUQJnSdzvpiigEGxseKkDhQToX)</string>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="maxLength">
         <number>34</number>

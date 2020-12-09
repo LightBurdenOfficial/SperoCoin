@@ -277,13 +277,14 @@
           <property name="font">
            <font>
             <pointsize>12</pointsize>
+            <stylestrategy>PreferDefault</stylestrategy>
            </font>
           </property>
           <property name="toolTip">
            <string>Maximum amount to send</string>
           </property>
           <property name="styleSheet">
-           <string notr="true">QLabel {color: #000000;}</string>
+           <string notr="true"/>
           </property>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Maximum Amount:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -297,13 +298,14 @@
             <pointsize>9</pointsize>
             <weight>75</weight>
             <bold>true</bold>
+            <stylestrategy>PreferDefault</stylestrategy>
            </font>
           </property>
           <property name="toolTip">
            <string>Account address to send percentage of network rewards to</string>
           </property>
           <property name="styleSheet">
-           <string notr="true">QLabel {color: #000000;};</string>
+           <string notr="true"/>
           </property>
           <property name="text">
            <string>                                    Charity Select:</string>
@@ -365,6 +367,7 @@
           <property name="font">
            <font>
             <pointsize>9</pointsize>
+            <stylestrategy>PreferAntialias</stylestrategy>
            </font>
           </property>
           <property name="toolTip">
@@ -389,13 +392,14 @@
           <property name="font">
            <font>
             <pointsize>12</pointsize>
+            <stylestrategy>PreferDefault</stylestrategy>
            </font>
           </property>
           <property name="toolTip">
            <string>Minimum amount to send</string>
           </property>
           <property name="styleSheet">
-           <string notr="true">QLabel {color: #000000;}</string>
+           <string notr="true"/>
           </property>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Minimum Amount:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -407,6 +411,7 @@
           <property name="font">
            <font>
             <pointsize>9</pointsize>
+            <stylestrategy>PreferAntialias</stylestrategy>
            </font>
           </property>
           <property name="toolTip">
@@ -435,6 +440,7 @@
             <pointsize>9</pointsize>
             <weight>75</weight>
             <bold>true</bold>
+            <stylestrategy>PreferDefault</stylestrategy>
            </font>
           </property>
           <property name="toolTip">
@@ -444,7 +450,7 @@
            <enum>Qt::LeftToRight</enum>
           </property>
           <property name="styleSheet">
-           <string notr="true">QLabel {color: #000000;}</string>
+           <string notr="true"/>
           </property>
           <property name="text">
            <string>                                    Change Address:</string>
@@ -462,13 +468,14 @@
           <property name="font">
            <font>
             <pointsize>12</pointsize>
+            <stylestrategy>PreferDefault</stylestrategy>
            </font>
           </property>
           <property name="toolTip">
            <string>Percentage of your network rewards (stake rewards) to send</string>
           </property>
           <property name="styleSheet">
-           <string notr="true">QLabel {color: #000000;}</string>
+           <string notr="true"/>
           </property>
           <property name="text">
            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Percentage to give:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -482,13 +489,14 @@
             <pointsize>9</pointsize>
             <weight>75</weight>
             <bold>true</bold>
+            <stylestrategy>PreferDefault</stylestrategy>
            </font>
           </property>
           <property name="toolTip">
            <string>Account address to send percentage of network rewards to</string>
           </property>
           <property name="styleSheet">
-           <string notr="true">QLabel {color: #000000;}</string>
+           <string notr="true"/>
           </property>
           <property name="text">
            <string>                                    Charity Address:</string>
@@ -512,6 +520,7 @@
           <property name="font">
            <font>
             <pointsize>9</pointsize>
+            <stylestrategy>PreferDefault</stylestrategy>
            </font>
           </property>
           <property name="toolTip">
@@ -577,7 +586,7 @@
            <number>1</number>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;SperoCoin Dynamic Stake for Charity allows you to automatically send up to 100% of your network rewards (stake rewards) to another SperoCoin address after it matures. Note that you pay the transaction fee (~.0001 SPERO) in addition to the percentage. Learn more at &lt;/span&gt;&lt;a href=&quot;https://sperocoin.org/staking-for-charity/&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; text-decoration: underline; color:#1ab06c;&quot;&gt;sperocoin.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ffffff;&quot;&gt;SperoCoin Dynamic Stake for Charity allows you to automatically send up to 100% of your network rewards (stake rewards) to another SperoCoin address after it matures. Note that you pay the transaction fee (~.0001 SPERO) in addition to the percentage. Learn more at &lt;/span&gt;&lt;a href=&quot;https://sperocoin.org/staking-for-charity/&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; text-decoration: underline; color:#1ab06c;&quot;&gt;sperocoin.org.&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;a href=&quot;https://forms.gle/zbkkBUi6R5TbdCg86&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; text-decoration: underline; color:#1ab06c;&quot;&gt;Make your registration here!&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="textFormat">
            <enum>Qt::RichText</enum>
@@ -604,6 +613,7 @@
           <property name="font">
            <font>
             <pointsize>9</pointsize>
+            <stylestrategy>PreferAntialias</stylestrategy>
            </font>
           </property>
           <property name="toolTip">
@@ -896,6 +906,15 @@
                  </color>
                 </brush>
                </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="NoBrush">
+                 <color alpha="128">
+                  <red>255</red>
+                  <green>170</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
               </active>
               <inactive>
                <colorrole role="WindowText">
@@ -943,6 +962,15 @@
                  </color>
                 </brush>
                </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="NoBrush">
+                 <color alpha="128">
+                  <red>255</red>
+                  <green>170</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
               </inactive>
               <disabled>
                <colorrole role="WindowText">
@@ -986,6 +1014,15 @@
                  <color alpha="0">
                   <red>0</red>
                   <green>0</green>
+                  <blue>0</blue>
+                 </color>
+                </brush>
+               </colorrole>
+               <colorrole role="PlaceholderText">
+                <brush brushstyle="NoBrush">
+                 <color alpha="128">
+                  <red>255</red>
+                  <green>170</green>
                   <blue>0</blue>
                  </color>
                 </brush>
