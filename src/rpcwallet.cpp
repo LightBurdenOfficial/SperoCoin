@@ -2036,11 +2036,13 @@ int GetsStakeSubTotal(vStakePeriodRange_T& aRange)
     return nElement;
 }
 
-
-//     MINGW COMPILE FIX / GIVES ERRORS COMPILING ON WINDOWS ITSELF
-//     
-//     Mingw fix still needs tweaking, since the time table display in stakereport is way off
-/*   
+/*
+***  Start Fix MingW - Stake Report
+*/
+#ifdef WIN32
+#ifdef QT_GUI
+    /* Sem definições para o script de adaptação do MinGW quando utilizado o sistema QT - Stake Report */
+#else
     struct tm *
 localtime_r (const time_t *timer, struct tm *result)
 {
@@ -2051,6 +2053,10 @@ localtime_r (const time_t *timer, struct tm *result)
    memcpy (result, local_result, sizeof (result));
    return result;
 }
+#endif
+#endif
+/*
+***  End Fix MingW - Stake Report
 */
 
 // prepare range for stake report
