@@ -121,13 +121,23 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
     txNew.vin.resize(1);
     txNew.vin[0].prevout.SetNull();
     CBitcoinAddress address(!fTestNet ? FOUNDATION : FOUNDATION_TEST);
+/* Início Adaptação para pagamentos Foundation */
+if(pindexBest->nHeight > POS_POW_HIBRID){
     txNew.vout.resize(2);
+}else{
+    txNew.vout.resize(1);    
+}
+/* Fim Adaptação para pagamentos Foundation */
 
     if (!fProofOfStake)
     {
         CReserveKey reservekey(pwallet);
         txNew.vout[0].scriptPubKey.SetDestination(reservekey.GetReservedKey().GetID());
+/* Início Adaptação para pagamentos Foundation */
+if(pindexBest->nHeight > POS_POW_HIBRID){
         txNew.vout[1].scriptPubKey.SetDestination(address.Get());
+}
+/* Fim Adaptação para pagamentos Foundation */
     }
     else
     {
@@ -136,7 +146,11 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
         assert(txNew.vin[0].scriptSig.size() <= 100);
 
         txNew.vout[0].SetEmpty();
+/* Início Adaptação para pagamentos Foundation */
+if(pindexBest->nHeight > POS_POW_HIBRID){
         txNew.vout[1].SetEmpty();
+}
+/* Fim Adaptação para pagamentos Foundation */
     }
 
     // Add our coinbase tx as first transaction
@@ -362,7 +376,11 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
         if (!fProofOfStake)
         {
             pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward(nFees) - devCoin;
+/* Início Adaptação para pagamentos Foundation */
+if(pindexBest->nHeight > POS_POW_HIBRID){
             pblock->vtx[0].vout[1].nValue = devCoin;
+}
+/* Fim Adaptação para pagamentos Foundation */
         }
 
         if (pFees)

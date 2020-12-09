@@ -3,7 +3,7 @@ TEMPLATE = app
 DEFINES += fName1 fName2
 fName1 = "SperoCoin-Qt"
 macx:TARGET = "SperoCoin-Qt"
-VERSION = 2.6.5.0
+VERSION = 2.6.5.1
 QMAKE_TARGET_BUNDLE_PREFIX = co.SperoCoin
 contains(QT_ARCH, i386) {
     fName2 = "-x86-v"
@@ -105,7 +105,7 @@ QMAKE_LFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
 }
 # for extra security on Windows: enable ASLR and DEP via GCC linker flags
 win32:QMAKE_LFLAGS *= -Wl,--dynamicbase -Wl,--nxcompat -static
-win32:QMAKE_LFLAGS += -static-libgcc -static-libstdc++
+win32:QMAKE_LFLAGS += -static -static-libgcc -static-libstdc++ -lpthread
 lessThan(QT_MAJOR_VERSION, 5): win32: QMAKE_LFLAGS *= -static
 
 USE_QRCODE=1
@@ -222,7 +222,7 @@ SOURCES += src/txdb-leveldb.cpp \
         QMAKE_EXTRA_TARGETS += genbuild
         DEFINES += HAVE_BUILD_INFO
     }
-USE_O3=1
+USE_O3=0
 contains(USE_O3, 1) {
     message(Building O3 optimization flag)
     QMAKE_CXXFLAGS_RELEASE -= -O2
@@ -475,17 +475,6 @@ TSQM.output = $$QM_DIR/${QMAKE_FILE_BASE}.qm
 TSQM.commands = $$QMAKE_LRELEASE ${QMAKE_FILE_IN} -qm ${QMAKE_FILE_OUT}
 TSQM.CONFIG = no_link
 QMAKE_EXTRA_COMPILERS += TSQM
-
-# "Other files" to show in Qt Creator
-OTHER_FILES += README.md \
-    doc/*.rst \
-    doc/*.txt \
-    doc/*.md \
-    src/qt/res/bitcoin-qt.rc \
-    src/test/*.cpp \
-    src/test/*.h \
-    src/qt/test/*.cpp \
-    src/qt/test/*.h
 
 # "Other files" to show in Qt Creator
 OTHER_FILES += \

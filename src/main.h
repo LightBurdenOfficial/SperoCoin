@@ -46,8 +46,10 @@ static const int64_t MAX_MINT_PROOF_OF_STAKE = 0.05 * COIN; //Stake 5% por ano
 static const int64_t MAX_MINT_PROOF_OF_STAKE_NEW = 0.25 * COIN; //Stake 25% por ano
 static const int64_t COIN_YEAR_REWARD = 25 * CENT; // 25% per year (output to console will be updated)
 
+/* Início Adaptação para pagamentos Foundation */
 #define FOUNDATION "ScCJWtVVQxtEkKDqnL43aJpzULvpEE5fBD"
 #define FOUNDATION_TEST "sbEje8AqUUqkUXXNGYJodR2SN3emT6PVzA"
+/* Fim Adaptação para pagamentos Foundation */
 
 inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 // Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp.

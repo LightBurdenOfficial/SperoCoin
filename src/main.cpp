@@ -51,7 +51,6 @@ static const int64_t nTargetTimespan = 30 * 60;
 
 static const unsigned int CHECKLOCKTIMEVERIFY_SWITCH_TIME = 1461110400; // Wednesday, 20-Apr-16 00:00:00 UTC
 
-int64_t devCoin = 0.015 * COIN; // A cada bloco minerado em POW, 0.015 vai para a Equipe SperoCoin.
 int nCoinbaseMaturity = 5;
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -1038,11 +1037,27 @@ void static PruneOrphanBlocks()
     mapOrphanBlocks.erase(hash);
 }
 
+/* Início Adaptação para pagamentos Foundation */
+    int64_t devCoin = 0 * COIN; // A cada bloco minerado em POW, 0.015 vai para a Equipe SperoCoin.
+/* Fim Adaptação para pagamentos Foundation */
+
 // miner's coin base reward
 int64_t GetProofOfWorkReward(int64_t nFees)
 {
 
     int64_t nSubsidy = 2 * COIN; //Inicial
+
+if (fTestNet){
+    if(pindexBest->nHeight < 2) {
+        nSubsidy = 50000 * COIN; //2% Bounties/Promotions
+    }
+
+    if(pindexBest->nHeight > POS_POW_HIBRID){
+        nSubsidy = 0.05 * COIN;
+        devCoin = 0.015 * COIN;
+    }
+
+} else {
     if(pindexBest->nHeight < 2)
     {
         nSubsidy = 50000 * COIN; //2% Bounties/Promotions
@@ -1052,8 +1067,8 @@ int64_t GetProofOfWorkReward(int64_t nFees)
     {
         nSubsidy = 0.05 * COIN;
     }
+}
 
-    // LAST_POW_BLOCK = 33331
 
     if (fDebug && GetBoolArg("-printcreation"))
     printf("GetProofOfWorkReward() : create=%s nSubsidy=%"PRId64"\n", FormatMoney(nSubsidy).c_str(), nSubsidy);
@@ -1860,25 +1875,26 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
     {
         int64_t nReward = GetProofOfWorkReward(nFees);
         // Check coinbase reward
-        if (vtx[0].GetValueOut() > nReward)
-            return DoS(50, error("ConnectBlock() : coinbase reward exceeded (actual=%"PRId64" vs calculated=%"PRId64")",
-                   vtx[0].GetValueOut(),
-                   nReward));
+        /* Início Adaptação para pagamentos Foundation */
+        if(pindexBest->nHeight > POS_POW_HIBRID){
+                if (vtx[0].GetValueOut() > nReward){
+                    return DoS(50, error("ConnectBlock() : PoW reward(Foundation Fee) exceeded (actual=%"PRId64" vs calculated=%"PRId64")", vtx[0].GetValueOut(), nReward));
+                }
+                    CBitcoinAddress address(!fTestNet ? FOUNDATION : FOUNDATION_TEST);
+                    CScript scriptPubKey;
+                    scriptPubKey.SetDestination(address.Get());
+                    if (vtx[0].vout[1].scriptPubKey != scriptPubKey){
+                        return error("ConnectBlock() : PoW coinbase does not pay to the dev address)");
+                    }
+                    if (vtx[0].vout[1].nValue < devCoin){
+                        return error("ConnectBlock() : PoW coinbase does not pay enough to dev addresss");
+                    }
+        } else{
+                if (vtx[0].GetValueOut() > nReward)
+                    return DoS(50, error("ConnectBlock() : PoW coinbase reward exceeded (actual=%"PRId64" vs calculated=%"PRId64")", vtx[0].GetValueOut(), nReward));
+        }
     }
-
-if(pindexBest->nHeight > POS_POW_HIBRID)
-{
-    if(IsProofOfWork())
-    {
-        CBitcoinAddress address(!fTestNet ? FOUNDATION : FOUNDATION_TEST);
-        CScript scriptPubKey;
-        scriptPubKey.SetDestination(address.Get());
-        if (vtx[0].vout[1].scriptPubKey != scriptPubKey)
-            return error("ConnectBlock() : coinbase does not pay to the dev address)");
-        if (vtx[0].vout[1].nValue < devCoin)
-            return error("ConnectBlock() : coinbase does not pay enough to dev addresss");
-    }
-}
+/* Fim Adaptação para pagamentos Foundation */
 
     if (IsProofOfStake())
     {
@@ -2842,9 +2858,9 @@ bool LoadBlockIndex(bool fAllowNew)
 
         bnTrustedModulus.SetHex("a8852ebf7c49f01cd196e35394f3b74dd86283a07f57e0a262928e7493d4a3961d93d93c90ea3369719641d626d28b9cddc6d9307b9aabdbffc40b6d6da2e329d079b4187ff784b2893d9f53e9ab913a04ff02668114695b07d8ce877c4c8cac1b12b9beff3c51294ebe349eca41c24cd32a6d09dd1579d3947e5c4dcc30b2090b0454edb98c6336e7571db09e0fdafbd68d8f0470223836e90666a5b143b73b9cd71547c917bf24c0efc86af2eba046ed781d9acb05c80f007ef5a0a5dfca23236f37e698e8728def12554bc80f294f71c040a88eff144d130b24211016a97ce0f5fe520f477e555c9997683d762aff8bd1402ae6938dd5c994780b1bf6aa7239e9d8101630ecfeaa730d2bbc97d39beb057f016db2e28bf12fab4989c0170c2593383fd04660b5229adcd8486ba78f6cc1b558bcd92f344100dff239a8c00dbc4c2825277f241691dbe4a7d9bd503abb9");
         bnProofOfWorkLimit = bnProofOfWorkLimitTestNet; // 16 bits PoW target limit for testnet
-        nStakeMinAge = 15 * 60; // test net min age is 1 hour
+        nStakeMinAge = 2 * 60 * 60; // test net min age is 2 hours
         nCoinbaseMaturity = 5; // test maturity is 5 blocks
-        nModifierInterval = 60;
+        nModifierInterval = 10 * 30;
     }
     else
     {

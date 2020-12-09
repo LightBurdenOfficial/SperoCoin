@@ -511,10 +511,15 @@ Value getblocktemplate(const Array& params, bool fHelp)
     result.push_back(Pair("curtime", (int64_t)pblock->nTime));
     result.push_back(Pair("bits", HexBits(pblock->nBits)));
     result.push_back(Pair("height", (int64_t)(pindexPrev->nHeight+1)));
+/* Início Adaptação para pagamentos Foundation */
+if(pindexBest->nHeight > POS_POW_HIBRID){
     CBitcoinAddress address(!fTestNet ? FOUNDATION : FOUNDATION_TEST);
     result.push_back(Pair("payee", address.ToString()));
     result.push_back(Pair("payee_amount", devCoin));
     result.push_back(Pair("enforced", true));
+}
+/* Fim Adaptação para pagamentos Foundation */
+
     return result;
 }
 
