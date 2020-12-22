@@ -122,10 +122,10 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
     txNew.vin[0].prevout.SetNull();
     CBitcoinAddress address(!fTestNet ? FOUNDATION : FOUNDATION_TEST);
 /* Início Adaptação para pagamentos Foundation */
-if(pindexBest->nHeight > POS_POW_HIBRID){
+if(pindexBest->nHeight >= POS_POW_HYBRID){
     txNew.vout.resize(2);
 }else{
-    txNew.vout.resize(1);    
+    txNew.vout.resize(1);
 }
 /* Fim Adaptação para pagamentos Foundation */
 
@@ -134,7 +134,7 @@ if(pindexBest->nHeight > POS_POW_HIBRID){
         CReserveKey reservekey(pwallet);
         txNew.vout[0].scriptPubKey.SetDestination(reservekey.GetReservedKey().GetID());
 /* Início Adaptação para pagamentos Foundation */
-if(pindexBest->nHeight > POS_POW_HIBRID){
+if(pindexBest->nHeight >= POS_POW_HYBRID){
         txNew.vout[1].scriptPubKey.SetDestination(address.Get());
 }
 /* Fim Adaptação para pagamentos Foundation */
@@ -147,7 +147,7 @@ if(pindexBest->nHeight > POS_POW_HIBRID){
 
         txNew.vout[0].SetEmpty();
 /* Início Adaptação para pagamentos Foundation */
-if(pindexBest->nHeight > POS_POW_HIBRID){
+if(pindexBest->nHeight >= POS_POW_HYBRID){
         txNew.vout[1].SetEmpty();
 }
 /* Fim Adaptação para pagamentos Foundation */
@@ -375,9 +375,10 @@ if(pindexBest->nHeight > POS_POW_HIBRID){
 
         if (!fProofOfStake)
         {
-            pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward(nFees) - devCoin;
 /* Início Adaptação para pagamentos Foundation */
-if(pindexBest->nHeight > POS_POW_HIBRID){
+            pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward(nFees);
+if(pindexBest->nHeight >= POS_POW_HYBRID){
+            pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward(nFees) - devCoin;
             pblock->vtx[0].vout[1].nValue = devCoin;
 }
 /* Fim Adaptação para pagamentos Foundation */
@@ -478,6 +479,8 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     //// debug print
     printf("CheckWork() : new proof-of-work block found  \n  hash: %s  \ntarget: %s\n", hashBlock.GetHex().c_str(), hashTarget.GetHex().c_str());
     pblock->print();
+    if(pblock->vtx[0].vout[0].nValue > MAX_MONEY)
+        return error("CheckWork() : block rejected because vout.nValue exceeds MAX_MONEY, split your inputs");
     printf("generated %s\n", FormatMoney(pblock->vtx[0].vout[0].nValue + pblock->vtx[0].vout[1].nValue).c_str());
 
     // Found a solution
@@ -519,6 +522,11 @@ bool CheckStake(CBlock* pblock, CWallet& wallet)
     printf("CheckStake() : new proof-of-stake block found  \n  hash: %s \nproofhash: %s  \ntarget: %s\n", hashBlock.GetHex().c_str(), proofHash.GetHex().c_str(), hashTarget.GetHex().c_str());
     pblock->print();
     printf("out %s\n", FormatMoney(pblock->vtx[1].GetValueOut()).c_str());
+
+    // When the coin entry approaches MAX_MONEY, the stake reward can push it over Money_range limit
+    // GetValueOut() will assert and crash the wallet.
+    if(pblock->vtx[1].GetValueOut() > MAX_MONEY)
+    return error("CheckStake() : block rejected because GetValueOut() exceeds MAX_MONEY, split your inputs");
 
     // Found a solution
     {
@@ -576,6 +584,7 @@ void StakeMiner(CWallet *pwallet)
             fTryToSync = false;
             if (vNodes.size() < 3 || nBestHeight < GetNumBlocksOfPeers())
             {
+                printf("StakeMiner: sleeping 1 min because of %d / [%d/%d] \n",vNodes.size(), nBestHeight, GetNumBlocksOfPeers());
                 MilliSleep(60000);
                 continue;
             }
@@ -585,6 +594,7 @@ void StakeMiner(CWallet *pwallet)
         // Create new block
         //
         int64_t nFees;
+
         auto_ptr<CBlock> pblock(CreateNewBlock(pwallet, true, &nFees));
         if (!pblock.get())
             return;
@@ -597,7 +607,8 @@ void StakeMiner(CWallet *pwallet)
             SetThreadPriority(THREAD_PRIORITY_LOWEST);
             MilliSleep(500);
         }
-        else
+        else{
             MilliSleep(nMinerSleep);
+        }
     }
 }

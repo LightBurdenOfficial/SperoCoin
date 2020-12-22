@@ -489,12 +489,6 @@ int CMerkleTx::SetMerkleBranch(const CBlock* pblock)
     return pindexBest->nHeight - pindex->nHeight + 1;
 }
 
-
-
-
-
-
-
 bool CTransaction::CheckTransaction() const
 {
     // Basic checks that don't depend on any context
@@ -673,7 +667,7 @@ bool CTxMemPool::accept(CTxDB& txdb, CTransaction &tx, bool fCheckInputs,
         // Don't accept it if it can't get into a block
         int64_t txMinFee = tx.GetMinFee(1000, GMF_RELAY, nSize);
         if (nFees < txMinFee)
-            return error("CTxMemPool::accept() : not enough fees %s, %"PRId64" < %"PRId64,
+            return error("CTxMemPool::accept() : not enough fees %s, %" PRId64 " < %"PRId64,
                          hash.ToString().c_str(),
                          nFees, txMinFee);
 
@@ -1045,61 +1039,96 @@ void static PruneOrphanBlocks()
 int64_t GetProofOfWorkReward(int64_t nFees)
 {
 
-    int64_t nSubsidy = 2 * COIN; //Inicial
+    int64_t nSubsidy = 0 * COIN;
 
-if (fTestNet){
     if(pindexBest->nHeight < 2) {
-        nSubsidy = 50000 * COIN; //2% Bounties/Promotions
+        nSubsidy = 50000 * COIN; //Premine
     }
 
-    if(pindexBest->nHeight > POS_POW_HIBRID){
+    else if(pindexBest->nHeight >= 2 && pindexBest->nHeight < LAST_POW_BLOCK) {
+        nSubsidy = 2 * COIN;
+    }
+    
+    else if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03){
         nSubsidy = 0.05 * COIN;
         devCoin = 0.015 * COIN;
     }
 
-} else {
-    if(pindexBest->nHeight < 2)
-    {
-        nSubsidy = 50000 * COIN; //2% Bounties/Promotions
+    else if(pindexBest->nHeight >= HALVING_POW_03 && pindexBest->nHeight < HALVING_POW_04){
+        nSubsidy = 0.025 * COIN;
+        devCoin = 0 * COIN;
     }
 
-    if(pindexBest->nHeight > POS_POW_HIBRID) //Mineracao hibrida PoW+PoS
-    {
-        nSubsidy = 0.05 * COIN;
+    else if(pindexBest->nHeight >= HALVING_POW_04 && pindexBest->nHeight < HALVING_POW_05){
+        nSubsidy = 0.0125 * COIN;
+        devCoin = 0 * COIN;
     }
-}
 
+    else if(pindexBest->nHeight >= HALVING_POW_05){
+        nSubsidy = 0.001 * COIN;
+        devCoin = 0 * COIN;
+    }
 
-    if (fDebug && GetBoolArg("-printcreation"))
-    printf("GetProofOfWorkReward() : create=%s nSubsidy=%"PRId64"\n", FormatMoney(nSubsidy).c_str(), nSubsidy);
+    if (fDebug && GetBoolArg("-printcreation")){
+    printf("GetProofOfWorkReward() : create=%s nSubsidy=%" PRId64 "\n", FormatMoney(nSubsidy).c_str(), nSubsidy);
+    }
     return nSubsidy + nFees;
 
 
 }
 
+int64_t GetProofOfStakeRewardV1(int64_t nCoinAge, int64_t nFees)
+{
+    int64_t nRewardCoinYear;
+    int64_t nSubsidy = nCoinAge * nRewardCoinYear / 365 / COIN;
 
-const int YEARLY_BLOCKCOUNT = 182500;
+    if(pindexBest->nHeight < POS_POW_HYBRID){
+        nRewardCoinYear = MAX_MINT_PROOF_OF_STAKE; //5% ao ano
+    }
 
+    else if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POS_03){
+        nRewardCoinYear = MAX_MINT_PROOF_OF_STAKE_NEW; //25% ao ano
+    }
+
+
+    if (fDebug && GetBoolArg("-printcreation")){
+            printf("GetProofOfStakeReward(): create=%s nRewardCoinYear=%" PRId64 " nCoinAge=%" PRId64 "\n", FormatMoney(nSubsidy).c_str(), nRewardCoinYear/CENT,nCoinAge);
+    }
+    return nSubsidy + nFees;
+
+}
+
+int64_t GetProofOfStakeRewardV2(int64_t nCoinAge, int64_t nFees)
+{
+    int64_t nSubsidy;
+
+    if(pindexBest->nHeight >= HALVING_POS_03 && pindexBest->nHeight < HALVING_POS_04){
+        nSubsidy = MAX_MINT_PROOF_OF_STAKE_NEW_02; //0.50 * COIN
+    }
+
+    else if(pindexBest->nHeight >= HALVING_POS_04){
+        nSubsidy = MAX_MINT_PROOF_OF_STAKE_NEW_03; //0.25 * COIN
+    }
+
+    if (fDebug && GetBoolArg("-printcreation")){
+            printf("GetProofOfStakeReward(): create=%s nSubsidy=%" PRId64 " nCoinAge=%" PRId64 "\n", FormatMoney(nSubsidy).c_str(), nSubsidy ,nCoinAge);
+    }
+
+    return nSubsidy + nFees;
+}
 
 int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
 {
-    int64_t nRewardCoinYear;
+    int64_t nSubsidy;
 
-    if(pindexBest->nHeight < POS_POW_HIBRID){
-        nRewardCoinYear = MAX_MINT_PROOF_OF_STAKE;
+    if(pindexBest->nHeight >= HALVING_POS_03){
+        nSubsidy = GetProofOfStakeRewardV2(nCoinAge, nFees);
+    } else {
+        nSubsidy = GetProofOfStakeRewardV1(nCoinAge, nFees);
     }
-    else if(pindexBest->nHeight >= POS_POW_HIBRID){
-        nRewardCoinYear = MAX_MINT_PROOF_OF_STAKE_NEW;
-    }
-
-    int64_t nSubsidy = nCoinAge * nRewardCoinYear / 365 / COIN;
-
-    if (fDebug && GetBoolArg("-printcreation"))
-        printf("GetProofOfStakeReward(): create=%s nRewardCoinYear=%"PRId64" nCoinAge=%"PRId64"\n", FormatMoney(nSubsidy).c_str(), nRewardCoinYear/CENT,nCoinAge);
 
     return nSubsidy + nFees;
 }
-
 
 //
 // maximum nBits value could possible be required nTime after
@@ -1294,11 +1323,11 @@ void static InvalidChainFound(CBlockIndex* pindexNew)
     uint256 nBestInvalidBlockTrust = pindexNew->nChainTrust - pindexNew->pprev->nChainTrust;
     uint256 nBestBlockTrust = pindexBest->nHeight != 0 ? (pindexBest->nChainTrust - pindexBest->pprev->nChainTrust) : pindexBest->nChainTrust;
 
-    printf("InvalidChainFound: invalid block=%s  height=%d  trust=%s  blocktrust=%"PRId64"  date=%s\n",
+    printf("InvalidChainFound: invalid block=%s  height=%d  trust=%s  blocktrust=%" PRId64 "  date=%s\n",
       pindexNew->GetBlockHash().ToString().substr(0,20).c_str(), pindexNew->nHeight,
       CBigNum(pindexNew->nChainTrust).ToString().c_str(), nBestInvalidBlockTrust.Get64(),
       DateTimeStrFormat("%x %H:%M:%S", pindexNew->GetBlockTime()).c_str());
-    printf("InvalidChainFound:  current best=%s  height=%d  trust=%s  blocktrust=%"PRId64"  date=%s\n",
+    printf("InvalidChainFound:  current best=%s  height=%d  trust=%s  blocktrust=%" PRId64 "  date=%s\n",
       hashBestChain.ToString().substr(0,20).c_str(), nBestHeight,
       CBigNum(pindexBest->nChainTrust).ToString().c_str(),
       nBestBlockTrust.Get64(),
@@ -1310,16 +1339,6 @@ void CBlock::UpdateTime(const CBlockIndex* pindexPrev)
 {
     nTime = max(GetBlockTime(), GetAdjustedTime());
 }
-
-
-
-
-
-
-
-
-
-
 
 bool CTransaction::DisconnectInputs(CTxDB& txdb)
 {
@@ -1875,23 +1894,23 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
     {
         int64_t nReward = GetProofOfWorkReward(nFees);
         // Check coinbase reward
-        /* Início Adaptação para pagamentos Foundation */
-        if(pindexBest->nHeight > POS_POW_HIBRID){
+/* Início Adaptação para pagamentos Foundation */
+        if(pindexBest->nHeight >= POS_POW_HYBRID){
                 if (vtx[0].GetValueOut() > nReward){
-                    return DoS(50, error("ConnectBlock() : PoW reward(Foundation Fee) exceeded (actual=%"PRId64" vs calculated=%"PRId64")", vtx[0].GetValueOut(), nReward));
+                    return DoS(50, error("ConnectBlock() : PoW reward(Foundation Fee) exceeded (actual=%" PRId64 " vs calculated=%" PRId64 ")", vtx[0].GetValueOut(), nReward));
                 }
                     CBitcoinAddress address(!fTestNet ? FOUNDATION : FOUNDATION_TEST);
                     CScript scriptPubKey;
                     scriptPubKey.SetDestination(address.Get());
                     if (vtx[0].vout[1].scriptPubKey != scriptPubKey){
-                        return error("ConnectBlock() : PoW coinbase does not pay to the dev address)");
+                        return error("ConnectBlock() : PoW coinbase does not pay to the dev address");
                     }
                     if (vtx[0].vout[1].nValue < devCoin){
                         return error("ConnectBlock() : PoW coinbase does not pay enough to dev addresss");
                     }
         } else{
                 if (vtx[0].GetValueOut() > nReward)
-                    return DoS(50, error("ConnectBlock() : PoW coinbase reward exceeded (actual=%"PRId64" vs calculated=%"PRId64")", vtx[0].GetValueOut(), nReward));
+                    return DoS(50, error("ConnectBlock() : PoW coinbase reward exceeded (actual=%" PRId64 " vs calculated=%" PRId64 ")", vtx[0].GetValueOut(), nReward));
         }
     }
 /* Fim Adaptação para pagamentos Foundation */
@@ -1906,7 +1925,7 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
         int64_t nCalculatedStakeReward = GetProofOfStakeReward(nCoinAge, nFees);
 
         if (nStakeReward > nCalculatedStakeReward)
-            return DoS(100, error("ConnectBlock() : coinstake pays too much(actual=%"PRId64" vs calculated=%"PRId64")", nStakeReward, nCalculatedStakeReward));
+            return DoS(100, error("ConnectBlock() : coinstake pays too much(actual=%" PRId64 " vs calculated=%" PRId64 ")", nStakeReward, nCalculatedStakeReward));
     }
 
     // SperoCoin: track money supply and mint amount info
@@ -2198,7 +2217,7 @@ bool CBlock::SetBestChain(CTxDB& txdb, CBlockIndex* pindexNew)
 
     uint256 nBestBlockTrust = pindexBest->nHeight != 0 ? (pindexBest->nChainTrust - pindexBest->pprev->nChainTrust) : pindexBest->nChainTrust;
 
-    printf("SetBestChain: new best=%s  height=%d  trust=%s  blocktrust=%"PRId64"  date=%s\n",
+    printf("SetBestChain: new best=%s  height=%d  trust=%s  blocktrust=%" PRId64 "  date=%s\n",
       hashBestChain.ToString().substr(0,20).c_str(), nBestHeight,
       CBigNum(nBestChainTrust).ToString().c_str(),
       nBestBlockTrust.Get64(),
@@ -2269,7 +2288,7 @@ bool CTransaction::GetCoinAge(CTxDB& txdb, uint64_t& nCoinAge) const
         bnCentSecond += CBigNum(nValueIn) * (nTime-txPrev.nTime) / CENT;
 
         if (fDebug && GetBoolArg("-printcoinage"))
-            printf("coin age nValueIn=%"PRId64" nTimeDiff=%d bnCentSecond=%s\n", nValueIn, nTime - txPrev.nTime, bnCentSecond.ToString().c_str());
+            printf("coin age nValueIn=%" PRId64 " nTimeDiff=%d bnCentSecond=%s\n", nValueIn, nTime - txPrev.nTime, bnCentSecond.ToString().c_str());
     }
 
     CBigNum bnCoinDay = bnCentSecond * CENT / (24 * 60 * 60);
@@ -2297,7 +2316,7 @@ bool CBlock::GetCoinAge(uint64_t& nCoinAge) const
     if (nCoinAge == 0) // block coin age minimum 1 coin-day
         nCoinAge = 1;
     if (fDebug && GetBoolArg("-printcoinage"))
-        printf("block coin age total nCoinDays=%"PRId64"\n", nCoinAge);
+        printf("block coin age total nCoinDays=%" PRId64 "\n", nCoinAge);
     return true;
 }
 
@@ -2414,6 +2433,7 @@ bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot, bool fCheckSig, i
         if ((vtx[0].vout.size() != 2 || !vtx[0].vout[0].IsEmpty() || !vtx[0].vout[1].IsEmpty() ))
             return error("CheckBlock() : coinbase output not empty for proof-of-stake block");
 
+
         // Second transaction must be coinstake, the rest must not be
         if (vtx.empty() || !vtx[1].IsCoinStake())
             return DoS(100, error("CheckBlock() : second tx is not coinstake"));
@@ -2423,7 +2443,7 @@ bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot, bool fCheckSig, i
 
         // Check coinstake timestamp
         if (!CheckCoinStakeTimestamp(GetBlockTime(), (int64_t)vtx[1].nTime))
-            return DoS(50, error("CheckBlock() : coinstake timestamp violation nTimeBlock=%"PRId64" nTimeTx=%u", GetBlockTime(), vtx[1].nTime));
+            return DoS(50, error("CheckBlock() : coinstake timestamp violation nTimeBlock=%" PRId64 " nTimeTx=%u", GetBlockTime(), vtx[1].nTime));
 
         // Sperocoin: check proof-of-stake block signature
         if (fCheckSig && !CheckBlockSignature())
@@ -2481,7 +2501,7 @@ bool CBlock::AcceptBlock()
     CBlockIndex* pindexPrev = (*mi).second;
     int nHeight = pindexPrev->nHeight+1;
 
-    if (IsProofOfWork() && nHeight > LAST_POW_BLOCK && nHeight <= POS_POW_HIBRID && !fTestNet)
+    if (IsProofOfWork() && nHeight > LAST_POW_BLOCK && nHeight < POS_POW_HYBRID && !fTestNet)
         return DoS(100, error("AcceptBlock() : reject proof-of-work at height %d", nHeight));
 
     // Check proof-of-work or proof-of-stake
@@ -3092,7 +3112,7 @@ bool LoadExternalBlockFile(FILE* fileIn)
                    __PRETTY_FUNCTION__);
         }
     }
-    printf("Loaded %i blocks from external file in %"PRId64"ms\n", nLoaded, GetTimeMillis() - nStart);
+    printf("Loaded %i blocks from external file in %" PRId64 "ms\n", nLoaded, GetTimeMillis() - nStart);
     return nLoaded > 0;
 }
 

@@ -1629,6 +1629,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
         return false;
 
     int64_t nCredit = 0;
+    int64_t nDevCoin = 0;
     CScript scriptPubKeyKernel;
     CTxDB txdb("r");
     BOOST_FOREACH(PAIRTYPE(const CWalletTx*, unsigned int) pcoin, setCoins)
@@ -1777,18 +1778,51 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
         if (nReward <= 0)
             return false;
 
+    if (pindexBest->nHeight >= HALVING_POS_03){
+      if(pindexBest->nHeight >= HALVING_POS_03 && pindexBest->nHeight < HALVING_POS_04){
+        nDevCoin = 0.25 * COIN; // Developer reward 0.25
+      }
+      if(pindexBest->nHeight >= HALVING_POS_04){
+        nDevCoin = 0.10 * COIN; // Developer reward 0.10
+      }
+        nReward -= nDevCoin;
+        nCredit += (nReward + nDevCoin);
+    } else {
         nCredit += nReward;
     }
+    }
 
+if (pindexBest->nHeight >= HALVING_POS_03){
+    // Set output amount
+    if (txNew.vout.size() == 3)
+    {
+        printf("\x1B[36mTransaction vout.size() == 3\033[0m\t\t\n");
+        txNew.vout[1].nValue = (nCredit / 2 / CENT) * CENT; // Actual POS Reward
+        txNew.vout[2].nValue = nCredit - txNew.vout[1].nValue - nDevCoin;// Wallet to wallet transaction
+        CBitcoinAddress address(!fTestNet ? FOUNDATION : FOUNDATION_TEST);
+        txNew.vout.resize(4);
+        txNew.vout[3].scriptPubKey.SetDestination(address.Get());
+        txNew.vout[3].nValue = nDevCoin;
+    } else {
+        printf("\x1B[36mTransaction vout.size() != 3\033[0m\t\t\n");
+        txNew.vout[1].nValue = nCredit - nDevCoin;// - nDevCoin; // Actual POS Reward
+        CBitcoinAddress address(!fTestNet ? FOUNDATION : FOUNDATION_TEST);
+        txNew.vout.resize(3);
+        txNew.vout[2].scriptPubKey.SetDestination(address.Get());
+        txNew.vout[2].nValue = nDevCoin;
+   }
+
+} else {
     // Set output amount
     if (txNew.vout.size() == 3)
     {
         txNew.vout[1].nValue = (nCredit / 2 / CENT) * CENT;
         txNew.vout[2].nValue = nCredit - txNew.vout[1].nValue;
     }
-    else
+    else{
         txNew.vout[1].nValue = nCredit;
-
+    }
+}
     // Sign
     int nIn = 0;
     BOOST_FOREACH(const CWalletTx* pcoin, vwtxPrev)

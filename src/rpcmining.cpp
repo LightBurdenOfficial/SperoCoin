@@ -69,7 +69,16 @@ Value getmininginfo(const Array& params, bool fHelp)
     weight.push_back(Pair("combined",  (uint64_t)nWeight));
     obj.push_back(Pair("stakeweight", weight));
 
+if(pindexBest->nHeight < HALVING_POS_03){
     obj.push_back(Pair("stakeinterest",    (uint64_t)COIN_YEAR_REWARD));
+}
+else if(pindexBest->nHeight >= HALVING_POS_03 && pindexBest->nHeight < HALVING_POS_04){
+    obj.push_back(Pair("stakeinterest",    (uint64_t)COIN_POS_NEW_REWARD));
+}
+else if(pindexBest->nHeight >= HALVING_POS_04){
+    obj.push_back(Pair("stakeinterest",    (uint64_t)COIN_POS_NEW_REWARD));
+}
+
     obj.push_back(Pair("testnet",       fTestNet));
     return obj;
 }
@@ -123,7 +132,7 @@ Value getworkex(const Array& params, bool fHelp)
     if (IsInitialBlockDownload())
         throw JSONRPCError(-10, "SperoCoin is downloading blocks...");
 
-    if ((pindexBest->nHeight >= LAST_POW_BLOCK) && (pindexBest->nHeight < POS_POW_HIBRID))
+    if ((pindexBest->nHeight >= LAST_POW_BLOCK) && (pindexBest->nHeight < POS_POW_HYBRID))
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
 
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
@@ -256,7 +265,7 @@ Value getwork(const Array& params, bool fHelp)
     if (IsInitialBlockDownload())
         throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "SperoCoin is downloading blocks...");
 
-    if ((pindexBest->nHeight >= LAST_POW_BLOCK) && (pindexBest->nHeight < POS_POW_HIBRID))
+    if ((pindexBest->nHeight >= LAST_POW_BLOCK) && (pindexBest->nHeight < POS_POW_HYBRID))
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
 
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
@@ -400,7 +409,7 @@ Value getblocktemplate(const Array& params, bool fHelp)
     if (IsInitialBlockDownload())
         throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "SperoCoin is downloading blocks...");
 
-    if ((pindexBest->nHeight >= LAST_POW_BLOCK) && (pindexBest->nHeight < POS_POW_HIBRID))
+    if ((pindexBest->nHeight >= LAST_POW_BLOCK) && (pindexBest->nHeight < POS_POW_HYBRID))
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
 
     static CReserveKey reservekey(pwalletMain);
@@ -512,7 +521,7 @@ Value getblocktemplate(const Array& params, bool fHelp)
     result.push_back(Pair("bits", HexBits(pblock->nBits)));
     result.push_back(Pair("height", (int64_t)(pindexPrev->nHeight+1)));
 /* Início Adaptação para pagamentos Foundation */
-if(pindexBest->nHeight > POS_POW_HIBRID){
+if(pindexBest->nHeight >= POS_POW_HYBRID){
     CBitcoinAddress address(!fTestNet ? FOUNDATION : FOUNDATION_TEST);
     result.push_back(Pair("payee", address.ToString()));
     result.push_back(Pair("payee_amount", devCoin));

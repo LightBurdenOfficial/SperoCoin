@@ -55,26 +55,37 @@ void StatisticsPage::updateStatistics()
     QString stakemax = QString::number(nNetworkWeight);
     QString phase = "";
     QString LastPoWBlock = QString::number(LAST_POW_BLOCK);
+    QString HybridBlock = QString::number(POS_POW_HYBRID);
 
     ui->labelPhasePoW->setText("PoW + PoS = Block 0 - " + LastPoWBlock);
-    ui->labelPhasePoS->setText("PoS = Block " + LastPoWBlock + " - 263250");
-    ui->labelPhaseHibrid->setText("PoW + PoS = Block 263251 up");
+    ui->labelPhasePoS->setText("PoS = Block " + LastPoWBlock + " - " + HybridBlock);
+    ui->labelPhaseHibrid->setText("PoW + PoS = Block " + HybridBlock + " up");
 
-    if (pindexBest->nHeight < LAST_POW_BLOCK)
-    {
-        phase = "Hibrid Proof of Work+Proof of Stake";
+    if (pindexBest->nHeight < LAST_POW_BLOCK){
+        phase = "Hybrid Proof of Work+Proof of Stake";
 	nSubsidy = 2;
     }
-    else
-    {
+    if(pindexBest->nHeight >= LAST_POW_BLOCK && pindexBest->nHeight < POS_POW_HYBRID){
         phase = "Proof of Stake";
 	nSubsidy = 0;
     }
-    if (pindexBest->nHeight > 263250)
-    {
-        phase = "Hibrid Proof of Work+Proof of Stake";
+    if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03){
+        phase = "Hybrid Proof of Work+Proof of Stake";
 	nSubsidy = 0.05;
     }
+    if(pindexBest->nHeight >= HALVING_POW_03 && pindexBest->nHeight < HALVING_POW_04){
+        phase = "Hybrid Proof of Work+Proof of Stake";
+    nSubsidy = 0.025;
+    }
+    if(pindexBest->nHeight >= HALVING_POW_04 && pindexBest->nHeight < HALVING_POW_05){
+        phase = "Hybrid Proof of Work+Proof of Stake";
+    nSubsidy = 0.0125;
+    }
+    if(pindexBest->nHeight >= HALVING_POW_05){
+        phase = "Hybrid Proof of Work+Proof of Stake";
+    nSubsidy = 0.001;
+    }
+
     QString subsidy = QString::number(nSubsidy, 'f', 6);
     QString hardness = QString::number(pHardness, 'f', 6);
     QString hardness2 = QString::number(pHardness2, 'f', 6);
