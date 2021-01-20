@@ -258,6 +258,8 @@ void TransactionTableModel::updateConfirmations()
         //  visible rows.
         emit dataChanged(index(0, Status), index(priv->size()-1, Status));
         emit dataChanged(index(0, ToAddress), index(priv->size()-1, ToAddress));
+        priv->refreshWallet();
+
     }
 }
 

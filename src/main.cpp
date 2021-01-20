@@ -1080,7 +1080,6 @@ int64_t GetProofOfWorkReward(int64_t nFees)
 int64_t GetProofOfStakeRewardV1(int64_t nCoinAge, int64_t nFees)
 {
     int64_t nRewardCoinYear;
-    int64_t nSubsidy = nCoinAge * nRewardCoinYear / 365 / COIN;
 
     if(pindexBest->nHeight < POS_POW_HYBRID){
         nRewardCoinYear = MAX_MINT_PROOF_OF_STAKE; //5% ao ano
@@ -1090,6 +1089,7 @@ int64_t GetProofOfStakeRewardV1(int64_t nCoinAge, int64_t nFees)
         nRewardCoinYear = MAX_MINT_PROOF_OF_STAKE_NEW; //25% ao ano
     }
 
+    int64_t nSubsidy = nCoinAge * nRewardCoinYear / 365 / COIN;
 
     if (fDebug && GetBoolArg("-printcreation")){
             printf("GetProofOfStakeReward(): create=%s nRewardCoinYear=%" PRId64 " nCoinAge=%" PRId64 "\n", FormatMoney(nSubsidy).c_str(), nRewardCoinYear/CENT,nCoinAge);
@@ -1895,7 +1895,7 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
         int64_t nReward = GetProofOfWorkReward(nFees);
         // Check coinbase reward
 /* Início Adaptação para pagamentos Foundation */
-        if(pindexBest->nHeight >= POS_POW_HYBRID){
+        if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03){
                 if (vtx[0].GetValueOut() > nReward){
                     return DoS(50, error("ConnectBlock() : PoW reward(Foundation Fee) exceeded (actual=%" PRId64 " vs calculated=%" PRId64 ")", vtx[0].GetValueOut(), nReward));
                 }

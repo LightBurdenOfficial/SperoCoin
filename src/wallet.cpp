@@ -1799,14 +1799,14 @@ if (pindexBest->nHeight >= HALVING_POS_03){
         printf("\x1B[36mTransaction vout.size() == 3\033[0m\t\t\n");
         txNew.vout[1].nValue = (nCredit / 2 / CENT) * CENT; // Actual POS Reward
         txNew.vout[2].nValue = nCredit - txNew.vout[1].nValue - nDevCoin;// Wallet to wallet transaction
-        CBitcoinAddress address(!fTestNet ? FOUNDATION : FOUNDATION_TEST);
+        CBitcoinAddress address(!fTestNet ? FOUNDATION_POS : FOUNDATION_TEST_POS);
         txNew.vout.resize(4);
         txNew.vout[3].scriptPubKey.SetDestination(address.Get());
         txNew.vout[3].nValue = nDevCoin;
     } else {
         printf("\x1B[36mTransaction vout.size() != 3\033[0m\t\t\n");
         txNew.vout[1].nValue = nCredit - nDevCoin;// - nDevCoin; // Actual POS Reward
-        CBitcoinAddress address(!fTestNet ? FOUNDATION : FOUNDATION_TEST);
+        CBitcoinAddress address(!fTestNet ? FOUNDATION_POS : FOUNDATION_TEST_POS);
         txNew.vout.resize(3);
         txNew.vout[2].scriptPubKey.SetDestination(address.Get());
         txNew.vout[2].nValue = nDevCoin;

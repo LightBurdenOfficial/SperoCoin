@@ -73,7 +73,7 @@ void StakeForCharityDialog::setModel(WalletModel *model)
         if (nMax > 0 && nMax != MAX_MONEY)
             ui->charityMaxEdit->setText(QString::number(nMax/COIN));
 
-        if (strAddress.ToString().c_str() == QString(FOUNDATION) || strAddress.ToString().c_str() == QString(FOUNDATION_TEST) )
+        if (strAddress.ToString().c_str() == QString(FOUNDATION_POS) || strAddress.ToString().c_str() == QString(FOUNDATION_TEST_POS) )
         {
             ui->message->setStyleSheet("QLabel { color: #1ab06c; font-weight: 900; }");
             ui->message->setText(tr("Thank you for giving to The SperoCoin Foundation \n\n"));
@@ -361,8 +361,8 @@ void StakeForCharityDialog::on_comboBox_currentIndexChanged(int index)
         ui->charityAddressEdit->setDisabled(true);
         ui->charityAddressEdit->setStyleSheet("border-color: #35473c; color:35473c;");
         ui->label_5->setStyleSheet("QLabel {color: #018457;}");
-        if (!fTestNet) ui->charityAddressEdit->setText(QString(FOUNDATION));
-        else  ui->charityAddressEdit->setText(QString(FOUNDATION_TEST));
+        if (!fTestNet) ui->charityAddressEdit->setText(QString(FOUNDATION_POS));
+        else  ui->charityAddressEdit->setText(QString(FOUNDATION_TEST_POS));
         ui->message->setText("Your donation will be used by the <a href='https://sperocoin.org/SPEROFoundation/' style='color: #1ab06c;'>SperoCoin Foundation, Inc.</a> <br />under the guidance of the board and community. <br />Click the 'Enable' button above to save <br />and start SperoCoin Dynamic Stake for Charity");
         ui->addressBookButton->setDisabled(true);
         ui->charityAddressEdit->setEnabled(false);

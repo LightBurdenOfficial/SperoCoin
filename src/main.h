@@ -30,16 +30,16 @@ class CNode;
 static const int SKIP_VALIDATION_HEIGHT = 165000;
 
 /* Último bloco PoW - Halving 01 */
-static const int LAST_POW_BLOCK = 33331;
+static const int LAST_POW_BLOCK = 1000;
 /* Reinício da Fase de Mineração Híbrida */
-static const int POS_POW_HYBRID = 263250;
+static const int POS_POW_HYBRID = 1020;
 /* Fases de Mineração PoW(Halvings) */
-static const int HALVING_POW_03 = 1000000;
-static const int HALVING_POW_04 = 1525600;
-static const int HALVING_POW_05 = 2051200;
+static const int HALVING_POW_03 = 1400;
+static const int HALVING_POW_04 = 1500;
+static const int HALVING_POW_05 = 1600;
 /* Fases de Mineração Pos(Halvings) */
-static const int HALVING_POS_03 = 1000000;
-static const int HALVING_POS_04 = 2051200;
+static const int HALVING_POS_03 = 1400;
+static const int HALVING_POS_04 = 1600;
 /* Configurações de Blocos */
 static const unsigned int MAX_BLOCK_SIZE = 20000000; //20MB
 static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2;
@@ -67,6 +67,11 @@ static const int64_t COIN_POS_NEW_REWARD_02 = 0.25 * COIN; // 0.25 moedas por pa
 /* Início Adaptação para pagamentos Foundation */
 #define FOUNDATION "ScCJWtVVQxtEkKDqnL43aJpzULvpEE5fBD"
 #define FOUNDATION_TEST "sbEje8AqUUqkUXXNGYJodR2SN3emT6PVzA"
+/* Fim Adaptação para pagamentos Foundation */
+
+/* Início Adaptação para pagamentos Foundation */
+#define FOUNDATION_POS "ScCJWtVVQxtEkKDqnL43aJpzULvpEE5fBD"
+#define FOUNDATION_TEST_POS "saFFVBM6CGw7RTJLHdDJcizQ1V77XbkzTv"
 /* Fim Adaptação para pagamentos Foundation */
 
 inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }

@@ -122,7 +122,7 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
     txNew.vin[0].prevout.SetNull();
     CBitcoinAddress address(!fTestNet ? FOUNDATION : FOUNDATION_TEST);
 /* Início Adaptação para pagamentos Foundation */
-if(pindexBest->nHeight >= POS_POW_HYBRID){
+if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03){
     txNew.vout.resize(2);
 }else{
     txNew.vout.resize(1);
@@ -134,7 +134,7 @@ if(pindexBest->nHeight >= POS_POW_HYBRID){
         CReserveKey reservekey(pwallet);
         txNew.vout[0].scriptPubKey.SetDestination(reservekey.GetReservedKey().GetID());
 /* Início Adaptação para pagamentos Foundation */
-if(pindexBest->nHeight >= POS_POW_HYBRID){
+if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03){
         txNew.vout[1].scriptPubKey.SetDestination(address.Get());
 }
 /* Fim Adaptação para pagamentos Foundation */
@@ -147,7 +147,7 @@ if(pindexBest->nHeight >= POS_POW_HYBRID){
 
         txNew.vout[0].SetEmpty();
 /* Início Adaptação para pagamentos Foundation */
-if(pindexBest->nHeight >= POS_POW_HYBRID){
+if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03){
         txNew.vout[1].SetEmpty();
 }
 /* Fim Adaptação para pagamentos Foundation */
@@ -377,7 +377,7 @@ if(pindexBest->nHeight >= POS_POW_HYBRID){
         {
 /* Início Adaptação para pagamentos Foundation */
             pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward(nFees);
-if(pindexBest->nHeight >= POS_POW_HYBRID){
+if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03){
             pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward(nFees) - devCoin;
             pblock->vtx[0].vout[1].nValue = devCoin;
 }
