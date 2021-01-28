@@ -70,7 +70,7 @@ static const int64_t COIN_POS_NEW_REWARD_02 = 0.25 * COIN; // 0.25 moedas por pa
 /* Fim Adaptação para pagamentos Foundation */
 
 /* Início Adaptação para pagamentos Foundation PoS */
-#define FOUNDATION_POS "ScCJWtVVQxtEkKDqnL43aJpzULvpEE5fBD"
+#define FOUNDATION_POS "Sc2enwSCAjf9hnbQ5u9qA9TUDcBLcF1waA"
 #define FOUNDATION_TEST_POS "saFFVBM6CGw7RTJLHdDJcizQ1V77XbkzTv"
 /* Fim Adaptação para pagamentos Foundation PoS */
 
