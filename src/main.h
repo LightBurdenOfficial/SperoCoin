@@ -34,11 +34,11 @@ static const int LAST_POW_BLOCK = 33331;
 /* Reinício da Fase de Mineração Híbrida */
 static const int POS_POW_HYBRID = 263250;
 /* Fases de Mineração PoW(Halvings) */
-static const int HALVING_POW_03 = 1100000;
+static const int HALVING_POW_03 = 1150000;
 static const int HALVING_POW_04 = 1625600;
 static const int HALVING_POW_05 = 2151200;
 /* Fases de Mineração Pos(Halvings) */
-static const int HALVING_POS_03 = 1100000;
+static const int HALVING_POS_03 = 1150000;
 static const int HALVING_POS_04 = 2151200;
 /* Configurações de Blocos */
 static const unsigned int MAX_BLOCK_SIZE = 20000000; //20MB
