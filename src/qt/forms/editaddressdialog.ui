@@ -14,7 +14,7 @@
    <string>Edit Address</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+   <string notr="true"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -38,7 +38,7 @@
         <string>The label associated with this address book entry</string>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 10pt &quot;Arial Narrow&quot;;</string>
+        <string notr="true"/>
        </property>
       </widget>
      </item>
@@ -58,7 +58,7 @@
         <string>The address associated with this address book entry. This can only be modified for sending addresses.</string>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 10pt &quot;Arial Narrow&quot;;</string>
+        <string notr="true"/>
        </property>
       </widget>
      </item>
@@ -67,7 +67,7 @@
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="styleSheet">
-      <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+      <string notr="true"/>
      </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>

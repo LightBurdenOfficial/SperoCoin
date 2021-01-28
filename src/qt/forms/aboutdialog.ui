@@ -53,7 +53,7 @@
           <cursorShape>IBeamCursor</cursorShape>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 75 14pt &quot;Century Gothic&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>&lt;b&gt;SperoCoin&lt;/b&gt; version</string>
@@ -69,7 +69,7 @@
           <cursorShape>IBeamCursor</cursorShape>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 14pt &quot;Century Gothic&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string notr="true">0.3.666-beta</string>
@@ -100,7 +100,7 @@
         <cursorShape>IBeamCursor</cursorShape>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 10pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>Copyright © 2017 The SperoCoin developers</string>
@@ -110,32 +110,38 @@
        </property>
       </widget>
      </item>
-
      <item>
-     <widget class="QScrollArea" name="scrollArea">
-     <property name="widgetResizable">
-      <bool>true</bool>
-     </property>
-      <widget class="QLabel" name="label_2">
-       <property name="cursor">
-        <cursorShape>IBeamCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">font: 08pt &quot;Century Gothic&quot;;</string>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This is experimental software.&lt;/p&gt;&lt;p&gt;Distributed under the MIT/X13 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.&lt;/p&gt;&lt;p&gt;This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:large; font-weight:600;&quot;&gt;Technical information about SperoCoin:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Algorithm: X13&lt;/p&gt;&lt;p&gt;Total Supply: 7 million&lt;/p&gt;&lt;p&gt;Block Time: 60 seconds&lt;/p&gt;&lt;p&gt;PoS Return: 25% per year&lt;/p&gt;&lt;p&gt;Difficulty reset to each block&lt;/p&gt;&lt;p&gt;Encrypted Message&lt;/p&gt;&lt;p&gt;Confirmations: 05 for mining and 03 for transactions&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;🌎Website: &lt;a href=&quot;https://sperocoin.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://sperocoin.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;🌎Block Explorer: &lt;a href=&quot;https://explorer.sperocoin.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://explorer.sperocoin.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;💬Telegram: &lt;a href=&quot;https://t.me/joinchat/G7cebkL3dbRqfuy1gVNm3g&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://t.me/joinchat/G7cebkL3dbRqfuy1gVNm3g&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;💬Slack: &lt;a href=&quot;https://sperocoin.slack.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://sperocoin.slack.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;💬Facebook: &lt;a href=&quot;https://www.facebook.com/sperocoinofficial/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.facebook.com/sperocoinofficial/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;💬Twitter: &lt;a href=&quot;https://twitter.com/Spero_Official&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://twitter.com/Spero_Official&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;💬Discord: &lt;a href=&quot;https://discord.gg/CVRFwC7&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://discord.gg/CVRFwC7&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;📣 BTCTalk: &lt;a href=&quot;https://bitcointalk.org/index.php?topic=2260985.0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://bitcointalk.org/index.php?topic=2260985.0&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;🖥 GitHub: &lt;a href=&quot;https://github.com/DigitalCoin1/DigitalCoinBRL&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://github.com/DigitalCoin1/DigitalCoinBRL&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;📊Trello: &lt;a href=&quot;https://trello.com/b/jYZvXKDs/sperocoin&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://trello.com/b/jYZvXKDs/sperocoin&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;✉️E-mail: sperocoin@gmail.com&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-       <property name="wordWrap">
+      <widget class="QScrollArea" name="scrollArea">
+       <property name="widgetResizable">
         <bool>true</bool>
        </property>
-       <property name="textInteractionFlags">
-        <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-       </property>
-      </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>452</width>
+          <height>1024</height>
+         </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>IBeamCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This is experimental software.&lt;/p&gt;&lt;p&gt;Distributed under the MIT/X13 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.&lt;/p&gt;&lt;p&gt;This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:large; font-weight:600;&quot;&gt;Technical information about SperoCoin:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Algorithm: X13&lt;/p&gt;&lt;p&gt;Total Supply: 7 million&lt;/p&gt;&lt;p&gt;Block Time: 60 seconds&lt;/p&gt;&lt;p&gt;PoS Return: 25% per year&lt;/p&gt;&lt;p&gt;Difficulty reset to each block&lt;/p&gt;&lt;p&gt;Encrypted Message&lt;/p&gt;&lt;p&gt;Confirmations: 05 for mining and 03 for transactions&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;🌎Website: &lt;a href=&quot;https://sperocoin.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://sperocoin.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;🌎Block Explorer: &lt;a href=&quot;https://explorer.sperocoin.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://explorer.sperocoin.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;💬Telegram: &lt;a href=&quot;https://t.me/joinchat/G7cebkL3dbRqfuy1gVNm3g&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://t.me/joinchat/G7cebkL3dbRqfuy1gVNm3g&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;💬Slack: &lt;a href=&quot;https://sperocoin.slack.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://sperocoin.slack.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;💬Facebook: &lt;a href=&quot;https://www.facebook.com/sperocoinofficial/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.facebook.com/sperocoinofficial/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;💬Twitter: &lt;a href=&quot;https://twitter.com/Spero_Official&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://twitter.com/Spero_Official&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;💬Discord: &lt;a href=&quot;https://discord.gg/CVRFwC7&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://discord.gg/CVRFwC7&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;📣 BTCTalk: &lt;a href=&quot;https://bitcointalk.org/index.php?topic=2260985.0&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://bitcointalk.org/index.php?topic=2260985.0&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;🖥 GitHub: &lt;a href=&quot;https://github.com/DigitalCoin1/DigitalCoinBRL&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://github.com/DigitalCoin1/DigitalCoinBRL&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;📊Trello: &lt;a href=&quot;https://trello.com/b/jYZvXKDs/sperocoin&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://trello.com/b/jYZvXKDs/sperocoin&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;✉️E-mail: sperocoin@gmail.com&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="textInteractionFlags">
+         <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+        </property>
+       </widget>
       </widget>
      </item>
-
      <item>
       <spacer name="verticalSpacer">
        <property name="orientation">
@@ -152,7 +158,7 @@
      <item>
       <widget class="QDialogButtonBox" name="buttonBox">
        <property name="styleSheet">
-        <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>

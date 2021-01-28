@@ -105,6 +105,10 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     QGuiApplication::setAttribute(Qt::AA_DisableHighDpiScaling);
 #endif
 
+    // Carregamento de Fonts
+    QFontDatabase::addApplicationFont(":/fonts/Nasalization");
+
+
     // Accept D&D of URIs
     setAcceptDrops(true);
 
@@ -204,7 +208,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     QString curStyle = qApp->style()->metaObject()->className();
     if(curStyle == "QWindowsStyle" || curStyle == "QWindowsVistaStyle")
     {
-        progressBar->setStyleSheet("QProgressBar { background-color: #e8e8e8; border: 1px solid grey; border-radius: 7px; padding: 1px; text-align: center; } QProgressBar::chunk { background: QLinearGradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #FF8000, stop: 1 orange); border-radius: 7px; margin: 0px; }");
+        progressBar->setStyleSheet("QProgressBar { color: black; background-color: #e8e8e8; border: 1px solid grey; border-radius: 7px; padding: 1px; text-align: center; } QProgressBar::chunk {color: black; background: QLinearGradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #FF8000, stop: 1 orange); border-radius: 7px; margin: 0px; }");
     }
 
     statusBar()->addWidget(progressBarLabel);
@@ -212,6 +216,14 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     statusBar()->addPermanentWidget(frameBlocks);
 
     syncIconMovie = new QMovie(":/movies/update_spinner", "mng", this);
+
+/* Adição de Folha de Estilo */
+    QFile File(":/css/default");
+    File.open(QFile::ReadOnly);
+    QString StyleSheet = QLatin1String(File.readAll());
+
+    qApp->setStyleSheet(StyleSheet);
+/* Adição de Folha de Estilo */
 
     // Clicking on a transaction on the overview page simply sends you to transaction history page
     connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), this, SLOT(gotoHistoryPage()));
@@ -1119,7 +1131,7 @@ void BitcoinGUI::updateStakingIcon()
             labelStakingIcon->setToolTip(tr("Not minting because staking is disabled."));
         else if (IsInitialBlockDownload())
             labelStakingIcon->setToolTip(tr("Not staking because wallet is syncing"));
-        else if (!nWeight)
+        else if (nWeight/COIN == 0 || !nWeight)
             labelStakingIcon->setToolTip(tr("Not staking because you don't have mature coins"));
         else
             labelStakingIcon->setToolTip(tr("Not staking"));

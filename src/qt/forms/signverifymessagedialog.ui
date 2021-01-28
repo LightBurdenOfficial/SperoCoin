@@ -14,7 +14,7 @@
    <string>Signatures - Sign / Verify a Message</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+   <string notr="true"/>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -23,7 +23,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tabSignMessage">
       <attribute name="title">
@@ -54,7 +54,7 @@
             <string>The address to sign the message with (e.g. Sjz75uKHzUQJnSdzvpiigEGxseKkDhQToX)</string>
            </property>
            <property name="styleSheet">
-            <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+            <string notr="true"/>
            </property>
            <property name="maxLength">
             <number>34</number>
@@ -109,7 +109,7 @@
           <string>Enter the message you want to sign here</string>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          <string notr="true"/>
          </property>
         </widget>
        </item>
@@ -124,13 +124,13 @@
             <font>
              <family>Century Gothic</family>
              <pointsize>10</pointsize>
-             <weight>9</weight>
+             <weight>50</weight>
              <italic>false</italic>
              <bold>false</bold>
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+            <string notr="true"/>
            </property>
            <property name="readOnly">
             <bool>true</bool>
@@ -164,7 +164,7 @@
             <string>Sign the message to prove you own this SperoCoin address</string>
            </property>
            <property name="styleSheet">
-            <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+            <string notr="true"/>
            </property>
            <property name="text">
             <string>&amp;Sign Message</string>
@@ -184,7 +184,7 @@
             <string>Reset all sign message fields</string>
            </property>
            <property name="styleSheet">
-            <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+            <string notr="true"/>
            </property>
            <property name="text">
             <string>Clear &amp;All</string>
@@ -282,7 +282,7 @@
             <bool>false</bool>
            </property>
            <property name="styleSheet">
-            <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+            <string notr="true"/>
            </property>
            <property name="maxLength">
             <number>34</number>
@@ -314,14 +314,14 @@
        <item>
         <widget class="QPlainTextEdit" name="messageIn_VM">
          <property name="styleSheet">
-          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          <string notr="true"/>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QValidatedLineEdit" name="signatureIn_VM">
          <property name="styleSheet">
-          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          <string notr="true"/>
          </property>
         </widget>
        </item>
@@ -333,7 +333,7 @@
             <string>Verify the message to ensure it was signed with the specified SperoCoin address</string>
            </property>
            <property name="styleSheet">
-            <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+            <string notr="true"/>
            </property>
            <property name="text">
             <string>&amp;Verify Message</string>
@@ -353,7 +353,7 @@
             <string>Reset all verify message fields</string>
            </property>
            <property name="styleSheet">
-            <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+            <string notr="true"/>
            </property>
            <property name="text">
             <string>Clear &amp;All</string>

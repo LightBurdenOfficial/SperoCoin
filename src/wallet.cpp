@@ -1629,6 +1629,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
         return false;
 
     int64_t nCredit = 0;
+    int64_t nDevCoin = 0;
     CScript scriptPubKeyKernel;
     CTxDB txdb("r");
     BOOST_FOREACH(PAIRTYPE(const CWalletTx*, unsigned int) pcoin, setCoins)
@@ -1777,18 +1778,51 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
         if (nReward <= 0)
             return false;
 
+    if (pindexBest->nHeight >= HALVING_POS_03){
+      if(pindexBest->nHeight >= HALVING_POS_03 && pindexBest->nHeight < HALVING_POS_04){
+        nDevCoin = 0.25 * COIN; // Developer reward 0.25
+      }
+      if(pindexBest->nHeight >= HALVING_POS_04){
+        nDevCoin = 0.10 * COIN; // Developer reward 0.10
+      }
+        nReward -= nDevCoin;
+        nCredit += (nReward + nDevCoin);
+    } else {
         nCredit += nReward;
     }
+    }
 
+if (pindexBest->nHeight >= HALVING_POS_03){
+    // Set output amount
+    if (txNew.vout.size() == 3)
+    {
+        printf("\x1B[36mTransaction vout.size() == 3\033[0m\t\t\n");
+        txNew.vout[1].nValue = (nCredit / 2 / CENT) * CENT; // Actual POS Reward
+        txNew.vout[2].nValue = nCredit - txNew.vout[1].nValue - nDevCoin;// Wallet to wallet transaction
+        CBitcoinAddress address(!fTestNet ? FOUNDATION_POS : FOUNDATION_TEST_POS);
+        txNew.vout.resize(4);
+        txNew.vout[3].scriptPubKey.SetDestination(address.Get());
+        txNew.vout[3].nValue = nDevCoin;
+    } else {
+        printf("\x1B[36mTransaction vout.size() != 3\033[0m\t\t\n");
+        txNew.vout[1].nValue = nCredit - nDevCoin;// - nDevCoin; // Actual POS Reward
+        CBitcoinAddress address(!fTestNet ? FOUNDATION_POS : FOUNDATION_TEST_POS);
+        txNew.vout.resize(3);
+        txNew.vout[2].scriptPubKey.SetDestination(address.Get());
+        txNew.vout[2].nValue = nDevCoin;
+   }
+
+} else {
     // Set output amount
     if (txNew.vout.size() == 3)
     {
         txNew.vout[1].nValue = (nCredit / 2 / CENT) * CENT;
         txNew.vout[2].nValue = nCredit - txNew.vout[1].nValue;
     }
-    else
+    else{
         txNew.vout[1].nValue = nCredit;
-
+    }
+}
     // Sign
     int nIn = 0;
     BOOST_FOREACH(const CWalletTx* pcoin, vwtxPrev)
@@ -2244,29 +2278,38 @@ set< set<CTxDestination> > CWallet::GetAddressGroupings()
     {
         CWalletTx *pcoin = &walletEntry.second;
 
-        if (pcoin->vin.size() > 0 && IsMine(pcoin->vin[0]))
+        if (pcoin->vin.size() > 0)
         {
+            bool any_mine = false;
             // group all input addresses with each other
             BOOST_FOREACH(CTxIn txin, pcoin->vin)
             {
                 CTxDestination address;
+                if(!IsMine(txin)) // If this input isn't mine, ignore it
+                    continue;
                 if(!ExtractDestination(mapWallet[txin.prevout.hash].vout[txin.prevout.n].scriptPubKey, address))
                     continue;
                 grouping.insert(address);
+                any_mine = true;
             }
 
             // group change with input addresses
-            BOOST_FOREACH(CTxOut txout, pcoin->vout)
+            if (any_mine)
+            {
+                BOOST_FOREACH(CTxOut txout, pcoin->vout)
                 if (IsChange(txout))
                 {
-                    CWalletTx tx = mapWallet[pcoin->vin[0].prevout.hash];
                     CTxDestination txoutAddr;
                     if(!ExtractDestination(txout.scriptPubKey, txoutAddr))
                         continue;
-                    grouping.insert(txoutAddr);
+                        grouping.insert(txoutAddr);
                 }
-            groupings.insert(grouping);
-            grouping.clear();
+            }
+            if (!grouping.empty())
+            {
+                groupings.insert(grouping);
+                grouping.clear();
+            }
         }
 
         // group lone addrs by themselves

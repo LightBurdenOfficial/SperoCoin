@@ -35,7 +35,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+   <string notr="true"/>
   </property>
   <layout class="QGridLayout">
    <property name="sizeConstraint">
@@ -71,13 +71,13 @@
           <font>
            <family>Century Gothic</family>
            <pointsize>12</pointsize>
-           <weight>9</weight>
+           <weight>50</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
          </property>
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20px; font-weight:600; color:#000000;&quot;&gt;Sperocoin Block Explorer &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20px; font-weight:600; color:#ffffff;&quot;&gt;Sperocoin Block Explorer &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -118,13 +118,13 @@
           <font>
            <family>Century Gothic</family>
            <pointsize>12</pointsize>
-           <weight>9</weight>
+           <weight>50</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>Decode Transaction</string>
@@ -160,7 +160,7 @@
        <item row="11" column="1">
         <widget class="QLabel" name="pawBox">
          <property name="styleSheet">
-          <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>0000 KH/s</string>
@@ -186,13 +186,13 @@
           <font>
            <family>Century Gothic</family>
            <pointsize>12</pointsize>
-           <weight>9</weight>
+           <weight>50</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>0.00</string>
@@ -209,7 +209,7 @@
        <item row="14" column="1">
         <widget class="QLabel" name="txID">
          <property name="styleSheet">
-          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>000</string>
@@ -232,7 +232,7 @@
           </sizepolicy>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="maximum">
           <number>99999999</number>
@@ -249,7 +249,7 @@
        <item row="15" column="1">
         <widget class="QLabel" name="valueBox">
          <property name="styleSheet">
-          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string/>
@@ -266,7 +266,7 @@
        <item row="8" column="1">
         <widget class="QLabel" name="timeBox">
          <property name="styleSheet">
-          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>0</string>
@@ -283,7 +283,7 @@
        <item row="16" column="1">
         <widget class="QLabel" name="feesBox">
          <property name="styleSheet">
-          <string notr="true">font: 10pt &quot;Arial Narrow&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string/>
@@ -316,7 +316,7 @@
           <bool>true</bool>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
@@ -356,7 +356,7 @@
        <item row="7" column="1">
         <widget class="QLabel" name="bitsBox">
          <property name="styleSheet">
-          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>0</string>
@@ -372,7 +372,7 @@
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>0x0</string>
@@ -385,7 +385,7 @@
        <item row="6" column="1">
         <widget class="QLabel" name="nonceBox">
          <property name="styleSheet">
-          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>0</string>
@@ -440,7 +440,7 @@
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>0x0</string>
@@ -459,7 +459,7 @@
           </sizepolicy>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="inputMask">
           <string comment="Transaction id" extracomment="Transaction id"/>
@@ -500,13 +500,13 @@
           <font>
            <family>Century Gothic</family>
            <pointsize>12</pointsize>
-           <weight>9</weight>
+           <weight>50</weight>
            <italic>false</italic>
            <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>Jump to Block</string>

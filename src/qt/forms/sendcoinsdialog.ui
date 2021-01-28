@@ -14,7 +14,7 @@
    <string>Send Coins</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+   <string notr="true"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1,0">
    <property name="bottomMargin">
@@ -110,7 +110,7 @@
           <item>
            <widget class="QPushButton" name="pushButtonCoinControl">
             <property name="styleSheet">
-             <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Inputs...</string>
@@ -241,7 +241,7 @@
                   <font>
                    <family>Century Gothic</family>
                    <pointsize>12</pointsize>
-                   <weight>9</weight>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -279,7 +279,7 @@
                   <font>
                    <family>Century Gothic</family>
                    <pointsize>12</pointsize>
-                   <weight>9</weight>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -336,7 +336,7 @@
                   <font>
                    <family>Century Gothic</family>
                    <pointsize>12</pointsize>
-                   <weight>9</weight>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -371,7 +371,7 @@
                   <font>
                    <family>Century Gothic</family>
                    <pointsize>12</pointsize>
-                   <weight>9</weight>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -428,7 +428,7 @@
                   <font>
                    <family>Century Gothic</family>
                    <pointsize>12</pointsize>
-                   <weight>9</weight>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -463,7 +463,7 @@
                   <font>
                    <family>Century Gothic</family>
                    <pointsize>12</pointsize>
-                   <weight>9</weight>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -520,7 +520,7 @@
                   <font>
                    <family>Century Gothic</family>
                    <pointsize>12</pointsize>
-                   <weight>9</weight>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -555,7 +555,7 @@
                   <font>
                    <family>Century Gothic</family>
                    <pointsize>12</pointsize>
-                   <weight>9</weight>
+                   <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
                   </font>
@@ -614,7 +614,7 @@
              </sizepolicy>
             </property>
             <property name="styleSheet">
-             <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+             <string notr="true"/>
             </property>
            </widget>
           </item>
@@ -671,7 +671,7 @@
         <x>0</x>
         <y>0</y>
         <width>830</width>
-        <height>137</height>
+        <height>148</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -719,7 +719,7 @@
         <string>Send to multiple recipients at once</string>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>Add &amp;Recipient</string>
@@ -745,7 +745,7 @@
         <string>Remove all transaction fields</string>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>Clear &amp;All</string>
@@ -826,7 +826,7 @@
         <string>Confirm the send action</string>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>S&amp;end</string>

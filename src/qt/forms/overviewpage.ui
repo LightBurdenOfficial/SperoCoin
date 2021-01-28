@@ -14,7 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+   <string notr="true"/>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
    <item>
@@ -36,7 +36,7 @@
              <font>
               <family>Century Gothic</family>
               <pointsize>12</pointsize>
-              <weight>9</weight>
+              <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
              </font>
@@ -101,7 +101,7 @@
              <font>
               <family>Century Gothic</family>
               <pointsize>12</pointsize>
-              <weight>9</weight>
+              <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
              </font>
@@ -133,7 +133,7 @@
              <font>
               <family>Century Gothic</family>
               <pointsize>12</pointsize>
-              <weight>9</weight>
+              <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
              </font>
@@ -165,7 +165,7 @@
              <font>
               <family>Century Gothic</family>
               <pointsize>12</pointsize>
-              <weight>9</weight>
+              <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
              </font>
@@ -197,7 +197,7 @@
              <font>
               <family>Century Gothic</family>
               <pointsize>12</pointsize>
-              <weight>9</weight>
+              <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
              </font>
@@ -233,7 +233,7 @@
              <font>
               <family>Century Gothic</family>
               <pointsize>12</pointsize>
-              <weight>9</weight>
+              <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
              </font>
@@ -352,8 +352,7 @@
         <item>
          <widget class="QListView" name="listTransactions">
           <property name="styleSheet">
-           <string notr="true">QListView { background: transparent; font: 75 10pt &quot;Century Gothic&quot;; }
-</string>
+           <string notr="true"/>
           </property>
           <property name="frameShape">
            <enum>QFrame::NoFrame</enum>
@@ -390,7 +389,7 @@
         <string/>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>wallet unlock button</string>

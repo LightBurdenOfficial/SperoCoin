@@ -26,7 +26,7 @@
    <string>Passphrase Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+   <string notr="true"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -47,7 +47,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="passLabel1">
        <property name="styleSheet">
-        <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>Enter passphrase</string>
@@ -57,7 +57,7 @@
      <item row="0" column="1">
       <widget class="QLineEdit" name="passEdit1">
        <property name="styleSheet">
-        <string notr="true">font: 10pt &quot;Arial Narrow&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="echoMode">
         <enum>QLineEdit::Password</enum>
@@ -67,7 +67,7 @@
      <item row="1" column="0">
       <widget class="QLabel" name="passLabel2">
        <property name="styleSheet">
-        <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>New passphrase</string>
@@ -77,7 +77,7 @@
      <item row="1" column="1">
       <widget class="QLineEdit" name="passEdit2">
        <property name="styleSheet">
-        <string notr="true">font: 10pt &quot;Arial Narrow&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="echoMode">
         <enum>QLineEdit::Password</enum>
@@ -87,7 +87,7 @@
      <item row="2" column="0">
       <widget class="QLabel" name="passLabel3">
        <property name="styleSheet">
-        <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>Repeat new passphrase</string>
@@ -97,7 +97,7 @@
      <item row="2" column="1">
       <widget class="QLineEdit" name="passEdit3">
        <property name="styleSheet">
-        <string notr="true">font: 10pt &quot;Arial Narrow&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="echoMode">
         <enum>QLineEdit::Password</enum>
@@ -110,7 +110,7 @@
         <font>
          <family>Century Gothic</family>
          <pointsize>12</pointsize>
-         <weight>9</weight>
+         <weight>50</weight>
          <italic>false</italic>
          <bold>false</bold>
         </font>
@@ -144,7 +144,7 @@
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="styleSheet">
-      <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+      <string notr="true"/>
      </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>

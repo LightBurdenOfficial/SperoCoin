@@ -26,7 +26,7 @@
    <string>Stake Report</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+   <string notr="true"/>
   </property>
   <property name="modal">
    <bool>false</bool>
@@ -50,7 +50,7 @@
     <font>
      <family>Century Gothic</family>
      <pointsize>12</pointsize>
-     <weight>9</weight>
+     <weight>50</weight>
      <italic>false</italic>
      <bold>false</bold>
     </font>
@@ -59,7 +59,7 @@
     <string>Dialog which report the earning made with stake over time</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+    <string notr="true"/>
    </property>
    <property name="frameShape">
     <enum>QFrame::NoFrame</enum>
@@ -124,7 +124,7 @@
     <font>
      <family>Century Gothic</family>
      <pointsize>10</pointsize>
-     <weight>9</weight>
+     <weight>50</weight>
      <italic>false</italic>
      <bold>false</bold>
     </font>
@@ -146,7 +146,7 @@
        <font>
         <family>Century Gothic</family>
         <pointsize>10</pointsize>
-        <weight>9</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -171,7 +171,7 @@
        <font>
         <family>Century Gothic</family>
         <pointsize>10</pointsize>
-        <weight>9</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -193,7 +193,7 @@
        <font>
         <family>Century Gothic</family>
         <pointsize>10</pointsize>
-        <weight>9</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -225,7 +225,7 @@
        <font>
         <family>Century Gothic</family>
         <pointsize>10</pointsize>
-        <weight>9</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -250,7 +250,7 @@
        <font>
         <family>Century Gothic</family>
         <pointsize>10</pointsize>
-        <weight>9</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -272,7 +272,7 @@
        <font>
         <family>Century Gothic</family>
         <pointsize>10</pointsize>
-        <weight>9</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -304,7 +304,7 @@
        <font>
         <family>Century Gothic</family>
         <pointsize>10</pointsize>
-        <weight>9</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -329,7 +329,7 @@
        <font>
         <family>Century Gothic</family>
         <pointsize>10</pointsize>
-        <weight>9</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -354,7 +354,7 @@
        <font>
         <family>Century Gothic</family>
         <pointsize>10</pointsize>
-        <weight>9</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -379,7 +379,7 @@
        <font>
         <family>Century Gothic</family>
         <pointsize>10</pointsize>
-        <weight>9</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -401,7 +401,7 @@
        <font>
         <family>Century Gothic</family>
         <pointsize>10</pointsize>
-        <weight>9</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -426,7 +426,7 @@
        <font>
         <family>Century Gothic</family>
         <pointsize>10</pointsize>
-        <weight>9</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -451,7 +451,7 @@
        <font>
         <family>Century Gothic</family>
         <pointsize>10</pointsize>
-        <weight>9</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -473,7 +473,7 @@
        <font>
         <family>Century Gothic</family>
         <pointsize>10</pointsize>
-        <weight>9</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -495,7 +495,7 @@
        <font>
         <family>Century Gothic</family>
         <pointsize>10</pointsize>
-        <weight>9</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -520,7 +520,7 @@
        <font>
         <family>Century Gothic</family>
         <pointsize>10</pointsize>
-        <weight>9</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -545,7 +545,7 @@
        <font>
         <family>Century Gothic</family>
         <pointsize>7</pointsize>
-        <weight>9</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -554,7 +554,7 @@
        <string>Total Stake Analized</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 75 7pt &quot;Century Gothic&quot;;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>0</string>
@@ -573,7 +573,7 @@
        <font>
         <family>Century Gothic</family>
         <pointsize>10</pointsize>
-        <weight>9</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -595,7 +595,7 @@
        <font>
         <family>Century Gothic</family>
         <pointsize>8</pointsize>
-        <weight>9</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -604,7 +604,7 @@
        <string>Time took to refresh dialog</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 75 8pt &quot;Century Gothic&quot;;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Wait please...</string>
@@ -623,7 +623,7 @@
        <font>
         <family>Century Gothic</family>
         <pointsize>8</pointsize>
-        <weight>9</weight>
+        <weight>50</weight>
         <italic>false</italic>
         <bold>false</bold>
        </font>
@@ -632,7 +632,7 @@
        <string>Time took to retrieve the data</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 75 8pt &quot;Century Gothic&quot;;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Wait please...</string>
@@ -663,7 +663,7 @@
     <font>
      <family>Century Gothic</family>
      <pointsize>10</pointsize>
-     <weight>9</weight>
+     <weight>50</weight>
      <italic>false</italic>
      <bold>false</bold>
     </font>
@@ -820,7 +820,7 @@
     <font>
      <family>Century Gothic</family>
      <pointsize>8</pointsize>
-     <weight>9</weight>
+     <weight>50</weight>
      <italic>false</italic>
      <bold>false</bold>
     </font>
@@ -829,7 +829,7 @@
     <string>Data of the current block.</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 75 8pt &quot;Century Gothic&quot;;</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>Current Chain Block :</string>
@@ -869,7 +869,7 @@
        <string>Refresh the data</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Refresh</string>
@@ -894,7 +894,7 @@
        <string>Copy Report to ClipBoard</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Copy to clipboard</string>
@@ -913,7 +913,7 @@
        <string>Close the dialog</string>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+       <string notr="true"/>
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>

@@ -14,7 +14,7 @@
    <string>Options</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+   <string notr="true"/>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -23,13 +23,13 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="styleSheet">
-      <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+      <string notr="true"/>
      </property>
      <property name="tabPosition">
       <enum>QTabWidget::North</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="tabMain">
       <attribute name="title">
@@ -67,7 +67,7 @@
          <item>
           <widget class="BitcoinAmountField" name="transactionFee">
            <property name="styleSheet">
-            <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+            <string notr="true"/>
            </property>
           </widget>
          </item>
@@ -117,7 +117,7 @@
          <item>
           <widget class="BitcoinAmountField" name="reserveBalance">
            <property name="styleSheet">
-            <string notr="true">font: 75 10pt &quot;Century Gothic&quot;;</string>
+            <string notr="true"/>
            </property>
           </widget>
          </item>
@@ -223,7 +223,7 @@
             <string>IP address of the proxy (e.g. 127.0.0.1)</string>
            </property>
            <property name="styleSheet">
-            <string notr="true">font: 10pt &quot;Arial Narrow&quot;;</string>
+            <string notr="true"/>
            </property>
           </widget>
          </item>
@@ -272,7 +272,7 @@
             <string>SOCKS version of the proxy (e.g. 5)</string>
            </property>
            <property name="styleSheet">
-            <string notr="true">font: 10pt &quot;Arial Narrow&quot;;</string>
+            <string notr="true"/>
            </property>
           </widget>
          </item>
@@ -372,7 +372,7 @@
             <string>The user interface language can be set here. This setting will take effect after restarting SperoCoin.</string>
            </property>
            <property name="styleSheet">
-            <string notr="true">font: 10pt &quot;Arial Narrow&quot;;</string>
+            <string notr="true"/>
            </property>
           </widget>
          </item>
@@ -399,7 +399,7 @@
             <string>Choose the default subdivision unit to show in the interface and when sending coins.</string>
            </property>
            <property name="styleSheet">
-            <string notr="true">font: 10pt &quot;Arial Narrow&quot;;</string>
+            <string notr="true"/>
            </property>
           </widget>
          </item>
@@ -463,7 +463,7 @@
         <font>
          <family>Century Gothic</family>
          <pointsize>12</pointsize>
-         <weight>9</weight>
+         <weight>50</weight>
          <italic>false</italic>
          <bold>false</bold>
         </font>
@@ -495,7 +495,7 @@
      <item>
       <widget class="QPushButton" name="okButton">
        <property name="styleSheet">
-        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>&amp;OK</string>
@@ -505,7 +505,7 @@
      <item>
       <widget class="QPushButton" name="cancelButton">
        <property name="styleSheet">
-        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>&amp;Cancel</string>
@@ -518,7 +518,7 @@
      <item>
       <widget class="QPushButton" name="applyButton">
        <property name="styleSheet">
-        <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>&amp;Apply</string>
@@ -540,14 +540,14 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>QValueComboBox</class>
-   <extends>QComboBox</extends>
-   <header>qvaluecombobox.h</header>
-  </customwidget>
-  <customwidget>
    <class>QValidatedLineEdit</class>
    <extends>QLineEdit</extends>
    <header>qvalidatedlineedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QValueComboBox</class>
+   <extends>QComboBox</extends>
+   <header>qvaluecombobox.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

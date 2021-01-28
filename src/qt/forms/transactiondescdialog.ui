@@ -14,7 +14,7 @@
    <string>Transaction details</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 75 12pt &quot;Century Gothic&quot;;</string>
+   <string notr="true"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -23,7 +23,7 @@
       <string>This pane shows a detailed description of the transaction</string>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 75 8pt &quot;Century Gothic&quot;;</string>
+      <string notr="true"/>
      </property>
      <property name="readOnly">
       <bool>true</bool>
@@ -33,7 +33,7 @@
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="styleSheet">
-      <string notr="true">font: 75 9pt &quot;Century Gothic&quot;;</string>
+      <string notr="true"/>
      </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
