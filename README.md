@@ -3,7 +3,7 @@
 <br>
 [![N|Solid](https://i.imgur.com/0BOgWZy.png)](https://sperocoin.org/)
 # Sperocoin - Sustainability in technology
-# Version: 2.6.5.1
+# Version: 2.6.5.2
 Sperocoin came with the mission to renew the world of the exhaustive consumption of electric energy.
 
 With the PoS mining concept, we have an ecologically correct coin, since it is not necessary to use powerful mining machines to obtain rewards for solved blocks.

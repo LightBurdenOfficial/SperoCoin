@@ -118,3 +118,9 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 → [UPDATE] Novas premiações PoW e PoS;<br>
 → [UPDATE] Novos endereços Foundation PoS;<br>
 → [NEW] Halving Blocks<br>
+
+> 2021/03/18<br>
+→ [NEW] Checkpoints;<br>
+→ [FIX] Mineração PoS;<br>
+→ [BUMP] Alterada versão do protocolo mínimo para 700004;<br>
+→ [BUMP] Nova versão 2.6.5.2;<br>

@@ -1740,58 +1740,30 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
     {
         // Attempt to add more inputs
         // Only add coins of the same key/address as kernel
-        if (pindexBest->nHeight < HALVING_POS_03){
-            if (txNew.vout.size() == 2 && ((pcoin.first->vout[pcoin.second].scriptPubKey == scriptPubKeyKernel || pcoin.first->vout[pcoin.second].scriptPubKey == txNew.vout[1].scriptPubKey))
-                && pcoin.first->GetHash() != txNew.vin[0].prevout.hash)
-            {
-                int64_t nTimeWeight = GetWeight((int64_t)pcoin.first->nTime, (int64_t)txNew.nTime);
+        if (txNew.vout.size() == 2 && ((pcoin.first->vout[pcoin.second].scriptPubKey == scriptPubKeyKernel || pcoin.first->vout[pcoin.second].scriptPubKey == txNew.vout[1].scriptPubKey))
+            && pcoin.first->GetHash() != txNew.vin[0].prevout.hash)
+        {
+            int64_t nTimeWeight = GetWeight((int64_t)pcoin.first->nTime, (int64_t)txNew.nTime);
 
-                // Stop adding more inputs if already too many inputs
-                if (txNew.vin.size() >= 100)
-                    break;
-                // Stop adding more inputs if value is already pretty significant
-                if (nCredit >= nStakeCombineThreshold)
-                    break;
-                // Stop adding inputs if reached reserve limit
-                if (nCredit + pcoin.first->vout[pcoin.second].nValue > nBalance - nReserveBalance)
-                    break;
-                // Do not add additional significant input
-                if (pcoin.first->vout[pcoin.second].nValue >= nStakeCombineThreshold)
-                    continue;
-                // Do not add input that is still too young
-                if (nTimeWeight < nStakeMinAge)
-                    continue;
+            // Stop adding more inputs if already too many inputs
+            if (txNew.vin.size() >= 100)
+                break;
+            // Stop adding more inputs if value is already pretty significant
+            if (nCredit >= nStakeCombineThreshold)
+                break;
+            // Stop adding inputs if reached reserve limit
+            if (nCredit + pcoin.first->vout[pcoin.second].nValue > nBalance - nReserveBalance)
+                break;
+            // Do not add additional significant input
+            if (pcoin.first->vout[pcoin.second].nValue >= nStakeCombineThreshold)
+                continue;
+            // Do not add input that is still too young
+            if (nTimeWeight < nStakeMinAge)
+                continue;
 
-                txNew.vin.push_back(CTxIn(pcoin.first->GetHash(), pcoin.second));
-                nCredit += pcoin.first->vout[pcoin.second].nValue;
-                vwtxPrev.push_back(pcoin.first);
-            }
-        } else{
-            if (txNew.vout.size() == 3 && ((pcoin.first->vout[pcoin.second].scriptPubKey == scriptPubKeyKernel || pcoin.first->vout[pcoin.second].scriptPubKey == txNew.vout[1].scriptPubKey))
-                && pcoin.first->GetHash() != txNew.vin[0].prevout.hash)
-            {
-                int64_t nTimeWeight = GetWeight((int64_t)pcoin.first->nTime, (int64_t)txNew.nTime);
-
-                // Stop adding more inputs if already too many inputs
-                if (txNew.vin.size() >= 100)
-                    break;
-                // Stop adding more inputs if value is already pretty significant
-                if (nCredit >= nStakeCombineThreshold)
-                    break;
-                // Stop adding inputs if reached reserve limit
-                if (nCredit + pcoin.first->vout[pcoin.second].nValue > nBalance - nReserveBalance)
-                    break;
-                // Do not add additional significant input
-                if (pcoin.first->vout[pcoin.second].nValue >= nStakeCombineThreshold)
-                    continue;
-                // Do not add input that is still too young
-                if (nTimeWeight < nStakeMinAge)
-                    continue;
-
-                txNew.vin.push_back(CTxIn(pcoin.first->GetHash(), pcoin.second));
-                nCredit += pcoin.first->vout[pcoin.second].nValue;
-                vwtxPrev.push_back(pcoin.first);
-            }
+            txNew.vin.push_back(CTxIn(pcoin.first->GetHash(), pcoin.second));
+            nCredit += pcoin.first->vout[pcoin.second].nValue;
+            vwtxPrev.push_back(pcoin.first);
         }
     }
 
@@ -1825,19 +1797,19 @@ if (pindexBest->nHeight >= HALVING_POS_03){
     if (txNew.vout.size() == 3)
     {
         printf("\x1B[36mTransaction vout.size() == 3\033[0m\t\t\n");
+        txNew.vout[1].nValue = nCredit - nDevCoin;// - nDevCoin; // Actual POS Reward
+        CBitcoinAddress address(!fTestNet ? FOUNDATION_POS : FOUNDATION_TEST_POS);
+        txNew.vout.resize(3);
+        txNew.vout[2].scriptPubKey.SetDestination(address.Get());
+        txNew.vout[2].nValue = nDevCoin;
+    } else {
+        printf("\x1B[36mTransaction vout.size() != 3\033[0m\t\t\n");
         txNew.vout[1].nValue = (nCredit / 2 / CENT) * CENT; // Actual POS Reward
         txNew.vout[2].nValue = nCredit - txNew.vout[1].nValue - nDevCoin;// Wallet to wallet transaction
         CBitcoinAddress address(!fTestNet ? FOUNDATION_POS : FOUNDATION_TEST_POS);
         txNew.vout.resize(4);
         txNew.vout[3].scriptPubKey.SetDestination(address.Get());
         txNew.vout[3].nValue = nDevCoin;
-    } else {
-        printf("\x1B[36mTransaction vout.size() != 3\033[0m\t\t\n");
-        txNew.vout[1].nValue = nCredit - nDevCoin;// - nDevCoin; // Actual POS Reward
-        CBitcoinAddress address(!fTestNet ? FOUNDATION_POS : FOUNDATION_TEST_POS);
-        txNew.vout.resize(3);
-        txNew.vout[2].scriptPubKey.SetDestination(address.Get());
-        txNew.vout[2].nValue = nDevCoin;
    }
 
 } else {
