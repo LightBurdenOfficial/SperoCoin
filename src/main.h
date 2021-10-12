@@ -40,6 +40,7 @@ static const int HALVING_POW_05 = 2151200;
 /* Fases de Mineração Pos(Halvings) */
 static const int HALVING_POS_03 = 1150000;
 static const int HALVING_POS_04 = 2151200;
+static const int END_DEV_POS_PAYMENT = 1339000;
 /* Configurações de Blocos */
 static const unsigned int MAX_BLOCK_SIZE = 20000000; //20MB
 static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2;

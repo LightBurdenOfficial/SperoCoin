@@ -1778,21 +1778,17 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
         if (nReward <= 0)
             return false;
 
-    if (pindexBest->nHeight >= HALVING_POS_03){
-      if(pindexBest->nHeight >= HALVING_POS_03 && pindexBest->nHeight < HALVING_POS_04){
-        nDevCoin = 0.25 * COIN; // Developer reward 0.25
-      }
-      if(pindexBest->nHeight >= HALVING_POS_04){
-        nDevCoin = 0.10 * COIN; // Developer reward 0.10
-      }
-        nReward -= nDevCoin;
-        nCredit += (nReward + nDevCoin);
-    } else {
-        nCredit += nReward;
-    }
+        if (pindexBest->nHeight >= HALVING_POS_03 && pindexBest->nHeight < END_DEV_POS_PAYMENT){
+            nDevCoin = 0.25 * COIN; // Developer reward 0.25
+            nReward -= nDevCoin;
+
+            nCredit += (nReward + nDevCoin);
+        } else {
+            nCredit += nReward;
+        }
     }
 
-if (pindexBest->nHeight >= HALVING_POS_03){
+if (pindexBest->nHeight >= HALVING_POS_03 && pindexBest->nHeight < END_DEV_POS_PAYMENT){
     // Set output amount
     if (txNew.vout.size() == 3)
     {
@@ -1814,12 +1810,10 @@ if (pindexBest->nHeight >= HALVING_POS_03){
 
 } else {
     // Set output amount
-    if (txNew.vout.size() == 3)
-    {
+    if (txNew.vout.size() == 3) {
         txNew.vout[1].nValue = (nCredit / 2 / CENT) * CENT;
         txNew.vout[2].nValue = nCredit - txNew.vout[1].nValue;
-    }
-    else{
+    } else {
         txNew.vout[1].nValue = nCredit;
     }
 }
