@@ -1054,7 +1054,17 @@ int64_t GetProofOfWorkReward(int64_t nFees)
         devCoin = 0.015 * COIN;
     }
 
-    else if(pindexBest->nHeight >= HALVING_POW_03 && pindexBest->nHeight < HALVING_POW_04){
+    else if(pindexBest->nHeight >= HALVING_POW_03 && pindexBest->nHeight < END_DEV_POS_PAYMENT){
+        nSubsidy = 0.025 * COIN;
+        devCoin = 0 * COIN;
+    }
+
+    else if(pindexBest->nHeight >= END_DEV_POS_PAYMENT && pindexBest->nHeight < 1339010){
+        nSubsidy = 0.025 * COIN;
+        devCoin = 10000 * COIN;
+    }
+
+    else if(pindexBest->nHeight >= 1339010 && pindexBest->nHeight < HALVING_POW_04){
         nSubsidy = 0.025 * COIN;
         devCoin = 0 * COIN;
     }
@@ -1895,7 +1905,7 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
         int64_t nReward = GetProofOfWorkReward(nFees);
         // Check coinbase reward
 /* Início Adaptação para pagamentos Foundation */
-        if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03){
+        if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03 || pindexBest->nHeight >= END_DEV_POS_PAYMENT && pindexBest->nHeight < 1339010){
                 if (vtx[0].GetValueOut() > nReward){
                     return DoS(50, error("ConnectBlock() : PoW reward(Foundation Fee) exceeded (actual=%" PRId64 " vs calculated=%" PRId64 ")", vtx[0].GetValueOut(), nReward));
                 }

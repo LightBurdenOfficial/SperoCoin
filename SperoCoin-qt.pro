@@ -3,7 +3,7 @@ TEMPLATE = app
 DEFINES += fName1 fName2
 fName1 = "SperoCoin-Qt"
 macx:TARGET = "SperoCoin-Qt"
-VERSION = 2.6.5.2
+VERSION = 2.6.5.3
 QMAKE_TARGET_BUNDLE_PREFIX = co.SperoCoin
 contains(QT_ARCH, i386) {
     fName2 = "-x86-v"
