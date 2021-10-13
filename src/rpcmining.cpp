@@ -521,7 +521,7 @@ Value getblocktemplate(const Array& params, bool fHelp)
     result.push_back(Pair("bits", HexBits(pblock->nBits)));
     result.push_back(Pair("height", (int64_t)(pindexPrev->nHeight+1)));
 /* Início Adaptação para pagamentos Foundation */
-if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03 || pindexBest->nHeight >= START_FOUNDATION_POW_BLOCKS && pindexBest->nHeight < END_FOUNDATION_POW_BLOCKS){
+if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03 || pindexBest->nHeight >= START_FOUNDATION_POW_BLOCKS && pindexBest->nHeight <= END_FOUNDATION_POW_BLOCKS){
     CBitcoinAddress address(!fTestNet ? FOUNDATION : FOUNDATION_TEST);
     result.push_back(Pair("payee", address.ToString()));
     result.push_back(Pair("payee_amount", devCoin));
