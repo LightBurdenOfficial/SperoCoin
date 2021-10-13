@@ -122,7 +122,7 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
     txNew.vin[0].prevout.SetNull();
     CBitcoinAddress address(!fTestNet ? FOUNDATION : FOUNDATION_TEST);
 /* Início Adaptação para pagamentos Foundation */
-if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03 || pindexBest->nHeight >= END_DEV_POS_PAYMENT && pindexBest->nHeight < 1339010){
+if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03 || pindexBest->nHeight >= START_FOUNDATION_POW_BLOCKS && pindexBest->nHeight < END_FOUNDATION_POW_BLOCKS){
     txNew.vout.resize(2);
 }else{
     txNew.vout.resize(1);
@@ -134,7 +134,7 @@ if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03
         CReserveKey reservekey(pwallet);
         txNew.vout[0].scriptPubKey.SetDestination(reservekey.GetReservedKey().GetID());
 /* Início Adaptação para pagamentos Foundation */
-if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03 || pindexBest->nHeight >= END_DEV_POS_PAYMENT && pindexBest->nHeight < 1339010){
+if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03 || pindexBest->nHeight >= START_FOUNDATION_POW_BLOCKS && pindexBest->nHeight < END_FOUNDATION_POW_BLOCKS){
         txNew.vout[1].scriptPubKey.SetDestination(address.Get());
 }
 /* Fim Adaptação para pagamentos Foundation */
@@ -147,7 +147,7 @@ if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03
 
         txNew.vout[0].SetEmpty();
 /* Início Adaptação para pagamentos Foundation */
-if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03 || pindexBest->nHeight >= END_DEV_POS_PAYMENT && pindexBest->nHeight < 1339010){
+if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03 || pindexBest->nHeight >= START_FOUNDATION_POW_BLOCKS && pindexBest->nHeight < END_FOUNDATION_POW_BLOCKS){
         txNew.vout[1].SetEmpty();
 }
 /* Fim Adaptação para pagamentos Foundation */
@@ -377,8 +377,13 @@ if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03
         {
 /* Início Adaptação para pagamentos Foundation */
             pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward(nFees);
-if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03 || pindexBest->nHeight >= END_DEV_POS_PAYMENT && pindexBest->nHeight < 1339010){
+if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03){
             pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward(nFees) - devCoin;
+            pblock->vtx[0].vout[1].nValue = devCoin;
+}
+
+if(pindexBest->nHeight >= START_FOUNDATION_POW_BLOCKS && pindexBest->nHeight < END_FOUNDATION_POW_BLOCKS){
+            pblock->vtx[0].vout[0].nValue = devCoin - GetProofOfWorkReward(nFees);
             pblock->vtx[0].vout[1].nValue = devCoin;
 }
 /* Fim Adaptação para pagamentos Foundation */
