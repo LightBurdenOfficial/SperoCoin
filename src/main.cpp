@@ -1905,7 +1905,7 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
         int64_t nReward = GetProofOfWorkReward(nFees);
         // Check coinbase reward
 /* Início Adaptação para pagamentos Foundation */
-        if((pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03) || (pindexBest->nHeight > END_FOUNDATION_POW_BLOCKS)){
+        if(pindexBest->nHeight >= POS_POW_HYBRID && pindexBest->nHeight < HALVING_POW_03){
                 if (vtx[0].GetValueOut() > nReward){
                     return DoS(50, error("ConnectBlock() : PoW reward(Foundation Fee) exceeded (actual=%" PRId64 " vs calculated=%" PRId64 ")", vtx[0].GetValueOut(), nReward));
                 }
@@ -1918,7 +1918,23 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
                     if (vtx[0].vout[1].nValue < devCoin){
                         return error("ConnectBlock() : PoW coinbase does not pay enough to dev addresss");
                     }
-        } else{
+        } else if(pindexBest->nHeight >= START_FOUNDATION_POW_BLOCKS && pindexBest->nHeight <= END_FOUNDATION_POW_BLOCKS){
+            int64_t calcDevCoin = devCoin - GetProofOfWorkReward(nFees);
+            int64_t nReward = devCoin + calcDevCoin;
+
+                if (vtx[0].GetValueOut() > nReward){
+                    return DoS(50, error("ConnectBlock() : PoW reward(Foundation Fee) exceeded (actual=%" PRId64 " vs calculated=%" PRId64 ")", vtx[0].GetValueOut(), nReward));
+                }
+                    CBitcoinAddress address(!fTestNet ? FOUNDATION : FOUNDATION_TEST);
+                    CScript scriptPubKey;
+                    scriptPubKey.SetDestination(address.Get());
+                    if (vtx[0].vout[1].scriptPubKey != scriptPubKey){
+                        return error("ConnectBlock() : PoW coinbase does not pay to the dev address");
+                    }
+                    if (vtx[0].vout[1].nValue < devCoin){
+                        return error("ConnectBlock() : PoW coinbase does not pay enough to dev addresss");
+                    }
+        } else {
                 if (vtx[0].GetValueOut() > nReward)
                     return DoS(50, error("ConnectBlock() : PoW coinbase reward exceeded (actual=%" PRId64 " vs calculated=%" PRId64 ")", vtx[0].GetValueOut(), nReward));
         }
