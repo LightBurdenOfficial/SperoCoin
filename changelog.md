@@ -124,3 +124,11 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 → [FIX] Mineração PoS;<br>
 → [BUMP] Alterada versão do protocolo mínimo para 700004;<br>
 → [BUMP] Nova versão 2.6.5.2;<br>
+
+> 2021/10/14<br>
+→ [NEW] Checkpoints;<br>
+→ [REMOVE] Pagamentos para a Foundation PoS;<br>
+→ [NEW] Fase especial de mineração para a Foundation PoW;<br>
+→ [FORK] Preparação do código para o hardfork;<br>
+→ [BUMP] Alterada versão do protocolo mínimo para 700005;<br>
+→ [BUMP] Nova versão 2.6.5.4;<br>
