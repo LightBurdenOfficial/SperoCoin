@@ -1,59 +1,74 @@
-Source: novacoin
+Source: sperocoin
 Section: utils
 Priority: optional
-Maintainer: Jonas Smedegaard <dr@jones.dk>
-Uploaders: Micah Anderson <micah@debian.org>
+Maintainer: Matt Corallo <matt@mattcorallo.com>
+Uploaders: Matt Corallo <matt@mattcorallo.com>
 Build-Depends: debhelper,
- devscripts,
+ autotools-dev,
+ bsdmainutils,
+ automake,
+ libtool,
  bash-completion,
- libboost-system-dev (>> 1.35) | libboost-system1.35-dev,
  libdb4.8++-dev,
  libssl-dev,
  pkg-config,
- libminiupnpc8-dev,
- libboost-filesystem-dev (>> 1.35) | libboost-filesystem1.35-dev,
- libboost-program-options-dev (>> 1.35) | libboost-program-options1.35-dev,
- libboost-thread-dev (>> 1.35) | libboost-thread1.35-dev,
- libboost-test-dev (>> 1.35) | libboost-test1.35-dev,
- qt4-qmake,
- libqt4-dev,
- libqrencode-dev
+ libevent-dev,
+ libboost-system1.48-dev | libboost-system-dev (>> 1.47),
+ libboost-filesystem1.48-dev | libboost-filesystem-dev (>> 1.47),
+ libboost-program-options1.48-dev | libboost-program-options-dev (>> 1.47),
+ libboost-thread1.48-dev | libboost-thread-dev (>> 1.47),
+ libboost-test1.48-dev | libboost-test-dev (>> 1.47),
+ libboost-chrono1.48-dev | libboost-chrono-dev (>> 1.47),
+ libminiupnpc8-dev | libminiupnpc-dev,
+ libqt5gui5,
+ libqt5core5a,
+ libqt5dbus5,
+ qttools5-dev,
+ qttools5-dev-tools,
+ libqrencode-dev,
+ libprotobuf-dev, protobuf-compiler,
+ python3,
+ libzmq3-dev
 Standards-Version: 3.9.2
-Homepage: http://www.novacoin.su/
-Vcs-Git: git://github.com/CryptoManiac/novacoin.git
-Vcs-Browser: http://github.com/CryptoManiac/novacoin
+Homepage: https://sperocoin.org/
+Vcs-Git: git://github.com/sperocoin/sperocoin.git
+Vcs-Browser: https://github.com/sperocoin/sperocoin
 
-Package: novacoind
+Package: sperocoind
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
- Novacoin is a free open source peer-to-peer electronic cash system that
+ SperoCoin is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- By default connects to an IRC network to discover other peers.
- .
- Full transaction history is stored locally at each client.  This
- requires 2+ GB of space, slowly growing.
- .
- This package provides novacoind, a combined daemon and CLI tool to
- interact with the daemon.
+ This package provides the daemon, SperoCoind, and the CLI tool
+ SperoCoin-cli to interact with the daemon.
 
-Package: novacoin-qt
+Package: sperocoin-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
- Novacoin is a free open source peer-to-peer electronic cash system that
+ SperoCoin is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- By default connects to an IRC network to discover other peers.
+ This package provides SperoCoin-Qt, a GUI for SperoCoin based on Qt.
+
+Package: sperocoin-tx
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: peer-to-peer digital currency - standalone transaction tool
+ SperoCoin is a free open source peer-to-peer electronic cash system that
+ is completely decentralized, without the need for a central server or
+ trusted parties.  Users hold the crypto keys to their own money and
+ transact directly with each other, with the help of a P2P network to
+ check for double-spending.
  .
- Full transaction history is stored locally at each client.  This
- requires 2+ GB of space, slowly growing.
- .
- This package provides Novacoin-Qt, a GUI for Novacoin based on Qt.
+ This package provides SperoCoin-tx, a command-line transaction creation
+ tool which can be used without a SperoCoin daemon.  Some means of
+ exchanging minimal transaction data with peers is still required.

@@ -1,26 +1,25 @@
 QComboBox {
      border: 1px solid gray;
      color: white;
-     background-color: #326262;
+     background-color: #313c62;
 }
  QWidget {
     color:white;
-     background-color: #326262;
-    font-family: "Nasalization";
+     background-color: #313c62;
 }
  QMenu {
     color: white;
-     background-color: #326262;
-     border-color: #326262;
+     background-color: #313c62;
+     border-color: #313c62;
 }
  QMenu::item:selected {
     color: white;
      background-color: #4F5054;
 }
  QMainWindow {
-    background-color: #326262;
+    background-color: #313c62;
      border:none;
-    font-family: "Nasalization";
+    font-family:'Open Sans,sans-serif';
 }
  QTableView {
     color:white;
@@ -29,7 +28,7 @@ QComboBox {
 }
  QHeaderView::section {
     color:white;
-     background-color: #326262;
+     background-color: #313c62;
 }
  QPlainTextEdit {
     color: #1b202f;
@@ -46,16 +45,16 @@ QComboBox {
 }
  QTabWidget {
     color:white;
-     background-color: #326262;
+     background-color: #313c62;
 }
  QTabWidget::pane {
     color:white;
-     background-color: #326262;
+     background-color: #313c62;
      border: 1px solid gray;
 }
  QTabBar::tab {
     color:white;
-     background-color: #326262;
+     background-color: #313c62;
      border: 1px solid gray;
      padding: 3px;
      border-top-left-radius: 4px;
@@ -69,18 +68,15 @@ QComboBox {
 }
  QDialog {
     color:white;
-     background-color: #326262;
-     font-style: "Nasalization";
-
+     background-color: #313c62;
 }
  QLabel {
     color:white;
-     background-color: #326262;
-   	font-style: "Nasalization";
+     background-color: #313c62;
 }
  QToolBar {
     color:white;
-     background-color: #326262;
+     background-color: #313c62;
 }
  QTreeView {
      color: white;
@@ -99,19 +95,9 @@ QComboBox {
 }
  QToolButton {
     color:white;
-     background-color: #2f3751;
+     background-color: #1b202f;
      border: 1px solid gray;
-     padding: 2px;
-     border-top-left-radius: 8px;
-     border-top-right-radius: 8px;
-}
- QToolButton:hover {
-    color:white;
-     background-color: #414d71;
-     border: 1px solid gray;
-     padding: 2px;
-     border-top-left-radius: 8px;
-     border-top-right-radius: 8px;
+     padding: 3px;
 }
  QPushButton {
     color:white;
@@ -133,25 +119,18 @@ QComboBox {
  QToolTip {
     color: white;
      border: 0px;
-     background-color: #326262;
+     background-color: #313c62;
      opacity: 225;
 }
  QMenuBar {
-    background-color: #326262;
+    background-color: #313c62;
 }
  QMenuBar::item {
     color: white;
-     background-color: #326262;
+     background-color: #313c62;
 }
  QMenuBar::item:selected {
     color: white;
      font-weight: bold;
      background-color:#4F5054;
-}
-
-QListView{
-	background: transparent;
-	font-weight: 400;
-	font-size: 10pt;
-	font-style: "Nasalization";
 }

@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=2.0.4
+Name=SperoCoin Core
+Comment=Connect to the SperoCoin Tor P2P Network
+Comment[de]=Verbinde mit dem SperoCoin Tor peer-to-peer Netzwerk
+Comment[fr]=SperoCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=SperoCoin, eşten eşe kriptografik sanal para birimi
+Exec=SperoCoin-qt %u
+Terminal=false
+Type=Application
+Icon=sperocoin128
+MimeType=x-scheme-handler/SperoCoin;
+Categories=Office;Finance;
+StartupWMClass=SperoCoin-qt

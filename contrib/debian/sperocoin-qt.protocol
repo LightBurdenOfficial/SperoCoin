@@ -1,0 +1,11 @@
+[Protocol]
+exec=SperoCoin-qt '%u'
+protocol=sperocoin
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false
