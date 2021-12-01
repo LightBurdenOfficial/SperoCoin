@@ -1783,19 +1783,13 @@ bool AppInitMain()
 
     connOptions.nMaxOutboundTimeframe = nMaxOutboundTimeframe;
     connOptions.nMaxOutboundLimit = nMaxOutboundLimit;
-//	SperoCoin should only ever bind to localhost 127.0.0.1 to avoid clearnet inbound connections. TODO: Clean up and remove this.
-//    for (const std::string& strBind : gArgs.GetArgs("-bind")) {
-//        CService addrBind;
-//        if (!Lookup(strBind.c_str(), addrBind, GetListenPort(), false)) {
-//            return InitError(ResolveErrMsg("bind", strBind));
-//        }
-//        connOptions.vBinds.push_back(addrBind);
-//    }
-    CService addrBind;
-    if (!Lookup("127.0.0.1", addrBind, GetListenPort(), false)) {
-        return InitError(ResolveErrMsg("Cannot bind to localhost: ", "127.0.0.1"));
+    for (const std::string& strBind : gArgs.GetArgs("-bind")) {
+            CService addrBind;
+            if (!Lookup(strBind.c_str(), addrBind, GetListenPort(), false)) {
+                return InitError(ResolveErrMsg("bind", strBind));
+            }
+            connOptions.vBinds.push_back(addrBind);
     }
-    connOptions.vBinds.push_back(addrBind);
 
     for (const std::string& strBind : gArgs.GetArgs("-whitebind")) {
         CService addrBind;
