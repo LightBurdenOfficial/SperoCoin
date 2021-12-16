@@ -1750,12 +1750,10 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
         }
 
         int minVersion = MIN_PEER_PROTO_VERSION;
-        /* START FRANCIS MOD
         // SperoCoin: The code base will fork two weeks before segwit activates, until that point we will allow older versions to connect.
         if((chainparams.GetConsensus().vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime - 1209600) > GetAdjustedTime()) {
-            minVersion = GETHEADERS_VERSION; // The previous MIN_PEER_PROTO_VERSION.
+            minVersion = SEGWIT_VERSION; // The previous MIN_PEER_PROTO_VERSION.
         }
-        END FRANCIS MOD */
 
         if (nVersion < minVersion)
         {
