@@ -3,7 +3,7 @@
 <br>
 [![N|Solid](https://i.imgur.com/0BOgWZy.png)](https://sperocoin.org/)
 
-Version: 2.7.0.0
+Version: 2.7.0.2
 =====================================
 
 SperoCoin is a cryptocurrency developed with the aim of creating a decentralized ecosystem whose main objective is the application of SOCIAL SUSTAINABILITY.
@@ -51,7 +51,7 @@ The integration with TOR ensures that users are always on a secure environment. 
 | 33331 - 1149999 | `0.05 + 0.015 Foundation` |
 | 1150000 - 1339199 | `0.025` |
 | 1339200 - 1339211 | `0.025 + 10000 Foundation` |
-| 1339212 - 1625599 | `0.25` |
+| 1339212 - 1625599 | `0.025` |
 | 1625600 - 2151199 | `0.015` |
 | 2151200 - INFINITE | `0.001` |
 
