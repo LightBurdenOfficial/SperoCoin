@@ -18,7 +18,7 @@ To Build
 ---------------------
 
 ```bash
-git clone --recursive https://github.com/sperocoin/sperocoin.git
+git clone --recursive https://github.com/DigitalCoin1/SperoCoin.git
 cd sperocoin
 ./autogen.sh
 ./configure
