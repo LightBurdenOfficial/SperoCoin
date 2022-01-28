@@ -64,7 +64,7 @@ If you want to build the windows installer with `make deploy` you need [NSIS](ht
 
 Acquire the source in the usual way:
 
-    git clone --recursive https://github.com/sperocoin/sperocoin.git
+    git clone --recursive https://github.com/DigitalCoin1/SperoCoin.git
     cd sperocoin
 
 ## Building for 64-bit Windows

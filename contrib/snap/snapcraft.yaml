@@ -24,7 +24,7 @@ apps:
 
 parts:
   sperocoin:
-    source: https://github.com/sperocoin/sperocoin
+    source: https://github.com/DigitalCoin1/SperoCoin
     source-type: git
     source-tag: master
     plugin: autotools

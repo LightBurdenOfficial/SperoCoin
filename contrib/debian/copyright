@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: SperoCoin
 Upstream-Contact: SperoCoin <info@sperocoin.org>
-Source: https://github.com/sperocoin/sperocoin
+Source: https://github.com/DigitalCoin1/SperoCoin
 
 Files: *
 Copyright: 2009-2019, SperoCoin Core Developers

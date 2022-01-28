@@ -261,7 +261,7 @@ Setup and Build Example: Arch Linux
 This example lists the steps necessary to setup and build a command line only, non-wallet distribution of the latest changes on Arch Linux:
 
     pacman -S git base-devel boost libevent python
-    git clone --recursive https://github.com/sperocoin/sperocoin.git
+    git clone --recursive https://github.com/DigitalCoin1/SperoCoin.git
     cd sperocoin/
     ./autogen.sh
     ./configure --disable-wallet --without-gui --without-miniupnpc

@@ -32,7 +32,7 @@ Build-Depends: debhelper,
 Standards-Version: 3.9.2
 Homepage: https://sperocoin.org/
 Vcs-Git: git://github.com/sperocoin/sperocoin.git
-Vcs-Browser: https://github.com/sperocoin/sperocoin
+Vcs-Browser: https://github.com/DigitalCoin1/SperoCoin
 
 Package: sperocoind
 Architecture: any

@@ -25,7 +25,7 @@ python27
 
 Download the source code:
 ```
-git clone https://github.com/sperocoin/sperocoin
+git clone https://github.com/DigitalCoin1/SperoCoin
 ```
 
 See [dependencies.md](dependencies.md) for a complete overview.

@@ -49,7 +49,7 @@ Build SperoCoin Core
 
 1. Clone the SperoCoin source code and cd into `sperocoin`
 
-        git clone --recursive https://github.com/sperocoin/sperocoin.git
+        git clone --recursive https://github.com/DigitalCoin1/SperoCoin.git
         cd sperocoin
 
 2.  Build SperoCoin-core:
