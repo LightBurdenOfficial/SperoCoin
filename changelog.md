@@ -204,3 +204,6 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 
 >$0049 2022/03/22<br>
 → [SECURITY] SperoSend - Proibir reutilização de endereço;<br>
+
+>$0050 2022/03/22<br>
+→ [UPDATE] httpserver;<br>
