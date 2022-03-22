@@ -181,3 +181,6 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 >$0043 2022/03/22<br>
 → [BUMP] Nova versão 2.7.0.4;<br>
 → [FIX] Corrige o arquivo aberto pendente ao remover o nome do host TorV2.;<br>
+
+>$0044 2022/03/22<br>
+→ [FIX] Pequena correção de bug do SPEROSEND para garantir a presença de endereço legado(LEGACY);<br>
