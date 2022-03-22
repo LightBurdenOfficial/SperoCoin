@@ -1,3 +1,5 @@
+CHANGELOG SPEROCOIN
+
 >$0001 2017/09/26<br>
 Initial Upload to GitHub<br>
 
@@ -192,3 +194,7 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 → [BUMP] Nova versão 2.7.0.5;<br>
 → [BUMP] Alterada versão do protocolo mínimo para 700011;<br>
 → [FIX] Transmissão de nós do SperoSend;<br>
+
+>$0047 2022/03/22<br>
+→ [UPDATE] Scripts de seed para suporte TorV3;<br>
+→ [UPDATE] Nós TorV3;<br>
