@@ -158,3 +158,6 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 → [NEW] Desativação de retarget PoW em rede REGTEST;<br>
 → [FIX] REGTEST PoS;<br>
 → [FIX] Impedir que os blocos PoW sejam marcados como PoS no Regstest;<br>
+
+>$0037 2022/03/22<br>
+→ [NEW] Update tor;<br>
