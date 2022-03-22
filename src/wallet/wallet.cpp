@@ -5663,7 +5663,5 @@ int CWallet::GetSelfAddressCount()
         if (::IsMine(*this, entry.first) && (which_type == TX_PUBKEY || which_type == TX_PUBKEYHASH))
             count++;
     }
-
-    LogPrint(BCLog::SPEROSEND, ">> GetSelfAddressCount: count = %d\n", count);
     return count;
 }

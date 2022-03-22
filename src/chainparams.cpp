@@ -160,7 +160,7 @@ public:
 
         bech32_hrp = "spr";
 
-        vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
+        vFixedSeeds = std::vector<uint8_t>(chainparams_seed_main, chainparams_seed_main + ARRAYLEN(chainparams_seed_main));
 
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
@@ -463,7 +463,7 @@ public:
 
         bech32_hrp = "tspr";
 
-        vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
+        vFixedSeeds = std::vector<uint8_t>(chainparams_seed_test, chainparams_seed_test + ARRAYLEN(chainparams_seed_test));
 
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;

@@ -6092,11 +6092,8 @@ bool SignMessageUsingAddress(std::string message, std::string address, std::vect
     CWallet* pwallet = vpwallets[0];
     
     {
-        LOCK(cs_main);
-        LogPrint(BCLog::SPEROSEND, ">> SignMessageUsingAddress Lock main\n");
-        TRY_LOCK(pwallet->cs_wallet, lockWallet);
-        if(!lockWallet) // TODO: Should we carry on or not?
-            LogPrint(BCLog::SPEROSEND, ">> SignMessageUsingAddress Could not lock wallet\n");
+        LogPrint(BCLog::SPEROSEND, ">> SignMessageUsingAddress before lock\n");
+        LOCK2(cs_main, pwallet->cs_wallet);
 
     LogPrint(BCLog::SPEROSEND, ">> SignMessageUsingAddress After lock\n");
         
@@ -7024,8 +7021,8 @@ void UpdateAnonymousServiceList(CNode* pNode, std::string keyAddress, int servic
         return;     
     }
 
-    LogPrint(BCLog::SPEROSEND, ">> UpdateAnonymousServiceList. key = %s, addr = %s, status = %s\n", keyAddress.c_str(), addr.c_str(), status.c_str());
-    LogPrint(BCLog::SPEROSEND, ">> SperoSend List current size: %d\n", mapAnonymousServices.size());
+    //LogPrint(BCLog::SPEROSEND, ">> SperoSend List current size: %d\n", mapAnonymousServices.size());
+    size_t size = mapAnonymousServices.size();
     {
         LOCK(cs_servicelist);
         std::map<std::string, std::string>::iterator it = mapAnonymousServices.find(keyAddress);
@@ -7077,7 +7074,10 @@ void UpdateAnonymousServiceList(CNode* pNode, std::string keyAddress, int servic
         }
     }
     
-    LogPrint(BCLog::SPEROSEND, ">> SperoSend List size after update: %d\n", mapAnonymousServices.size());
+    if(size != mapAnonymousServices.size()) {
+        LogPrint(BCLog::SPEROSEND, ">> UpdateAnonymousServiceList. key = %s, addr = %s, status = %s\n", keyAddress.c_str(), addr.c_str(), status.c_str());
+	    LogPrint(BCLog::SPEROSEND, ">> SperoSend List size after update: %d\n", mapAnonymousServices.size());
+    }
 
 }
 

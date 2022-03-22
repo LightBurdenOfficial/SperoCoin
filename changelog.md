@@ -210,3 +210,8 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 
 >$0051 2022/03/22<br>
 → [UPDATE] Documentação Unix;<br>
+
+>$0052 2022/03/22<br>
+→ [FIX] SperoSend;<br>
+→ [FIX] Seeds;<br>
+→ [FIX] Pequenas correções;<br>
