@@ -173,3 +173,7 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 
 >$0041 2022/03/22<br>
 → [UPDATE] Update TOR Submodule;<br>
+
+>$0042 2022/03/22<br>
+→ [FIX] Versão do protocolo de endereço TorV3;<br>
+→ [FIX] Erros de serialização;<br>
