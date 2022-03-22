@@ -94,7 +94,7 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 → Mudança dos ícones e logos;<br>
 → Adição do parâmetro -zapwallettxes;<br>
 
-> 2020/10/22<br>
+>$0029 2020/10/22<br>
 → [UPDATE] Nova versão 2.6.5.0;<br>
 → [UPDATE] Adição de lista de endereços de participantes do sistema de doações(CHARITY);<br>
 → [OPMIZATION] Limpeza e Remoção de arquivos desnecessários da base do código;<br>
@@ -107,7 +107,7 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 → [UPDATE] Checkpoints;<br>
 → [UPDATE] Arquivos de Compilação SperoCoin-qt.pro e makefile.mingw usados em compilação Windows<br>
 
-> 2021/01/29<br>
+>$0030 2021/01/29<br>
 → [UPDATE] Nova versão 2.6.5.1;<br>
 → [UPDATE] Alterada versão do protocolo para mínimo 700003;<br>
 → [GUI] Novo Design QT;<br>
@@ -119,16 +119,42 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 → [UPDATE] Novos endereços Foundation PoS;<br>
 → [NEW] Halving Blocks<br>
 
-> 2021/03/18<br>
+>$0031 2021/03/18<br>
 → [NEW] Checkpoints;<br>
 → [FIX] Mineração PoS;<br>
 → [BUMP] Alterada versão do protocolo mínimo para 700004;<br>
 → [BUMP] Nova versão 2.6.5.2;<br>
 
-> 2021/10/14<br>
+>$0032 2021/10/14<br>
 → [NEW] Checkpoints;<br>
 → [REMOVE] Pagamentos para a Foundation PoS;<br>
 → [NEW] Fase especial de mineração para a Foundation PoW;<br>
 → [FORK] Preparação do código para o hardfork;<br>
 → [BUMP] Alterada versão do protocolo mínimo para 700006;<br>
 → [BUMP] Nova versão 2.6.5.4;<br>
+
+>$0033 2021/11/30<br>
+→ [HARDFORK] Nova versão 2.7.0.0;<br>
+→ [BUMP] Alterada versão do protocolo mínimo para 700008;<br>
+→ [NEW] Implementação Tor;<br>
+→ [NEW] Design de carteira;<br>
+→ [NEW] SPEROSEND;<br>
+→ [FIX] Correções e melhorias;<br>
+
+>$0034 2021/12/16<br>
+→ [NEW] Ativação SEGWIT(17/12/2022 a 19/12/2022);<br>
+→ [BUMP] Alterada versão do protocolo mínimo para 700009;<br>
+→ [BUMP] Nova versão 2.7.0.2;<br>
+→ [NEW] SPEROSEND;<br>
+→ [FIX] Correções e melhorias;<br>
+
+>$0035 2022/03/21<br>
+→ [NEW] Suporte para rede ONION v3;<br>
+
+>$0036 2022/03/22<br>
+→ [BUMP] Alterada versão do protocolo mínimo para 700010;<br>
+→ [BUMP] Nova versão 2.7.0.3;<br>
+→ [NEW] Ativação CSV(04/03/2022 a 03/05/2022);<br>
+→ [NEW] Desativação de retarget PoW em rede REGTEST;<br>
+→ [FIX] REGTEST PoS;<br>
+→ [FIX] Impedir que os blocos PoW sejam marcados como PoS no Regstest;<br>

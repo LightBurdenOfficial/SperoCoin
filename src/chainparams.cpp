@@ -96,8 +96,7 @@ public:
         consensus.nStakeMaxAge = 12 * 60 * 60;          // stake age of full weight: 12h
         consensus.nModifierInterval = 10 * 30;              // time to elapse before new modifier is computed
         consensus.nCoinbaseMaturity = 5;                    // 05 Blocks maturity
-        // disable NoRetargeting. NoRetargeting is always false
-        // consensus.fPowNoRetargeting = false;
+        consensus.fPowNoRetargeting = false;
         // consensus.fPosNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 180; // 75% of 240
         consensus.nMinerConfirmationWindow = 960; // nPowTargetTimespan / nPowTargetSpacing * 4
@@ -107,13 +106,13 @@ public:
 
         // Deployment of BIP68, BIP112, and BIP113.
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1548633600; // January 28, 2019
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1548979199; // January 31st, 2019
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1649077200; // April 4, 2022
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1651496400; // May 2, 2022
 
         // Deployment of SegWit (BIP141, BIP143, and BIP147)
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1639699200; // December 17, 2021
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1639872000; // December 19, 2022
+        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1639872000; // December 19, 2021
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000100010001"); // Gênesis
@@ -388,7 +387,7 @@ public:
         consensus.nPowTargetSpacing = 240;
         consensus.nPosTargetSpacing = 60;
         consensus.fPowAllowMinDifficultyBlocks = false;
-        // consensus.fPowNoRetargeting = false;
+        consensus.fPowNoRetargeting = false;
         // consensus.fPosNoRetargeting = false;
         consensus.nStakeMinAge = 2 * 60 * 60;                   // minimum age for coin age: 2 hours
         consensus.nStakeMaxAge = 12 * 60 * 60;          // stake age of full weight: 12 hours
@@ -510,7 +509,7 @@ public:
         consensus.nPowTargetSpacing = 240;
         consensus.nPosTargetSpacing = 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
-        // consensus.fPowNoRetargeting = true;
+        consensus.fPowNoRetargeting = true;
         // consensus.fPosNoRetargeting = true;
         consensus.nStakeMinAge = 2 * 60 * 60;           // minimum age for coin age: 1d
         consensus.nStakeMaxAge = 12 * 60 * 60;          // stake age of full weight: 30d
