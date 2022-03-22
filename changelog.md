@@ -170,3 +170,6 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 
 >$0040 2022/03/22<br>
 → [UPDATE] Descrições GITIAN;<br>
+
+>$0041 2022/03/22<br>
+→ [UPDATE] Update TOR Submodule;<br>
