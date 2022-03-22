@@ -161,3 +161,6 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 
 >$0037 2022/03/22<br>
 → [NEW] Update tor;<br>
+
+>$0038 2022/03/22<br>
+→ [FIX] Update tor;<br>
