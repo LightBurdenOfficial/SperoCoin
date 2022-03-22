@@ -171,7 +171,7 @@ UniValue sendwithsperosend(const JSONRPCRequest& request)
     if((pwallet->IsLocked() || (!pwallet->IsLocked() && !fWalletUnlockSperoSendOnly && fWalletUnlockStakingOnly)))
         return "Unlock wallet for SperoSend";
 
-    std::string selfaddress = pwallet->GetRandomSelfAddress();
+    std::string selfaddress = pwallet->GetOneSelfAddress();
     if(selfaddress.length() == 0) {
         return "StartP2pMixerSendProcess failed - Create legacy addresses for and send SPERO to them for SperoSend to work.";
     }

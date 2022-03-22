@@ -5590,7 +5590,7 @@ bool CAnonymousTxInfo::SetInitialData(AnonymousTxRole role, std::vector< std::pa
     if(pGuarantorNode != NULL)
         pParties->SetNode(ROLE_GUARANTOR, pGuarantorNode);
 
-    std::string selfAddress = pWallet->GetRandomSelfAddress();
+    std::string selfAddress = pWallet->GetOneSelfAddress();
 
     if(selfAddress == "")
     {
