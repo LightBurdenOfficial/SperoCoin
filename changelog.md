@@ -201,3 +201,4 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 
 >$0048 2022/03/22<br>
 → [FIX] Atribuição de chaves SperoSend ;<br>
+

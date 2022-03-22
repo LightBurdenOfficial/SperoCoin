@@ -5593,6 +5593,15 @@ std::string CWallet::GetOneSelfAddress()
     return oneSelfAddress;
 }
 
+/**
+ * SperoSend: Removed the usage of this for now. It is very heavy
+ * and the way it was being introduced an issue where each node
+ * had different keys in their service list making SperoSend impossible.
+ * 
+ * We'll need to update the protocol so that the GetOneSelfAddress is used
+ * for they key the a random address is used for payout and creating the 
+ * multisig address.
+ */
 std::string CWallet::GetRandomSelfAddress()
 {
     std::vector<std::string> vAddresses;
