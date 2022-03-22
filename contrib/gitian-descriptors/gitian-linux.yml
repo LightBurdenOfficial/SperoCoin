@@ -1,5 +1,5 @@
 ---
-name: "sperocoin-core-linux-2.1.2"
+name: "sperocoin-core-linux-2.7.0.3"
 enable_cache: true
 distro: "ubuntu"
 suites:

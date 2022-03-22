@@ -167,3 +167,6 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 
 >$0039 2022/03/22<br>
 → [FIX] Desabilitação temporária de livrarias bitcoin em compilação Windows;<br>
+
+>$0040 2022/03/22<br>
+→ [UPDATE] Descrições GITIAN;<br>

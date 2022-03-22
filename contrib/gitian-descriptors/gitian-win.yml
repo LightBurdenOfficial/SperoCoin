@@ -1,5 +1,5 @@
 ---
-name: "sperocoin-core-win-2.1.1"
+name: "sperocoin-core-win-2.7.0.3"
 enable_cache: true
 distro: "ubuntu"
 suites:
