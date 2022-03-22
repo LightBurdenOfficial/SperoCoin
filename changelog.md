@@ -200,5 +200,7 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 → [UPDATE] Nós TorV3;<br>
 
 >$0048 2022/03/22<br>
-→ [FIX] Atribuição de chaves SperoSend ;<br>
+→ [FIX] Atribuição de chaves SperoSend;<br>
 
+>$0049 2022/03/22<br>
+→ [SECURITY] SperoSend - Proibir reutilização de endereço;<br>

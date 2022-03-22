@@ -5590,7 +5590,16 @@ bool CAnonymousTxInfo::SetInitialData(AnonymousTxRole role, std::vector< std::pa
     if(pGuarantorNode != NULL)
         pParties->SetNode(ROLE_GUARANTOR, pGuarantorNode);
 
-    std::string selfAddress = pWallet->GetOneSelfAddress();
+    // Generate a new key that is added to wallet
+    CPubKey newKey;
+    if (!pWallet->GetKeyFromPool(newKey)) {
+		LogPrint(BCLog::SPEROSEND, ">> Error: Keypool ran out, please call keypoolrefill\n");
+		return false;
+    }
+    pWallet->LearnRelatedScripts(newKey, OUTPUT_TYPE_LEGACY);
+    CTxDestination dest = GetDestinationForKey(newKey, OUTPUT_TYPE_LEGACY);
+    pWallet->SetAddressBook(dest, "SS", "receive");
+    std::string selfAddress = EncodeDestination(dest);
 
     if(selfAddress == "")
     {
