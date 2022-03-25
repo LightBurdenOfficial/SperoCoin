@@ -8,6 +8,10 @@ src/sperocoin-tx
 src/test/test_sperocoin
 src/test/test_sperocoin_fuzzy
 src/qt/test/test_sperocoin-qt
+src/SperoCoind
+src/SperoCoin-cli
+src/SperoCoin-tx
+src/qt/SperoCoin-qt
 Makefile
 
 # autoreconf
