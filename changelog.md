@@ -215,3 +215,6 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 → [FIX] SperoSend;<br>
 → [FIX] Seeds;<br>
 → [FIX] Pequenas correções;<br>
+
+>$0053 2022/03/31<br>
+→ [TESTNET][UPDATE] Parâmetros Testnet;<br>
