@@ -221,3 +221,6 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 
 >$0054 2022/03/31<br>
 → [TESTNET][FIX] base58Prefixes[SECRET_KEY];<br>
+
+>$0055 2022/03/31<br>
+→ [TESTNET][FIX] GenesisBlock;<br>
