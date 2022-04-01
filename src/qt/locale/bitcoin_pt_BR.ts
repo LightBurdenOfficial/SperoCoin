@@ -3352,19 +3352,19 @@ Esta sincronização inicial é muito exigente e pode expor problemas de hardwar
     </message>
     <message>
         <source>Enable publish hash block in &lt;address&gt;</source>
-        <translation>Abilitar a publicação da hash do block em &lt;endereço&gt;</translation>
+        <translation>Habilita a publicação da hash do block em &lt;endereço&gt;</translation>
     </message>
     <message>
         <source>Enable publish hash transaction in &lt;address&gt;</source>
-        <translation>Abilitar a publicação da hash da transação em &lt;endereço&gt;</translation>
+        <translation>Habilita a publicação da hash da transação em &lt;endereço&gt;</translation>
     </message>
     <message>
         <source>Enable publish raw block in &lt;address&gt;</source>
-        <translation>Abilitar a publicação dos dados brutos do block em &lt;endereço&gt;</translation>
+        <translation>Habilita a publicação dos dados brutos do block em &lt;endereço&gt;</translation>
     </message>
     <message>
         <source>Enable publish raw transaction in &lt;address&gt;</source>
-        <translation>Abilitar a publicação dos dados brutos da transação em &lt;endereço&gt;</translation>
+        <translation>Habilita a publicação dos dados brutos da transação em &lt;endereço&gt;</translation>
     </message>
     <message>
         <source>Enable transaction replacement in the memory pool (default: %u)</source>
