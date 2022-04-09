@@ -13,7 +13,7 @@ Argument #1 - amount
 
 **Type:** numeric or string, required
 
-The transaction fee in ONION/kB
+The transaction fee in SPERO/kB
 
 Result
 ~~~~~~
@@ -40,5 +40,5 @@ Examples
 
 ::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "settxfee", "params": [0.00001] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "settxfee", "params": [0.00001] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

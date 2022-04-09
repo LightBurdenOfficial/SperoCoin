@@ -20,7 +20,7 @@ Argument #2 - amount
 
 **Type:** numeric or string, required
 
-The amount in ONION to send. eg 0.1
+The amount in SPERO to send. eg 0.1
 
 Argument #3 - narration
 ~~~~~~~~~~~~~~~~~~~~~~~

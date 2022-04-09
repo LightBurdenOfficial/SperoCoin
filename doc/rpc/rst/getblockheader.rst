@@ -71,5 +71,5 @@ Examples
 
 ::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockheader", "params": ["e2acdf2dd19a702e5d12a925f1e984b01e47a933562ca893656d4afb38b44ee3"] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockheader", "params": ["e2acdf2dd19a702e5d12a925f1e984b01e47a933562ca893656d4afb38b44ee3"] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

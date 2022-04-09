@@ -19,7 +19,7 @@ Result
     [
       [
         "address",            (string) The SperoCoin address
-        amount,                 (numeric) The amount in ONION
+        amount,                 (numeric) The amount in SPERO
         "account"             (string, optional) DEPRECATED. The account
       ]
       ,...
@@ -39,5 +39,5 @@ Examples
 
 ::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listaddressgroupings", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listaddressgroupings", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

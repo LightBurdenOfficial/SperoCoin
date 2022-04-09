@@ -22,7 +22,7 @@ Result
 
   {                           (json object)
       "size" : n,             (numeric) virtual transaction size as defined in BIP 141. This is different from actual serialized size for witness transactions as witness data is discounted.
-      "fee" : n,              (numeric) transaction fee in ONION
+      "fee" : n,              (numeric) transaction fee in SPERO
       "modifiedfee" : n,      (numeric) transaction fee with fee deltas used for mining priority
       "time" : n,             (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT
       "height" : n,           (numeric) block height when transaction entered pool
@@ -50,5 +50,5 @@ Examples
 
 ::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempoolentry", "params": ["mytxid"] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempoolentry", "params": ["mytxid"] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

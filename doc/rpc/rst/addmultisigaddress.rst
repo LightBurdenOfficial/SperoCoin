@@ -86,5 +86,5 @@ Add a multisig address from 2 addresses::
 
 As json rpc call::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "addmultisigaddress", "params": [2, "[\"LEr4hnAefwYhBmGxcFP2Po1NPrUEIk8KM2\",\"Dc7BLTLqSyWSp6uEpQPbbcb7figA7xHjKQ\"]"] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "addmultisigaddress", "params": [2, "[\"LEr4hnAefwYhBmGxcFP2Po1NPrUEIk8KM2\",\"Dc7BLTLqSyWSp6uEpQPbbcb7figA7xHjKQ\"]"] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

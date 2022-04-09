@@ -28,8 +28,8 @@ Result
 ::
 
   {
-    "amount" : x.xxx,        (numeric) The transaction amount in ONION
-    "fee": x.xxx,            (numeric) The amount of the fee in ONION. This is negative and only available for the
+    "amount" : x.xxx,        (numeric) The transaction amount in SPERO
+    "fee": x.xxx,            (numeric) The amount of the fee in SPERO. This is negative and only available for the
                                 'send' category of transactions.
     "confirmations" : n,     (numeric) The number of confirmations
     "blockhash" : "hash",  (string) The block hash
@@ -45,10 +45,10 @@ Result
         "account" : "accountname",      (string) DEPRECATED. The account name involved in the transaction, can be "" for the default account.
         "address" : "address",          (string) The SperoCoin address involved in the transaction
         "category" : "send|receive",    (string) The category, either 'send' or 'receive'
-        "amount" : x.xxx,                 (numeric) The amount in ONION
+        "amount" : x.xxx,                 (numeric) The amount in SPERO
         "label" : "label",              (string) A comment for the address/transaction, if any
         "vout" : n,                       (numeric) the vout value
-        "fee": x.xxx,                     (numeric) The amount of the fee in ONION. This is negative and only available for the
+        "fee": x.xxx,                     (numeric) The amount of the fee in SPERO. This is negative and only available for the
                                              'send' category of transactions.
         "abandoned": xxx                  (bool) 'true' if the transaction has been abandoned (inputs are respendable). Only available for the
                                              'send' category of transactions.
@@ -74,5 +74,5 @@ Examples
 
 ::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "gettransaction", "params": ["c1700d6dd3e690866de56686e893cbe4e637eb5d84e3591cdfbbdbb0fcee49f8"] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "gettransaction", "params": ["c1700d6dd3e690866de56686e893cbe4e637eb5d84e3591cdfbbdbb0fcee49f8"] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

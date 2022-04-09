@@ -27,5 +27,5 @@ Examples
 
 As a JSON-RPC call::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "removeprunedfunds", "params": ["c54357a1ff9f4e792198e75c01fc633acc6d093abd67ec1849596637c3457bf2"] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "removeprunedfunds", "params": ["c54357a1ff9f4e792198e75c01fc633acc6d093abd67ec1849596637c3457bf2"] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

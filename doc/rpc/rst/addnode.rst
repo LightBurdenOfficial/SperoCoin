@@ -35,9 +35,9 @@ Examples
 
 ::
 
-  SperoCoin-cli addnode "192.168.0.6:9333" "onetry"
+  SperoCoin-cli addnode "192.168.0.6:55680" "onetry"
 
 ::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "addnode", "params": ["192.168.0.6:9333", "onetry"] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "addnode", "params": ["192.168.0.6:55680", "onetry"] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

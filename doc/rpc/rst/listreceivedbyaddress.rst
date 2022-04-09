@@ -39,7 +39,7 @@ Result
       "involvesWatchonly" : true,        (bool) Only returned if imported addresses were involved in transaction
       "address" : "receivingaddress",  (string) The receiving address
       "account" : "accountname",       (string) DEPRECATED. The account of the receiving address. The default account is "".
-      "amount" : x.xxx,                  (numeric) The total amount in ONION received by the address
+      "amount" : x.xxx,                  (numeric) The total amount in SPERO received by the address
       "confirmations" : n,               (numeric) The number of confirmations of the most recent transaction included
       "label" : "label",               (string) A comment for the address/transaction, if any
       "txids": [
@@ -66,5 +66,5 @@ Examples
 
 ::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listreceivedbyaddress", "params": [6, true, true] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listreceivedbyaddress", "params": [6, true, true] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

@@ -60,7 +60,7 @@ Result
      - Description
    * - amount
      - numeric
-     - The total amount in ONION received for this account.
+     - The total amount in SPERO received for this account.
 
 Examples
 ~~~~~~~~
@@ -78,5 +78,5 @@ The total amount in the wallet at least 6 blocks confirmed::
 
 As a json rpc call::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getbalance", "params": ["*", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getbalance", "params": ["*", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

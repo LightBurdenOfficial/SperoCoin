@@ -32,8 +32,8 @@ Result
     }
     ,...
     ],
-    "relayfee": x.xxxxxxxx,                (numeric) minimum relay fee for transactions in ONION/kB
-    "incrementalfee": x.xxxxxxxx,          (numeric) minimum fee increment for mempool limiting or BIP 125 replacement in ONION/kB
+    "relayfee": x.xxxxxxxx,                (numeric) minimum relay fee for transactions in SPERO/kB
+    "incrementalfee": x.xxxxxxxx,          (numeric) minimum fee increment for mempool limiting or BIP 125 replacement in SPERO/kB
     "localaddresses": [                    (array) list of local addresses
     {
       "address": "xxxx",                 (string) network address
@@ -57,5 +57,5 @@ Examples
 
 ::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getnetworkinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getnetworkinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

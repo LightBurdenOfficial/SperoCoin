@@ -51,12 +51,12 @@ Result
                                                   transaction between accounts, and not associated with an address,
                                                   transaction id or block. 'send' and 'receive' transactions are
                                                   associated with an address, transaction id and block details
-      "amount": x.xxx,          (numeric) The amount in ONION. This is negative for the 'send' category, and for the
+      "amount": x.xxx,          (numeric) The amount in SPERO. This is negative for the 'send' category, and for the
                                            'move' category for moves outbound. It is positive for the 'receive' category,
                                            and for the 'move' category for inbound funds.
       "label": "label",       (string) A comment for the address/transaction, if any
       "vout": n,                (numeric) the vout value
-      "fee": x.xxx,             (numeric) The amount of the fee in ONION. This is negative and only available for the
+      "fee": x.xxx,             (numeric) The amount of the fee in SPERO. This is negative and only available for the
                                            'send' category of transactions.
       "confirmations": n,       (numeric) The number of confirmations for the transaction. Available for 'send' and
                                            'receive' category of transactions. Negative confirmations indicate the
@@ -98,5 +98,5 @@ List transactions 100 to 120::
 
 As a json rpc call::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listtransactions", "params": ["*", 20, 100] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listtransactions", "params": ["*", 20, 100] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

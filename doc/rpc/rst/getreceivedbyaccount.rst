@@ -33,7 +33,7 @@ Result
      - Description
    * - amount
      - numeric
-     - The total amount in ONION received for this account.
+     - The total amount in SPERO received for this account.
 
 Examples
 ~~~~~~~~
@@ -55,5 +55,5 @@ The amount with at least 6 confirmations::
 
 As a json rpc call::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getreceivedbyaccount", "params": ["tabby", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getreceivedbyaccount", "params": ["tabby", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

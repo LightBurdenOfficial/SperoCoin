@@ -27,7 +27,7 @@ Result
       "connected" : true|false,          (boolean) If connected
       "addresses" : [                    (list of objects) Only when connected = true
          {
-           "address" : "192.168.0.201:9333",  (string) The SperoCoin server IP and port we're connected to
+           "address" : "192.168.0.201:55680",  (string) The SperoCoin server IP and port we're connected to
            "connected" : "outbound"           (string) connection, inbound or outbound
          }
        ]
@@ -47,5 +47,5 @@ Examples
 
 ::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddednodeinfo", "params": ["192.168.0.201"] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddednodeinfo", "params": ["192.168.0.201"] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

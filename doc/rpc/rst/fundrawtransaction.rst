@@ -47,7 +47,7 @@ for backward compatibility: passing in a true instead of an object will result i
      "change_type"            (string, optional) The output type to use. Only valid if changeAddress is not specified. Options are "legacy", "p2sh-segwit", and "bech32". Default is set by -changetype.
      "includeWatching"        (boolean, optional, default false) Also select inputs which are watch only
      "lockUnspents"           (boolean, optional, default false) Lock selected unspent outputs
-     "feeRate"                (numeric, optional, default not set: makes wallet determine the fee) Set a specific fee rate in ONION/kB
+     "feeRate"                (numeric, optional, default not set: makes wallet determine the fee) Set a specific fee rate in SPERO/kB
      "subtractFeeFromOutputs" (array, optional) A json array of integers.
                               The fee will be equally deducted from the amount of each specified output.
                               The outputs are specified by their zero-based index, before any change output is added.
@@ -78,7 +78,7 @@ Result
 
   {
     "hex":       "value", (string)  The resulting raw transaction (hex-encoded string)
-    "fee":       n,         (numeric) Fee in ONION the resulting transaction pays
+    "fee":       n,         (numeric) Fee in SPERO the resulting transaction pays
     "changepos": n          (numeric) The position of the added change output, or -1
   }
 

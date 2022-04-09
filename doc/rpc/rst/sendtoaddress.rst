@@ -20,7 +20,7 @@ Argument #2 - amount
 
 **Type:** numeric or string, required
 
-The amount in ONION to send. eg 0.1
+The amount in SPERO to send. eg 0.1
 
 Argument #3 - comment
 ~~~~~~~~~~~~~~~~~~~~~
@@ -104,5 +104,5 @@ Examples
 
 ::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendtoaddress", "params": ["LEr4HnaefWYHbMGXcFp2Po1NPRUeIk8km2", 0.1, "donation", "seans outpost"] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendtoaddress", "params": ["LEr4HnaefWYHbMGXcFp2Po1NPRUeIk8km2", 0.1, "donation", "seans outpost"] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

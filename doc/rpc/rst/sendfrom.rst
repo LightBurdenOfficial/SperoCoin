@@ -30,7 +30,7 @@ Argument #3 - amount
 
 **Type:** numeric or string, required
 
-The amount in ONION (transaction fee is added on top).
+The amount in SPERO (transaction fee is added on top).
 
 Argument #4 - minconf
 ~~~~~~~~~~~~~~~~~~~~~
@@ -75,7 +75,7 @@ Examples
 
 .. highlight:: shell
 
-Send 0.01 ONION from the default account to the address, must have at least 1 confirmation::
+Send 0.01 SPERO from the default account to the address, must have at least 1 confirmation::
 
   SperoCoin-cli sendfrom "" "Dc7BLTLqSyWSp6uEpQPbbcb7figA7xHjKQ" 0.01
 
@@ -85,5 +85,5 @@ Send 0.01 from the tabby account to the given address, funds must have at least 
 
 As a json rpc call::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendfrom", "params": ["tabby", "Dc7BLTLqSyWSp6uEpQPbbcb7figA7xHjKQ", 0.01, 6, "donation", "seans outpost"] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendfrom", "params": ["tabby", "Dc7BLTLqSyWSp6uEpQPbbcb7figA7xHjKQ", 0.01, 6, "donation", "seans outpost"] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

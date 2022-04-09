@@ -51,7 +51,7 @@ Result
     ],
     "vout" : [             (array of json objects)
        {
-         "value" : x.xxx,            (numeric) The value in ONION
+         "value" : x.xxx,            (numeric) The value in SPERO
          "n" : n,                    (numeric) index
          "scriptPubKey" : {          (json object)
            "asm" : "asm",          (string) the asm
@@ -80,5 +80,5 @@ Examples
 
 ::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "decoderawtransaction", "params": ["hexstring"] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "decoderawtransaction", "params": ["hexstring"] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

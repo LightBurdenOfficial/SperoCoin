@@ -39,7 +39,7 @@ Result
 ::
 
   {
-    "feerate" : x.x,     (numeric, optional) estimate fee rate in ONION/kB
+    "feerate" : x.x,     (numeric, optional) estimate fee rate in SPERO/kB
     "errors": [ str... ] (json array of strings, optional) Errors encountered during processing
     "blocks" : n         (numeric) block number where estimate was found
   }

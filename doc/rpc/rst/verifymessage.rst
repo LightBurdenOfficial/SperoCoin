@@ -62,5 +62,5 @@ Verify the signature::
 
 As json rpc::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "verifymessage", "params": ["Dc7BLTLqSyWSp6uEpQPbbcb7figA7xHjKQ", "signature", "my message"] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "verifymessage", "params": ["Dc7BLTLqSyWSp6uEpQPbbcb7figA7xHjKQ", "signature", "my message"] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

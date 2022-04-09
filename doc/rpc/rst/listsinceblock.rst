@@ -51,10 +51,10 @@ Result
       "account":"accountname",       (string) DEPRECATED. The account name associated with the transaction. Will be "" for the default account.
       "address":"address",    (string) The SperoCoin address of the transaction. Not present for move transactions (category = move).
       "category":"send|receive",     (string) The transaction category. 'send' has negative amounts, 'receive' has positive amounts.
-      "amount": x.xxx,          (numeric) The amount in ONION. This is negative for the 'send' category, and for the 'move' category for moves
+      "amount": x.xxx,          (numeric) The amount in SPERO. This is negative for the 'send' category, and for the 'move' category for moves
                                             outbound. It is positive for the 'receive' category, and for the 'move' category for inbound funds.
       "vout" : n,               (numeric) the vout value
-      "fee": x.xxx,             (numeric) The amount of the fee in ONION. This is negative and only available for the 'send' category of transactions.
+      "fee": x.xxx,             (numeric) The amount of the fee in SPERO. This is negative and only available for the 'send' category of transactions.
       "confirmations": n,       (numeric) The number of confirmations for the transaction. Available for 'send' and 'receive' category of transactions.
                                             When it's < 0, it means the transaction conflicted that many blocks ago.
       "blockhash": "hashvalue",     (string) The block hash containing the transaction. Available for 'send' and 'receive' category of transactions.
@@ -93,5 +93,5 @@ Examples
 
 ::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listsinceblock", "params": ["2c5a0ff9e4d8a7cdece6cc0f11d8f949a0c58b2028fab79b90485a811253e217", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listsinceblock", "params": ["2c5a0ff9e4d8a7cdece6cc0f11d8f949a0c58b2028fab79b90485a811253e217", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

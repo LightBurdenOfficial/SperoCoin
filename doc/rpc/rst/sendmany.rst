@@ -25,7 +25,7 @@ A json object with addresses and amounts
 ::
 
     {
-      "address":amount   (numeric or string) The SperoCoin address is the key, the numeric amount (can be string) in ONION is the value
+      "address":amount   (numeric or string) The SperoCoin address is the key, the numeric amount (can be string) in SPERO is the value
       ,...
     }
 
@@ -117,5 +117,5 @@ Send two amounts to two different addresses, subtract fee from amount:::
 
 As a json rpc call::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendmany", "params": ["", {"LEr4hNAefWYhBMgxCFP2Po1NPrUeiK8kM2":0.01,"Dc7BLTLqSyWSp6uEpQPbbcb7figA7xHjKQ":0.02}, 6, "testing"] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendmany", "params": ["", {"LEr4hNAefWYhBMgxCFP2Po1NPrUeiK8kM2":0.01,"Dc7BLTLqSyWSp6uEpQPbbcb7figA7xHjKQ":0.02}, 6, "testing"] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

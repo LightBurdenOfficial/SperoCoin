@@ -27,7 +27,7 @@ Argument #3 - amount
 
 **Type:** numeric
 
-Quantity of ONION to move between accounts.
+Quantity of SPERO to move between accounts.
 
 Argument #4 - (dummy)
 ~~~~~~~~~~~~~~~~~~~~~
@@ -62,15 +62,15 @@ Examples
 
 .. highlight:: shell
 
-Move 0.01 ONION from the default account to the account named tabby::
+Move 0.01 SPERO from the default account to the account named tabby::
 
   SperoCoin-cli move "" "tabby" 0.01
 
-Move 0.01 ONION timotei to akiko with a comment and funds have 6 confirmations::
+Move 0.01 SPERO timotei to akiko with a comment and funds have 6 confirmations::
 
   SperoCoin-cli move "timotei" "akiko" 0.01 6 "happy birthday!"
 
 As a json rpc call::
 
-  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "move", "params": ["timotei", "akiko", 0.01, 6, "happy birthday!"] }' -H 'content-type: text/plain;' http://127.0.0.1:9332/
+  curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "move", "params": ["timotei", "akiko", 0.01, 6, "happy birthday!"] }' -H 'content-type: text/plain;' http://127.0.0.1:55681/
 

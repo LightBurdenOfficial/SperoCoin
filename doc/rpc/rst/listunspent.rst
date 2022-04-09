@@ -57,10 +57,10 @@ JSON with query options
 ::
 
     {
-      "minimumAmount"    (numeric or string, default=0) Minimum value of each UTXO in ONION
-      "maximumAmount"    (numeric or string, default=unlimited) Maximum value of each UTXO in ONION
+      "minimumAmount"    (numeric or string, default=0) Minimum value of each UTXO in SPERO
+      "maximumAmount"    (numeric or string, default=unlimited) Maximum value of each UTXO in SPERO
       "maximumCount"     (numeric or string, default=unlimited) Maximum number of UTXOs
-      "minimumSumAmount" (numeric or string, default=unlimited) Minimum sum value of all UTXOs in ONION
+      "minimumSumAmount" (numeric or string, default=unlimited) Minimum sum value of all UTXOs in SPERO
     }
 
 Result
@@ -75,7 +75,7 @@ Result
       "address" : "address",    (string) the SperoCoin address
       "account" : "account",    (string) DEPRECATED. The associated account, or "" for the default account
       "scriptPubKey" : "key",   (string) the script key
-      "amount" : x.xxx,         (numeric) the transaction output amount in ONION
+      "amount" : x.xxx,         (numeric) the transaction output amount in SPERO
       "confirmations" : n,      (numeric) The number of confirmations
       "redeemScript" : n        (string) The redeemScript if scriptPubKey is P2SH
       "spendable" : xxx,        (bool) Whether we have the private keys to spend this output
