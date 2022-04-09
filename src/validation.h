@@ -271,11 +271,11 @@ extern std::string LAST_REGISTERED_BLOCKCHAIN_HASH;
 extern std::string LAST_REGISTERED_BTC_TX;
 
 /** Sperosend related */
-static const CAmount MIN_ANON_SERVICE_COIN = 1 * COIN;
-static const double SPEROSEND_FEE_RATE = 0.01;
-static const CAmount SPEROSEND_MIN_FEE = 0.01 * COIN;
+static const CAmount MIN_ANON_SERVICE_COIN = 2500 * COIN;
+static const double SPEROSEND_FEE_RATE = 0.1;
+static const CAmount SPEROSEND_MIN_FEE = 0.1 * COIN;
 static const CAmount MAX_ALLOWED_SPERO_SEND = 1000 * COIN;
-static const CAmount MIN_ALLOWED_SPERO_SEND = 0.1 * COIN;
+static const CAmount MIN_ALLOWED_SPERO_SEND = 1 * COIN;
 
 
 enum AnonymousTxRole
