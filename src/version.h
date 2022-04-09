@@ -9,12 +9,12 @@
  * network protocol versioning
  */
 
-static const int PROTOCOL_VERSION = 700012;
+static const int PROTOCOL_VERSION = 700013;
 
 //! SperoSend Protocol upgrade (random address)
-static const int SS_RANDOM_ADDRESS_VERSION = 700012;
+static const int SS_RANDOM_ADDRESS_VERSION = 700013;
 
-static const int TORV3_SERVICES_VERSION = 700012;
+static const int TORV3_SERVICES_VERSION = 700013;
 
 //! initial proto version, to be increased after version/verack negotiation
 static const int INIT_PROTO_VERSION = 31402;

@@ -224,3 +224,7 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 
 >$0055 2022/03/31<br>
 → [TESTNET][FIX] GenesisBlock;<br>
+
+>$0056 2022/04/09<br>
+→ [BUMP] Nova versão 2.7.0.6;<br>
+→ [BUMP] Alterada versão do protocolo mínimo para 700013;<br>

@@ -3,7 +3,7 @@
 <br>
 [![N|Solid](https://i.imgur.com/0BOgWZy.png)](https://sperocoin.org/)
 
-Version: 2.7.0.5
+Version: 2.7.0.6
 =====================================
 
 SperoCoin is a cryptocurrency developed with the aim of creating a decentralized ecosystem whose main objective is the application of SOCIAL SUSTAINABILITY.
