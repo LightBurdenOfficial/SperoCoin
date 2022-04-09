@@ -228,3 +228,8 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 >$0056 2022/04/09<br>
 → [BUMP] Nova versão 2.7.0.6;<br>
 → [BUMP] Alterada versão do protocolo mínimo para 700013;<br>
+
+>$0057 2022/04/09<br>
+→ [SPEROSEND] Quantidade mínima para se tornar um nó SPEROSEND configurada para 2500 SPEROCOIN;<br>
+→ [SPEROSEND] Taxa de envio configurada em 0.1 SPEROCOIN;<br>
+→ [SPEROSEND] Quantidade mínima para envio de moedas pelo sistema configurada para 1 SPEROCOIN;<br>

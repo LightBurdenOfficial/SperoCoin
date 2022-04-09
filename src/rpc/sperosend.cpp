@@ -174,7 +174,7 @@ UniValue sendwithsperosend(const JSONRPCRequest& request)
     // Should be irrelevant now as we are creating legacy addresses
     // std::string selfaddress = pwallet->GetOneSelfAddress();
     // if(selfaddress.length() == 0) {
-    //     return "StartP2pMixerSendProcess failed - Create legacy addresses for and send ONION to them for SperoSend to work.";
+    //     return "StartP2pMixerSendProcess failed - Create legacy addresses for and send SPERO to them for SperoSend to work.";
     // }
 
     bool b = StartP2pMixerSendProcess(vecSend, &coinControl);
