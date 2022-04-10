@@ -233,3 +233,6 @@ addnode=http://dnssperocoin.ddnsking.com:55680<br>
 → [SPEROSEND] Quantidade mínima para se tornar um nó SPEROSEND configurada para 2500 SPEROCOIN;<br>
 → [SPEROSEND] Taxa de envio configurada em 0.1 SPEROCOIN;<br>
 → [SPEROSEND] Quantidade mínima para envio de moedas pelo sistema configurada para 1 SPEROCOIN;<br>
+
+>$0058 2022/04/09<br>
+→ [TESTNET][UPDATE] Sewgit / CSV;<br>
