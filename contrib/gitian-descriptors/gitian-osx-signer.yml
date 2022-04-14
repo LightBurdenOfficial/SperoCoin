@@ -8,7 +8,7 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/sperocoin-core/sperocoin-detached-sigs.git"
+- "url": "https://github.com/litecoin-core/https://github.com/litecoin-core/.git"
   "dir": "signature"
 files:
 - "sperocoin-osx-unsigned.tar.gz"

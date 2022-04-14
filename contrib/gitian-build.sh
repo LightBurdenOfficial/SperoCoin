@@ -30,7 +30,7 @@ commitFiles=true
 read -d '' usage <<- EOF
 Usage: $scriptName [-c|u|v|b|s|B|o|h|j|m|] signer version
 
-Run this script from the directory containing the sperocoin, gitian-builder, gitian.sigs.ltc, and sperocoin-detached-sigs.
+Run this script from the directory containing the sperocoin, gitian-builder, gitian.sigs.ltc, and litecoin-detached-sigs.
 
 Arguments:
 signer          GPG signer to sign each build assert file
