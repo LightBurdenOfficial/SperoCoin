@@ -1089,7 +1089,7 @@
     </message>
     <message>
         <source>Automatically open the SperoCoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatisch den SperoCoin-Clientport auf dem Router öffnen. Dies funktioniert nur, wenn Ihr Router UPnP unterstützt und dies aktiviert ist.</translation>
+        <translation>Automatisch den SperoCoin-clientport auf dem Router öffnen. Dies funktioniert nur, wenn Ihr Router UPnP unterstützt und dies aktiviert ist.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>

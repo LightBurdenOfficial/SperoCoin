@@ -1,11 +1,11 @@
-SperoCoin-Qt and SperoCoind
+SperoCoin-qt and SperoCoind
 ===========================
 
 Setup
 ---------------------
-SperoCoin-Qt is SperoCoin client with graphic interface. SperoCoind is the daemon for SperoCoin. They download and, by default, store the entire history of SperoCoin transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
+SperoCoin-qt is SperoCoin client with graphic interface. SperoCoind is the daemon for SperoCoin. They download and, by default, store the entire history of SperoCoin transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
 
-To download SperoCoin-Qt/SperoCoind, visit [sperocoin.org](https://sperocoin.org).
+To download SperoCoin-qt/SperoCoind, visit [sperocoin.org](https://sperocoin.org).
 
 Running
 ---------------------
@@ -15,16 +15,16 @@ The following are some helpful notes on how to run SperoCoin on your native plat
 
 Unpack the files into a directory and run:
 
-- `bin/sperocoin-qt` (GUI) or
-- `bin/sperocoind` (headless)
+- `bin/SperoCoin-qt` (GUI) or
+- `bin/SperoCoind` (headless)
 
 ### Windows
 
-Unpack the files into a directory, and then run SperoCoin-Qt.exe.
+Unpack the files into a directory, and then run SperoCoin-qt.exe.
 
 ### OS X
 
-Drag SperoCoin-Qt to your applications folder, and then run SperoCoin-Qt.
+Drag SperoCoin-qt to your applications folder, and then run SperoCoin-qt.
 
 ### Need Help?
 
