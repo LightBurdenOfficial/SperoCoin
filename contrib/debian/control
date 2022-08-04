@@ -34,7 +34,7 @@ Homepage: https://sperocoin.org/
 Vcs-Git: git://github.com/sperocoin/sperocoin.git
 Vcs-Browser: https://github.com/DigitalCoin1/SperoCoin
 
-Package: sperocoind
+Package: SperoCoind
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
@@ -47,7 +47,7 @@ Description: peer-to-peer network based digital currency - daemon
  This package provides the daemon, SperoCoind, and the CLI tool
  SperoCoin-cli to interact with the daemon.
 
-Package: sperocoin-qt
+Package: SperoCoin-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
@@ -57,9 +57,9 @@ Description: peer-to-peer network based digital currency - Qt GUI
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- This package provides SperoCoin-Qt, a GUI for SperoCoin based on Qt.
+ This package provides SperoCoin-qt, a GUI for SperoCoin based on Qt.
 
-Package: sperocoin-tx
+Package: SperoCoin-tx
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer digital currency - standalone transaction tool

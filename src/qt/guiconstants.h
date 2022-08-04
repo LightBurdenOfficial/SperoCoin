@@ -50,7 +50,7 @@ static const int MAX_URI_LENGTH = 255;
 
 #define QAPP_ORG_NAME "SperoCoin"
 #define QAPP_ORG_DOMAIN "SperoCoin.org"
-#define QAPP_APP_NAME_DEFAULT "SperoCoin-Qt"
-#define QAPP_APP_NAME_TESTNET "SperoCoin-Qt-testnet"
+#define QAPP_APP_NAME_DEFAULT "SperoCoin-qt"
+#define QAPP_APP_NAME_TESTNET "SperoCoin-qt-testnet"
 
 #endif // BITCOIN_QT_GUICONSTANTS_H
