@@ -300,10 +300,10 @@ touch -a -m -t 201511100546 %{buildroot}%{_datadir}/kde4/services/sperocoin-core
 %endif
 
 # man pages
-install -D -p %{SOURCE20} %{buildroot}%{_mandir}/man1/sperocoind.1
-install -p %{SOURCE21} %{buildroot}%{_mandir}/man1/sperocoin-cli.1
+install -D -p %{SOURCE20} %{buildroot}%{_mandir}/man1/SperoCoind.1
+install -p %{SOURCE21} %{buildroot}%{_mandir}/man1/SperoCoin-cli.1
 %if %{_buildqt}
-install -p %{SOURCE22} %{buildroot}%{_mandir}/man1/sperocoin-qt.1
+install -p %{SOURCE22} %{buildroot}%{_mandir}/man1/SperoCoin-qt.1
 %endif
 
 # nuke these, we do extensive testing of binaries in %%check before packaging
@@ -384,7 +384,7 @@ rm -rf %{buildroot}
 %attr(0644,root,root) %{_datadir}/pixmaps/*.svg
 %attr(0644,root,root) %{_datadir}/pixmaps/*.png
 %attr(0644,root,root) %{_datadir}/pixmaps/*.xpm
-%attr(0644,root,root) %{_mandir}/man1/sperocoin-qt.1*
+%attr(0644,root,root) %{_mandir}/man1/SperoCoin-qt.1*
 %endif
 
 %files libs
@@ -414,7 +414,7 @@ rm -rf %{buildroot}
 %dir %attr(0750,sperocoin,sperocoin) %{_localstatedir}/lib/SperoCoin
 %config(noreplace) %attr(0600,root,root) %{_sysconfdir}/sysconfig/SperoCoin
 %attr(0644,root,root) %{_datadir}/selinux/*/*.pp
-%attr(0644,root,root) %{_mandir}/man1/sperocoind.1*
+%attr(0644,root,root) %{_mandir}/man1/SperoCoind.1*
 
 %files utils
 %defattr(-,root,root,-)
@@ -423,7 +423,7 @@ rm -rf %{buildroot}
 %attr(0755,root,root) %{_bindir}/SperoCoin-cli
 %attr(0755,root,root) %{_bindir}/SperoCoin-tx
 %attr(0755,root,root) %{_bindir}/bench_SperoCoin
-%attr(0644,root,root) %{_mandir}/man1/sperocoin-cli.1*
+%attr(0644,root,root) %{_mandir}/man1/SperoCoin-cli.1*
 
 
 

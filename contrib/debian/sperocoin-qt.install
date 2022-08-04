@@ -2,5 +2,5 @@ usr/local/bin/SperoCoin-qt usr/bin
 share/pixmaps/sperocoin32.xpm usr/share/pixmaps
 share/pixmaps/sperocoin16.xpm usr/share/pixmaps
 share/pixmaps/sperocoin128.png usr/share/pixmaps
-debian/sperocoin-qt.desktop usr/share/applications
-debian/sperocoin-qt.protocol usr/share/kde4/services/
+debian/SperoCoin-qt.desktop usr/share/applications
+debian/SperoCoin-qt.protocol usr/share/kde4/services/

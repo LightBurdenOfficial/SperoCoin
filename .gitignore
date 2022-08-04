@@ -2,12 +2,12 @@
 
 *.exe
 src/sperocoin
-src/sperocoind
-src/sperocoin-cli
-src/sperocoin-tx
+src/SperoCoind
+src/SperoCoin-cli
+src/SperoCoin-tx
 src/test/test_sperocoin
 src/test/test_sperocoin_fuzzy
-src/qt/test/test_sperocoin-qt
+src/qt/test/test_SperoCoin-qt
 src/SperoCoind
 src/SperoCoin-cli
 src/SperoCoin-tx
@@ -83,13 +83,13 @@ src/qt/bitcoin-qt.includes
 
 # Compilation and Qt preprocessor part
 *.qm
-sperocoin-qt
-sperocoin-Qt.app
+SperoCoin-qt
+SperoCoin-qt.app
 background.tiff*
 
 # Unit-tests
 Makefile.test
-sperocoin-qt_test
+SperoCoin-qt_test
 
 # Resources cpp
 qrc_*.cpp

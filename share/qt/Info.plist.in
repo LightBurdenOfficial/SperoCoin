@@ -29,16 +29,16 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>SperoCoin-Qt</string>
+  <string>SperoCoin-qt</string>
   
   <key>CFBundleName</key>
-  <string>SperoCoin-Qt</string>
+  <string>SperoCoin-qt</string>
 
   <key>LSHasLocalizedDisplayName</key>
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>org.sperocoin.SperoCoin-Qt</string>
+  <string>org.sperocoin.SperoCoin-qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
