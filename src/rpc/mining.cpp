@@ -212,7 +212,7 @@ UniValue generatetoaddress(const JSONRPCRequest& request)
 
 UniValue getmininginfo(const JSONRPCRequest& request)
 {
-	if (request.fHelp || request.params.size() != 0)
+    if (request.fHelp || request.params.size() != 0)
         throw std::runtime_error(
             "getmininginfo\n"
             "\nReturns a json object containing mining-related information."
@@ -254,26 +254,26 @@ UniValue getmininginfo(const JSONRPCRequest& request)
 
 UniValue getstakinginfo(const JSONRPCRequest& request)
 {
-	if (request.fHelp || request.params.size() != 0)
-	        throw std::runtime_error(
+    if (request.fHelp || request.params.size() != 0)
+            throw std::runtime_error(
             "getstakinginfo\n"
             "Returns an object containing staking-related information."
-			"\nResult:\n"
-			"{\n"
-			"  \"enabled\": true,             (boolean) If staking is enabled\n"
-			"  \"staking\": true, 	          (boolean) If currently staking\n"
-			"  \"errors\": \"...\",           (string)  any network and blockchain warnings\n"
-			"  \"currentblocksize\": nnn      (numeric) The current block size\n"
-			"  \"currentblocktx\": nnn,       (numeric) The last block transaction\n"
-			"  \"difficulty\": xxx.xxxxx      (numeric) Staking difficulty\n"
-			"  \"search-interval\": nnn,      (numeric) Last interval between stake searches\n"
-			"  \"weight\": nnn                (numeric) Current wallet staking weight\n"
-			"  \"netstakeweight\": nnn        (numeric) Total network staking wieght\n"
-    		"  \"expectedtime\": nnn          (numeric) Expected time until next wallet stake\n"
-			"}\n"
-			"\nExamples:\n"
-			+ HelpExampleCli("getstakinginfo", "")
-			+ HelpExampleRpc("getstakinginfo", "")
+            "\nResult:\n"
+            "{\n"
+            "  \"enabled\": true,             (boolean) If staking is enabled\n"
+            "  \"staking\": true,             (boolean) If currently staking\n"
+            "  \"errors\": \"...\",           (string)  any network and blockchain warnings\n"
+            "  \"currentblocksize\": nnn      (numeric) The current block size\n"
+            "  \"currentblocktx\": nnn,       (numeric) The last block transaction\n"
+            "  \"difficulty\": xxx.xxxxx      (numeric) Staking difficulty\n"
+            "  \"search-interval\": nnn,      (numeric) Last interval between stake searches\n"
+            "  \"weight\": nnn                (numeric) Current wallet staking weight\n"
+            "  \"netstakeweight\": nnn        (numeric) Total network staking wieght\n"
+            "  \"expectedtime\": nnn          (numeric) Expected time until next wallet stake\n"
+            "}\n"
+            "\nExamples:\n"
+            + HelpExampleCli("getstakinginfo", "")
+            + HelpExampleRpc("getstakinginfo", "")
         );
 
     LOCK(cs_main);
@@ -342,12 +342,12 @@ UniValue prioritisetransaction(const JSONRPCRequest& request)
 // NOTE: Assumes a conclusive result; if result is inconclusive, it must be handled by caller
 static UniValue BIP22ValidationResult(const CValidationState& state)
 {
-	LogPrintf(">> BIP22ValidationResult\n");
+    LogPrintf(">> BIP22ValidationResult\n");
     if (state.IsValid())
         return true;
 
     std::string strRejectReason = state.GetRejectReason();
-	LogPrintf(">> BIP22ValidationResult strRejectReason = %s\n", strRejectReason.c_str());
+    LogPrintf(">> BIP22ValidationResult strRejectReason = %s\n", strRejectReason.c_str());
 
     if (state.IsError())
         throw JSONRPCError(RPC_VERIFY_ERROR, strRejectReason);
@@ -376,8 +376,8 @@ std::string gbt_vb_name(const Consensus::DeploymentPos pos) {
 
 UniValue getwork(const JSONRPCRequest& request)
 {
-	// LogPrintf("** getwork\n");
-	if (request.fHelp || request.params.size() > 1)
+    // LogPrintf("** getwork\n");
+    if (request.fHelp || request.params.size() > 1)
         throw std::runtime_error(
             "getwork [data]\n"
             "If [data] is not specified, returns formatted hash data to work on:\n"
@@ -415,7 +415,7 @@ UniValue getwork(const JSONRPCRequest& request)
         // a segwit-block to a non-segwit caller.
         static bool fLastTemplateSupportsSegwit = true;
         if (pindexPrev != chainActive.Tip() ||
-        	(mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 60))
+            (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 60))
         {
             if (pindexPrev != chainActive.Tip())
             {
@@ -473,9 +473,9 @@ UniValue getwork(const JSONRPCRequest& request)
         hashTarget.SetCompact(pblock->nBits);
         
         UniValue result(UniValue::VOBJ);
-        result.push_back(Pair("midstate", HexStr(BEGIN(pmidstate), END(pmidstate)))); 		// deprecated
+        result.push_back(Pair("midstate", HexStr(BEGIN(pmidstate), END(pmidstate))));       // deprecated
         result.push_back(Pair("data",     HexStr(BEGIN(pdata), END(pdata))));
-        result.push_back(Pair("hash1",    HexStr(BEGIN(phash1), END(phash1)))); 			// deprecated
+        result.push_back(Pair("hash1",    HexStr(BEGIN(phash1), END(phash1))));             // deprecated
         result.push_back(Pair("target",   HexStr(BEGIN(hashTarget), END(hashTarget))));
         
         return result;
@@ -506,7 +506,7 @@ UniValue getwork(const JSONRPCRequest& request)
         pblock->hashMerkleRoot = BlockMerkleRoot(*pblock);
 
         if (pblock->vtx.empty() || !pblock->vtx[0]->IsCoinBase()) {
-        	LogPrintf("***** RPC_DESERIALIZATION_ERROR. Block does not start with a coinbase\n");
+            LogPrintf("***** RPC_DESERIALIZATION_ERROR. Block does not start with a coinbase\n");
             throw JSONRPCError(RPC_DESERIALIZATION_ERROR, "Block does not start with a coinbase");
         }
         
@@ -540,8 +540,8 @@ UniValue getwork(const JSONRPCRequest& request)
         submitblock_StateCatcher sc(pblock->GetHash());
         RegisterValidationInterface(&sc);
         
-		CBlock *pBlockCopy = new CBlock(*pblock);
-		pBlockCopy->vtx = pblock->vtx;
+        CBlock *pBlockCopy = new CBlock(*pblock);
+        pBlockCopy->vtx = pblock->vtx;
 
         std::shared_ptr<CBlock> blockptr = std::make_shared<CBlock>(*pBlockCopy);
         bool fAccepted = ProcessNewBlock(Params(), blockptr, true, nullptr);
@@ -648,7 +648,7 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
     UniValue lpval = NullUniValue;
     std::set<std::string> setClientRules;
     int64_t nMaxVersionPreVB = -1;
-	
+    
     if (!request.params[0].isNull())
     {
         const UniValue& oparam = request.params[0].get_obj();
@@ -927,7 +927,7 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
         // Because BIP 34 changed how the generation transaction is serialized, we can only use version/force back to v2 blocks
         // This is safe to do [otherwise-]unconditionally only because we are throwing an exception above if a non-force deployment gets activated
         // Note that this can probably also be removed entirely after the first BIP9 non-force deployment (ie, probably segwit) gets activated
-    	
+        
         aMutable.push_back("version/force");
     }
 

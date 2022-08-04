@@ -5593,8 +5593,8 @@ bool CAnonymousTxInfo::SetInitialData(AnonymousTxRole role, std::vector< std::pa
     // Generate a new key that is added to wallet
     CPubKey newKey;
     if (!pWallet->GetKeyFromPool(newKey)) {
-		LogPrint(BCLog::SPEROSEND, ">> Error: Keypool ran out, please call keypoolrefill\n");
-		return false;
+        LogPrint(BCLog::SPEROSEND, ">> Error: Keypool ran out, please call keypoolrefill\n");
+        return false;
     }
     pWallet->LearnRelatedScripts(newKey, OUTPUT_TYPE_LEGACY);
     CTxDestination dest = GetDestinationForKey(newKey, OUTPUT_TYPE_LEGACY);
@@ -7037,7 +7037,7 @@ void UpdateAnonymousServiceList(CNode* pNode, std::string keyAddress, int servic
 
                     bool b1 = CheckAnonymousServiceConditions();
                     CWallet* pwallet = vpwallets[0];
-					std::string selfAddress = pwallet->GetOneSelfAddress();
+                    std::string selfAddress = pwallet->GetOneSelfAddress();
                     if(b1 && selfAddress != "")
                     {
                         const CNetMsgMaker msgMaker(pNode->GetSendVersion());
@@ -7076,7 +7076,7 @@ void UpdateAnonymousServiceList(CNode* pNode, std::string keyAddress, int servic
     
     if(size != mapAnonymousServices.size()) {
         LogPrint(BCLog::SPEROSEND, ">> UpdateAnonymousServiceList. key = %s, addr = %s, status = %s\n", keyAddress.c_str(), addr.c_str(), status.c_str());
-	    LogPrint(BCLog::SPEROSEND, ">> SperoSend List size after update: %d\n", mapAnonymousServices.size());
+        LogPrint(BCLog::SPEROSEND, ">> SperoSend List size after update: %d\n", mapAnonymousServices.size());
     }
 
 }

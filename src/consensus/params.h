@@ -86,9 +86,9 @@ struct Params {
     unsigned int nStakeMinAge;
     unsigned int nStakeMaxAge;
     //// MODIFIER_INTERVAL: time to elapse before new modifier is computed
-	unsigned int nModifierInterval;
-	/** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
-	int nCoinbaseMaturity;
+    unsigned int nModifierInterval;
+    /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
+    int nCoinbaseMaturity;
 };
 } // namespace Consensus
 

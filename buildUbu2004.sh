@@ -34,22 +34,22 @@ menu(){
 				sudo apt-get install libboost-all-dev -y
 				echoCores $YELLOW"Baixando e instalando BerkeleyDB"
 				echoCores -n $NORMAL""
-				sudo apt-get install software-properties-common
+				sudo apt-get install software-properties-common -y
 				sudo add-apt-repository ppa:luke-jr/bitcoincore
 				sudo apt-get update
 				sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
 				echoCores $YELLOW"Baixando e instalando libminiupnpc-dev"
 				echoCores -n $NORMAL""
-				sudo apt-get install libminiupnpc-dev
+				sudo apt-get install libminiupnpc-dev -y
 				echoCores $YELLOW"Baixando e instalando libzmq3-dev"
 				echoCores -n $NORMAL""
-				sudo apt-get install libzmq3-dev
+				sudo apt-get install libzmq3-dev -y
 				echoCores $YELLOW"Baixando e instalando QT5"
 				echoCores -n $NORMAL""
 				sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler -y
 				echoCores $YELLOW"Baixando e instalando libqrencode-dev"
 				echoCores -n $NORMAL""
-				sudo apt-get install libqrencode-dev
+				sudo apt-get install libqrencode-dev -y
 				echoCores $YELLOW"Realizando limpeza de arquvos temporarios"
 				echoCores -n $NORMAL""
 				make clean
@@ -79,16 +79,16 @@ menu(){
 				sudo apt-get install libboost-all-dev -y
 				echoCores $YELLOW"Baixando e instalando BerkeleyDB"
 				echoCores -n $NORMAL""
-				sudo apt-get install software-properties-common
+				sudo apt-get install software-properties-common -y
 				sudo add-apt-repository ppa:luke-jr/bitcoincore
 				sudo apt-get update
 				sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
 				echoCores $YELLOW"Baixando e instalando libminiupnpc-dev"
 				echoCores -n $NORMAL""
-				sudo apt-get install libminiupnpc-dev
+				sudo apt-get install libminiupnpc-dev -y
 				echoCores $YELLOW"Baixando e instalando libzmq3-dev"
 				echoCores -n $NORMAL""
-				sudo apt-get install libzmq3-dev
+				sudo apt-get install libzmq3-dev -y
 				echoCores $YELLOW"Realizando limpeza de arquvos temporarios"
 				echoCores -n $NORMAL""
 				make clean

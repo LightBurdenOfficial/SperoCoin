@@ -1,18 +1,46 @@
-echo "Remocao da variável de importação %PATH% problemática do Windows"
+#!/bin/bash
+YELLOW="$BOLD\e[93m"
+NORMAL="$BOLD\e[0m"
+
+function echoCores {
+        echo -e $@$NORMAL
+}
+
+function pause(){
+   read -p "$*"
+}
+
+
+echoCores $YELLOW"Remocao da variável de importação %PATH% problemática do Windows"
+echoCores -n $NORMAL""
 PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g')
-echo "Entrando na pasta depends"
+
+echoCores $YELLOW"Entrando na pasta depends"
+echoCores -n $NORMAL""
 cd depends
-echo "Compilando as dependencias"
+
+echoCores $YELLOW"Compilando as dependencias"
+echoCores -n $NORMAL""
 make HOST=x86_64-w64-mingw32
-echo "Retornando a pasta raiz"
+
+echoCores $YELLOW"Retornando a pasta raiz"
+echoCores -n $NORMAL""
 cd ..
-echo "Realizando limpeza de arquvos temporarios"
+
+echoCores $YELLOW"Realizando limpeza de arquvos temporarios"
+echoCores -n $NORMAL""
 make clean
 find ./src -type d -name ".deps" -exec rm -rf {} +
 find ./src -iname ".dirstamp" -exec rm -rf {} +
-echo "Gerar arquivos de configuracoes obrigatorias"
+
+echoCores $YELLOW"Gerar arquivos de configuracoes obrigatorias"
+echoCores -n $NORMAL""
 ./autogen.sh
-echo "Confugurando ambiente de compilacao"
+
+echoCores $YELLOW"Confugurando ambiente de compilacao"
+echoCores -n $NORMAL""
 CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/ --disable-tests --disable-bench
-echo "Compilando binarios"
+
+echoCores $YELLOW"Compilando binarios"
+echoCores -n $NORMAL""
 make 2>&1 | tee ./build_log/buildWin64.log

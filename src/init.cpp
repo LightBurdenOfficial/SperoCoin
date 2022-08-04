@@ -1399,8 +1399,8 @@ bool AppInitMain()
         SetLimited(NET_TOR, false);
 
         // Tor Implementation - Start
-		if (gArgs.GetBoolArg("-listenonion", DEFAULT_LISTEN_SPERO)) {
-			LogPrintf("StartTor");
+        if (gArgs.GetBoolArg("-listenonion", DEFAULT_LISTEN_SPERO)) {
+            LogPrintf("StartTor");
             // For Tor v3 transition, first start may pick up v2 hostname, so remove it if it's a v2 hostname.
             boost::filesystem::path hostname_path = GetDataDir() / "tor" / "onion" / "hostname";
             if (boost::filesystem::exists(hostname_path)) {
@@ -1414,11 +1414,11 @@ bool AppInitMain()
                 }
             }
 
-			StartTor(threadGroup, scheduler);
+            StartTor(threadGroup, scheduler);
 
-			uiInterface.InitMessage("Initializing Tor Network...");
-			LogPrintf("Initializing Tor Network...\n");
-		}
+            uiInterface.InitMessage("Initializing Tor Network...");
+            LogPrintf("Initializing Tor Network...\n");
+        }
         // Tor Implementation - End
 }
 
@@ -1428,18 +1428,18 @@ bool AppInitMain()
     fRelayTxes = !gArgs.GetBoolArg("-blocksonly", DEFAULT_BLOCKSONLY);
 
     if(gArgs.GetArgs("-externalip").size() > 0) {
-    		LogPrintf("Waiting For onion address %lU...\n", gArgs.GetArgs("-externalip").size());
-		for (const std::string& strAddr : gArgs.GetArgs("-externalip")) {
-			CService addrLocal;
-			if (Lookup(strAddr.c_str(), addrLocal, GetListenPort(), fNameLookup) && addrLocal.IsValid())
-				AddLocal(addrLocal, LOCAL_MANUAL);
-			else
-				return InitError(ResolveErrMsg("externalip", strAddr));
-		}
+            LogPrintf("Waiting For onion address %lU...\n", gArgs.GetArgs("-externalip").size());
+        for (const std::string& strAddr : gArgs.GetArgs("-externalip")) {
+            CService addrLocal;
+            if (Lookup(strAddr.c_str(), addrLocal, GetListenPort(), fNameLookup) && addrLocal.IsValid())
+                AddLocal(addrLocal, LOCAL_MANUAL);
+            else
+                return InitError(ResolveErrMsg("externalip", strAddr));
+        }
     } else if (gArgs.GetBoolArg("-listenonion", DEFAULT_LISTEN_SPERO)) {
         // Find our onion address.
-		uiInterface.InitMessage("Waiting For onion address...");
-		LogPrintf("Waiting For onion address...\n");
+        uiInterface.InitMessage("Waiting For onion address...");
+        LogPrintf("Waiting For onion address...\n");
 
         std::string automatic_onion;
         boost::filesystem::path hostname_path = GetDataDir() / "tor" / "onion" / "hostname";
@@ -1460,10 +1460,10 @@ bool AppInitMain()
         file >> automatic_onion;
         file.close();
         CService addrLocal;
-		if (Lookup(automatic_onion.c_str(), addrLocal, GetListenPort(), fNameLookup) && addrLocal.IsValid())
-			AddLocal(addrLocal, LOCAL_MANUAL);
-		else
-			return InitError(ResolveErrMsg("external onion", automatic_onion));
+        if (Lookup(automatic_onion.c_str(), addrLocal, GetListenPort(), fNameLookup) && addrLocal.IsValid())
+            AddLocal(addrLocal, LOCAL_MANUAL);
+        else
+            return InitError(ResolveErrMsg("external onion", automatic_onion));
 //        AddLocal(CService(automatic_onion, GetListenPort(), fNameLookup), LOCAL_MANUAL);
 
     }
@@ -1769,10 +1769,10 @@ bool AppInitMain()
         chain_active_height = chainActive.Height();
     }
     LogPrintf("nBestHeight = %d\n", chain_active_height);
-//	SperoCoin Starts a Tor node in a previous step - Leaving this in gives
+//  SperoCoin Starts a Tor node in a previous step - Leaving this in gives
 //  users the option to connect to their own Tor setup (Tails integration - It already has a Tor node running.)
     if (!usingInternalTor && gArgs.GetBoolArg("-listenonion", DEFAULT_LISTEN_SPERO)) {
-    		LogPrintf("StartTorControl");
+            LogPrintf("StartTorControl");
         StartTorControl(threadGroup, scheduler);
     }
 
@@ -1842,7 +1842,7 @@ bool AppInitMain()
     if (!gArgs.GetArg("-staking", true))
         LogPrintf("Staking disabled\n");
     else {
-    	StartThreadStake();
+        StartThreadStake();
     }
 
     SetRPCWarmupFinished();
