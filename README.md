@@ -3,7 +3,7 @@
 <br>
 [![N|Solid](https://i.imgur.com/0BOgWZy.png)](https://sperocoin.org/)
 
-Version: 2.7.0.5
+Version: 2.7.1.5
 =====================================
 
 SperoCoin is a cryptocurrency developed with the aim of creating a decentralized ecosystem whose main objective is the application of SOCIAL SUSTAINABILITY.
@@ -28,14 +28,14 @@ The integration with TOR ensures that users are always on a secure environment. 
 
 ## Specifications
 
-| Specification | Value |
-|:-----------|:-----------|
-| Consensus Algorithm | `PoW & PoS` |
-| Mining Algorithm | `X13` |
-| Confirmations | `3 tx` |
-| Block Confirm. | `5 minted confirms` |
-| Port | `55680` |
-| RPC Port | `55681` |
+| Specification       | Value               |
+| :------------------ | :------------------ |
+| Consensus Algorithm | `PoW & PoS`         |
+| Mining Algorithm    | `X13`               |
+| Confirmations       | `3 tx`              |
+| Block Confirm.      | `5 minted confirms` |
+| Port                | `55680`             |
+| RPC Port            | `55681`             |
 
 
 ##### PoW:
@@ -44,16 +44,16 @@ The integration with TOR ensures that users are always on a secure environment. 
 > - Difficulty readjustment every block.
 
 
-| Blocks Interval | Block Reward |
-|:-----------|:-----------|
-| 1 - 2 | `50000` |
-| 3 - 33330 | `2` |
-| 33331 - 1149999 | `0.05 + 0.015 Foundation` |
-| 1150000 - 1339199 | `0.025` |
-| 1339200 - 1339211 | `0.025 + 10000 Foundation` |
-| 1339212 - 1625599 | `0.025` |
-| 1625600 - 2151199 | `0.015` |
-| 2151200 - INFINITE | `0.001` |
+| Blocks Interval    | Block Reward               |
+| :----------------- | :------------------------- |
+| 1 - 2              | `50000`                    |
+| 3 - 33330          | `2`                        |
+| 33331 - 1149999    | `0.05 + 0.015 Foundation`  |
+| 1150000 - 1339199  | `0.025`                    |
+| 1339200 - 1339211  | `0.025 + 10000 Foundation` |
+| 1339212 - 1625599  | `0.025`                    |
+| 1625600 - 2151199  | `0.015`                    |
+| 2151200 - INFINITE | `0.001`                    |
 
 
 ##### PoS:
@@ -63,13 +63,13 @@ The integration with TOR ensures that users are always on a secure environment. 
 > - Minimum holding time before the PoS will be generated is 2 hours.
 > - Maximum allowed accumulated coin is 12 hours.
 
-| Blocks Interval | Block Reward |
-|:-----------|:-----------|
-| 1 - 263249 | `5% per year` |
-| 263250 - 1149999 | `25% per year` |
-| 1150000 - 1338999 | `0.25 per block + 0.25 Foundation` |
-| 1150000 - 2151199 | `0.25 per block` |
-| 2151200 - INFINITE | `0.25 per block` |
+| Blocks Interval    | Block Reward                       |
+| :----------------- | :--------------------------------- |
+| 1 - 263249         | `5% per year`                      |
+| 263250 - 1149999   | `25% per year`                     |
+| 1150000 - 1338999  | `0.25 per block + 0.25 Foundation` |
+| 1150000 - 2151199  | `0.25 per block`                   |
+| 2151200 - INFINITE | `0.25 per block`                   |
 
 
 ## Resources
