@@ -1,5 +1,5 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1aa1a2fafa1a41e1bdcba6e453fcba1f)](https://app.codacy.com/app/DigitalCoin1/SperoCoin?utm_source=github.com&utm_medium=referral&utm_content=DigitalCoin1/SperoCoin&utm_campaign=Badge_Grade_Dashboard)
-[![Build Status](https://travis-ci.org/DigitalCoin1/SperoCoin.svg?branch=master)](https://travis-ci.org/DigitalCoin1/SperoCoin)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1aa1a2fafa1a41e1bdcba6e453fcba1f)](https://app.codacy.com/app/LightBurdenOfficial/SperoCoin?utm_source=github.com&utm_medium=referral&utm_content=LightBurdenOfficial/SperoCoin&utm_campaign=Badge_Grade_Dashboard)
+[![Build Status](https://travis-ci.org/LightBurdenOfficial/SperoCoin.svg?branch=master)](https://travis-ci.org/LightBurdenOfficial/SperoCoin)
 <br>
 [![N|Solid](https://i.imgur.com/0BOgWZy.png)](https://sperocoin.org/)
 
@@ -21,9 +21,9 @@ The integration with TOR ensures that users are always on a secure environment. 
 >
 >Instructions:
 >
->[Setup OBFS4]( https://github.com/DigitalCoin1/SperoCoin/blob/master/doc/setup-obfs4.md )
+>[Setup OBFS4]( https://github.com/LightBurdenOfficial/SperoCoin/blob/master/doc/setup-obfs4.md )
 >
->[Setup Meek]( https://github.com/DigitalCoin1/SperoCoin/blob/master/doc/setup-meek.md )
+>[Setup Meek]( https://github.com/LightBurdenOfficial/SperoCoin/blob/master/doc/setup-meek.md )
 
 
 ## Specifications
