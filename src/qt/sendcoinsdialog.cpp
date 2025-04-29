@@ -23,6 +23,11 @@
 #include <policy/fees.h>
 #include <wallet/fees.h>
 
+
+#if defined(Q_OS_MAC)
+#include <array>
+#endif
+
 #include <QFontMetrics>
 #include <QScrollBar>
 #include <QSettings>
